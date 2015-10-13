@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>220</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Constituency
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>130</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Vote Erststimme
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>220</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Election years
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>130</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Party
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>220</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Vote Zweitstimme
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>220</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Statelists
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>220</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Listitem
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>310</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Delegates
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>530</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>hasVoted
+--
+_IDNo_
+Gender
+Age</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>530</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Excess mandate
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>530</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Seats
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>530</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Compensatory mandate
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>420</x>
+      <y>490</y>
+      <w>690</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Previous Years
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>130</x>
+      <y>650</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Detached from actual results for privacy reasons</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>600</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>220</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>State
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
