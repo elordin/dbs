@@ -109,7 +109,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1110</x>
-      <y>320</y>
+      <y>290</y>
       <w>100</w>
       <h>80</h>
     </coordinates>
@@ -228,10 +228,12 @@ bg=green</panel_attributes>
     <coordinates>
       <x>510</x>
       <y>280</y>
-      <w>30</w>
+      <w>50</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
     <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -239,11 +241,13 @@ bg=green</panel_attributes>
     <coordinates>
       <x>410</x>
       <y>340</y>
-      <w>110</w>
+      <w>120</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>90.0;100.0;90.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
+    <additional_attributes>80.0;100.0;80.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -270,13 +274,15 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>380</x>
       <y>180</y>
       <w>460</w>
       <h>140</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>440.0;30.0;440.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
+    <additional_attributes>420.0;30.0;420.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -287,8 +293,8 @@ bg=green</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1..1
-m2=*</panel_attributes>
+m1=*
+m2=1..1</panel_attributes>
     <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -300,8 +306,8 @@ m2=*</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1..1
-m2=*</panel_attributes>
+m1=*
+m2=1..1</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
   <element>
@@ -310,21 +316,24 @@ m2=*</panel_attributes>
       <x>840</x>
       <y>250</y>
       <w>290</w>
-      <h>140</h>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;10.0;50.0;120.0;270.0;120.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1..1
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;90.0;270.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>840</x>
-      <y>340</y>
-      <w>70</w>
-      <h>30</h>
+      <y>300</y>
+      <w>90</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+    <panel_attributes>lt=.
+1..1</panel_attributes>
+    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -332,23 +341,25 @@ m2=*</panel_attributes>
       <x>1020</x>
       <y>240</y>
       <w>160</w>
-      <h>100</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0;140.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;140.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>540</x>
-      <y>370</y>
-      <w>590</w>
-      <h>90</h>
+      <y>360</y>
+      <w>640</w>
+      <h>100</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;40.0;540.0;40.0;540.0;10.0;570.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1..1
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;50.0;600.0;50.0;600.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -395,7 +406,9 @@ m2=*</panel_attributes>
       <w>140</w>
       <h>140</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=-
+m1=*
+m2=1..1</panel_attributes>
     <additional_attributes>10.0;120.0;10.0;10.0;120.0;10.0</additional_attributes>
   </element>
   <element>
@@ -420,7 +433,9 @@ bg=red</panel_attributes>
       <w>150</w>
       <h>220</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
     <additional_attributes>130.0;10.0;10.0;10.0;10.0;200.0</additional_attributes>
   </element>
   <element>
@@ -476,10 +491,11 @@ bg=orange</panel_attributes>
     <coordinates>
       <x>800</x>
       <y>400</y>
-      <w>30</w>
+      <w>50</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
+    <panel_attributes>lt=.
+1..1</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
@@ -488,9 +504,11 @@ bg=orange</panel_attributes>
       <x>850</x>
       <y>480</y>
       <w>200</w>
-      <h>110</h>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=-
+m1=*
+m2=0..1</panel_attributes>
     <additional_attributes>180.0;90.0;90.0;90.0;90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -498,10 +516,12 @@ bg=orange</panel_attributes>
     <coordinates>
       <x>850</x>
       <y>280</y>
-      <w>150</w>
-      <h>210</h>
+      <w>170</w>
+      <h>220</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=-
+m1=*
+m2=1..1</panel_attributes>
     <additional_attributes>10.0;190.0;130.0;190.0;130.0;10.0</additional_attributes>
   </element>
   <element>
@@ -509,10 +529,12 @@ bg=orange</panel_attributes>
     <coordinates>
       <x>590</x>
       <y>130</y>
-      <w>390</w>
+      <w>410</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=-
+m1=1..1
+m2=*</panel_attributes>
     <additional_attributes>370.0;80.0;370.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
