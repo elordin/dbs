@@ -1,0 +1,8 @@
+U01 1.1
+
+Advantages of using a DBMS:
+    - Easy storage
+    - Defined format (data integrity)
+    - Ease of access, insertion, update etc.
+    - Low redundancy
+    - Safety (from inconsistency, data loss, access etc.)
