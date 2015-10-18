@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>9</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>423</y>
-      <w>90</w>
-      <h>72</h>
+      <x>539</x>
+      <y>399</y>
+      <w>91</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Wahlkreis
+    <panel_attributes>Constituency
 --
 + no: Int
 + name: String
@@ -21,71 +21,41 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1026</x>
-      <y>504</y>
-      <w>162</w>
-      <h>72</h>
+      <x>329</x>
+      <y>161</y>
+      <w>161</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Vote Erststimme
+    <panel_attributes>ElectionYears
 --
-+ gender: GENDER
-+ age: AGEGROUP
-
-
-bg=orange</panel_attributes>
++ year: Integer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>387</x>
-      <y>297</y>
-      <w>90</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>Election years
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>936</x>
-      <y>216</y>
-      <w>90</w>
-      <h>72</h>
+      <x>910</x>
+      <y>189</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Party
 --
-+ name
++ name: String
++ shorhand: String
++ website: URL
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1035</x>
-      <y>108</y>
-      <w>162</w>
-      <h>72</h>
+      <x>756</x>
+      <y>189</y>
+      <w>105</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Vote Zweitstimme
---
-+ gender: GENDER
-+ age: AGEGROUP
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>774</x>
-      <y>216</y>
-      <w>90</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>Statelists
+    <panel_attributes>Roster
 --
 bg=red</panel_attributes>
     <additional_attributes/>
@@ -93,52 +63,43 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>774</x>
-      <y>306</y>
-      <w>90</w>
-      <h>72</h>
+      <x>756</x>
+      <y>308</y>
+      <w>105</w>
+      <h>84</h>
     </coordinates>
-    <panel_attributes>Listitem
+    <panel_attributes>Candidates
 --
-+ position
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1098</x>
-      <y>288</y>
-      <w>90</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>Delegates
---
-+ name
++ title: String
++ firstname: String
++ lastname: String
++ dateOfBirth: DATE
++ gender: GENDER
+...
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>207</x>
-      <y>432</y>
-      <w>162</w>
-      <h>72</h>
+      <x>329</x>
+      <y>399</y>
+      <w>98</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>hasVoted
 --
++ hasVoted: Boolean
 bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1188</x>
-      <y>873</y>
-      <w>189</w>
-      <h>72</h>
+      <x>728</x>
+      <y>917</y>
+      <w>147</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Excess mandate
 --
@@ -148,10 +109,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
-      <y>873</y>
-      <w>189</w>
-      <h>72</h>
+      <x>574</x>
+      <y>917</y>
+      <w>147</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Seats
 --
@@ -161,10 +122,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1386</x>
-      <y>873</y>
-      <w>189</w>
-      <h>72</h>
+      <x>882</x>
+      <y>917</y>
+      <w>147</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Compensatory mandate
 --
@@ -174,10 +135,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>972</x>
-      <y>837</y>
-      <w>621</w>
-      <h>126</h>
+      <x>560</x>
+      <y>889</y>
+      <w>483</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Previous Years
 --
@@ -185,36 +146,14 @@ bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>27</x>
-      <y>540</y>
-      <w>162</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>Detached from actual results for privacy reasons</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>180</x>
-      <y>495</y>
-      <w>90</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>80.0;10.0;80.0;70.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>216</y>
-      <w>90</w>
-      <h>72</h>
+      <x>546</x>
+      <y>308</y>
+      <w>84</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>State
+    <panel_attributes>FederalState
 --
 + name: String
 
@@ -225,163 +164,132 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>279</y>
-      <w>45</w>
-      <h>162</h>
+      <x>588</x>
+      <y>357</y>
+      <w>35</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1..1</panel_attributes>
-    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>333</y>
-      <w>108</w>
-      <h>108</h>
+      <x>448</x>
+      <y>210</y>
+      <w>105</w>
+      <h>238</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1..1</panel_attributes>
-    <additional_attributes>80.0;100.0;80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>396</x>
-      <y>432</y>
-      <w>99</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>Last change in costituencies was 2012</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>130.0;310.0;10.0;310.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>450</y>
-      <w>54</w>
-      <h>27</h>
+      <x>483</x>
+      <y>168</y>
+      <w>371</w>
+      <h>35</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
+    <additional_attributes>490.0;30.0;490.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>441</x>
+      <x>588</x>
+      <y>210</y>
+      <w>182</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1..1</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>854</x>
       <y>189</y>
-      <w>414</w>
-      <h>126</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1..*
-m2=1..1</panel_attributes>
-    <additional_attributes>420.0;30.0;420.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>603</x>
-      <y>243</y>
-      <w>189</w>
-      <h>36</h>
+      <w>70</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1..1</panel_attributes>
-    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>855</x>
-      <y>216</y>
-      <w>99</w>
-      <h>36</h>
+      <x>770</x>
+      <y>238</y>
+      <w>77</w>
+      <h>84</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=*
-m2=1..1</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <panel_attributes>lt=[position: Integer]-
+m2=1..1
+m1=1..*</panel_attributes>
+    <additional_attributes>50.0;10.0;50.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>855</x>
-      <y>252</y>
-      <w>261</w>
-      <h>108</h>
+      <x>854</x>
+      <y>217</y>
+      <w>84</w>
+      <h>168</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=1..1
-m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0;70.0;90.0;270.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>855</x>
-      <y>297</y>
-      <w>81</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=.
-1..1</panel_attributes>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1017</x>
-      <y>243</y>
-      <w>162</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=&lt;-
 m1=1..*
-m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0;140.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>585</x>
-      <y>351</y>
-      <w>576</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1..1
 m2=1..*
-
-runs in</panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;50.0;600.0;50.0;600.0;10.0</additional_attributes>
+memberOf</panel_attributes>
+    <additional_attributes>80.0;10.0;40.0;10.0;40.0;210.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>812</x>
+      <y>385</y>
+      <w>112</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=1..1
+</panel_attributes>
+    <additional_attributes>140.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>558</y>
-      <w>90</w>
-      <h>72</h>
+      <x>539</x>
+      <y>504</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Wahlbezirk
+    <panel_attributes>Direktwahlbezirk
 --
++ number: Integer
+--
++ citizenCount(): Integer
 bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>486</y>
-      <w>45</w>
-      <h>90</h>
+      <x>581</x>
+      <y>448</y>
+      <w>35</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1..*
@@ -391,77 +299,78 @@ m2=1..1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>558</y>
-      <w>144</w>
-      <h>72</h>
+      <x>665</x>
+      <y>504</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Briefwahlbezirk
 --
++ number: Integer
 bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>279</x>
-      <y>324</y>
-      <w>126</w>
-      <h>126</h>
+      <x>378</x>
+      <y>210</y>
+      <w>35</w>
+      <h>203</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
 m2=1..1</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>108</y>
-      <w>117</w>
-      <h>72</h>
+      <x>910</x>
+      <y>91</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Votable
+    <panel_attributes>isVotable
 --
-+ votable: Boolean
++ isVotable: Boolean
 bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
-      <y>117</y>
-      <w>135</w>
-      <h>198</h>
+      <x>448</x>
+      <y>112</y>
+      <w>476</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1..1</panel_attributes>
-    <additional_attributes>130.0;10.0;10.0;10.0;10.0;200.0</additional_attributes>
+    <additional_attributes>660.0;10.0;10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>108</y>
-      <w>423</w>
-      <h>45</h>
+      <x>1015</x>
+      <y>112</y>
+      <w>189</w>
+      <h>497</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=-&gt;
 m1=0..*
 m2=0..1
-voted for</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+zweitstimme</panel_attributes>
+    <additional_attributes>180.0;690.0;180.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>648</x>
-      <y>45</y>
-      <w>108</w>
-      <h>63</h>
+      <x>931</x>
+      <y>14</y>
+      <w>84</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Party votable by Zweitstimme in year</panel_attributes>
     <additional_attributes/>
@@ -469,23 +378,23 @@ voted for</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>72</y>
-      <w>90</w>
-      <h>54</h>
+      <x>966</x>
+      <y>49</y>
+      <w>21</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>423</y>
-      <w>90</w>
-      <h>72</h>
+      <x>910</x>
+      <y>399</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Kandidatur
+    <panel_attributes>Candidacy
 --
 bg=orange</panel_attributes>
     <additional_attributes/>
@@ -493,63 +402,51 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>819</x>
-      <y>387</y>
-      <w>45</w>
-      <h>54</h>
+      <x>1015</x>
+      <y>427</y>
+      <w>126</w>
+      <h>182</h>
     </coordinates>
-    <panel_attributes>lt=.
-1..1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>864</x>
-      <y>459</y>
-      <w>180</w>
-      <h>108</h>
-    </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=-&gt;
 m1=0..*
 m2=0..1
-voted for</panel_attributes>
-    <additional_attributes>180.0;90.0;90.0;90.0;90.0;10.0;10.0;10.0</additional_attributes>
+erststimme</panel_attributes>
+    <additional_attributes>90.0;240.0;90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>279</y>
-      <w>153</w>
-      <h>198</h>
+      <x>952</x>
+      <y>238</y>
+      <w>77</w>
+      <h>175</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=-&gt;
 m1=0..*
 m2=0..1
-supports</panel_attributes>
-    <additional_attributes>10.0;190.0;130.0;190.0;130.0;10.0</additional_attributes>
+supportedBy</panel_attributes>
+    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>144</y>
-      <w>369</w>
-      <h>90</h>
+      <x>952</x>
+      <y>140</y>
+      <w>35</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
 m2=0..*</panel_attributes>
-    <additional_attributes>370.0;80.0;370.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>153</x>
-      <y>729</y>
-      <w>297</w>
-      <h>99</h>
+      <x>182</x>
+      <y>735</y>
+      <w>231</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>green - no change over the years only additions
 red - changes every year
@@ -559,36 +456,37 @@ orange - year association implicit by relationship</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>702</y>
-      <w>144</w>
-      <h>72</h>
+      <x>917</x>
+      <y>595</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Wahlschein
+    <panel_attributes>BallotLetter
 --
++ issuedOn: DATE
 bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
-      <y>765</y>
-      <w>486</w>
-      <h>45</h>
+      <x>1022</x>
+      <y>616</y>
+      <w>49</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0;520.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
-      <y>702</y>
-      <w>144</w>
-      <h>72</h>
+      <x>917</x>
+      <y>665</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Stimmzettel
+    <panel_attributes>Ballot
 --
 bg=orange</panel_attributes>
     <additional_attributes/>
@@ -596,105 +494,71 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1161</x>
-      <y>756</y>
-      <w>144</w>
-      <h>72</h>
+      <x>1057</x>
+      <y>595</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>Stimmabgabe
+    <panel_attributes>Vote
 --
 bg=orange
-</panel_attributes>
++ gender: GENDER
++ age: AGEGROUP
++ valid: Boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>522</x>
-      <y>765</y>
-      <w>657</w>
+      <x>1022</x>
+      <y>644</y>
+      <w>105</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;710.0;50.0</additional_attributes>
+    <additional_attributes>10.0;70.0;130.0;70.0;130.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1179</x>
-      <y>522</y>
-      <w>99</w>
-      <h>252</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1..1
-m2=1..1
-</panel_attributes>
-    <additional_attributes>10.0;20.0;70.0;20.0;70.0;260.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1188</x>
-      <y>135</y>
-      <w>117</w>
-      <h>639</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1..1
-m2=1..1</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0;90.0;690.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>531</x>
-      <y>621</y>
-      <w>45</w>
-      <h>99</h>
+      <x>588</x>
+      <y>553</y>
+      <w>343</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
 m2=1..1</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>470.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>621</y>
-      <w>45</w>
-      <h>99</h>
+      <x>770</x>
+      <y>616</y>
+      <w>161</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
 m2=1..1</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>576</x>
-      <y>621</y>
-      <w>144</w>
-      <h>99</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=0..*
-m2=1..1</panel_attributes>
-    <additional_attributes>120.0;90.0;120.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>210.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>207</x>
-      <y>585</y>
-      <w>162</w>
-      <h>72</h>
+      <x>322</x>
+      <y>525</y>
+      <w>105</w>
+      <h>91</h>
     </coordinates>
-    <panel_attributes>Waehler
+    <panel_attributes>Citizen
 --
 + IDNo: String
++ firstname: String
++ lastname: String
++ dateOfBirth: DATE
++ gender: GENDER
 + canVote: Boolean
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -702,41 +566,111 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>279</x>
-      <y>495</y>
-      <w>45</w>
-      <h>108</h>
+      <x>364</x>
+      <y>448</y>
+      <w>35</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
 m2=0..*</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>585</y>
-      <w>180</w>
-      <h>45</h>
+      <x>420</x>
+      <y>525</y>
+      <w>133</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-
 registered in
 m1=1..*
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>585</x>
-      <y>486</y>
-      <w>144</w>
-      <h>90</h>
+      <x>609</x>
+      <y>448</y>
+      <w>133</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1..*
 m2=1..1</panel_attributes>
-    <additional_attributes>120.0;80.0;120.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>150.0;80.0;150.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>665</x>
+      <y>595</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Wahlbezirk
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>623</x>
+      <y>427</y>
+      <w>301</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
+    <additional_attributes>410.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>714</x>
+      <y>553</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>553</y>
+      <w>98</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;120.0;40.0;120.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>189</x>
+      <y>581</y>
+      <w>98</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>canVote: in case voting right is lost due to court order, metal disability etc.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>595</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
 </diagram>
