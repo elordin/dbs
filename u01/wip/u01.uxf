@@ -9,7 +9,7 @@
       <w>117</w>
       <h>72</h>
     </coordinates>
-    <panel_attributes>Constituency
+    <panel_attributes>Wahlkreis
 --
 + no: Int
 + name: String
@@ -34,15 +34,14 @@
     <coordinates>
       <x>1017</x>
       <y>225</y>
-      <w>144</w>
+      <w>126</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Party
 --
 + name: String
 + shorhand: String
-+ website: URL
-</panel_attributes>
++ website: URL</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -53,7 +52,7 @@
       <w>135</w>
       <h>72</h>
     </coordinates>
-    <panel_attributes>Roster
+    <panel_attributes>Landesliste
 --</panel_attributes>
     <additional_attributes/>
   </element>
@@ -596,5 +595,28 @@ m2=1..1</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1170</x>
+      <y>225</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MinorityParty
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>252</y>
+      <w>54</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
   </element>
 </diagram>
