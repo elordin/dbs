@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Aktuelle Hochrechnungen / Wahl-Informationssystem zur Bundestagswahl</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chartist.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="chartist.min.js"></script>
+        <script>
+        window.onload = function () {
+
+            new Chartist.Pie('.seat-dist-2013', {
+            series: [{
+                value: 255,
+                name: 'CDU',
+                className: "cdu"
+              }, {
+                value: 56,
+                name: 'CSU',
+                className: "csu"
+              }, {
+                value: 193,
+                name: 'SPD',
+                className: "spd"
+              }, {
+                value: 64,
+                name: 'DIE LINKE',
+                className: "linke"
+              }, {
+                value: 63,
+                name: 'GRUENE',
+                className: "gruene"
+              }]
+            }, {
+              height: '200px',
+              donut: true,
+              donutWidth: 75,
+              startAngle: 270,
+              total: 1262,
+              showLabel: true
+            });
+            new Chartist.Pie('.seat-dist-2017', {
+            series: [{
+                value: 255,
+                name: 'CDU',
+                className: "cdu"
+              }, {
+                value: 56,
+                name: 'CSU',
+                className: "csu"
+              }, {
+                value: 193,
+                name: 'SPD',
+                className: "spd"
+              }, {
+                value: 64,
+                name: 'DIE LINKE',
+                className: "linke"
+              }, {
+                value: 63,
+                name: 'GRUENE',
+                className: "gruene"
+              }]
+            }, {
+              height: '200px',
+              donut: true,
+              donutWidth: 75,
+              startAngle: 270,
+              total: 1262,
+              showLabel: true
+            });
+        };
+        </script>
+    </head>
+    <body>
+        <header>
+            <a class="logo" href=""><img src="logo.svg" alt="Wahl-Informationssystem zur Bundestagswahl"></a>
+            <h1>Wahl-Informationsssystem zur Bundestagswahl</h1>
+            <aside id="currentInformation">
+                <div class="info">
+                    <strong id="timeToClosing">1h 7min</strong> bis zum Schlie&szlig;en der Wahllokale
+                    <a href="#">Aktuelle Hochrechnungen</a>
+                </div>
+                <a href="" id="voteOnline" class="btn">Online w&auml;hlen</a>
+            </aside>
+        </header>
+        <nav>
+            <ul>
+                <li class="with-submenu">
+                    <a class="active" href="#">Aktuelle Hochrechnungen</a>
+                    <ul>
+                        <li><a class="active" href="#">&Uuml;bersicht</a></li>
+                        <li><a href="#">Sitzverteilung</a></li>
+                        <li><a href="#">Mandatstr&auml;ger</a></li>
+                        <li><a href="#">&Uuml;berhangsmandate</a></li>
+                        <li><a href="#">Wahlkreise</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Neuigkeiten</a>
+                </li>
+                <li>
+                    <a href="#">Wahlprogramme der Parteien</a>
+                </li>
+                <li class="with-submenu">
+                    <a href="#">Ergebnisse vergangener Wahlen</a>
+                    <ul>
+                        <li class="with-submenu">
+                            <a href="#">2013</a>
+                            <ul>
+                                <li><a href="#">&Uuml;bersicht</a></li>
+                                <li><a href="#">Sitzverteilung</a></li>
+                                <li><a href="#">Mandatstr&auml;ger</a></li>
+                                <li><a href="#">&Uuml;berhangsmandate</a></li>
+                                <li><a href="#">Wahlkreise</a></li>
+                            </ul>
+                        </li>
+                        <li class="with-submenu">
+                            <a href="#umlu">2009</a>
+                            <ul>
+                                <li><a href="#">&Uuml;bersicht</a></li>
+                                <li><a href="#">Sitzverteilung</a></li>
+                                <li><a href="#">Mandatstr&auml;ger</a></li>
+                                <li><a href="#">&Uuml;berhangsmandate</a></li>
+                                <li><a href="#">Wahlkreise</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Informationen zur Wahl</a>
+                </li>
+                <li>
+                    <a href="#">Bundeswahlgesetz</a>
+                </li>
+                <li>
+                    <a href="#">Zuk&uuml;nftige Wahlen</a>
+                </li>
+                <li>
+                    <a href="#">Kontakt</a>
+                </li>
+                <li>
+                    <a href="#">Impressum</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="compare-primary">
+                <h2>Aktuelle Hochrechnungen</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Sitzverteilung</th>
+                            <td>
+                                <div class="chart seat-distribution seat-dist-2017"></div>
+                                <table class="distribution">
+                                    <thead>
+                                        <tr>
+                                            <th>CDU</th>
+                                            <th>CSU</th>
+                                            <th>SPD</th>
+                                            <th>DIE LINKE</th>
+                                            <th>GR&Uuml;NE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>255</td>
+                                            <td>56</td>
+                                            <td>193</td>
+                                            <td>64</td>
+                                            <td>63</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td class="simple-stats">
+                                <dl>
+                                    <div class="dl-item">
+                                        <dt>Wahlbeteiligung</dt>
+                                        <dd>71.3%</dd>
+                                    </div>
+                                    <div class="dl-item">
+                                        <dt>Briefwahl</dt>
+                                        <dd>7.1%</dd>
+                                    </div>
+                                    <div class="dl-item">
+                                        <dt>Gesamtzahl Sitze</dt>
+                                        <dd>631</dd>
+                                    </div>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Wahlkreise</th>
+                            <td class="map">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Karte_der_Wahlkreise_fuer_die_Wahl_zum_18._Deutschen_Bundestag_mit_administrativen_Einheiten.svg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Erst/Zweitstimme Relation</th>
+                            <td "chart"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="compare-secondary">
+                <h3>Vergleichen mit
+                    <select id="compare-year">
+                        <option>2013</option>
+                        <option>2009</option>
+                    </select>
+                </h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="chart seat-distribution seat-dist-2013"></div>
+                                <table class="distribution">
+                                    <thead>
+                                        <tr>
+                                            <th>CDU</th>
+                                            <th>CSU</th>
+                                            <th>SPD</th>
+                                            <th>DIE LINKE</th>
+                                            <th>GR&Uuml;NE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>255</td>
+                                            <td>56</td>
+                                            <td>193</td>
+                                            <td>64</td>
+                                            <td>63</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="simple-stats">
+                                <dl>
+                                    <div class="dl-item">
+                                        <dt>Wahlbeteiligung</dt>
+                                        <dd>71.3%</dd>
+                                    </div>
+                                    <div class="dl-item">
+                                        <dt>Briefwahl</dt>
+                                        <dd>7.1%</dd>
+                                    </div>
+                                    <div class="dl-item">
+                                        <dt>Gesamtzahl Sitze</dt>
+                                        <dd>631</dd>
+                                    </div>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="map">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Karte_der_Wahlkreise_fuer_die_Wahl_zum_18._Deutschen_Bundestag_mit_administrativen_Einheiten.svg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td "chart"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </main>
+    </body>
+</html>
