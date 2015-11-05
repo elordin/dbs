@@ -1,0 +1,16 @@
+insert into FederalState (name, outline) VALUES ('Berlin', NULL);
+insert into FederalState (name, outline) VALUES ('Rheinland-Pfalz', NULL);
+insert into FederalState (name, outline) VALUES ('Niedersachsen', NULL);
+insert into FederalState (name, outline) VALUES ('Bayern', NULL);
+insert into FederalState (name, outline) VALUES ('Nordrhein-Westfalen', NULL);
+insert into FederalState (name, outline) VALUES ('Sachsen-Anhalt', NULL);
+insert into FederalState (name, outline) VALUES ('Hessen', NULL);
+insert into FederalState (name, outline) VALUES ('Hamburg', NULL);
+insert into FederalState (name, outline) VALUES ('Thüringen', NULL);
+insert into FederalState (name, outline) VALUES ('Baden-Württemberg', NULL);
+insert into FederalState (name, outline) VALUES ('Bremen', NULL);
+insert into FederalState (name, outline) VALUES ('Saarland', NULL);
+insert into FederalState (name, outline) VALUES ('Schleswig-Holstein', NULL);
+insert into FederalState (name, outline) VALUES ('Brandenburg', NULL);
+insert into FederalState (name, outline) VALUES ('Mecklenburg-Vorpommern', NULL);
+insert into FederalState (name, outline) VALUES ('Sachsen', NULL);
