@@ -26,7 +26,7 @@ namespace DBS
 
         static void ReadFederalStates()
         {
-            StreamReader sr = new StreamReader(File.OpenRead(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\FederalStates\wahlbewerber_listenplatz.csv"), System.Text.Encoding.UTF8);
+            StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\FederalStates\wahlbewerber_listenplatz.csv"), System.Text.Encoding.UTF8);
 
             string line;
             string fs;
@@ -48,7 +48,7 @@ namespace DBS
 
             sr.Close();
 
-            StreamWriter wr = new StreamWriter(File.Create(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\sql\insert_federalstates.sql"));
+            StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_federalstates.sql"));
 
             foreach (string s in federalStateIDs.Keys)
             {
@@ -64,8 +64,8 @@ namespace DBS
             int id = 1;
             foreach(string year in years)
             {
-                StreamReader sr = new StreamReader(File.OpenRead(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\Wahlkreisnamen\Wahlkreisnamen_" + year + ".csv"), System.Text.Encoding.UTF8);
-                StreamWriter wr = new StreamWriter(File.Create(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\sql\insert_wahlkreise_" + year + ".sql"));
+                StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Wahlkreisnamen\Wahlkreisnamen_" + year + ".csv"), System.Text.Encoding.Default);
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_wahlkreise_" + year + ".sql"));
 
                 string line;
                 string [] wk;
@@ -90,7 +90,7 @@ namespace DBS
             int id = 1;
             foreach (string year in new[] { "2009", "2013" })
             {
-                StreamReader sr = new StreamReader(File.OpenRead(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\Wahlbewerber\wahlbewerber_"+year+".csv"), System.Text.Encoding.UTF8);
+                StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Wahlbewerber\wahlbewerber_" + year + ".csv"), System.Text.Encoding.UTF8);
 
                 string line;
                 string party;                
@@ -110,7 +110,7 @@ namespace DBS
 
                 sr.Close();
 
-                StreamWriter wr = new StreamWriter(File.Create(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\sql\insert_parties_"+year+".sql"));
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_parties_" + year + ".sql"));
 
                 foreach (string s in partyIDs.Keys)
                 {
@@ -129,8 +129,8 @@ namespace DBS
 
             foreach (string year in new[] { "2009", "2013" })
             {
-                StreamReader sr = new StreamReader(File.OpenRead(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\Wahlbewerber\wahlbewerber_" + year + ".csv"), System.Text.Encoding.UTF8);
-                StreamWriter wr = new StreamWriter(File.Create(@"C:\Users\Gernot\Dropbox\Studium\SE\WS1516\Datenbanken\Homework\04\Daten\sql\insert_candidates_" + year + ".sql"));
+                StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Wahlbewerber\wahlbewerber_" + year + ".csv"), System.Text.Encoding.UTF8);
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_candidates_" + year + ".sql"));
 
                 string line;
                 string [] c;
