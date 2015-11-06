@@ -9,45 +9,43 @@ object Generator {
         override def toString(): String = "f"
     }
 
-    case class Party(val name:String, val shorthand:String, val website:String, val color:String, val isMinority:Boolean) {
-        override def toString(): String = shorthand
+    case class Landesliste(val llid:Int, val year:Int, val pid:Int, val fsid:Int, val votes:Int) {
+        def this(llid:Int, year:Int, pid:Int, fsid:Int) = this(llid, year, pid, fsid, 0)
+        override def toString(): String = llid.toString
     }
 
-    val cdu = Party("CDU", "CDU", "", "black", false)
-    val spd = Party("SPD", "SPD", "", "red", false)
+    val cdu = new Landesliste(1, 2013, 1, 1)
+    val spd = new Landesliste(2, 2013, 2, 1)
 
 
-
-    case class Candidacy(val idno:String, val wkid:Int, val year:Int, val supporter:Option[Party]) {
-        override def toString(): String = idno
+    case class Candidacy(val cid:Int, val idno:String, val wkid:Int, val year:Int, val supporter:Option[Landesliste]) {
+        override def toString(): String = cid.toString
     }
 
-    val c1 = Candidacy("abc123", 0, 2013, None)
-    val c2 = Candidacy("defghi", 0, 2013, None)
+    val c1 = new Candidacy(1, "abc123", 0, 2013, None)
+    val c2 = new Candidacy(2, "defghi", 0, 2013, None)
 
 
+    val possibleParties = List[Landesliste](
+            cdu, spd
+        )
+    val possibleCandidates = List[Candidacy](
+            c1, c2
+        )
 
-    case class Stimmzettel(gender:Gender, age:Int, erststimme:Candidacy, zweitstimme:Party) {
-        def this(erststimme:Candidacy, zweitstimme:Party) =
+    case class Stimmzettel(gender:Gender, age:Int, erststimme:Candidacy, zweitstimme:Landesliste) {
+        def this(erststimme:Candidacy, zweitstimme:Landesliste) =
             this(if (Random.nextInt(2) == 1) Male else Female, Random.nextInt(80) + 18, erststimme, zweitstimme)
 
-        override def toString(): String =
-            f"((${erststimme.idno}, ${erststimme.wkid}, ${erststimme.year}), ${zweitstimme.name}, ${gender}, ${age})"
+        override def toString(): String = f"(${erststimme}, ${zweitstimme})"
     }
 
     object Stimmzettel {
-        val possibleParties = List[Party](
-                cdu, spd
-            )
-        val possibleCandidates = List[Candidacy](
-                c1, c2
-            )
-
         def random():Stimmzettel = {
             val gender = if (Random.nextInt(2) == 1) Male else Female
             val age = Random.nextInt(80) + 18
-            val erststimme = possibleCandidates.apply(Random.nextInt(possibleCandidates.length))
-            val zweitstimme = possibleParties.apply(Random.nextInt(possibleParties.length))
+            val erststimme = Generator.possibleCandidates.apply(Random.nextInt(Generator.possibleCandidates.length))
+            val zweitstimme = Generator.possibleParties.apply(Random.nextInt(Generator.possibleParties.length))
             new Stimmzettel(gender, age, erststimme, zweitstimme)
         }
     }
@@ -56,8 +54,8 @@ object Generator {
         def insert(vote:Stimmzettel):Ergebnis = new Ergebnis(votes + vote)
 
         def distribution():Distribution = {
-            def cummulate(maps:(Map[Candidacy, Int], Map[Party, Int]),
-                 sz:Stimmzettel):(Map[Candidacy, Int], Map[Party, Int]) = {
+            def cummulate(maps:(Map[Candidacy, Int], Map[Landesliste, Int]),
+                 sz:Stimmzettel):(Map[Candidacy, Int], Map[Landesliste, Int]) = {
 
                 val (erststimmen, zweitstimmen) = maps
                 val Stimmzettel(g, a, e, z) = sz
@@ -68,7 +66,7 @@ object Generator {
                 (erststimmen + (e -> esc), zweitstimmen + (z -> zsc))
             }
 
-            val (erststimmenCount, zweitstimmenCount) = votes.foldLeft(Map[Candidacy, Int](), Map[Party, Int]())(cummulate)
+            val (erststimmenCount, zweitstimmenCount) = votes.foldLeft(Map[Candidacy, Int](), Map[Landesliste, Int]())(cummulate)
             val totalErststimme:Double = erststimmenCount.values.sum
             val totalZweistimme:Double = zweitstimmenCount.values.sum
 
@@ -78,7 +76,7 @@ object Generator {
         override def toString(): String = votes.toString()
     }
 
-    class Distribution(val erststimmen:Map[Candidacy, Double], val zweitstimmen:Map[Party, Double]) {
+    class Distribution(val erststimmen:Map[Candidacy, Double], val zweitstimmen:Map[Landesliste, Double]) {
         /** Mean deviation from percentages of all values */
         def distance(other:Distribution):Double = {
             val (erststimmenDiffs, zweitstimmenDiffs) = deviation(other)
@@ -90,38 +88,37 @@ object Generator {
         }
 
         /** Relative differences between this and others percentages per entry */
-        def deviation(other:Distribution):(Map[Candidacy, Double], Map[Party, Double]) = {
+        def deviation(other:Distribution):(Map[Candidacy, Double], Map[Landesliste, Double]) = {
             val allCandidacies:List[Candidacy] = (erststimmen.keys ++ other.erststimmen.keys).toList
-            val allParties:List[Party] = (zweitstimmen.keys ++ other.zweitstimmen.keys).toList
+            val allParties:List[Landesliste] = (zweitstimmen.keys ++ other.zweitstimmen.keys).toList
 
             val erststimmenDiffs:Map[Candidacy, Double] = allCandidacies.map((c:Candidacy) => {
-                (c -> (other.erststimmen.getOrElse(c, 0:Double) - erststimmen.getOrElse(c, 0:Double)))
+                (c -> (erststimmen.getOrElse(c, 0:Double) - other.erststimmen.getOrElse(c, 0:Double)))
             }).toMap
 
-            val zweitstimmenDiffs:Map[Party, Double] = allParties.map((p:Party) => {
-                (p -> (other.zweitstimmen.getOrElse(p, 0:Double) - zweitstimmen.getOrElse(p, 0:Double)))
+            val zweitstimmenDiffs:Map[Landesliste, Double] = allParties.map((p:Landesliste) => {
+                (p -> (zweitstimmen.getOrElse(p, 0:Double) - other.zweitstimmen.getOrElse(p, 0:Double)))
             }).toMap
 
+            (erststimmenDiffs, zweitstimmenDiffs)
 
-            println("> " + erststimmenDiffs)
-
-            // (erststimmenDiffs, zweitstimmenDiffs)
-
-            (Map((c1 -> 0.5), (c2 -> -0.5)), Map((cdu -> -0.5), (spd -> 0.5)))
+            // (Map((c1 -> 0.5), (c2 -> -0.5)), Map((cdu -> -0.5), (spd -> 0.5)))
         }
 
         def inNeedOfErststimme(other:Distribution):Candidacy = {
+            val dev = deviation(other)._1
             val folksWithVotesMissing:List[Candidacy] = deviation(other)._1.filter(_._2 < 0).map(_._1).toList
             if (folksWithVotesMissing.length < 1)
-                Stimmzettel.possibleCandidates.apply(Random.nextInt(Stimmzettel.possibleCandidates.length))
+                Generator.possibleCandidates.apply(Random.nextInt(Generator.possibleCandidates.length))
             else
                 folksWithVotesMissing.apply(Random.nextInt(folksWithVotesMissing.length))
         }
 
-        def inNeedOfZweitstimme(other:Distribution):Party = {
-            val folksWithVotesMissing:List[Party] = deviation(other)._2.filter(_._2 < 0).map(_._1).toList
+        def inNeedOfZweitstimme(other:Distribution):Landesliste = {
+            val dev = deviation(other)._2
+            val folksWithVotesMissing:List[Landesliste] = deviation(other)._2.filter(_._2 < 0).map(_._1).toList
             if (folksWithVotesMissing.length < 1)
-                Stimmzettel.possibleParties.apply(Random.nextInt(Stimmzettel.possibleParties.length))
+                Generator.possibleParties.apply(Random.nextInt(Generator.possibleParties.length))
             else
                 folksWithVotesMissing.apply(Random.nextInt(folksWithVotesMissing.length))
         }
@@ -145,14 +142,15 @@ object Generator {
     def main(args: Array[String]):Unit = {
         val dist = new Distribution(Map[Candidacy, Double](
                 (c1 -> 0.5), (c2 -> 0.5)
-            ), Map[Party, Double](
+            ), Map[Landesliste, Double](
                 (cdu -> 0.5), (spd -> 0.5)
             ))
-        val result = Generator.generate(dist, 100);
+        val result = Generator.generate(dist, 100000);
 
-        println(result)
-        println(result.distribution)
-        println(result.distribution.distance(dist))
+        result.votes.map((sz:Stimmzettel) => {
+            println(f"INSERT INTO Vote (gender, age, erststimme, zweitstimme) VALUES (${sz.gender}, ${sz.age}, ${sz.erststimme.cid}, ${sz.zweitstimme.llid});")
+            })
+        println(f"Deviation: ${100 * result.distribution.distance(dist)} percent")
     }
 
 }
