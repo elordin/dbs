@@ -24,7 +24,6 @@ object Generator {
         override def toString(): String = llid.toString
     }
 
-
     case class Stimmzettel(gender:Gender, age:Int, erststimme:Erststimme, zweitstimme:Zweitstimme) {
         def this(erststimme:Erststimme, zweitstimme:Zweitstimme) =
             this(randomGender, randomAge, erststimme, zweitstimme)
@@ -158,17 +157,32 @@ object GeneratorConfig {
     def possibleCandidates = distribution.erststimmen.keys.toList
     def possibleParties = distribution.zweitstimmen.keys.toList
     def distribution:Distribution = GeneratorConfigHardcoded.distribution
-    def sampleSize:Int = 163329
-    def invalidZS:Int = 4181
-    def invalidES:Int = 4117
+    def sampleSize:Int = GeneratorConfigHardcoded.sampleSize
+    def invalidES:Int = GeneratorConfigHardcoded.invalidES
+    def invalidZS:Int = GeneratorConfigHardcoded.invalidZS
 
 
     /** Loads distribution from database */
     object GeneratorConfigFromDatabase {
-        def distributionWahlbezirk(wbid:Int):Distribution = throw new NotImplementedError
-        def distributionWahlkreis(wkid:Int):Distribution = throw new NotImplementedError
-        def distributionBundesland(fsid:Int):Distribution = throw new NotImplementedError
-        def distributionBundesweit:Distribution = throw new NotImplementedError
+        def distributionWahlbezirk(wbid:Int, year:Int):Distribution = throw new NotImplementedError
+        def distributionWahlkreis(wkid:Int, year:Int):Distribution  = throw new NotImplementedError
+        def distributionBundesland(fsid:Int, year:Int):Distribution = throw new NotImplementedError
+        def distributionBundesweit(year:Int):Distribution           = throw new NotImplementedError
+
+        def sampleSizeWahlbezirk(wbid:Int, year:Int):Int            = throw new NotImplementedError
+        def sampleSizeWahlkreis(wkid:Int, year:Int):Int             = throw new NotImplementedError
+        def sampleSizeBundesland(fsid:Int, year:Int):Int            = throw new NotImplementedError
+        def sampleSizeBundesweit(year:Int):Int                      = throw new NotImplementedError
+
+        def invalidESWahlbezirk(wbid:Int, year:Int):Int             = throw new NotImplementedError
+        def invalidESWahlkreis(wkid:Int, year:Int):Int              = throw new NotImplementedError
+        def invalidESBundesland(fsid:Int, year:Int):Int             = throw new NotImplementedError
+        def invalidESBundesweit(year:Int):Int                       = throw new NotImplementedError
+
+        def invalidZSWahlbezirk(wbid:Int, year:Int):Int             = throw new NotImplementedError
+        def invalidZSWahlkreis(wkid:Int, year:Int):Int              = throw new NotImplementedError
+        def invalidZSBundesland(fsid:Int, year:Int):Int             = throw new NotImplementedError
+        def invalidZSBundesweit(year:Int):Int                       = throw new NotImplementedError
     }
 
     /** Loads hardcoded distribution */
@@ -205,5 +219,9 @@ object GeneratorConfig {
             (mlpd -> 47),
             (rentner -> 1821)
         ))
+
+        def sampleSize:Int = 163329
+        def invalidZS:Int = 4181
+        def invalidES:Int = 4117
     }
 }
