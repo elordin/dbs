@@ -14,39 +14,26 @@ object Generator {
         override def toString(): String = llid.toString
     }
 
-    val cdu = new Landesliste(1, 2013, 1, 1)
-    val spd = new Landesliste(2, 2013, 2, 1)
-
-
     case class Candidacy(val cid:Int, val idno:String, val wkid:Int, val year:Int, val supporter:Option[Landesliste]) {
         override def toString(): String = cid.toString
     }
 
-    val c1 = new Candidacy(1, "abc123", 0, 2013, None)
-    val c2 = new Candidacy(2, "defghi", 0, 2013, None)
-
-
-    val possibleParties = List[Landesliste](
-            cdu, spd
-        )
-    val possibleCandidates = List[Candidacy](
-            c1, c2
-        )
+    def randomGender:Gender = if (Random.nextInt(2) == 1) Male else Female
+    // Gauss Curve values are empirical estimates
+    def randomAge:Int = scala.math.max(18:Int, scala.math.min(115:Int, (scala.math.round(Random.nextGaussian() * 10:Double):Long).toInt + 50))
 
     case class Stimmzettel(gender:Gender, age:Int, erststimme:Candidacy, zweitstimme:Landesliste) {
         def this(erststimme:Candidacy, zweitstimme:Landesliste) =
-            this(if (Random.nextInt(2) == 1) Male else Female, Random.nextInt(80) + 18, erststimme, zweitstimme)
+            this(randomGender, randomAge, erststimme, zweitstimme)
 
         override def toString(): String = f"(${erststimme}, ${zweitstimme})"
     }
 
     object Stimmzettel {
         def random():Stimmzettel = {
-            val gender = if (Random.nextInt(2) == 1) Male else Female
-            val age = Random.nextInt(80) + 18
-            val erststimme = Generator.possibleCandidates.apply(Random.nextInt(Generator.possibleCandidates.length))
-            val zweitstimme = Generator.possibleParties.apply(Random.nextInt(Generator.possibleParties.length))
-            new Stimmzettel(gender, age, erststimme, zweitstimme)
+            val erststimme = GeneratorConfig.possibleCandidates.apply(Random.nextInt(GeneratorConfig.possibleCandidates.length))
+            val zweitstimme = GeneratorConfig.possibleParties.apply(Random.nextInt(GeneratorConfig.possibleParties.length))
+            new Stimmzettel(randomGender, randomAge, erststimme, zweitstimme)
         }
     }
 
@@ -84,7 +71,7 @@ object Generator {
                     (erststimmenDiffs.values.toList.length:Double) +
             zweitstimmenDiffs.values.map(scala.math.abs(_)).sum /
                 (zweitstimmenDiffs.values.toList.length:Double)
-            ) / (2:Double)
+            ) / (2.0)
         }
 
         /** Relative differences between this and others percentages per entry */
@@ -93,7 +80,7 @@ object Generator {
             val allParties:List[Landesliste] = (zweitstimmen.keys ++ other.zweitstimmen.keys).toList
 
             val erststimmenDiffs:Map[Candidacy, Double] = allCandidacies.map((c:Candidacy) => {
-                (c -> (erststimmen.getOrElse(c, 0:Double) - other.erststimmen.getOrElse(c, 0:Double)))
+                (c -> (erststimmen.getOrElse(c, 0.0) - other.erststimmen.getOrElse(c, 0.0)))
             }).toMap
 
             val zweitstimmenDiffs:Map[Landesliste, Double] = allParties.map((p:Landesliste) => {
@@ -109,7 +96,7 @@ object Generator {
             val dev = deviation(other)._1
             val folksWithVotesMissing:List[Candidacy] = deviation(other)._1.filter(_._2 < 0).map(_._1).toList
             if (folksWithVotesMissing.length < 1)
-                Generator.possibleCandidates.apply(Random.nextInt(Generator.possibleCandidates.length))
+                GeneratorConfig.possibleCandidates.apply(Random.nextInt(GeneratorConfig.possibleCandidates.length))
             else
                 folksWithVotesMissing.apply(Random.nextInt(folksWithVotesMissing.length))
         }
@@ -118,7 +105,7 @@ object Generator {
             val dev = deviation(other)._2
             val folksWithVotesMissing:List[Landesliste] = deviation(other)._2.filter(_._2 < 0).map(_._1).toList
             if (folksWithVotesMissing.length < 1)
-                Generator.possibleParties.apply(Random.nextInt(Generator.possibleParties.length))
+                GeneratorConfig.possibleParties.apply(Random.nextInt(GeneratorConfig.possibleParties.length))
             else
                 folksWithVotesMissing.apply(Random.nextInt(folksWithVotesMissing.length))
         }
@@ -139,18 +126,44 @@ object Generator {
         result
     }
 
+
     def main(args: Array[String]):Unit = {
-        val dist = new Distribution(Map[Candidacy, Double](
-                (c1 -> 0.5), (c2 -> 0.5)
-            ), Map[Landesliste, Double](
-                (cdu -> 0.5), (spd -> 0.5)
-            ))
-        val result = Generator.generate(dist, 100000);
+        import GeneratorConfig._
+
+        val result = generate(distribution, sampleSize);
 
         result.votes.map((sz:Stimmzettel) => {
             println(f"INSERT INTO Vote (gender, age, erststimme, zweitstimme) VALUES (${sz.gender}, ${sz.age}, ${sz.erststimme.cid}, ${sz.zweitstimme.llid});")
             })
-        println(f"Deviation: ${100 * result.distribution.distance(dist)} percent")
+        println(f"Deviation from target distribution: ${100 * result.distribution.distance(distribution)} percent")
     }
+}
 
+object GeneratorConfig {
+    import Generator._
+
+    /* DEFINE PARTIES HERE */
+    val cdu = new Landesliste(1, 2013, 1, 1)
+    val spd = new Landesliste(2, 2013, 2, 1)
+
+    /* DEFINE CANDIDACIES HERE */
+    val c1 = new Candidacy(1, "abc123", 0, 2013, None)
+    val c2 = new Candidacy(2, "defghi", 0, 2013, None)
+
+    def possibleParties = List[Landesliste](
+            cdu, spd
+        )
+    def possibleCandidates = List[Candidacy](
+            c1, c2
+        )
+
+    def distribution:Distribution = new Distribution(Map[Candidacy, Double](
+            (c1 -> 0.5),
+            (c2 -> 0.5)
+        ), Map[Landesliste, Double](
+            (cdu -> 0.5),
+            (spd -> 0.5)
+        ))
+
+    def sampleSize:Int = 10000
 }
