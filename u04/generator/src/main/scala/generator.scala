@@ -14,12 +14,16 @@ object Generator {
     def randomAge:Int = scala.math.max(18:Int, scala.math.min(115:Int, (scala.math.round(Random.nextGaussian() * 10:Double):Long).toInt + 50))
 
     trait Erststimme {}
-    object InvalidErststimme extends Erststimme
+    object InvalidErststimme extends Erststimme {
+        override def toString(): String = "INVALID"
+    }
     case class Candidacy(val cid:Int, val idno:String, val wkid:Int, val year:Int, val supporter:Option[Int]) extends Erststimme {
         override def toString(): String = cid.toString
     }
     trait Zweitstimme {}
-    object InvalidZweitstimme extends Zweitstimme
+    object InvalidZweitstimme extends Zweitstimme {
+        override def toString(): String = "INVALID"
+    }
     case class Landesliste(val llid:Int, val year:Int, val pid:Int, val fsid:Int) extends Zweitstimme {
         override def toString(): String = llid.toString
     }
@@ -121,18 +125,24 @@ object Generator {
     }
 
     /** Generates list of Stimmzettel for given distribution etc. */
-    def generate(targetDist:Distribution, size:Int, invalidsES:Int, invalidisZS:Int):Ergebnis = {
+    def generate(targetDist:Distribution, size:Int):Ergebnis = {
         var result:Ergebnis = new Ergebnis(Set[Stimmzettel]())
+        println("Generating Stimmzettel")
         for (i <- 1 to size) {
-            val erststimme:Erststimme = if (i + invalidsES > size)
-                                           InvalidErststimme
-                                       else result.distribution.inNeedOfErststimme(targetDist)
-            val zweitstimme:Zweitstimme = if (i + invalidisZS > size)
-                                            InvalidZweitstimme
-                                       else result.distribution.inNeedOfZweitstimme(targetDist)
+            // Progress indicator
+            val prevPercentage:Int = scala.math.round(((i - 1):Float) / (size:Float) * 100:Float)
+            val percentage:Int = scala.math.round((i:Float) / (size:Float) * 100:Float)
+            if (percentage - prevPercentage != 0) {
+                val bar:String = (for (p <- 0 to 99) yield if (p < percentage) "=" else " ").fold("")(_+_)
+                print("\r[" + bar + "] " + percentage + "%")
+            }
+
+            val erststimme:Erststimme = result.distribution.inNeedOfErststimme(targetDist)
+            val zweitstimme:Zweitstimme = result.distribution.inNeedOfZweitstimme(targetDist)
             var newvote:Stimmzettel = new Stimmzettel(erststimme, zweitstimme)
             result = result.insert(newvote)
         }
+        println("")
 
         result
     }
@@ -141,10 +151,10 @@ object Generator {
     def main(args: Array[String]):Unit = {
         import GeneratorConfig._
 
-        val result = generate(distribution, sampleSize, invalidES, invalidZS);
+        val result = generate(distribution, sampleSize);
 
         result.votes.map((sz:Stimmzettel) => {
-            println(f"INSERT INTO Vote (gender, age, erststimme, zweitstimme) VALUES (${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+            // println(f"INSERT INTO Vote (gender, age, erststimme, zweitstimme) VALUES (${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
             })
         println(f"Deviation from target distribution: ${result.distribution.distance(distribution)}")
     }
@@ -158,9 +168,6 @@ object GeneratorConfig {
     def possibleParties = distribution.zweitstimmen.keys.toList
     def distribution:Distribution = GeneratorConfigHardcoded.distribution
     def sampleSize:Int = GeneratorConfigHardcoded.sampleSize
-    def invalidES:Int = GeneratorConfigHardcoded.invalidES
-    def invalidZS:Int = GeneratorConfigHardcoded.invalidZS
-
 
     /** Loads distribution from database */
     object GeneratorConfigFromDatabase {
@@ -173,16 +180,6 @@ object GeneratorConfig {
         def sampleSizeWahlkreis(wkid:Int, year:Int):Int             = throw new NotImplementedError
         def sampleSizeBundesland(fsid:Int, year:Int):Int            = throw new NotImplementedError
         def sampleSizeBundesweit(year:Int):Int                      = throw new NotImplementedError
-
-        def invalidESWahlbezirk(wbid:Int, year:Int):Int             = throw new NotImplementedError
-        def invalidESWahlkreis(wkid:Int, year:Int):Int              = throw new NotImplementedError
-        def invalidESBundesland(fsid:Int, year:Int):Int             = throw new NotImplementedError
-        def invalidESBundesweit(year:Int):Int                       = throw new NotImplementedError
-
-        def invalidZSWahlbezirk(wbid:Int, year:Int):Int             = throw new NotImplementedError
-        def invalidZSWahlkreis(wkid:Int, year:Int):Int              = throw new NotImplementedError
-        def invalidZSBundesland(fsid:Int, year:Int):Int             = throw new NotImplementedError
-        def invalidZSBundesweit(year:Int):Int                       = throw new NotImplementedError
     }
 
     /** Loads hardcoded distribution */
@@ -208,6 +205,13 @@ object GeneratorConfig {
             (c2 -> 0.5)
         ), Map[Zweitstimme, Double](
             /* Zweitstimmen results */
+            (cdu -> 0.025),
+            (spd -> 0.025),
+            (linke -> 0.025),
+            (gruene -> 0.025),
+            (InvalidZweitstimme -> 0.90)
+
+/*
             (npd -> 1240),
             (spd -> 41793),
             (linke -> 13481),
@@ -218,10 +222,9 @@ object GeneratorConfig {
             (cdu -> 51068),
             (mlpd -> 47),
             (rentner -> 1821)
+*/
         ))
 
-        def sampleSize:Int = 163329
-        def invalidZS:Int = 4181
-        def invalidES:Int = 4117
+        def sampleSize:Int = 10000
     }
 }
