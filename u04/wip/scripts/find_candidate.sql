@@ -1,7 +1,7 @@
-﻿select 	c.firstname, c.lastname, p.name, wk.wknr, wk.name, fs.name, lp.position
+﻿select 	c.firstname, c.lastname, p.name, wk.wknr, wk.name as wk_name, fs.name as fs_name, lp.position as ll_pos
 from 	candidates c join partymembership pm on pm.idno = c.idno join party p on p.pid=pm.pid 
-	join candidacy ca on ca.idno = c.idno join wahlkreis wk on wk.wkid = ca.wkid
-	join landeslistenplatz lp on lp.idno = c.idno join landesliste ll on lp.llid = ll.llid
-	join federalstate fs on fs.fsid = ll.fsid
-where c.lastname='Leucht'
+	left outer join candidacy ca on ca.idno = c.idno left outer join wahlkreis wk on wk.wkid = ca.wkid
+	left outer join landeslistenplatz lp on lp.idno = c.idno left outer join landesliste ll on lp.llid = ll.llid
+	left outer join federalstate fs on fs.fsid = ll.fsid
+where c.lastname='Leopold'  --and c.firstname='Gino'
 
