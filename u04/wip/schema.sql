@@ -1,30 +1,27 @@
--- DROP MATERIALIZED VIEW IF EXISTS ResultsZweitstimme  CASCADE;
--- DROP MATERIALIZED VIEW IF EXISTS ResultsErststimme   CASCADE;
--- DROP TABLE IF EXISTS ResultsErststimmeManualArchive  CASCADE;
--- DROP TABLE IF EXISTS ResultsZweitstimmeManualArchive CASCADE;
--- DROP TABLE IF EXISTS CitizenRegistration             CASCADE;
--- DROP VIEW  IF EXISTS Stimmzettel                     CASCADE;
--- DROP TABLE IF EXISTS StimmzettelData                 CASCADE;
--- DROP VIEW  IF EXISTS Wahlschein                      CASCADE;
--- DROP TABLE IF EXISTS WahlscheinData                  CASCADE;
--- DROP TABLE IF EXISTS Vote                            CASCADE;
--- DROP TABLE IF EXISTS Candidacy                       CASCADE;
+DROP VIEW  IF EXISTS AccumulatedErststimmeFS         CASCADE;
+DROP VIEW  IF EXISTS AccumulatedZweistimmenFS        CASCADE;
+DROP TABLE IF EXISTS AccumulatedZweistimmenWK        CASCADE;
+DROP TABLE IF EXISTS CitizenRegistration             CASCADE;
+DROP VIEW  IF EXISTS Vote                            CASCADE;
+DROP TABLE IF EXISTS Stimmzettel                     CASCADE;
+DROP TABLE IF EXISTS Wahlschein                      CASCADE;
+DROP TABLE IF EXISTS Candidacy                       CASCADE;
 -- DROP TABLE IF EXISTS PartyMembership                 CASCADE;
--- DROP TABLE IF EXISTS Landeslistenplatz               CASCADE;
--- DROP TABLE IF EXISTS Landesliste                     CASCADE;
--- DROP VIEW  IF EXISTS BriefWahlBezirk                 CASCADE;
--- DROP TABLE IF EXISTS BriefWahlBezirkData             CASCADE;
--- DROP VIEW  IF EXISTS DirektWahlBezirk                CASCADE;
--- DROP TABLE IF EXISTS DirektWahlBezirkData            CASCADE;
--- DROP TABLE IF EXISTS Wahlbezirk                      CASCADE;
--- DROP TABLE IF EXISTS Wahlkreis                       CASCADE;
--- DROP TABLE IF EXISTS Party                           CASCADE;
--- DROP VIEW  IF EXISTS Candidates                      CASCADE;
--- DROP TABLE IF EXISTS CandidatesData                  CASCADE;
--- DROP TABLE IF EXISTS hasVoted                        CASCADE;
--- DROP TABLE IF EXISTS Citizen                         CASCADE;
--- DROP TABLE IF EXISTS ElectionYear                    CASCADE;
--- DROP TABLE IF EXISTS FederalState                    CASCADE;
+DROP TABLE IF EXISTS Landeslistenplatz               CASCADE;
+DROP TABLE IF EXISTS Landesliste                     CASCADE;
+DROP VIEW  IF EXISTS BriefWahlBezirk                 CASCADE;
+DROP TABLE IF EXISTS BriefWahlBezirkData             CASCADE;
+DROP VIEW  IF EXISTS DirektWahlBezirk                CASCADE;
+DROP TABLE IF EXISTS DirektWahlBezirkData            CASCADE;
+DROP TABLE IF EXISTS Wahlbezirk                      CASCADE;
+DROP TABLE IF EXISTS Wahlkreis                       CASCADE;
+DROP TABLE IF EXISTS Party                           CASCADE;
+DROP VIEW  IF EXISTS Candidates                      CASCADE;
+DROP TABLE IF EXISTS CandidatesData                  CASCADE;
+DROP TABLE IF EXISTS hasVoted                        CASCADE;
+DROP TABLE IF EXISTS Citizen                         CASCADE;
+DROP TABLE IF EXISTS ElectionYear                    CASCADE;
+DROP TABLE IF EXISTS FederalState                    CASCADE;
 
 CREATE TABLE IF NOT EXISTS FederalState (
     fsid SERIAL PRIMARY KEY,
@@ -32,7 +29,6 @@ CREATE TABLE IF NOT EXISTS FederalState (
     outline POLYGON
 );
 
--- voting system?
 CREATE TABLE IF NOT EXISTS ElectionYear (
     year INT PRIMARY KEY
 );
@@ -44,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Citizen (
     lastname VARCHAR(255) NOT NULL,
     dateofbirth DATE NOT NULL,
     gender CHAR NOT NULL,
-    CHECK (gender in ('m', 'f', 'p')),
+    CHECK (gender in ('m', 'f', 'n', '-')),
     canvote BOOLEAN NOT NULL DEFAULT true,
     authtoken VARCHAR(255)
 );
@@ -60,7 +56,6 @@ CREATE TABLE IF NOT EXISTS CandidatesData (
     idno VARCHAR(32) PRIMARY KEY REFERENCES Citizen(idno) ON DELETE CASCADE
 );
 
-
 CREATE OR REPLACE VIEW Candidates AS (
     SELECT *
     FROM CandidatesData NATURAL JOIN Citizen
@@ -74,6 +69,8 @@ CREATE TABLE IF NOT EXISTS Party (
     colourcode VARCHAR(15) NOT NULL,
     isminority BOOLEAN NOT NULL DEFAULT false
 );
+
+--
 
 CREATE TABLE IF NOT EXISTS Wahlkreis (
     wkid SERIAL PRIMARY KEY,
@@ -114,8 +111,7 @@ CREATE TABLE IF NOT EXISTS LandesListe (
     llid SERIAL PRIMARY KEY,
     year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
     pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
-    fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
-    votes INT NOT NULL DEFAULT 0
+    fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Landeslistenplatz (
@@ -126,11 +122,11 @@ CREATE TABLE IF NOT EXISTS Landeslistenplatz (
     PRIMARY KEY (llid, idno)
 );
 
-CREATE TABLE IF NOT EXISTS PartyMembership (
-    pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
-    idno VARCHAR(32) NOT NULL REFERENCES CandidatesData(idno) ON DELETE CASCADE,
-    PRIMARY KEY (pid, idno)
-);
+-- CREATE TABLE IF NOT EXISTS PartyMembership (
+--     pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
+--     idno VARCHAR(32) NOT NULL REFERENCES CandidatesData(idno) ON DELETE CASCADE,
+--     PRIMARY KEY (pid, idno)
+-- );
 
 CREATE TABLE IF NOT EXISTS Candidacy (
     -- CID to reference from Vote using a single value rather than the two value FK (wkid, idno)
@@ -139,36 +135,20 @@ CREATE TABLE IF NOT EXISTS Candidacy (
     idno VARCHAR(255) NOT NULL REFERENCES CandidatesData(idno) ON DELETE CASCADE,
     supportedby INT REFERENCES Party(pid) ON DELETE SET NULL,
     votes INT NOT NULL DEFAULT 0
-    -- EXISTS (SELECT *
-    --         FROM PartyMembership
-    --         WHERE PartyMembership.idno = Candidacy.idno
-    --           AND PartyMembership.pid  = Candidacy.supportedby),
-    -- NOT EXISTS (SELECT *
-    --             FROM PartyMembership
-    --             WHERE PartyMembership.idno = Candidacy.idno
-    --               AND PartyMembership.pid <> Candidacy.supportedby),
-    UNIQUE (wkid, idno)
+    -- check unique (idno, wkid->year)
+    -- check member of supportedby
 );
 
--- CREATE CONSTRAINT TRIGGER members_only { BEFORE INSERT OR BEFORE UPDATE OF idno, supportedby }
--- ON Candidacy
--- WHEN (NOT EXISTS (SELECT *
---                   FROM PartyMembership
---                   WHERE PartyMembership.idno = NEW.idno
---                     AND PartyMembership.pid  = NEW.supportedby))
--- EXECUTE PROCEDURE throw new IntegrityViolationError;
+CREATE UNIQUE INDEX candidacy_constraint_support_max_one_per_wk
+ON Candidacy(wkid, supportedby)
+WHERE supportedby IS NOT NULL;
 
--- CREATE CONSTRAINT TRIGGER max_support { BEFORE INSERT OR BEFORE UPDATE OF supportedby }
--- ON Candidacy
--- WHEN (EXISTS (SELECT *
---                   FROM PartyMembership
---                   WHERE PartyMembership.idno = NEW.idno
---                     AND PartyMembership.pid <> NEW.supportedby))
--- EXECUTE PROCEDURE throw new IntegrityViolationError;
 
--- SAME YEAR CONSTRAINT?
-CREATE TABLE IF NOT EXISTS Vote (
-    vid SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Wahlschein (
+    wsid SERIAL PRIMARY KEY,
+
+    bwbid INT NOT NULL REFERENCES BriefWahlBezirkData(bwbid) ON DELETE CASCADE,
+    issuedon DATE NOT NULL,
     gender CHAR NOT NULL,
     CHECK (gender in ('m', 'f')),
     age INT NOT NULL,
@@ -176,34 +156,30 @@ CREATE TABLE IF NOT EXISTS Vote (
     CHECK (age < 150),
     erststimme INT REFERENCES Candidacy(cid) ON DELETE SET NULL,
     zweitstimme INT REFERENCES LandesListe(llid) ON DELETE SET NULL
-    -- CHECK (SELECT year
-    --        FROM Candidacy NATURAL JOIN Wahlkreis
-    --        WHERE Candidacy.cid = Vote.erststimme)
-    --     =
-    --       (SELECT year
-    --        FROM LandesListe
-    --        WHERE Landesliste.llid = Vote.zweitstimme)
+
+    -- TODO: check erststimme zweitstimme same year as briefwahlbezirks wahlkreis year
 );
 
-CREATE TABLE IF NOT EXISTS WahlscheinData (
-    vid INT PRIMARY KEY REFERENCES Vote(vid) ON DELETE CASCADE,
-    bwbid INT NOT NULL REFERENCES BriefWahlBezirkData(bwbid) ON DELETE CASCADE,
-    issuedon DATE NOT NULL
+CREATE TABLE IF NOT EXISTS Stimmzettel (
+    szid SERIAL PRIMARY KEY,
+    dwbid INT NOT NULL REFERENCES DirektWahlBezirkData(dwbid) ON DELETE CASCADE,
+    gender CHAR NOT NULL,
+    CHECK (gender in ('m', 'f')),
+    age INT NOT NULL,
+    CHECK (age >= 18),
+    CHECK (age < 150),
+    erststimme INT REFERENCES Candidacy(cid) ON DELETE SET NULL,
+    zweitstimme INT REFERENCES LandesListe(llid) ON DELETE SET NULL
+    -- TODO: check erststimme zweitstimme same year as direktwahlbezirks wahlkreis year
 );
 
-CREATE OR REPLACE VIEW Wahlschein AS (
-    SELECT *
-    FROM Vote NATURAL JOIN WahlscheinData
-);
 
-CREATE TABLE IF NOT EXISTS StimmzettelData (
-    vid INT PRIMARY KEY REFERENCES Vote(vid) ON DELETE CASCADE,
-    dwbid INT NOT NULL REFERENCES DirektWahlBezirkData(dwbid) ON DELETE CASCADE
-);
-
-CREATE OR REPLACE VIEW Stimmzettel AS (
-    SELECT *
-    FROM Vote NATURAL JOIN StimmzettelData
+CREATE OR REPLACE VIEW Vote AS (
+    SELECT gender, age, erststimme, zweitstimme
+    FROM Wahlschein
+    UNION
+    SELECT gender, age, erststimme, zweitstimme
+    FROM Stimmzettel
 );
 
 CREATE TABLE IF NOT EXISTS CitizenRegistration (
@@ -212,79 +188,36 @@ CREATE TABLE IF NOT EXISTS CitizenRegistration (
     PRIMARY KEY (idno, dwbid)
 );
 
+-- Massive TODO:
+-- On Wahlschein creation verify Year association for corrosponding Vote
+-- On Stimmzettel creation verify Year association for corrosponding Vote
+    -- Vote Erststimme is votable in this year in the associated Wahlkreis
+    -- Wahlkreis -> DirektWahlbezirk -> Stimmzettel -> Candidacy -> Wahlkreis
+    -- Wahlkreis -> BriefWahlbezirk -> Wahlbezirk -> Wahlschein -> Candidacy -> Wahlkreis
 
--- Election Results
+    -- Vote Zweitstimme is votable in this year in the associated FederalState
+    -- Federalstate -> Wahlkreis -> Direktwahlbezirk -> Stimmzettel -> Landesliste -> FederalState
+    -- Federalstate -> Wahlkreis -> Briefwahlbezirk -> Wahlbezirk -> Wahlschein -> Landesliste -> FederalState
 
-CREATE FUNCTION incLandeliste(zweitstimme INT) AS (
-    UPDATE TABLE Landesliste
-    SET votes = votes + 1
-    WHERE Landesliste.llid = zweitstimme
+CREATE TABLE IF NOT EXISTS AccumulatedZweistimmenWK (
+    wkid INT REFERENCES Wahlkreis(wkid),
+    llid INT REFERENCES Landesliste(llid),
+    votes INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (wkid, llid)
 );
 
-CREATE FUNCTION decLandeliste(zweitstimme INT) AS (
-    UPDATE TABLE Landesliste
-    SET votes = votes - 1
-    WHERE Landesliste.llid = zweitstimme
+CREATE OR REPLACE VIEW AccumulatedZweistimmenFS AS (
+    SELECT wk.fsid AS fsid, a.llid AS llid, SUM(a.votes) AS votes
+    FROM AccumulatedZweistimmenWK a NATURAL JOIN Wahlkreis wk
+    GROUP BY wk.fsid, a.llid
 );
 
-CREATE FUNCTION incCandidacy(erststimme INT) AS (
-    UPDATE TABLE Candidacy
-    SET votes = votes + 1
-    WHERE Candidacy.cid = erststimme
+CREATE OR REPLACE VIEW AccumulatedErststimmeFS AS (
+    SELECT wk.fsid AS fsid, c.idno AS idno, SUM(c.votes) AS votes
+    FROM Candidacy c NATURAL JOIN Wahlkreis wk
+    GROUP BY wk.fsid, c.idno
 );
 
-CREATE FUNCTION decCandidacy(zweitstimme INT) AS (
-    UPDATE TABLE Candidacy
-    SET votes = votes - 1
-    WHERE Candidacy.cid = zweitstimme;
-);
-
-CREATE FUNCTION shiftVoteCandidacy(from INT, to INT) AS (
-    decCandidacy(from);
-    incCandidacy(to);
-);
-
-CREATE FUNCTION shiftVoteLandeliste(from INT, to INT) AS (
-    decLandeliste(from);
-    incLandeliste(to);
-);
-
-CREATE TRIGGER insertVoteToLandesliste
-AFTER INSERT ON Vote
-EXECUTE PROCEDURE incLandeliste(NEW.zweitstimme);
-
-CREATE TRIGGER updateVoteToLandesliste
-AFTER UPDATE ON Vote
-EXECUTE PROCEDURE shiftVoteLandeliste(OLD.zweitstimme, NEW.zweitstimme)
-
-CREATE TRIGGER insertVoteToCandidacy
-AFTER INSERT ON Vote
-EXECUTE PROCEDURE incCandidacy(NEW.erststimme);
-
-CREATE TRIGGER updateVoteToCandidacy
-AFTER UPDATE ON Vote
-EXECUTE PROCEDURE shiftVoteCandidacy(OLD.zweitstimme, NEW.zweitstimme)
-
-CREATE VIEW AccumulatedErststimmen AS (
-    WITH Totalvotes(wkid, total) AS (
-        SELECT year, wkid, SUM(votes) AS total
-        FROM Candidacy
-        GROUP BY year, wkid
-    )
-    SELECT year, wkid, idno, votes, (CAST(votes AS NUMERIC(8,7)) / total) AS percentage
-    FROM Candidacy NATURAL JOIN Totalvotes
-);
-
-CREATE VIEW AccumulatedZweistimmen AS (
-
-);
-
-
-CREATE TABLE ZweitstimmenArchive (
-    year INT NOT NULL REFERENCES ElectionYear(year),
-    fsid INT NOT NULL REFERENCES FederalState(fsid),
-    pid INT NOT NULL REFERENCES Party(pid),
-    votes INT NOT NULL,
-    CHECK (votes > 0),
-    PRIMARY KEY (year, fsid, pid)
-);
+-- TODO:
+-- Create trigger to add erststimme to Candidacy.votes
+-- Create trigger to add zweitstimme to AccumulatedZweistimmenWK.votes

@@ -156,6 +156,7 @@ object Generator {
         result.votes.map((sz:Stimmzettel) => {
             // println(f"INSERT INTO Vote (gender, age, erststimme, zweitstimme) VALUES (${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
             })
+        println(f"${sampleSize} Stimmzettel generated.")
         println(f"Deviation from target distribution: ${result.distribution.distance(distribution)}")
     }
 }
@@ -225,6 +226,6 @@ object GeneratorConfig {
 */
         ))
 
-        def sampleSize:Int = 10000
+        def sampleSize:Int = 1000000
     }
 }
