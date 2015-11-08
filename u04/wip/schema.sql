@@ -1,6 +1,6 @@
 DROP VIEW  IF EXISTS AccumulatedErststimmeFS         CASCADE;
-DROP VIEW  IF EXISTS AccumulatedZweistimmenFS        CASCADE;
-DROP TABLE IF EXISTS AccumulatedZweistimmenWK        CASCADE;
+DROP VIEW  IF EXISTS AccumulatedZweitstimmenFS       CASCADE;
+DROP TABLE IF EXISTS AccumulatedZweitstimmenWK       CASCADE;
 DROP TABLE IF EXISTS CitizenRegistration             CASCADE;
 DROP VIEW  IF EXISTS Vote                            CASCADE;
 DROP TABLE IF EXISTS Stimmzettel                     CASCADE;
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS Wahlschein (
     bwbid INT NOT NULL REFERENCES BriefWahlBezirkData(bwbid) ON DELETE CASCADE,
     issuedon DATE NOT NULL,
     gender CHAR NOT NULL,
-    CHECK (gender in ('m', 'f')),
+    CHECK (gender in ('m', 'f', 'n', '-')),
     age INT NOT NULL,
     CHECK (age >= 18),
     CHECK (age < 150),
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS Stimmzettel (
     szid SERIAL PRIMARY KEY,
     dwbid INT NOT NULL REFERENCES DirektWahlBezirkData(dwbid) ON DELETE CASCADE,
     gender CHAR NOT NULL,
-    CHECK (gender in ('m', 'f')),
+    CHECK (gender in ('m', 'f', 'n', '-')),
     age INT NOT NULL,
     CHECK (age >= 18),
     CHECK (age < 150),
@@ -199,14 +199,14 @@ CREATE TABLE IF NOT EXISTS CitizenRegistration (
     -- Federalstate -> Wahlkreis -> Direktwahlbezirk -> Stimmzettel -> Landesliste -> FederalState
     -- Federalstate -> Wahlkreis -> Briefwahlbezirk -> Wahlbezirk -> Wahlschein -> Landesliste -> FederalState
 
-CREATE TABLE IF NOT EXISTS AccumulatedZweistimmenWK (
+CREATE TABLE IF NOT EXISTS AccumulatedZweitstimmenWK (
     wkid INT REFERENCES Wahlkreis(wkid),
     llid INT REFERENCES Landesliste(llid),
     votes INT NOT NULL DEFAULT 0,
     PRIMARY KEY (wkid, llid)
 );
 
-CREATE OR REPLACE VIEW AccumulatedZweistimmenFS AS (
+CREATE OR REPLACE VIEW AccumulatedZweitstimmenFS AS (
     SELECT wk.fsid AS fsid, a.llid AS llid, SUM(a.votes) AS votes
     FROM AccumulatedZweistimmenWK a NATURAL JOIN Wahlkreis wk
     GROUP BY wk.fsid, a.llid

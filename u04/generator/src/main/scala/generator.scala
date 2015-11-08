@@ -15,14 +15,14 @@ object Generator {
 
     trait Erststimme {}
     object InvalidErststimme extends Erststimme {
-        override def toString(): String = "INVALID"
+        override def toString(): String = "NULL"
     }
     case class Candidacy(val cid:Int, val idno:String, val wkid:Int, val year:Int, val supporter:Option[Int]) extends Erststimme {
         override def toString(): String = cid.toString
     }
     trait Zweitstimme {}
     object InvalidZweitstimme extends Zweitstimme {
-        override def toString(): String = "INVALID"
+        override def toString(): String = "NULL"
     }
     case class Landesliste(val llid:Int, val year:Int, val pid:Int, val fsid:Int) extends Zweitstimme {
         override def toString(): String = llid.toString
@@ -44,9 +44,9 @@ object Generator {
         }
     }
 
-    class Ergebnis(val votes:Set[Stimmzettel]) {
+    class Ergebnis(val votes:List[Stimmzettel]) {
         /** Adds a Stimmzettel */
-        def insert(vote:Stimmzettel):Ergebnis = new Ergebnis(votes + vote)
+        def insert(vote:Stimmzettel):Ergebnis = new Ergebnis(vote :: votes)
 
         /** Calculates current distribution */
         def distribution():Distribution = {
@@ -126,9 +126,10 @@ object Generator {
 
     /** Generates list of Stimmzettel for given distribution etc. */
     def generate(targetDist:Distribution, size:Int):Ergebnis = {
-        var result:Ergebnis = new Ergebnis(Set[Stimmzettel]())
+        var result:Ergebnis = new Ergebnis(List[Stimmzettel]())
         println("Generating Stimmzettel")
         for (i <- 1 to size) {
+
             // Progress indicator
             val prevPercentage:Int = scala.math.round(((i - 1):Float) / (size:Float) * 100:Float)
             val percentage:Int = scala.math.round((i:Float) / (size:Float) * 100:Float)
@@ -151,11 +152,21 @@ object Generator {
     def main(args: Array[String]):Unit = {
         import GeneratorConfig._
 
+import java.io._
+def printToFile(f: File)(op: PrintWriter => Unit) {
+  val p = new PrintWriter(f)
+  try { op(p) } finally { p.close() }
+}
+
         val result = generate(distribution, sampleSize);
 
+        val dwbid = 1
+
+    printToFile(new File("example.txt")) { p =>
         result.votes.map((sz:Stimmzettel) => {
-            // println(f"INSERT INTO Vote (gender, age, erststimme, zweitstimme) VALUES (${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
-            })
+                p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+        })
+    }
         println(f"${sampleSize} Stimmzettel generated.")
         println(f"Deviation from target distribution: ${result.distribution.distance(distribution)}")
     }
@@ -186,16 +197,7 @@ object GeneratorConfig {
     /** Loads hardcoded distribution */
     object GeneratorConfigHardcoded {
         /* DEFINE LANDESLISTEN HERE */
-        val npd     = new Landesliste(1, 2013, 1, 1)
-        val spd     = new Landesliste(2, 2013, 2, 1)
-        val linke   = new Landesliste(3, 2013, 3, 1)
-        val fdp     = new Landesliste(4, 2013, 4, 1)
-        val gruene  = new Landesliste(5, 2013, 5, 1)
-        val piraten = new Landesliste(7, 2013, 7, 1)
-        val dvu     = new Landesliste(11, 2013, 11, 1)
-        val cdu     = new Landesliste(12, 2013, 12, 1)
-        val mlpd    = new Landesliste(13, 2013, 13, 1)
-        val rentner = new Landesliste(18, 2013, 18, 1)
+
         /* DEFINE CANDIDACIES HERE */
         val c1 = new Candidacy(1, "abc123", 0, 2013, None)
         val c2 = new Candidacy(2, "defghi", 0, 2013, None)
@@ -206,26 +208,19 @@ object GeneratorConfig {
             (c2 -> 0.5)
         ), Map[Zweitstimme, Double](
             /* Zweitstimmen results */
-            (cdu -> 0.025),
-            (spd -> 0.025),
-            (linke -> 0.025),
-            (gruene -> 0.025),
-            (InvalidZweitstimme -> 0.90)
-
-/*
-            (npd -> 1240),
-            (spd -> 41793),
-            (linke -> 13481),
-            (fdp -> 24187),
-            (gruene -> 21967),
-            (piraten -> 3385),
-            (dvu -> 159),
-            (cdu -> 51068),
-            (mlpd -> 47),
-            (rentner -> 1821)
-*/
+            (new Landesliste(25, 2009, 2, 13) -> 0.32824235251159950391),
+            (new Landesliste(34, 2009, 4, 13) -> 0.09627116083176469848),
+            (new Landesliste(98, 2009, 18, 13) -> 0),
+            (new Landesliste(102, 2009, 12, 13) -> 0.38901934614682422266),
+            (new Landesliste(158, 2009, 5, 13) -> 0.10324030646613322589),
+            (new Landesliste(172, 2009, 1, 13) -> 0.00819677291413534119),
+            (new Landesliste(175, 2009, 13, 13) -> 0),
+            (new Landesliste(178, 2009, 3, 13) -> 0.07503006112954300788),
+            (new Landesliste(186, 2009, 7, 13) -> 0),
+            (new Landesliste(187, 2009, 11, 13) -> 0),
+            (InvalidZweitstimme -> 0)
         ))
 
-        def sampleSize:Int = 1000000
+        def sampleSize:Int = 158843
     }
 }
