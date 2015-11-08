@@ -1,3 +1,4 @@
+-- works
 insert into Party (pid, name, shorthand, website, colourcode) VALUES (1, 'NPD', 'X1','X','X');
 insert into Party (pid, name, shorthand, website, colourcode) VALUES (2, 'SPD', 'X2','X','X');
 insert into Party (pid, name, shorthand, website, colourcode) VALUES (3, 'DIE LINKE', 'X3','X','X');

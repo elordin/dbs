@@ -1,3 +1,4 @@
+-- works
 insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (300, 1, 'Flensburg – Schleswig', NULL, 13, 2013);
 insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (301, 2, 'Nordfriesland – Dithmarschen Nord', NULL, 13, 2013);
 insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (302, 3, 'Steinburg – Dithmarschen Süd', NULL, 13, 2013);
