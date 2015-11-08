@@ -26,6 +26,7 @@ namespace DBS
             ReadWahlkreise();
             ReadParties();
             ReadCandidates();
+            ReadVotes();
             wrges.Flush();
             wrges.Close();
         }
@@ -103,7 +104,7 @@ namespace DBS
                 while ((line = sr.ReadLine()) != null)
                 {
                     wk = line.Split(';');
-                    wahlkreisIDs[wk[0]] = id;
+                    wahlkreisIDs[year+"_"+wk[0]] = id;
                     wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + year + ");";
                     wr.WriteLine(wl);
                     wrges.WriteLine(wl);
@@ -140,7 +141,6 @@ namespace DBS
                         id++;
                     }
                 }
-
                 sr.Close();
             }
 
@@ -175,6 +175,7 @@ namespace DBS
                 string landeslistenYFSP;
                 string titel="";
                 string vorname ="";
+                string supportingpartyid = "";
 
                 sr.ReadLine();
 
@@ -230,7 +231,16 @@ namespace DBS
 
                     if (c[7] != "")
                     {
-                        wl="insert into Candidacy (wkid, idno) VALUES (" + wahlkreisIDs[c[7]].ToString() + ", " + cid + ");";
+                        if (c[6] == "")
+                        {
+                            supportingpartyid = "NULL";
+                        }
+                        else
+                        {
+                            supportingpartyid = partyIDs[c[6]].ToString();
+                        }
+
+                        wl = "insert into Candidacy (wkid, idno, supportedby) VALUES (" + wahlkreisIDs[year + "_" + c[7]].ToString() + ", " + cid + ", "+ supportingpartyid + ");";
                         wr.WriteLine(wl);
                         wrges.WriteLine(wl);
                     }
@@ -260,6 +270,68 @@ namespace DBS
                 sr.Close();
                 wr.Flush();
                 wr.Close();
+            }
+        }
+
+        static void ReadVotes()
+        {
+            string wl = "";
+
+            foreach (string year in years)
+            {
+                StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Ergebnis\kerg_" + year + ".csv"), System.Text.Encoding.Default);
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_votes_" + year + ".sql"));
+
+                string line;
+                string[] c;                
+
+                string [] partys = sr.ReadLine().Split(';');
+                string lastparty="";
+                int wkid;
+                int numberofvotes = 0;
+
+                for (int i=0; i < partys.Length; i++)
+                {
+                    if (partys[i] == "")
+                        partys[i] = lastparty;
+                    else
+                        lastparty = partys[i];
+                }
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    c = line.Split(';');
+                    wkid = wahlkreisIDs[year + "_" + c[0]];
+
+                    for(int i=1; i < c.Length; i++)
+                    {
+                        if(c[i]=="")
+                        {
+                            numberofvotes = 0;
+                        }
+                        else
+                        {
+                            numberofvotes = Int32.Parse(c[i].Replace(" ",""));
+                        }
+
+                        if (i % 2 == 1)
+                        {
+                            wl = "insert into ERSTSTIMME (wkid, llid, votes) VALUES (" + wkid + ", (select llid from landesliste where year = '"+year+"' and pid = "+partyIDs[partys[i]]+" and fsid = (select fsid from wahlkreis where wkid = "+wkid+")), " + numberofvotes + ");";
+                            wr.WriteLine(wl);
+                            wrges.WriteLine(wl);
+                        }
+                        else
+                        {
+                            wl = "insert into ZWEITSTIMME (wkid, cid, votes) VALUES (" + wkid + ", (select cid from candidacy where wkid = " + wkid + " and supportedby = " + partyIDs[partys[i]] + "), " + numberofvotes + ");";
+                            wr.WriteLine(wl);
+                            wrges.WriteLine(wl);
+                        }
+                    }
+                }
+                sr.Close();
+                wr.Flush();
+                wr.Close();
+
             }
         }
 
