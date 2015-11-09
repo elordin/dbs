@@ -218,7 +218,7 @@ CREATE TABLE IF NOT EXISTS AccumulatedZweitstimmenWK (
 
 CREATE OR REPLACE VIEW AccumulatedZweitstimmenFS AS (
     SELECT wk.fsid AS fsid, a.llid AS llid, SUM(a.votes) AS votes
-    FROM AccumulatedZweistimmenWK a NATURAL JOIN Wahlkreis wk
+    FROM AccumulatedZweitstimmenWK a NATURAL JOIN Wahlkreis wk
     GROUP BY wk.fsid, a.llid
 );
 
