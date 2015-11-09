@@ -92,10 +92,10 @@ namespace DBS
             int id = 1;
             string wl = "";
 
-            foreach(string year in years)
+            foreach(string year in new List<string>{"2013"})
             {
                 StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Wahlkreisnamen\Wahlkreisnamen_" + year + ".csv"), System.Text.Encoding.Default);
-                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_wahlkreise_" + year + ".sql"));
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_wahlkreise_" + "2009+2013" + ".sql"));
 
                 string line;
                 string [] wk;
@@ -104,8 +104,15 @@ namespace DBS
                 while ((line = sr.ReadLine()) != null)
                 {
                     wk = line.Split(';');
-                    wahlkreisIDs[year+"_"+wk[0]] = id;
-                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + year + ");";
+
+                    wahlkreisIDs["2009"+"_"+wk[0]] = id;
+                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + "2009" + ");";
+                    wr.WriteLine(wl);
+                    wrges.WriteLine(wl);
+                    id++;
+
+                    wahlkreisIDs["2013" + "_" + wk[0]] = id;
+                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + "2013" + ");";
                     wr.WriteLine(wl);
                     wrges.WriteLine(wl);
                     id++;
@@ -205,7 +212,7 @@ namespace DBS
                         vorname = c[3];                    
                     }
 
-                    wl = "insert into Citizen (idno, title, firstname, lastname, dateofbirth, gender) VALUES (" + cid + ", '" + titel + "', '" + vorname + "', '" + c[4] + "', '1.1." + c[5] + ".', 'p');";
+                    wl = "insert into Citizen (idno, title, firstname, lastname, dateofbirth, gender) VALUES (" + cid + ", '" + titel + "', '" + vorname + "', '" + c[4] + "', '1.1." + c[5] + ".', 'n');";
                     wr.WriteLine(wl);
                     wrges.WriteLine(wl);
 
@@ -222,12 +229,13 @@ namespace DBS
                         federalState=c[8];
                     }
 
-                    if (c[6] != "")
-                    {
-                        wl="insert into PartyMembership (pid, idno) VALUES (" + partyIDs[c[6]].ToString() + ", " + cid + ");";
-                        wr.WriteLine(wl);
-                        wrges.WriteLine(wl);
-                    }
+                    //Partymembership paused
+                    //if (c[6] != "")
+                    //{
+                    //    wl="insert into PartyMembership (pid, idno) VALUES (" + partyIDs[c[6]].ToString() + ", " + cid + ");";
+                    //    wr.WriteLine(wl);
+                    //    wrges.WriteLine(wl);
+                    //}
 
                     if (c[7] != "")
                     {
@@ -277,7 +285,7 @@ namespace DBS
         {
             string wl = "";
 
-            foreach (string year in years)
+            foreach (string year in new List<string> { "2013" })
             {
                 StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Ergebnis\kerg_" + year + ".csv"), System.Text.Encoding.Default);
                 StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_votes_" + year + ".sql"));
@@ -314,17 +322,20 @@ namespace DBS
                             numberofvotes = Int32.Parse(c[i].Replace(" ",""));
                         }
 
-                        if (i % 2 == 1)
+                        if (numberofvotes != 0)
                         {
-                            wl = "insert into ERSTSTIMME (wkid, llid, votes) VALUES (" + wkid + ", (select llid from landesliste where year = '"+year+"' and pid = "+partyIDs[partys[i]]+" and fsid = (select fsid from wahlkreis where wkid = "+wkid+")), " + numberofvotes + ");";
-                            wr.WriteLine(wl);
-                            wrges.WriteLine(wl);
-                        }
-                        else
-                        {
-                            wl = "insert into ZWEITSTIMME (wkid, cid, votes) VALUES (" + wkid + ", (select cid from candidacy where wkid = " + wkid + " and supportedby = " + partyIDs[partys[i]] + "), " + numberofvotes + ");";
-                            wr.WriteLine(wl);
-                            wrges.WriteLine(wl);
+                            if (i % 2 == 1)
+                            {
+                                wl = "update Candidacy set votes = " + numberofvotes + " where wkid = " + wkid + " and supportedby = " + partyIDs[partys[i]] + ";";
+                                wr.WriteLine(wl);
+                                wrges.WriteLine(wl);
+                            }
+                            else
+                            {
+                                wl = "insert into AccumulatedZweitstimmenWK (wkid, llid, votes) VALUES (" + wkid + ", (select llid from landesliste where year = '" + year + "' and pid = " + partyIDs[partys[i]] + " and fsid = (select fsid from wahlkreis where wkid = " + wkid + ")), " + numberofvotes + ");";
+                                wr.WriteLine(wl);
+                                wrges.WriteLine(wl);
+                            }
                         }
                     }
                 }

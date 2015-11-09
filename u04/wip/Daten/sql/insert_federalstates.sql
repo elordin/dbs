@@ -1,4 +1,3 @@
--- works
 insert into FederalState (fsid, name, outline) VALUES (1, 'Berlin', NULL);
 insert into FederalState (fsid, name, outline) VALUES (2, 'Rheinland-Pfalz', NULL);
 insert into FederalState (fsid, name, outline) VALUES (3, 'Niedersachsen', NULL);
