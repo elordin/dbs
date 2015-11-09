@@ -246,7 +246,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION incZweitstimmeWahlbezirk() RETURNS TRIGGER AS $inc$
     BEGIN
-        UPDATE AccumulatedZweistimmenWK
+        UPDATE AccumulatedZweitstimmenFS
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk
@@ -259,7 +259,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION decZweitstimmeWahlbezirk() RETURNS TRIGGER AS $dec$
     BEGIN
-        UPDATE AccumulatedZweistimmenWK
+        UPDATE AccumulatedZweitstimmenFS
         SET votes = votes - 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk
@@ -272,7 +272,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION incZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $inc$
     BEGIN
-        UPDATE AccumulatedZweistimmenWK
+        UPDATE AccumulatedZweitstimmenFS
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
@@ -285,7 +285,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION decZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $dec$
     BEGIN
-        UPDATE AccumulatedZweistimmenWK
+        UPDATE AccumulatedZweitstimmenFS
         SET votes = votes - 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
