@@ -246,7 +246,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION incZweitstimmeWahlbezirk() RETURNS TRIGGER AS $inc$
     BEGIN
-        UPDATE AccumulatedZweitstimmenFS
+        UPDATE AccumulatedZweitstimmenWK
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk
@@ -259,7 +259,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION decZweitstimmeWahlbezirk() RETURNS TRIGGER AS $dec$
     BEGIN
-        UPDATE AccumulatedZweitstimmenFS
+        UPDATE AccumulatedZweitstimmenWK
         SET votes = votes - 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk
@@ -272,7 +272,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION incZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $inc$
     BEGIN
-        UPDATE AccumulatedZweitstimmenFS
+        UPDATE AccumulatedZweitstimmenWK
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
@@ -285,7 +285,7 @@ LANGUAGE plpgsql;
 
 CREATE FUNCTION decZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $dec$
     BEGIN
-        UPDATE AccumulatedZweitstimmenFS
+        UPDATE AccumulatedZweitstimmenWK
         SET votes = votes - 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
@@ -299,16 +299,20 @@ LANGUAGE plpgsql;
 
 CREATE TRIGGER CandidacyCounterStimmzettel
     AFTER INSERT ON Stimmzettel
+    FOR EACH ROW
     EXECUTE PROCEDURE incErststimme();
 
 CREATE TRIGGER CandidacyCounterWahlschein
     AFTER INSERT ON Wahlschein
+    FOR EACH ROW
     EXECUTE PROCEDURE incErststimme();
 
 CREATE TRIGGER LandeslisteCounterStimmzettel
     AFTER INSERT ON Stimmzettel
+    FOR EACH ROW
     EXECUTE PROCEDURE incZweitstimmeDirektWahlbezirk();
 
 CREATE TRIGGER LandeslisteCounterWahlschein
     AFTER INSERT ON Wahlschein
+    FOR EACH ROW
     EXECUTE PROCEDURE incZweitstimmeWahlbezirk();
