@@ -5,7 +5,7 @@ WITH RECURSIVE
         (2, 150, 2013),
         (3, 10, 2013)
     ),
-    PartiesToConsider(pid, votes) AS (
+    PartiesBeyondFivePercent(pid, votes) AS (
         SELECT a1.pid, a1.votes
         FROM AggegratedVotesZS a1 JOIN AggegratedVotesZS a2 ON a1.year = a2.year
         GROUP BY a1.pid, a1.votes
@@ -13,16 +13,16 @@ WITH RECURSIVE
     ),
     Factors(f) AS (
         VALUES (0.5)
-        UNION
+        UNION ALL
         SELECT f + 1
         FROM Factors
-        WHERE f < (300 * (SELECT 1.000 * MAX(votes) / SUM(votes) FROM PartiesToConsider))
+        WHERE f < (300 * (SELECT 1.000 * MAX(votes) / SUM(votes) FROM PartiesBeyondFivePercent))
     )
 
 SELECT pid, COUNT(quotient)
 FROM (
     SELECT az.pid, az.votes / f.f AS quotient
-      FROM PartiesToConsider az, Factors f
+      FROM PartiesBeyondFivePercent az, Factors f
       ORDER BY quotient DESC
       LIMIT 299) r
 GROUP BY pid;
