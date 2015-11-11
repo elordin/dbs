@@ -1,27 +1,37 @@
-DROP VIEW  IF EXISTS AccumulatedErststimmeFS         CASCADE;
-DROP VIEW  IF EXISTS AccumulatedZweitstimmenFS       CASCADE;
-DROP TABLE IF EXISTS AccumulatedZweitstimmenWK       CASCADE;
-DROP TABLE IF EXISTS CitizenRegistration             CASCADE;
-DROP VIEW  IF EXISTS Vote                            CASCADE;
-DROP TABLE IF EXISTS Stimmzettel                     CASCADE;
-DROP TABLE IF EXISTS Wahlschein                      CASCADE;
-DROP TABLE IF EXISTS Candidacy                       CASCADE;
--- DROP TABLE IF EXISTS PartyMembership                 CASCADE;
-DROP TABLE IF EXISTS Landeslistenplatz               CASCADE;
-DROP TABLE IF EXISTS Landesliste                     CASCADE;
-DROP VIEW  IF EXISTS BriefWahlBezirk                 CASCADE;
-DROP TABLE IF EXISTS BriefWahlBezirkData             CASCADE;
-DROP VIEW  IF EXISTS DirektWahlBezirk                CASCADE;
-DROP TABLE IF EXISTS DirektWahlBezirkData            CASCADE;
-DROP TABLE IF EXISTS Wahlbezirk                      CASCADE;
-DROP TABLE IF EXISTS Wahlkreis                       CASCADE;
-DROP TABLE IF EXISTS Party                           CASCADE;
-DROP VIEW  IF EXISTS Candidates                      CASCADE;
-DROP TABLE IF EXISTS CandidatesData                  CASCADE;
-DROP TABLE IF EXISTS hasVoted                        CASCADE;
-DROP TABLE IF EXISTS Citizen                         CASCADE;
-DROP TABLE IF EXISTS ElectionYear                    CASCADE;
-DROP TABLE IF EXISTS FederalState                    CASCADE;
+DROP TRIGGER IF EXISTS CandidacyCounterStimmzettel      ON Stimmzettel CASCADE;
+DROP TRIGGER IF EXISTS CandidacyCounterWahlschein       ON Wahlschein CASCADE;
+DROP TRIGGER IF EXISTS LandeslisteCounterStimmzettel    ON Stimmzettel CASCADE;
+DROP TRIGGER IF EXISTS LandeslisteCounterWahlschein     ON Wahlschein CASCADE;
+DROP FUNCTION IF EXISTS incErststimme()                  CASCADE;
+DROP FUNCTION IF EXISTS decErststimme()                  CASCADE;
+DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk()       CASCADE;
+DROP FUNCTION IF EXISTS decZweitstimmeWahlbezirk()       CASCADE;
+DROP FUNCTION IF EXISTS incZweitstimmeDirektWahlbezirk() CASCADE;
+DROP FUNCTION IF EXISTS decZweitstimmeDirektWahlbezirk() CASCADE;
+DROP VIEW  IF EXISTS AccumulatedErststimmeFS             CASCADE;
+DROP VIEW  IF EXISTS AccumulatedZweitstimmenFS           CASCADE;
+DROP TABLE IF EXISTS AccumulatedZweitstimmenWK           CASCADE;
+DROP TABLE IF EXISTS CitizenRegistration                 CASCADE;
+DROP VIEW  IF EXISTS Vote                                CASCADE;
+DROP TABLE IF EXISTS Stimmzettel                         CASCADE;
+DROP TABLE IF EXISTS Wahlschein                          CASCADE;
+DROP TABLE IF EXISTS Candidacy                           CASCADE;
+-- DROP TABLE IF EXISTS PartyMembership                  CASCADE;
+DROP TABLE IF EXISTS Landeslistenplatz                   CASCADE;
+DROP TABLE IF EXISTS Landesliste                         CASCADE;
+DROP VIEW  IF EXISTS BriefWahlBezirk                     CASCADE;
+DROP TABLE IF EXISTS BriefWahlBezirkData                 CASCADE;
+DROP VIEW  IF EXISTS DirektWahlBezirk                    CASCADE;
+DROP TABLE IF EXISTS DirektWahlBezirkData                CASCADE;
+DROP TABLE IF EXISTS Wahlbezirk                          CASCADE;
+DROP TABLE IF EXISTS Wahlkreis                           CASCADE;
+DROP TABLE IF EXISTS Party                               CASCADE;
+DROP VIEW  IF EXISTS Candidates                          CASCADE;
+DROP TABLE IF EXISTS CandidatesData                      CASCADE;
+DROP TABLE IF EXISTS hasVoted                            CASCADE;
+DROP TABLE IF EXISTS Citizen                             CASCADE;
+DROP TABLE IF EXISTS ElectionYear                        CASCADE;
+DROP TABLE IF EXISTS FederalState                        CASCADE;
 
 CREATE TABLE IF NOT EXISTS FederalState (
     fsid SERIAL PRIMARY KEY,
@@ -147,7 +157,7 @@ WHERE supportedby IS NOT NULL;
 CREATE TABLE IF NOT EXISTS Wahlschein (
     wsid SERIAL PRIMARY KEY,
 
-    bwbid INT NOT NULL REFERENCES BriefWahlBezirkData(bwbid) ON DELETE CASCADE,
+    wbid INT NOT NULL REFERENCES Wahlbezirk(wbid) ON DELETE CASCADE,
     issuedon DATE NOT NULL,
     gender CHAR NOT NULL,
     CHECK (gender in ('m', 'f', 'n', '-')),
@@ -218,6 +228,91 @@ CREATE OR REPLACE VIEW AccumulatedErststimmeFS AS (
     GROUP BY wk.fsid, c.idno
 );
 
--- TODO:
--- Create trigger to add erststimme to Candidacy.votes
--- Create trigger to add zweitstimme to AccumulatedZweistimmenWK.votes
+CREATE FUNCTION incErststimme() RETURNS TRIGGER AS $inc$
+    BEGIN
+        UPDATE Candidacy SET votes = votes + 1 WHERE cid = NEW.erststimme;
+        RETURN NEW;
+    END;
+$inc$
+LANGUAGE plpgsql;
+
+CREATE FUNCTION decErststimme() RETURNS TRIGGER AS $dec$
+    BEGIN
+        UPDATE Candidacy SET votes = votes - 1 WHERE cid = NEW.erststimme;
+        RETURN NEW;
+    END;
+$dec$
+LANGUAGE plpgsql;
+
+CREATE FUNCTION incZweitstimmeWahlbezirk() RETURNS TRIGGER AS $inc$
+    BEGIN
+        UPDATE AccumulatedZweitstimmenWK
+        SET votes = votes + 1 WHERE wkid IN (
+            SELECT wkid
+            FROM Wahlbezirk
+            WHERE wbid = NEW.wbid
+        ) AND llid = NEW.zweitstimme;
+        RETURN NEW;
+    END;
+$inc$
+LANGUAGE plpgsql;
+
+CREATE FUNCTION decZweitstimmeWahlbezirk() RETURNS TRIGGER AS $dec$
+    BEGIN
+        UPDATE AccumulatedZweitstimmenWK
+        SET votes = votes - 1 WHERE wkid IN (
+            SELECT wkid
+            FROM Wahlbezirk
+            WHERE wbid = NEW.wbid
+        ) AND llid = NEW.zweitstimme;
+        RETURN NEW;
+    END;
+$dec$
+LANGUAGE plpgsql;
+
+CREATE FUNCTION incZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $inc$
+    BEGIN
+        UPDATE AccumulatedZweitstimmenWK
+        SET votes = votes + 1 WHERE wkid IN (
+            SELECT wkid
+            FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
+            WHERE dwbid = NEW.dwbid
+        ) AND llid = NEW.zweitstimme;
+        RETURN NEW;
+    END;
+$inc$
+LANGUAGE plpgsql;
+
+CREATE FUNCTION decZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $dec$
+    BEGIN
+        UPDATE AccumulatedZweitstimmenWK
+        SET votes = votes - 1 WHERE wkid IN (
+            SELECT wkid
+            FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
+            WHERE dwbid = NEW.dwbid
+        ) AND llid = NEW.zweitstimme;
+        RETURN NEW;
+    END;
+$dec$
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER CandidacyCounterStimmzettel
+    AFTER INSERT ON Stimmzettel
+    FOR EACH ROW
+    EXECUTE PROCEDURE incErststimme();
+
+CREATE TRIGGER CandidacyCounterWahlschein
+    AFTER INSERT ON Wahlschein
+    FOR EACH ROW
+    EXECUTE PROCEDURE incErststimme();
+
+CREATE TRIGGER LandeslisteCounterStimmzettel
+    AFTER INSERT ON Stimmzettel
+    FOR EACH ROW
+    EXECUTE PROCEDURE incZweitstimmeDirektWahlbezirk();
+
+CREATE TRIGGER LandeslisteCounterWahlschein
+    AFTER INSERT ON Wahlschein
+    FOR EACH ROW
+    EXECUTE PROCEDURE incZweitstimmeWahlbezirk();
