@@ -343,7 +343,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;342;;Sebastian;Blumenthal;1974;FDP;5;SH;3
 22.09.2013;343;;Volker;Blumentritt;1946;SPD;194;TH;7
 22.09.2013;344;;Jürgen;Blumer;1958;MLPD;116;;
-22.09.2013;345;;Uwe;Blusch;1960;Tierschutzpartei;;BW;1
+22.09.2013;345;;Uwe;Blusch;1960;Die Tierschutzpartei;;BW;1
 22.09.2013;346;;Alexander;Bock;1987;PIRATEN;218;BY;2
 22.09.2013;347;Dr. ;Inge Ursula;Bock;1958;AfD;;BB;6
 22.09.2013;348;;Steffen;Bockhahn;1978;DIE LINKE;14;MV;4
@@ -751,7 +751,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;750;;Detlef;Ebert;1964;FDP;68;ST;5
 22.09.2013;751;;Harald;Ebert;1961;VERNUNFT;;BY;3
 22.09.2013;752;;Harald;Ebner;1964;GRÜNE;268;BW;8
-22.09.2013;753;;Matthias;Ebner;1984;Tierschutzpartei;;BW;3
+22.09.2013;753;;Matthias;Ebner;1984;Die Tierschutzpartei;;BW;3
 22.09.2013;754;;Robin;Ebser;1980;AfD;85;;
 22.09.2013;755;;Daniel Karl;Eckard;1938;AfD;;NW;16
 22.09.2013;756;;Nico Alexander;Ecke;1978;PIRATEN;23;;
@@ -760,7 +760,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;759;;Christian;Eckert;1947;BP;;BY;13
 22.09.2013;760;;Florian;Eckert;1971;GRÜNE;233;BY;44
 22.09.2013;761;;Hannelore;Eckhardt;1954;SPD;;HE;42
-22.09.2013;762;;Anita Caroline;Eckhoff;1966;Tierschutzpartei;;SH;2
+22.09.2013;762;;Anita Caroline;Eckhoff;1966;Die Tierschutzpartei;;SH;2
 22.09.2013;763;;Horst Alexander Josef;Eckl;1970;DIE VIOLETTEN;;BY;21
 22.09.2013;764;Dr. ;Carola;Eckstein;1973;;259;;
 22.09.2013;765;;Sebastian;Edathy;1969;SPD;40;NI;17
@@ -813,7 +813,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;812;;Tamara;Engelhardt;1984;GRÜNE;;SL;8
 22.09.2013;813;;Tanja;Engelke;1977;RENTNER;;HH;4
 22.09.2013;814;;Michaela Barbara;Engelmeier-Heite;1960;SPD;99;NW;18
-22.09.2013;815;;Christine;Engelschall;1965;Tierschutzpartei;;BY;2
+22.09.2013;815;;Christine;Engelschall;1965;Die Tierschutzpartei;;BY;2
 22.09.2013;816;;Gaby;Englmeier;1967;GRÜNE;231;BY;31
 22.09.2013;817;Dr. ;Dagmar Gertraud Elsa;Enkelmann;1956;DIE LINKE;59;;
 22.09.2013;818;;Stephanie;Erben;1971;GRÜNE;196;TH;3
@@ -856,7 +856,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;855;;Benno;Falk;1953;;12;;
 22.09.2013;856;Dr. ;Dieter;Falk;1956;SPD;181;HE;27
 22.09.2013;857;;Katja;Falkenbach;1986;PIRATEN;22;HH;5
-22.09.2013;858;;Josef;Fassel;1957;Tierschutzpartei;69;;
+22.09.2013;858;;Josef;Fassel;1957;Die Tierschutzpartei;69;;
 22.09.2013;859;;Gabriele;Faulhaber;1953;DIE LINKE;177;;
 22.09.2013;860;;Holger Konrad;Faustmann;1975;AfD;;NI;14
 22.09.2013;861;Dr. ;Johannes;Fechner;1972;SPD;283;BW;19
@@ -1067,7 +1067,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;1066;;Torsten;Gebert;1972;FDP;;MV;8
 22.09.2013;1067;;Herbert Alexander;Gebhardt;1944;ÖDP;276;BW;8
 22.09.2013;1068;Dr. ;Thomas;Gebhart;1971;CDU;212;RP;8
-22.09.2013;1069;;Viktor Maria;Gebhart;1985;Tierschutzpartei;;BY;3
+22.09.2013;1069;;Viktor Maria;Gebhart;1985;Die Tierschutzpartei;;BY;3
 22.09.2013;1070;;Ali Riza;Gecgel;1970;MLPD;;NW;12
 22.09.2013;1071;;Wolfgang;Gehrcke-Reymann;1943;DIE LINKE;183;HE;2
 22.09.2013;1072;;Kai Boris;Gehring;1977;GRÜNE;120;NW;10
@@ -1100,7 +1100,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;1099;;Eberhard;Gienger;1951;CDU;266;;
 22.09.2013;1100;;Rita Maria;Giermann;1941;MLPD;;HH;4
 22.09.2013;1101;;Tim;Giesbert;1980;GRÜNE;118;;
-22.09.2013;1102;;Herta-Margarete;Giese;1935;Tierschutzpartei;;NI;1
+22.09.2013;1102;;Herta-Margarete;Giese;1935;Die Tierschutzpartei;;NI;1
 22.09.2013;1103;;Elmar;Gillet;1965;GRÜNE;91;NW;22
 22.09.2013;1104;;Cyrill Bernhard Erik;Gilsdorf;1966;ÖDP;;NW;23
 22.09.2013;1105;;Patrick;Ginsbach;1984;GRÜNE;;SL;6
@@ -1118,7 +1118,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;1117;;Therese;Gmelch;1955;MLPD;;BY;2
 22.09.2013;1118;;Franziska;Gminder;1945;AfD;;BW;21
 22.09.2013;1119;;Christa;Gnann;1965;ÖDP;;BW;6
-22.09.2013;1120;;Maria;Gockenbach;1979;Tierschutzpartei;;BW;4
+22.09.2013;1120;;Maria;Gockenbach;1979;Die Tierschutzpartei;;BW;4
 22.09.2013;1121;;Michael;Göbel;1963;FREIE WÄHLER;;RP;10
 22.09.2013;1122;;Werner;Goedeke;1949;NPD;121;;
 22.09.2013;1123;;Britta;Göggelmann;1992;ÖDP;;BW;12
@@ -1542,7 +1542,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;1541;;Bärbel;Höhn;1952;GRÜNE;117;NW;1
 22.09.2013;1542;Dr. ;Barbara;Höll;1957;DIE LINKE;152;SN;9
 22.09.2013;1543;Dr. ;Kurt Emmerich;Höller;1980;CSU;;BY;46
-22.09.2013;1544;;Markus Alfred;Höltke;1967;Tierschutzpartei;;HB;2
+22.09.2013;1544;;Markus Alfred;Höltke;1967;Die Tierschutzpartei;;HB;2
 22.09.2013;1545;;Günter;Hönig;1951;;51;;
 22.09.2013;1546;;Manfred;Hönig;1971;NPD;187;;
 22.09.2013;1547;;Ingrid;Hönlinger;1964;GRÜNE;265;BW;17
@@ -2181,7 +2181,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2180;;Johann;Lang;1934;Nichtwähler;;NW;5
 22.09.2013;2181;;Rudolf Edelbert;Lang;1953;ÖDP;247;BY;15
 22.09.2013;2182;;Simone;Lang;1971;SPD;;SN;12
-22.09.2013;2183;;Susanne;Lang;1969;Tierschutzpartei;;BW;2
+22.09.2013;2183;;Susanne;Lang;1969;Die Tierschutzpartei;;BW;2
 22.09.2013;2184;;Jürgen;Langanki;1972;REP;249;;
 22.09.2013;2185;;Andreas;Lange;1962;Bündnis21/RRP;;HB;4
 22.09.2013;2186;;Bernd;Lange;1957;FDP;;MV;7
@@ -2401,7 +2401,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2400;;Dennis;Majewski;1983;FDP;170;HE;19
 22.09.2013;2401;;Nina;Makarov;1956;AfD;;ST;5
 22.09.2013;2402;Dr. ;Birgit;Malecha-Nissen;1958;SPD;6;SH;8
-22.09.2013;2403;;Bernd Klaus;Mallon;1955;Tierschutzpartei;;SH;1
+22.09.2013;2403;;Bernd Klaus;Mallon;1955;Die Tierschutzpartei;;SH;1
 22.09.2013;2404;;Bernd;Malmberg;1955;DIE LINKE;277;;
 22.09.2013;2405;;Mario André;Malonn;1965;pro Deutschland;;BB;1
 22.09.2013;2406;;Sören;Mandel;1989;SPD;;NI;31
@@ -2451,7 +2451,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2450;;Lars;Matti;1973;PIRATEN;;RP;7
 22.09.2013;2451;;Manfred Günther Ernst Leopold;Mattis;1956;AfD;;HE;6
 22.09.2013;2452;;Daniel Alexander;Matulla;1988;CSU;;BY;60
-22.09.2013;2453;;Nico;Matys;1979;Tierschutzpartei;;HB;4
+22.09.2013;2453;;Nico;Matys;1979;Die Tierschutzpartei;;HB;4
 22.09.2013;2454;;Jörg;Matzat;1972;AfD;;RP;5
 22.09.2013;2455;;Wolfgang;Maurer;1953;FREIE WÄHLER;280;;
 22.09.2013;2456;;Mario;Mauritz;1960;REP;88;NW;8
@@ -2587,7 +2587,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2586;;Furat;Mohammed;1989;FREIE WÄHLER;75;;
 22.09.2013;2587;;Christoph;Mohs;1971;BüSo;;BW;4
 22.09.2013;2588;;Hubertus;Mohs;1939;BüSo;258;BW;3
-22.09.2013;2589;;Carsten;Molitor;1975;Tierschutzpartei;;NI;3
+22.09.2013;2589;;Carsten;Molitor;1975;Die Tierschutzpartei;;NI;3
 22.09.2013;2590;;Gabriele;Molitor;1962;FDP;92;NW;11
 22.09.2013;2591;;Brigitte;Molnar;1952;DIE VIOLETTEN;;BY;24
 22.09.2013;2592;;Dietrich;Monstadt;1957;CDU;12;MV;4
@@ -2685,9 +2685,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2684;;Joachim;Nahtz;1935;NPD;44;;
 22.09.2013;2685;Dr. ;Angelika;Nake;1961;FDP;186;HE;16
 22.09.2013;2686;;Maik;Nauheim;1981;PIRATEN;205;RP;6
-22.09.2013;2687;;Barbara;Nauheimer;1949;Tierschutzpartei;;BY;5
+22.09.2013;2687;;Barbara;Nauheimer;1949;Die Tierschutzpartei;;BY;5
 22.09.2013;2688;;Walter;Naumann;1961;PIRATEN;43;;
-22.09.2013;2689;;Monika;Nauruhn;1952;Tierschutzpartei;;SH;5
+22.09.2013;2689;;Monika;Nauruhn;1952;Die Tierschutzpartei;;SH;5
 22.09.2013;2690;;Hermann;Navel;1948;AfD;89;;
 22.09.2013;2691;;Marion;Nawroth;1956;PIRATEN;156;;
 22.09.2013;2692;;Gitta Christine;Neemann-Güntner;1959;SPD;;SH;12
@@ -2820,7 +2820,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2819;;Dragos;Pancescu;1967;GRÜNE;28;NI;12
 22.09.2013;2820;;Rodolfo;Panetta;1952;REP;;BW;8
 22.09.2013;2821;;Mathias;Panhey;1987;NPD;;MV;11
-22.09.2013;2822;;Sabine-Brigitte;Pankau;1969;Tierschutzpartei;;NI;2
+22.09.2013;2822;;Sabine-Brigitte;Pankau;1969;Die Tierschutzpartei;;NI;2
 22.09.2013;2823;;Rolf;Pannicke;1969;DIE LINKE;227;;
 22.09.2013;2824;;Sylvia;Pantel;1961;CDU;107;NW;45
 22.09.2013;2825;;Christian;Pap;1979;;74;;
@@ -2908,7 +2908,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2907;;Detlev;Pilger;1955;SPD;200;RP;8
 22.09.2013;2908;;Gisela;Piltz;1964;FDP;106;NW;3
 22.09.2013;2909;;Mariana;Pinzon Becht;1982;GRÜNE;;BW;31
-22.09.2013;2910;;Michael;Pioch;1979;Tierschutzpartei;;HB;3
+22.09.2013;2910;;Michael;Pioch;1979;Die Tierschutzpartei;;HB;3
 22.09.2013;2911;;Sascha;Pitkamin;1969;GRÜNE;49;;
 22.09.2013;2912;;Richard;Pitterle;1959;DIE LINKE;260;BW;4
 22.09.2013;2913;;Andreas;Pittrich;1980;PIRATEN;;BE;5
@@ -2971,8 +2971,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;2970;;Julia;Probst;1981;PIRATEN;;BW;3
 22.09.2013;2971;;Uwe;Probst;1965;FDP;249;BY;25
 22.09.2013;2972;;Maria Regina;Probst-Oelkers;1958;DIE VIOLETTEN;;BY;37
-22.09.2013;2973;;Martin;Pröhl;1935;Tierschutzpartei;;NI;5
-22.09.2013;2974;;Wilhelm;Pröhl;1935;Tierschutzpartei;;NI;4
+22.09.2013;2973;;Martin;Pröhl;1935;Die Tierschutzpartei;;NI;5
+22.09.2013;2974;;Wilhelm;Pröhl;1935;Die Tierschutzpartei;;NI;4
 22.09.2013;2975;;Ulrike Claudia;Prokop;1962;AfD;;BY;29
 22.09.2013;2976;;Florian;Pronold;1972;SPD;230;BY;1
 22.09.2013;2977;;Stephan;Protschka;1977;AfD;230;BY;13
@@ -3052,7 +3052,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;3051;;Christian;Reidel;1966;PIRATEN;229;BY;10
 22.09.2013;3052;;Brigitte Helene;Reifschneider-Groß;1951;FDP;;HE;20
 22.09.2013;3053;Dr. ;Carola;Reimann;1967;SPD;50;NI;12
-22.09.2013;3054;Dr. ;Dorit;Reimann;1949;Tierschutzpartei;;BY;7
+22.09.2013;3054;Dr. ;Dorit;Reimann;1949;Die Tierschutzpartei;;BY;7
 22.09.2013;3055;;Bente;Reimer;1977;SPD;;SH;14
 22.09.2013;3056;;Harry;Rein;1963;;133;;
 22.09.2013;3057;;Susanne;Rein;1961;CDU;;BW;49
@@ -3067,7 +3067,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;3066;;Peter;Reinsch;1952;AfD;;ST;10
 22.09.2013;3067;Dr. ;Gernot;Reipen;1953;PIRATEN;199;;
 22.09.2013;3068;;Sven;Reisch;1984;GRÜNE;260;BW;24
-22.09.2013;3069;;Ludwig;Reiser;1959;Tierschutzpartei;;BY;8
+22.09.2013;3069;;Ludwig;Reiser;1959;Die Tierschutzpartei;;BY;8
 22.09.2013;3070;;Daniel;Reiß;1986;NPD;266;;
 22.09.2013;3071;;Heike;Reitmann;1964;pro Deutschland;;RP;3
 22.09.2013;3072;;Jürgen;Reitz;1958;FREIE WÄHLER;;HE;5
@@ -3146,7 +3146,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;3145;;Carolin;Röhrig;1982;CDU;;SL;17
 22.09.2013;3146;;Aaron;Römer;1994;VERNUNFT;;RP;4
 22.09.2013;3147;;Christoph;Römer;1984;ÖDP;;TH;14
-22.09.2013;3148;;Manuela;Röper;1978;Tierschutzpartei;;BY;1
+22.09.2013;3148;;Manuela;Röper;1978;Die Tierschutzpartei;;BY;1
 22.09.2013;3149;;Johannes;Röring;1959;CDU;126;;
 22.09.2013;3150;;Kathrin;Rösel;1970;CDU;;NI;30
 22.09.2013;3151;Dr. ;Philipp;Rösler;1973;FDP;43;NI;1
@@ -3399,7 +3399,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;3398;;Manfred;Schlöter;1940;Die PARTEI;110;NW;36
 22.09.2013;3399;;Marlies;Schlöter;1950;Die PARTEI;;NW;35
 22.09.2013;3400;;Wibke;Schlöter;1984;Die PARTEI;;NW;52
-22.09.2013;3401;;Ursula Grete;Schloon;1943;Tierschutzpartei;;SH;3
+22.09.2013;3401;;Ursula Grete;Schloon;1943;Die Tierschutzpartei;;SH;3
 22.09.2013;3402;;Siegfried;Schlosser;1956;PIRATEN;80;;
 22.09.2013;3403;;Klaus-Dieter;Schlottmann;1949;PBC;45;NI;3
 22.09.2013;3404;;Bärbel;Schlude;1976;REP;;BY;24
@@ -3757,7 +3757,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;3756;;Arne;Stanneck;1970;AfD;5;SH;4
 22.09.2013;3757;;Felix Johannes;Staratschek;1966;;99;;
 22.09.2013;3758;Dr. ;Joachim;Starbatty;1940;AfD;;BE;1
-22.09.2013;3759;;Florian Helmut;Starck;1978;Tierschutzpartei;;BY;6
+22.09.2013;3759;;Florian Helmut;Starck;1978;Die Tierschutzpartei;;BY;6
 22.09.2013;3760;;Karl-Heinz;Starck;1934;CDU;;SH;21
 22.09.2013;3761;;Bernd;Starick;1963;AfD;;BB;8
 22.09.2013;3762;;Tobias;Stark;1979;CDU;;BW;38
@@ -3854,7 +3854,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;3853;;Max;Straubinger;1954;CSU;230;;
 22.09.2013;3854;;Werner;Straubinger;1967;CSU;;BY;52
 22.09.2013;3855;;Matthäus;Strebl;1952;CSU;;BY;35
-22.09.2013;3856;;Nancy;Streit;1980;Tierschutzpartei;68;;
+22.09.2013;3856;;Nancy;Streit;1980;Die Tierschutzpartei;68;;
 22.09.2013;3857;;Ludwig;Streitle;1947;REP;256;BY;20
 22.09.2013;3858;;Sabine;Streitle;1977;REP;;BY;14
 22.09.2013;3859;;Maria-Luise;Streng;1957;FREIE WÄHLER;;NW;7
@@ -4263,7 +4263,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;4262;;Gudrun;Wesener;1959;MLPD;;SN;7
 22.09.2013;4263;;Tom;Wesener;1993;FDP;85;;
 22.09.2013;4264;;Gustav Wolf Viktor Asche;Westarp Graf von;1948;FREIE WÄHLER;13;MV;2
-22.09.2013;4265;;Horst Peter;Wester;1964;Tierschutzpartei;;BY;4
+22.09.2013;4265;;Horst Peter;Wester;1964;Die Tierschutzpartei;;BY;4
 22.09.2013;4266;;Sagitta Barbara;Wester;1982;MLPD;;NW;8
 22.09.2013;4267;;Ingo;Westermann;1964;FDP;146;NW;40
 22.09.2013;4268;;Waldemar;Westermayer;1953;CDU;;BW;18
@@ -4409,12 +4409,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;4408;;Angela;Zellner;1960;DIE FRAUEN;;BY;3
 22.09.2013;4409;;Stefan;Zellner;1962;ÖDP;228;BY;28
 22.09.2013;4410;;Hermann Heinrich;Zelt;1960;FREIE WÄHLER;257;BY;18
-22.09.2013;4411;;Andreas Helmut;Zemke;1969;Tierschutzpartei;;HB;1
+22.09.2013;4411;;Andreas Helmut;Zemke;1969;Die Tierschutzpartei;;HB;1
 22.09.2013;4412;;Nadine;Zender;1986;SPD;;RP;27
 22.09.2013;4413;;Sebastian;Zenk;1990;CDU;;NI;39
 22.09.2013;4414;;Helga;Zepp-LaRouche;1948;BüSo;79;BE;1
 22.09.2013;4415;;Heinrich;Zertik;1957;CDU;;NW;48
-22.09.2013;4416;;Olaf Joachim;Zeuch;1964;Tierschutzpartei;;SH;4
+22.09.2013;4416;;Olaf Joachim;Zeuch;1964;Die Tierschutzpartei;;SH;4
 22.09.2013;4417;;Emmi;Zeulner;1987;CSU;240;BY;21
 22.09.2013;4418;;Dagmar;Ziegler;1960;SPD;56;BB;2
 22.09.2013;4419;;Heinz Kurt;Ziegler;1953;MLPD;;BY;14

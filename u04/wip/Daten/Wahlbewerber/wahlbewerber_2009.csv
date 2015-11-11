@@ -10,12 +10,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Beate;Adler;1960;GRÜNE;30;Niedersachsen;11
 ;;;Michael Harald;Adomeit;1957;;15;;
 ;;;Manfred August;Aengenvoort;1944;NPD;;Nordrhein-Westfalen;15
-;;;Werner;Ahlers;1939;VIOLETTEN;;Bayern;13
+;;;Werner;Ahlers;1939;DIE VIOLETTEN;;Bayern;13
 ;;;Jonas;Ahlgrimm;1986;DIE LINKE;174;;
 ;;;Kornelia;Ahr-Wiehe;1964;FDP;;Hessen;38
 ;;;Christian;Ahrendt;1963;FDP;13;Mecklenburg-Vorpommern;1
 ;;;Dirk;Ahrens;1977;PIRATEN;;Rheinland-Pfalz;3
-;;;Alois;Aigner;1962;ödp;230;Bayern;33
+;;;Alois;Aigner;1962;ÖDP;230;Bayern;33
 ;;;Ilse;Aigner;1964;CSU;224;Bayern;4
 ;;;Pasquale;Aita;1974;;184;;
 ;;;Jan;Aken van;1961;DIE LINKE;;Hamburg;1
@@ -38,7 +38,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Andrea;Andromidas;1949;BüSo;;Hessen;8
 ;;;Christian;Angne;1945;FDP;;Rheinland-Pfalz;21
 ;;;Winfried;Anslinger;1951;GRÜNE;299;Saarland;5
-;;;Daniel Richard;Ansorge;1988;ödp;257;Bayern;13
+;;;Daniel Richard;Ansorge;1988;ÖDP;257;Bayern;13
 ;;;Kornelia;Anspach-Papa;1961;CDU;;Saarland;9
 ;;;Marta;Aparicio de Eckelmann;1952;DIE LINKE;258;Baden-Württemberg;7
 ;;;Rainer;Apel;1948;BüSo;182;Hessen;10
@@ -70,7 +70,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Safet;Babic;1981;NPD;204;Rheinland-Pfalz;2
 ;;;Thomas;Bach;1961;CDU;;Hessen;24
 ;;;Iris;Bachmann;1947;GRÜNE;;Hessen;17
-;;;Sabrina;Bacholke;1981;Tierschutz;;Berlin;4
+;;;Sabrina;Bacholke;1981;Die Tierschutzpartei;;Berlin;4
 ;;;Veronika;Backes;1956;CDU;;Hessen;36
 ;;;Jürgen;Bader;1960;MLPD;20;Hamburg;2
 ;;;Lisa;Badum;1983;GRÜNE;236;Bayern;15
@@ -87,7 +87,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Daniel;Bahr;1976;FDP;130;Nordrhein-Westfalen;8
 ;;;Gabriele;Bailey;1958;GRÜNE;112;;
 ;;;Dieter;Balck;1941;RENTNER;;Hamburg;1
-;;;Torsten;Balg;1971;ödp;;Rheinland-Pfalz;17
+;;;Torsten;Balg;1971;ÖDP;;Rheinland-Pfalz;17
 ;;;Dr. jur. Michael;Balke;1954;;144;;
 ;;;Peter Manfred;Balnat;1956;NPD;;Bremen;3
 ;;;Regina Hildegard Käthe;Balzer;1949;MLPD;;Sachsen;7
@@ -117,7 +117,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Michael;Bathon;1961;CDU;;Hessen;37
 ;;;Annegret;Bauch;1958;CDU;;Hessen;39
 ;;;Matthias;Bauch;1979;BP;;Bayern;8
-;;;Anneliese;Bauer;1924;Volksabst.;;Baden-Württemberg;8
+;;;Anneliese;Bauer;1924;Volksabstimmung;;Baden-Württemberg;8
 ;;;Emil;Bauer;1953;MLPD;252;Bayern;4
 ;;;Erich;Bauer;1954;FDP;234;Bayern;53
 ;;;Sebastian-Michael;Bauer;1987;PIRATEN;;Baden-Württemberg;3
@@ -130,7 +130,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Jens;Baur;1979;NPD;161;;
 ;;;Yusuf;Bayrak;1963;;83;;
 ;;;Dr. Arthur;Bechert;1964;CSU;;Bayern;55
-;;;Birgit;Beciri;1962;Tierschutz;;Hessen;8
+;;;Birgit;Beciri;1962;Die Tierschutzpartei;;Hessen;8
 ;;;Ernst-Reinhard;Beck;1945;CDU;289;;
 ;;;Jürgen;Beck;1955;;86;;
 ;;;Marieluise;Beck;1952;GRÜNE;55;Bremen;1
@@ -173,7 +173,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Konrad;Bentz;1920;NPD;170;;
 ;;;Josef;Benz;1953;FDP;273;Baden-Württemberg;28
 ;;;Karl Hans August;Benz;1938;RRP;;Bayern;9
-;;;Markus;Benz;1955;VIOLETTEN;281;Baden-Württemberg;1
+;;;Markus;Benz;1955;DIE VIOLETTEN;281;Baden-Württemberg;1
 ;;;Patrick;Berberich;1979;CDU;;Rheinland-Pfalz;29
 ;;;Miro;Berbig;1964;DIE LINKE;8;;
 ;;;Dr. Axel;Berg;1959;SPD;218;Bayern;17
@@ -191,7 +191,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Christopher;Bernd;1986;PBC;;Rheinland-Pfalz;6
 ;;;Wolfgang Herbert Josef;Berndt;1949;DIE LINKE;232;;
 ;;;Marc;Bernhard;1972;CDU;;Baden-Württemberg;9
-;;;Martin;Bernmeiser;1952;VIOLETTEN;;Bayern;16
+;;;Martin;Bernmeiser;1952;DIE VIOLETTEN;;Bayern;16
 ;;;Wolfgang;Berns;1948;FDP;173;Hessen;10
 ;;;Florian;Bernschneider;1986;FDP;51;Niedersachsen;7
 ;;;Jürgen Heinrich;Bernsen;1963;;77;;
@@ -269,7 +269,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Süntje;Böttcher;1981;PIRATEN;;Saarland;8
 ;;;Viktor;Böttcher;1952;SPD;;Hessen;34
 ;;;Dr. Martin;Böttger;1947;GRÜNE;166;;
-;;;Karl-Heinz;Bok;1951;ödp;264;Baden-Württemberg;11
+;;;Karl-Heinz;Bok;1951;ÖDP;264;Baden-Württemberg;11
 ;;;Gerd;Bollmann;1947;SPD;142;;
 ;;;Alexander;Bonde;1975;GRÜNE;283;Baden-Württemberg;8
 ;;;Keno;Borde;1982;SPD;26;Niedersachsen;28
@@ -284,7 +284,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Hans-Joachim;Bosold;1952;NPD;175;;
 ;;;Dr. Arnold Klaus Siegmund Georg;Bosse von;1947;GRÜNE;15;;
 ;;;Karin;Bothe;1965;FDP;;Rheinland-Pfalz;25
-;;;Martin;Bothe;1968;Tierschutz;;Niedersachsen;2
+;;;Martin;Bothe;1968;Die Tierschutzpartei;;Niedersachsen;2
 ;;;Reiner;Bousonville;1961;GRÜNE;180;;
 ;;;Stefan Alois;Boxler;1964;GRÜNE;164;Sachsen;6
 ;;;Nicole;Bracht-Bendt;1959;FDP;37;Niedersachsen;6
@@ -298,7 +298,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Bernd;Brandl;1972;BP;;Bayern;14
 ;;;Dr. Reinhard;Brandl;1977;CSU;217;;
 ;;;Klaus;Brandner;1949;SPD;132;Nordrhein-Westfalen;6
-;;;Achim;Brandt;1965;Volksabst.;;Baden-Württemberg;4
+;;;Achim;Brandt;1965;Volksabstimmung;;Baden-Württemberg;4
 ;;;Fridolin;Brandt;1945;DIE LINKE;216;;
 ;;;Helmut;Brandt;1950;CDU;89;Nordrhein-Westfalen;29
 ;;;Holger Ernst;Brandt;1989;;77;;
@@ -313,7 +313,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Volker;Braun;1970;NPD;120;;
 ;;;Manfred;Brauner;1960;DIE LINKE;39;Niedersachsen;10
 ;;;von Harald-Ingo;Bredow;1949;BP;;Bayern;47
-;;;Ulrich Johannes;Brehme;1966;ödp;;Niedersachsen;2
+;;;Ulrich Johannes;Brehme;1966;ÖDP;;Niedersachsen;2
 ;;;Heike;Brehmer;1962;CDU;69;Sachsen-Anhalt;6
 ;;;Manfred Helmut;Breidbach;1968;NPD;107;Nordrhein-Westfalen;4
 ;;;Rolf;Breidenbach;1955;FDP;80;Berlin;11
@@ -334,7 +334,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Rüdiger;Brocke von;1957;SPD;;Schleswig-Holstein;18
 ;;;Benjamin;Brodnicki;1986;DVU;;Bremen;5
 ;;;Bernd;Brodtrück;1970;BüSo;;Sachsen;8
-;;;Edith;Brömsen;1959;VIOLETTEN;;Bayern;10
+;;;Edith;Brömsen;1959;DIE VIOLETTEN;;Bayern;10
 ;;;Dieter Manfred;Brose;1943;NPD;61;Brandenburg;10
 ;;;Martin;Broziat;1962;FDP;12;;
 ;;;Andreas;Brückner;1968;;66;;
@@ -353,8 +353,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Karl Heinz;Brunner;1953;SPD;255;Bayern;41
 ;;;Eckhard Karl Alfred;Bruns;1944;RRP;;Niedersachsen;6
 ;;;Michael;Bruns;1973;DIE LINKE;147;Nordrhein-Westfalen;16
-;;;Jörg;Brunschweiger;1979;VIOLETTEN;;Bayern;5
-;;;Rosi;Brunschweiger;1951;VIOLETTEN;;Bayern;12
+;;;Jörg;Brunschweiger;1979;DIE VIOLETTEN;;Bayern;5
+;;;Rosi;Brunschweiger;1951;DIE VIOLETTEN;;Bayern;12
 ;;;Raffaela;Bubendorfer;1988;FDP;213;Bayern;20
 ;;;Klaus;Bucher;1968;FDP;290;Baden-Württemberg;32
 ;;;Christine;Buchholz;1971;DIE LINKE;185;Hessen;3
@@ -362,7 +362,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Doris;Buchholz;1959;FDP;;Saarland;6
 ;;;Daniel;Buchmann;1981;BüSo;85;Berlin;2
 ;;;Sven;Buchmann;1979;;83;;
-;;;Prof. Dr. Klaus;Buchner;1941;ödp;;Berlin;3
+;;;Prof. Dr. Klaus;Buchner;1941;ÖDP;;Berlin;3
 ;;;Enrico;Buchs;1976;FDP;66;;
 ;;;Bettina Dorothee;Buchta;1960;MLPD;;Bremen;4
 ;;;Josef;Buck;1961;MLPD;275;;
@@ -408,25 +408,25 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Olaf;Caspary;1967;DVU;;Berlin;3
 ;;;Dr. Lars;Castellucci;1974;SPD;277;Baden-Württemberg;22
 ;;;Nicole;Cayrol;1980;SPD;;Saarland;28
-;;;Mario;Christen;1953;ödp;;Berlin;1
+;;;Mario;Christen;1953;ÖDP;;Berlin;1
 ;;;Rainer Helmar;Christiansen;1945;;80;;
 ;;;Heiner Leslie Otto;Christinck;1946;FAMILIE;114;Nordrhein-Westfalen;3
 ;;;Stefan;Christoph;1988;GRÜNE;234;Bayern;22
-;;;Rainer;Ciechoradzki;1965;ödp;;Thüringen;5
+;;;Rainer;Ciechoradzki;1965;ÖDP;;Thüringen;5
 ;;;Volker;Cigelski;1953;NPD;249;;
 ;;;Antje;Claaßen;1968;DIE LINKE;295;;
 ;;;Bernhard;Clasen;1957;DIE LINKE;110;;
 ;;;Roland;Claus;1954;DIE LINKE;74;Sachsen-Anhalt;4
 ;;;Claus Christian;Claussen;1961;CDU;;Schleswig-Holstein;14
 ;;;Stefan Georg;Clemens;1959;FAMILIE;;Bayern;12
-;;;Christine;Coelho;1964;VIOLETTEN;;Baden-Württemberg;4
-;;;Ingrid;Cölsch;1954;VIOLETTEN;80;Berlin;1
+;;;Christine;Coelho;1964;DIE VIOLETTEN;;Baden-Württemberg;4
+;;;Ingrid;Cölsch;1954;DIE VIOLETTEN;80;Berlin;1
 ;;;Gitta;Connemann;1964;CDU;26;Niedersachsen;12
 ;;;Gabriele Maria;Conrad;1960;MLPD;271;;
 ;;;Anna;Conrads;1979;DIE LINKE;;Nordrhein-Westfalen;19
 ;;;Michael;Conz;1966;FDP;258;Baden-Württemberg;17
 ;;;Florian;Cordes;1975;NPD;29;;
-;;;Walter;Corné de;1944;Volksabst.;;Nordrhein-Westfalen;6
+;;;Walter;Corné de;1944;Volksabstimmung;;Nordrhein-Westfalen;6
 ;;;Eva-Maria;Corr;1956;FAMILIE;;Rheinland-Pfalz;3
 ;;;Lino;Coscia;1988;;41;;
 ;;;Thorsten;Crämer;1975;NPD;139;;
@@ -442,7 +442,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Michael;Czech;1955;DKP;;Berlin;10
 ;;;Eberhard;Czichon;1930;DKP;;Berlin;11
 ;;;Heinz;Dabrock;1956;FAMILIE;299;Saarland;1
-;;;Margit;Dänzer;1955;VIOLETTEN;;Baden-Württemberg;6
+;;;Margit;Dänzer;1955;DIE VIOLETTEN;;Baden-Württemberg;6
 ;;;Karl;Däschner;1954;NPD;278;;
 ;;;Sevim;Dagdelen;1975;DIE LINKE;141;Nordrhein-Westfalen;7
 ;;;Monika;Dahl;1965;DIE LINKE;98;Nordrhein-Westfalen;17
@@ -461,7 +461,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Horst;Dauter;1943;;51;;
 ;;;Leo;Dautzenberg;1950;CDU;90;Nordrhein-Westfalen;54
 ;;;Elfriede Katharina;Daxlberger;1941;RRP;;Bayern;8
-;;;Diego;De Filippi;1978;Tierschutz;;Baden-Württemberg;4
+;;;Diego;De Filippi;1978;Die Tierschutzpartei;;Baden-Württemberg;4
 ;;;Christa;Debrand;1944;FAMILIE;;Saarland;4
 ;;;Cornelia;Debus;1958;FDP;25;Niedersachsen;14
 ;;;Thomas Michael Matthias;Decker;1972;CDU;;Niedersachsen;41
@@ -469,7 +469,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Klaus-Peter;Dehde;1959;SPD;;Niedersachsen;34
 ;;;Dr. Jörg-Diether;Dehm-Desoi;1950;DIE LINKE;;Niedersachsen;1
 ;;;Ekin;Deligöz;1971;GRÜNE;255;Bayern;5
-;;;Armin;Demele;1962;ödp;266;;
+;;;Armin;Demele;1962;ÖDP;266;;
 ;;;Erika;Demuth;1982;CDU;;Rheinland-Pfalz;33
 ;;;Hans Günter;Dennhoven;1950;;110;;
 ;;;Christine;Denz;1948;GRÜNE;276;;
@@ -490,16 +490,16 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Veronika;Dicke;1967;SPD;;Schleswig-Holstein;20
 ;;;Dr. Charlotte;Didlap;1965;;30;;
 ;;;Jens;Diebler;1966;FAMILIE;;Bayern;13
-;;;Gudrun;Diebold;1956;ödp;292;;
+;;;Gudrun;Diebold;1956;ÖDP;292;;
 ;;;Jan;Dieckmann;1980;;102;;
 ;;;Mali;Dieckmann;1984;;94;;
 ;;;Sandro;Dierbeck;1975;FDP;162;;
 ;;;Norman;Dießner;1971;GRÜNE;176;Hessen;10
 ;;;Edeltraud;Dietert;1953;;212;;
 ;;;Klaus;Dietrich;1936;NPD;186;;
-;;;Matthias;Dietrich;1971;ödp;290;Baden-Württemberg;6
+;;;Matthias;Dietrich;1971;ÖDP;290;Baden-Württemberg;6
 ;;;Rolf;Dietrich;1944;NPD;;Sachsen-Anhalt;7
-;;;Christina;Diggance;1966;VIOLETTEN;;Baden-Württemberg;3
+;;;Christina;Diggance;1966;DIE VIOLETTEN;;Baden-Württemberg;3
 ;;;Esther;Dilcher;1965;SPD;;Hessen;27
 ;;;Dirk;Dillschneider;1974;CDU;;Saarland;6
 ;;;Michael;Dimitrov;1973;FDP;108;Nordrhein-Westfalen;56
@@ -509,7 +509,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Frank Holger Kurt;Ditsche;1966;;78;;
 ;;;Heidrun;Dittrich;1958;DIE LINKE;43;Niedersachsen;3
 ;;;Dr. Bijan;Djir-Sarai;1976;FDP;109;Nordrhein-Westfalen;13
-;;;Dr. Larissa;Dloczik;1967;ödp;;Berlin;4
+;;;Dr. Larissa;Dloczik;1967;ÖDP;;Berlin;4
 ;;;Josef;Dobelmann;1957;GRÜNE;33;;
 ;;;Wolfgang;Dobler;1954;FDP;295;Baden-Württemberg;26
 ;;;Alexander;Dobrindt;1970;CSU;226;Bayern;5
@@ -518,8 +518,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Prof. Dr. Martina;Dören;1959;SPD;;Berlin;12
 ;;;Thomas;Dörflinger;1965;CDU;288;;
 ;;;Patrick;Döring;1973;FDP;43;Niedersachsen;5
-;;;Waltraud;Döring;1952;ödp;;Thüringen;9
-;;;Wilfried;Döring;1953;ödp;;Thüringen;13
+;;;Waltraud;Döring;1952;ÖDP;;Thüringen;9
+;;;Wilfried;Döring;1953;ÖDP;;Thüringen;13
 ;;;Axel;Dörken;1967;;132;;
 ;;;Peter J.;Dörken;1938;RRP;215;Bayern;14
 ;;;Helmut;Dörlitz;1963;DVU;;Hamburg;4
@@ -542,7 +542,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Wolf-Henry;Dreblow;1958;FDP;74;Sachsen-Anhalt;6
 ;;;Jochen;Dreetz;1956;GRÜNE;74;Sachsen-Anhalt;6
 ;;;Werner;Dreibus;1947;DIE LINKE;180;Hessen;4
-;;;Dr. Artur;Dreischer;1928;Volksabst.;;Baden-Württemberg;1
+;;;Dr. Artur;Dreischer;1928;Volksabstimmung;;Baden-Württemberg;1
 ;;;Dr. Ulrich;Drerup;1951;CDU;;Schleswig-Holstein;22
 ;;;Max Jürgen;Drescher;1968;FDP;;Rheinland-Pfalz;27
 ;;;Dr. Carl-Christian;Dressel;1970;SPD;238;Bayern;19
@@ -552,7 +552,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Klaus Willy;Drinkmann;1937;RENTNER;;Nordrhein-Westfalen;8
 ;;;Waltraud Lotte;Drinkmann;1954;RENTNER;;Nordrhein-Westfalen;11
 ;;;Elvira;Drobinski-Weiß;1951;SPD;284;Baden-Württemberg;11
-;;;Ute Regina;Drothler;1969;ödp;222;Bayern;14
+;;;Ute Regina;Drothler;1969;ÖDP;222;Bayern;14
 ;;;Kai-Uwe;Ducke;1975;BüSo;166;Nordrhein-Westfalen;2
 ;;;Wolfgang Georg;Duda;1962;NPD;118;Nordrhein-Westfalen;16
 ;;;Garrelt;Duin;1968;SPD;25;Niedersachsen;1
@@ -587,14 +587,14 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Siegmund;Ehrmann;1952;SPD;115;Nordrhein-Westfalen;53
 ;;;Bernd;Ehrreich;1972;NPD;299;;
 ;;;Ulrich;Eichhorst;1946;SPD;;Niedersachsen;39
-;;;Martin;Eichler;1968;ödp;;Bayern;15
+;;;Martin;Eichler;1968;ÖDP;;Bayern;15
 ;;;Rainer Hans;Eichler;1950;REP;;Sachsen;9
 ;;;Franziska;Eichstädt-Bohlig;1941;GRÜNE;87;;
 ;;;Hermann Josef Jupp;Eicker;1949;MLPD;;Nordrhein-Westfalen;9
 ;;;Andreas;Eickmeier;1954;FDP;135;Nordrhein-Westfalen;32
 ;;;Andreas;Eifler;1955;MLPD;196;Thüringen;1
 ;;;Manuela;Eifler;1957;MLPD;;Thüringen;4
-;;;Ellen;Eigemeier;1970;ödp;;Rheinland-Pfalz;4
+;;;Ellen;Eigemeier;1970;ÖDP;;Rheinland-Pfalz;4
 ;;;Helmut;Eigen;1955;DIE LINKE;143;Nordrhein-Westfalen;14
 ;;;Ulrich;Eigenfeld;1947;NPD;;Niedersachsen;1
 ;;;Egon;Eigenthaler;1938;REP;;Baden-Württemberg;7
@@ -620,7 +620,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Martin;Engels;1963;CDU;;Hessen;45
 ;;;Oliver;Engels;1969;FDP;;Rheinland-Pfalz;30
 ;;;Rainer;Engels;1963;NPD;101;;
-;;;Christine;Engelschall;1965;Tierschutz;;Bayern;1
+;;;Christine;Engelschall;1965;Die Tierschutzpartei;;Bayern;1
 ;;;Jan;Engert;1986;PIRATEN;;Saarland;6
 ;;;Gaby;Englmeier;1967;CSU;;Bayern;27
 ;;;Dr. Dagmar;Enkelmann;1956;DIE LINKE;60;Brandenburg;1
@@ -637,7 +637,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Petra;Ernstberger;1955;SPD;239;Bayern;4
 ;;;Engin;Eroglu;1982;GRÜNE;171;;
 ;;;Mario;Ertel;1963;NPD;157;;
-;;;Mario;Ertel;1976;ödp;;Bayern;16
+;;;Mario;Ertel;1976;ÖDP;;Bayern;16
 ;;;Frank;Eschrich;1964;DIE LINKE;211;;
 ;;;Saskia;Esken;1961;SPD;280;Baden-Württemberg;28
 ;;;Jörg;Essen van;1947;FDP;146;Nordrhein-Westfalen;3
@@ -655,7 +655,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Ivette Annabell;Fähnemann;1974;DVU;;Bremen;4
 ;;;Prof. Dr. Christine;Färber;1964;SPD;;Brandenburg;8
 ;;;Daniel;Fahr;1976;FDP;128;;
-;;;Florian;Fahrner;1978;ödp;231;Bayern;6
+;;;Florian;Fahrner;1978;ÖDP;231;Bayern;6
 ;;;David;Faku;1986;BüSo;218;Bayern;8
 ;;;Tobias Christoph Mzingisi;Faku;1988;BüSo;143;Nordrhein-Westfalen;11
 ;;;Benno;Falk;1953;MLPD;;Mecklenburg-Vorpommern;5
@@ -726,7 +726,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Ulrike;Flach;1951;FDP;119;Nordrhein-Westfalen;6
 ;;;Dr. Maria Franziska;Flachsbarth;1963;CDU;48;Niedersachsen;6
 ;;;Daniel;Flachshaar;1976;PIRATEN;;Thüringen;2
-;;;Dr. Helmut;Fleck;1938;Volksabst.;98;Nordrhein-Westfalen;1
+;;;Dr. Helmut;Fleck;1938;Volksabstimmung;98;Nordrhein-Westfalen;1
 ;;;Hermann;Fleischer;1950;DIE LINKE;50;Niedersachsen;27
 ;;;Holger;Flöge;1956;FDP;46;Niedersachsen;29
 ;;;Klaus-Peter;Flosbach;1952;CDU;100;Nordrhein-Westfalen;34
@@ -736,11 +736,11 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Bert-Rüdiger;Förster;1942;REP;180;Hessen;2
 ;;;Hildegard;Förster-Heldmann;1958;GRÜNE;;Hessen;21
 ;;;Frank;Förstermann;1964;CDU;;Baden-Württemberg;59
-;;;Verena;Föttinger;1956;ödp;;Baden-Württemberg;1
+;;;Verena;Föttinger;1956;ÖDP;;Baden-Württemberg;1
 ;;;Gabriele;Fograscher;1957;SPD;254;Bayern;14
 ;;;Peter;Forelle;1973;CDU;;Thüringen;11
-;;;Manuela;Forster;1972;ödp;;Bayern;17
-;;;Josef;Fortner;1960;ödp;223;;
+;;;Manuela;Forster;1972;ÖDP;;Bayern;17
+;;;Josef;Fortner;1960;ÖDP;223;;
 ;;;Dr. Johannes;Frackowiak;1968;FDP;195;Thüringen;4
 ;;;Sven Henri;Franck;1959;SPD;;Rheinland-Pfalz;18
 ;;;Hartmut;Frank;1953;;59;;
@@ -754,7 +754,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Manfred;Franzke;1952;;217;;
 ;;;Gabriele;Frechen;1956;SPD;92;Nordrhein-Westfalen;37
 ;;;Dorothea;Frederking;1964;GRÜNE;70;Sachsen-Anhalt;5
-;;;Jürgen;Freimuth;1954;ödp;;Rheinland-Pfalz;11
+;;;Jürgen;Freimuth;1954;ÖDP;;Rheinland-Pfalz;11
 ;;;Dagmar;Freitag;1953;SPD;151;Nordrhein-Westfalen;7
 ;;;Reinhard;Freitag;1961;FDP;280;Baden-Württemberg;33
 ;;;Manfred;Frentzen;1948;NPD;110;;
@@ -772,7 +772,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Patrick;Friedl;1970;GRÜNE;251;;
 ;;;Dr. Hans-Peter;Friedrich;1957;CSU;239;Bayern;14
 ;;;Peter;Friedrich;1972;SPD;287;Baden-Württemberg;9
-;;;Thomas;Friedrich;1955;ödp;;Bayern;18
+;;;Thomas;Friedrich;1955;ÖDP;;Bayern;18
 ;;;Hans-Christian;Friedrichs;1964;GRÜNE;37;;
 ;;;Maika;Friemann-Jennert;1964;CDU;;Mecklenburg-Vorpommern;9
 ;;;Michael;Frieser;1964;CSU;245;Bayern;16
@@ -798,7 +798,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Alexander;Fürter;1970;FDP;;Bayern;54
 ;;;Klaus-Wilhelm;Füßmann;1957;FDP;142;Nordrhein-Westfalen;37
 ;;;Michael;Fuest;1955;GRÜNE;32;Niedersachsen;14
-;;;Gerald Paul;Fütterer;1957;ödp;;Thüringen;12
+;;;Gerald Paul;Fütterer;1957;ÖDP;;Thüringen;12
 ;;;Alexander;Funk;1974;CDU;299;Saarland;4
 ;;;Reinhard;Funk;1958;MLPD;;Niedersachsen;5
 ;;;Madeleine;Funke;1963;CDU;;Hessen;40
@@ -857,8 +857,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Elisabeth;Gierlings;1932;SPD;;Bayern;48
 ;;;Rita;Giermann;1941;MLPD;;Hamburg;3
 ;;;Tim;Giesbert;1980;GRÜNE;119;Nordrhein-Westfalen;18
-;;;Herta-Margarete;Giese;1935;Tierschutz;;Niedersachsen;1
-;;;Jan;Giesel;1972;ödp;;Hamburg;3
+;;;Herta-Margarete;Giese;1935;Die Tierschutzpartei;;Niedersachsen;1
+;;;Jan;Giesel;1972;ÖDP;;Hamburg;3
 ;;;David;Giesler;1984;NPD;168;Hessen;7
 ;;;Anton;Gieß;1941;RENTNER;;Nordrhein-Westfalen;6
 ;;;Cornelia;Gießler;1978;CDU;;Thüringen;12
@@ -866,9 +866,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Alexandra;Gill-Gers;1970;SPD;;Rheinland-Pfalz;17
 ;;;Horst Helmut;Gilles;1943;RRP;38;Niedersachsen;9
 ;;;Elmar;Gillet;1965;GRÜNE;;Nordrhein-Westfalen;24
-;;;Marlene;Gilsdorf;1935;ödp;;Nordrhein-Westfalen;13
+;;;Marlene;Gilsdorf;1935;ÖDP;;Nordrhein-Westfalen;13
 ;;;Magdalena Isabella;Giren;1960;DIE LINKE;;Niedersachsen;13
-;;;Dagmar;Girmus;1946;Tierschutz;;Niedersachsen;4
+;;;Dagmar;Girmus;1946;Die Tierschutzpartei;;Niedersachsen;4
 ;;;Gero;Gisart;1942;CDU;;Nordrhein-Westfalen;59
 ;;;Klaus;Glahn;1942;RRP;52;Niedersachsen;3
 ;;;Claudia;Glanz;1954;GRÜNE;162;;
@@ -877,7 +877,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;David;Glöckner;1985;REP;;Sachsen;6
 ;;;Michael;Glos;1944;CSU;250;;
 ;;;Günter;Gloser;1950;SPD;244;Bayern;3
-;;;Ulrich;Glück;1969;ödp;;Hamburg;8
+;;;Ulrich;Glück;1969;ÖDP;;Hamburg;8
 ;;;Therese;Gmelch;1955;MLPD;;Bayern;5
 ;;;Eva-Maria;Godau;1947;;70;;
 ;;;Angela;Godawa;1958;SPD;295;Baden-Württemberg;26
@@ -896,7 +896,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Marco;Gogolin;1980;SPD;;Rheinland-Pfalz;20
 ;;;Nicole;Gohlke;1975;DIE LINKE;219;Bayern;5
 ;;;Lars;Gold;1985;NPD;268;Baden-Württemberg;7
-;;;Stephanie-Johanna;Goldbach;1980;Tierschutz;;Berlin;7
+;;;Stephanie-Johanna;Goldbach;1980;Die Tierschutzpartei;;Berlin;7
 ;;;Hans-Michael;Goldmann;1946;FDP;26;Niedersachsen;3
 ;;;Ulrike;Goldstein;1976;GRÜNE;219;Bayern;21
 ;;;Heinz;Golombeck;1948;FDP;271;Baden-Württemberg;15
@@ -910,7 +910,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dirk;Grabowski;1973;;100;;
 ;;;Andrea;Graf;1966;GRÜNE;184;Hessen;13
 ;;;Angelika;Graf;1947;SPD;223;Bayern;8
-;;;Rainer;Graf;1957;ödp;267;;
+;;;Rainer;Graf;1957;ÖDP;267;;
 ;;;Jutta;Graf-Baier;1947;DIE LINKE;;Baden-Württemberg;15
 ;;;Iris;Gramberg;1960;DIE LINKE;28;Niedersachsen;18
 ;;;Markus;Grammel;1976;PBC;269;Baden-Württemberg;2
@@ -918,10 +918,10 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Bruno;Granser;1953;REP;;Baden-Württemberg;14
 ;;;Dennis;Granzow;1963;SPD;;Brandenburg;14
 ;;;Heinz Hubertus;Grass;1958;GRÜNE;159;;
-;;;Armin;Grassert;1959;VIOLETTEN;;Berlin;3
+;;;Armin;Grassert;1959;DIE VIOLETTEN;;Berlin;3
 ;;;Denis;Gratzke;1978;NPD;;Sachsen-Anhalt;9
 ;;;Toralf;Grau;1986;REP;;Sachsen;1
-;;;Oliver;Graue;1967;ödp;;Hamburg;5
+;;;Oliver;Graue;1967;ÖDP;;Hamburg;5
 ;;;Stefan Josef;Graus;1977;SPD;;Saarland;25
 ;;;Gero;Greb;1945;;288;;
 ;;;Marlies;Grebe;1956;SPD;;Niedersachsen;48
@@ -931,7 +931,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Judith;Greif;1984;GRÜNE;218;Bayern;13
 ;;;Annette;Greilich;1958;FDP;;Hessen;32
 ;;;Eberhard;Grein;1959;CSU;;Bayern;62
-;;;Simon;Gremmler;1983;ödp;;Nordrhein-Westfalen;3
+;;;Simon;Gremmler;1983;ÖDP;;Nordrhein-Westfalen;3
 ;;;Maria;Greuter;1953;SPD;;Saarland;32
 ;;;Michael;Grewe;1968;NPD;;Mecklenburg-Vorpommern;7
 ;;;Monika;Griefahn;1954;SPD;37;Niedersachsen;19
@@ -953,14 +953,14 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Klaus;Große;1953;FDP;86;Berlin;9
 ;;;Michael;Grosse-Brömer;1960;CDU;37;Niedersachsen;7
 ;;;Lüder;Grosser;1973;BüSo;259;Baden-Württemberg;5
-;;;Heinz;Großhans;1955;VIOLETTEN;;Baden-Württemberg;2
+;;;Heinz;Großhans;1955;DIE VIOLETTEN;;Baden-Württemberg;2
 ;;;Marc;Großjean;1986;PIRATEN;;Saarland;2
-;;;Edward;Grossmann;1947;Volksabst.;;Baden-Württemberg;6
+;;;Edward;Grossmann;1947;Volksabstimmung;;Baden-Württemberg;6
 ;;;Astrid;Grotelüschen;1964;CDU;29;Niedersachsen;21
 ;;;Annette;Groth;1954;DIE LINKE;279;Baden-Württemberg;5
 ;;;Inga;Groth;1981;CDU;;Mecklenburg-Vorpommern;8
 ;;;Andreas;Grube;1960;;190;;
-;;;Karl-Peter;Grube;1951;ödp;20;Hamburg;7
+;;;Karl-Peter;Grube;1951;ÖDP;20;Hamburg;7
 ;;;Andreas;Gruber;1946;BP;;Bayern;22
 ;;;Markus;Grübel;1959;CDU;261;;
 ;;;Michael Johannes;Gründler;1958;BüSo;;Sachsen;7
@@ -993,13 +993,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Detlef;Haar;1945;RRP;46;;
 ;;;Heiner Joachim;Haase;1957;GRÜNE;35;Niedersachsen;10
 ;;;Stephan;Haase;1968;NPD;150;Nordrhein-Westfalen;2
-;;;Christine;Habereder;1963;Volksabst.;;Baden-Württemberg;2
+;;;Christine;Habereder;1963;Volksabstimmung;;Baden-Württemberg;2
 ;;;Thomas;Habisch;1969;PIRATEN;;Brandenburg;3
 ;;;Manuel;Hachenburger;1962;;177;;
 ;;;Tino;Hackenbruch;1977;CDU;;Rheinland-Pfalz;17
 ;;;Hans-Joachim;Hacker;1949;SPD;13;Mecklenburg-Vorpommern;1
 ;;;Maria;Hackl;1956;SPD;253;Bayern;32
-;;;Verena;Häggberg;1973;ödp;;Hamburg;2
+;;;Verena;Häggberg;1973;ÖDP;;Hamburg;2
 ;;;Jörg;Hähnel;1975;NPD;77;Berlin;2
 ;;;Stella;Hähnel;1972;NPD;63;;
 ;;;Andrea;Hähner;1961;MLPD;;Schleswig-Holstein;3
@@ -1046,7 +1046,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Detlef;Hartmann;1959;NPD;104;;
 ;;;Esther;Hartmann;1955;DIE LINKE;6;Schleswig-Holstein;3
 ;;;Georg;Hartmann;1936;NPD;187;Hessen;8
-;;;Günther;Hartmann;1965;ödp;219;Bayern;19
+;;;Günther;Hartmann;1965;ÖDP;219;Bayern;19
 ;;;Maria;Hartmann;1955;FAMILIE;;Nordrhein-Westfalen;1
 ;;;Michael;Hartmann;1963;SPD;206;Rheinland-Pfalz;2
 ;;;Simon;Hartmann;1977;SPD;;Niedersachsen;37
@@ -1057,7 +1057,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Karin;Hartwig;1960;NPD;253;;
 ;;;Agnes;Hasenjäger;1950;DIE LINKE;;Niedersachsen;11
 ;;;Dagmar;Hassel;1958;CDU;;Rheinland-Pfalz;18
-;;;Sarah Luzia;Hassel-Reusing;1961;ödp;;Nordrhein-Westfalen;12
+;;;Sarah Luzia;Hassel-Reusing;1961;ÖDP;;Nordrhein-Westfalen;12
 ;;;Philipp Maximilian;Hasselbach;1987;NPD;222;;
 ;;;Gerda;Hasselfeldt;1950;CSU;216;Bayern;2
 ;;;Britta;Haßelmann;1961;GRÜNE;133;Nordrhein-Westfalen;3
@@ -1074,7 +1074,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Gabriele;Hauptstein;1960;FDP;67;Sachsen-Anhalt;4
 ;;;Heinz-Peter;Haustein;1954;FDP;165;Sachsen;3
 ;;;Sven-Gunnar;Haverlandt;1978;NPD;;Brandenburg;5
-;;;Maria-Anna;Hebach;1946;Volksabst.;;Baden-Württemberg;5
+;;;Maria-Anna;Hebach;1946;Volksabstimmung;;Baden-Württemberg;5
 ;;;Stefan;Heck;1982;CDU;172;Hessen;19
 ;;;Doris;Heer;1949;DIE LINKE;;Baden-Württemberg;17
 ;;;Lutz;Heerwald;1960;MLPD;;Brandenburg;2
@@ -1090,7 +1090,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Mechthild;Heil;1961;CDU;199;Rheinland-Pfalz;10
 ;;;Martin;Heilemann;1966;DIE LINKE;25;Niedersachsen;31
 ;;;Lutz Eberhard;Heilmann;1966;DIE LINKE;9;;
-;;;Adrian;Heim;1964;ödp;216;Bayern;20
+;;;Adrian;Heim;1964;ÖDP;216;Bayern;20
 ;;;Dirk;Heimsoth;1956;NPD;39;;
 ;;;Dr. Rosemarie Anna Gertrud;Hein;1953;DIE LINKE;70;Sachsen-Anhalt;5
 ;;;Tobias;Heine;1986;PIRATEN;;Niedersachsen;10
@@ -1133,14 +1133,14 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Rigolf;Henning;1935;NPD;35;;
 ;;;Dieter;Hennne;1955;FAMILIE;;Saarland;6
 ;;;Michael;Hennrich;1965;CDU;262;;
-;;;Werner;Henrichs;1938;Volksabst.;99;Nordrhein-Westfalen;3
+;;;Werner;Henrichs;1938;Volksabstimmung;99;Nordrhein-Westfalen;3
 ;;;Ursula Maria;Henry;1941;SPD;;Saarland;13
 ;;;Norbert;Hense;1990;;284;;
 ;;;Christoph;Hentzen;1959;FDP;186;Hessen;20
 ;;;Clemens;Henzler;1945;CDU;;Rheinland-Pfalz;35
 ;;;Dr. Ernst Albert;Herbert;1952;MLPD;102;;
 ;;;Sibylle;Herbert;1942;FDP;;Hessen;31
-;;;Stefan;Herbert;1965;VIOLETTEN;;Baden-Württemberg;7
+;;;Stefan;Herbert;1965;DIE VIOLETTEN;;Baden-Württemberg;7
 ;;;Dr. Ulrich;Herbert;1952;FDP;238;Bayern;17
 ;;;Bettina;Herlitzius;1960;GRÜNE;89;Nordrhein-Westfalen;13
 ;;;Petra;Hermann;1960;FDP;121;Nordrhein-Westfalen;42
@@ -1160,7 +1160,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Petra;Heß;1959;SPD;192;Thüringen;4
 ;;;Klaus-Peter;Hesse;1967;CDU;;Hamburg;9
 ;;;Peter;Hettlich;1959;GRÜNE;152;;
-;;;Ingrid;Hetz;1956;VIOLETTEN;228;Bayern;3
+;;;Ingrid;Hetz;1956;DIE VIOLETTEN;228;Bayern;3
 ;;;Markus;Heurung;1977;PIRATEN;251;;
 ;;;Walter;Heuser;1936;DIE LINKE;101;;
 ;;;Ansgar;Heveling;1972;CDU;111;;
@@ -1177,7 +1177,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Arne;Hildebrandt;1985;PIRATEN;;Brandenburg;4
 ;;;Robert;Hildebrandt;1983;PIRATEN;;Thüringen;5
 ;;;Frank;Hilgenkamp;1972;GRÜNE;147;;
-;;;Rainer;Hilgert;1953;ödp;;Rheinland-Pfalz;1
+;;;Rainer;Hilgert;1953;ÖDP;;Rheinland-Pfalz;1
 ;;;Axel;Hilker;1967;GRÜNE;;Schleswig-Holstein;12
 ;;;Hans-Kurt;Hill;1950;DIE LINKE;298;;
 ;;;Dirk;Hillbrecht;1972;PIRATEN;;Niedersachsen;1
@@ -1193,7 +1193,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Thomas;Hitschler;1982;SPD;;Rheinland-Pfalz;32
 ;;;Robert;Hochbaum;1954;CDU;167;;
 ;;;Stephan;Hochstein;1983;BüSo;141;Nordrhein-Westfalen;9
-;;;Heidrun;Höche;1959;VIOLETTEN;;Baden-Württemberg;10
+;;;Heidrun;Höche;1959;DIE VIOLETTEN;;Baden-Württemberg;10
 ;;;Manuel;Höferlin;1973;FDP;207;Rheinland-Pfalz;5
 ;;;Ulrike;Höfken-Deipenbrock;1955;GRÜNE;203;Rheinland-Pfalz;1
 ;;;Inge;Höger;1950;DIE LINKE;134;Nordrhein-Westfalen;3
@@ -1221,7 +1221,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Rolf;Hoffmann;1935;;7;;
 ;;;Susanne;Hoffmann;1960;NPD;281;;
 ;;;Timo;Hoffmann;1978;BüSo;;Berlin;11
-;;;Ulrich;Hoffmann;1962;ödp;253;Bayern;2
+;;;Ulrich;Hoffmann;1962;ÖDP;253;Bayern;2
 ;;;Michael;Hoffmeier;1969;GRÜNE;189;Thüringen;6
 ;;;Axel;Hofmann;1944;DIE LINKE;100;;
 ;;;Frank;Hofmann;1949;SPD;250;Bayern;11
@@ -1229,13 +1229,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Franziska;Hofmann;1948;CM;;Bayern;10
 ;;;Friedrich;Hofmann;1954;MLPD;;Thüringen;3
 ;;;Dr. Anton;Hofreiter;1970;GRÜNE;222;Bayern;4
-;;;Hermann;Hofstetter;1962;ödp;225;Bayern;21
+;;;Hermann;Hofstetter;1962;ÖDP;225;Bayern;21
 ;;;Ruth;Hohenadl;1960;FDP;218;Bayern;27
 ;;;Anna Helga Angela;Hohmann;1963;SPD;;Niedersachsen;44
 ;;;Michael;Holl;1990;;251;;
 ;;;Karin;Hollack;1940;NPD;48;;
 ;;;Karl;Holmeier;1956;CSU;234;;
-;;;Ingeborg;Holst;1938;Tierschutz;;Baden-Württemberg;1
+;;;Ingeborg;Holst;1938;Die Tierschutzpartei;;Baden-Württemberg;1
 ;;;Angela Brigitte;Holz;1979;SPD;;Niedersachsen;38
 ;;;Franz-Josef;Holzenkamp;1960;CDU;33;Niedersachsen;30
 ;;;Malte;Holzer;1965;NPD;32;Niedersachsen;5
@@ -1257,7 +1257,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Guido;Hoyer;1968;DIE LINKE;215;Bayern;14
 ;;;Dr. Werner;Hoyer;1951;FDP;95;Nordrhein-Westfalen;4
 ;;;André Torsten;Hubatschek;1965;FDP;166;Sachsen;8
-;;;Edda;Huber;1938;Tierschutz;;Bayern;5
+;;;Edda;Huber;1938;Die Tierschutzpartei;;Bayern;5
 ;;;Judith;Huber;1963;SPD;;Berlin;13
 ;;;Jürgen;Huber;1954;GRÜNE;233;;
 ;;;Klaus;Huber;1942;FAMILIE;;Bayern;5
@@ -1268,7 +1268,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Bernd Michael;Hübner;1961;DIE LINKE;123;;
 ;;;Klaas;Hübner;1967;SPD;72;;
 ;;;Johannes;Hühnlein;1984;NPD;248;;
-;;;Robert;Huemer;1967;ödp;252;Bayern;22
+;;;Robert;Huemer;1967;ÖDP;252;Bayern;22
 ;;;Hubert;Hüppe;1956;CDU;145;Nordrhein-Westfalen;22
 ;;;Michael;Huffer;1956;DIE LINKE;49;;
 ;;;Christian;Hufgard;1979;PIRATEN;;Hessen;3
@@ -1283,7 +1283,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Andrej Konstantin;Hunko;1963;DIE LINKE;88;Nordrhein-Westfalen;6
 ;;;Jelica;Hunner;1960;BP;;Bayern;25
 ;;;Johann;Hunner;1941;BP;;Bayern;26
-;;;Vera;Hupe;1959;ödp;;Thüringen;6
+;;;Vera;Hupe;1959;ÖDP;;Thüringen;6
 ;;;Martina;Hurst;1982;CDU;;Baden-Württemberg;23
 ;;;Monica;Hussinger;1960;FDP;;Saarland;4
 ;;;Christian;Huth;1964;BüSo;206;;
@@ -1296,7 +1296,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Philipp;Irmscher;1988;FDP;237;Bayern;42
 ;;;Thomas;Iseke;1963;FDP;44;Niedersachsen;21
 ;;;Figen;Izgin;1965;DIE LINKE;82;Berlin;7
-;;;Gerlind Annemarie;Jackowski;1944;ödp;;Niedersachsen;4
+;;;Gerlind Annemarie;Jackowski;1944;ÖDP;;Niedersachsen;4
 ;;;Ulf;Jäger;1964;DIE LINKE;125;;
 ;;;Jan;Jaeschke;1990;NPD;274;;
 ;;;Dr. Eva;Jager;1950;FDP;;Hessen;34
@@ -1316,9 +1316,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Jochen;Jehle;1968;SPD;293;Baden-Württemberg;33
 ;;;Ursula;Jelpke;1951;DIE LINKE;144;Nordrhein-Westfalen;2
 ;;;Reiner;Jenkel;1950;DIE LINKE;131;;
-;;;Kai;Jennerjahn;1983;Tierschutz;;Berlin;5
+;;;Kai;Jennerjahn;1983;Die Tierschutzpartei;;Berlin;5
 ;;;Karina Annemarie;Jens;1958;CDU;;Mecklenburg-Vorpommern;10
-;;;Dr. Nils;Jensen;1975;ödp;;Hamburg;9
+;;;Dr. Nils;Jensen;1975;ÖDP;;Hamburg;9
 ;;;Jens;Jenssen;1979;SPD;;Rheinland-Pfalz;29
 ;;;Anneliese;Jenter;1953;SPD;294;Baden-Württemberg;32
 ;;;Thomas;Jepsen;1973;CDU;;Schleswig-Holstein;19
@@ -1328,13 +1328,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Lukrezia Luise;Jochimsen;1936;DIE LINKE;;Thüringen;2
 ;;;Mathias;Jochum;1981;CDU;;Saarland;20
 ;;;Bruno;Jöbkes;1967;GRÜNE;113;;
-;;;Wolfgang;Jöckle;1950;ödp;;Rheinland-Pfalz;5
+;;;Wolfgang;Jöckle;1950;ÖDP;;Rheinland-Pfalz;5
 ;;;Sven Wolfgang;Jörns;1970;PIRATEN;;Schleswig-Holstein;4
 ;;;Silke;Johanning-Sturm;1976;CDU;;Niedersachsen;45
-;;;Norbert;Johannpötter;1972;ödp;;Nordrhein-Westfalen;11
+;;;Norbert;Johannpötter;1972;ÖDP;;Nordrhein-Westfalen;11
 ;;;Gisela;Johlke;1945;GRÜNE;90;;
 ;;;Robin;John;1976;FDP;163;;
-;;;Rüdiger;John;1977;ödp;;Rheinland-Pfalz;16
+;;;Rüdiger;John;1977;ÖDP;;Rheinland-Pfalz;16
 ;;;Siegmar;John;1939;BüSo;158;Sachsen;11
 ;;;Arnold Peter;Joosten;1982;SPD;;Rheinland-Pfalz;16
 ;;;Dr. Hans-Heinrich;Jordan;1948;CDU;67;Sachsen-Anhalt;5
@@ -1349,7 +1349,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Franz Josef;Jung;1949;CDU;184;Hessen;1
 ;;;Gabriele;Jung;1965;GRÜNE;;Saarland;4
 ;;;Johannes;Jung;1967;SPD;271;Baden-Württemberg;19
-;;;Manuela;Jung;1960;Tierschutz;;Niedersachsen;3
+;;;Manuela;Jung;1960;Die Tierschutzpartei;;Niedersachsen;3
 ;;;Sabine;Jung;1960;SPD;;Saarland;8
 ;;;Walter;Jung;1950;FDP;202;Rheinland-Pfalz;14
 ;;;Xaver;Jung;1962;CDU;210;Rheinland-Pfalz;14
@@ -1369,20 +1369,20 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Michèle;Kahl;1985;GRÜNE;;Niedersachsen;15
 ;;;Yazgülü;Kahraman-Meister;1962;MLPD;;Nordrhein-Westfalen;4
 ;;;Johannes;Kahrs;1963;SPD;19;;
-;;;Werner;Kainz;1963;VIOLETTEN;;Bayern;6
+;;;Werner;Kainz;1963;DIE VIOLETTEN;;Bayern;6
 ;;;Brigitte Ottilie;Kaiser;1944;RRP;29;Niedersachsen;8
 ;;;Christa;Kaiser;1953;BüSo;220;Bayern;2
 ;;;Gerhard;Kaiser;1954;SPD;;Hessen;40
-;;;Manfred;Kaiser;1968;ödp;;Thüringen;8
+;;;Manfred;Kaiser;1968;ÖDP;;Thüringen;8
 ;;;Peter;Kaiser;1971;FDP;;Rheinland-Pfalz;22
-;;;Sandra;Kaiser;1974;ödp;;Thüringen;10
+;;;Sandra;Kaiser;1974;ÖDP;;Thüringen;10
 ;;;Bartholomäus;Kalb;1949;CSU;227;;
-;;;Artur;Kalka;1969;Tierschutz;;Berlin;1
+;;;Artur;Kalka;1969;Die Tierschutzpartei;;Berlin;1
 ;;;Patrick;Kallweit;1985;NPD;53;Niedersachsen;4
 ;;;Uwe;Kallweit;1955;NPD;46;;
 ;;;Dr. Helmut;Kaltenhauser;1961;FDP;247;Bayern;22
 ;;;Norman;Kalteyer;1965;DIE LINKE;184;;
-;;;Uwe;Kaltschmid;1956;Volksabst.;;Baden-Württemberg;7
+;;;Uwe;Kaltschmid;1956;Volksabstimmung;;Baden-Württemberg;7
 ;;;Ali;Kamburoglu;1958;;76;;
 ;;;Maren;Kaminski;1979;DIE LINKE;40;;
 ;;;Hans-Werner;Kammer;1948;CDU;27;Niedersachsen;13
@@ -1412,7 +1412,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Michael;Kauch;1967;FDP;143;Nordrhein-Westfalen;10
 ;;;Siegfried;Kauder;1950;CDU;286;;
 ;;;Volker;Kauder;1949;CDU;285;Baden-Württemberg;3
-;;;Johanna;Kaufmann;1940;ödp;263;;
+;;;Johanna;Kaufmann;1940;ÖDP;263;;
 ;;;Dr. Stefan;Kaufmann;1969;CDU;258;;
 ;;;Thomas;Kauper;1960;PBC;;Bayern;7
 ;;;Titus-Ivo;Kaute;1952;;79;;
@@ -1427,8 +1427,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Michael;Kerber;1978;NPD;285;;
 ;;;Daniel;Kern;1983;CDU;;Rheinland-Pfalz;34
 ;;;Bärbel;Kersken;1964;MLPD;;Thüringen;7
-;;;Gerd;Kersting;1956;ödp;;Nordrhein-Westfalen;1
-;;;Sieglinde;Kersting;1957;ödp;;Nordrhein-Westfalen;5
+;;;Gerd;Kersting;1956;ÖDP;;Nordrhein-Westfalen;1
+;;;Sieglinde;Kersting;1957;ÖDP;;Nordrhein-Westfalen;5
 ;;;Ulrike Josefine;Kessing;1965;GRÜNE;102;;
 ;;;Ilko;Keßler;1971;SPD;157;Sachsen;12
 ;;;Achim Robert;Keßler-Binder;1938;DIE VIOLETTEN;10;;
@@ -1461,7 +1461,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Simon;Klages;1969;PIRATEN;;Hessen;2
 ;;;Olaf;Klampe;1955;FDP;7;Schleswig-Holstein;10
 ;;;Ewa;Klamt;1950;CDU;46;Niedersachsen;15
-;;;Guido;Klamt;1970;ödp;265;;
+;;;Guido;Klamt;1970;ÖDP;265;;
 ;;;Olaf;Klanke;1967;NPD;42;;
 ;;;Wolfgang;Klare;1966;FDP;138;Nordrhein-Westfalen;58
 ;;;Andreas;Klaschka;1958;FDP;189;Thüringen;5
@@ -1471,7 +1471,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Anne Käthe;Kleffel;1951;MLPD;;Niedersachsen;2
 ;;;Kurt-Peter;Kleffel;1953;MLPD;42;Niedersachsen;6
 ;;;Christian;Kleiminger;1965;SPD;14;;
-;;;Achim;Klein;1952;ödp;17;;
+;;;Achim;Klein;1952;ÖDP;17;;
 ;;;Martin;Klein;1959;DIE LINKE;205;;
 ;;;Rosalinde;Klein;1941;CM;;Bayern;1
 ;;;Volkmar;Klein;1960;CDU;149;Nordrhein-Westfalen;32
@@ -1623,7 +1623,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Matthias;Kreh;1980;SPD;;Hessen;19
 ;;;Alexander F.;Kreidemann;1959;NPD;256;;
 ;;;Horst;Kreil;1938;BüSo;79;Berlin;7
-;;;Andreas;Krell;1955;ödp;;Rheinland-Pfalz;9
+;;;Andreas;Krell;1955;ÖDP;;Rheinland-Pfalz;9
 ;;;Jutta;Krellmann;1956;DIE LINKE;47;Niedersachsen;5
 ;;;Marc-Benedict;Kremer;1973;NPD;100;;
 ;;;Nicolette;Kressl;1958;SPD;273;Baden-Württemberg;3
@@ -1635,13 +1635,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Frank Hartmut;Krien;1956;NPD;167;Sachsen;4
 ;;;Dr. Günter;Krings;1969;CDU;110;Nordrhein-Westfalen;31
 ;;;Oliver;Krischer;1969;GRÜNE;91;Nordrhein-Westfalen;8
-;;;Stefan;Krix;1966;ödp;126;;
+;;;Stefan;Krix;1966;ÖDP;126;;
 ;;;Walter;Krögner;1963;SPD;;Baden-Württemberg;36
 ;;;Manfred;Krönauer;1974;FDP;;Bayern;16
 ;;;Dr. Martina;Krogmann;1964;CDU;31;Niedersachsen;3
 ;;;Daniela;Kroll;1971;FWD;;Brandenburg;6
 ;;;Dorothee;Kroll;1955;GRÜNE;93;Nordrhein-Westfalen;29
-;;;Kilian;Kronimus;1965;ödp;;Baden-Württemberg;4
+;;;Kilian;Kronimus;1965;ÖDP;;Baden-Württemberg;4
 ;;;Katarzyna Dorota;Kruczkowski;1979;BüSo;120;Nordrhein-Westfalen;1
 ;;;Dr. Hans-Ulrich;Krüger;1952;SPD;114;Nordrhein-Westfalen;36
 ;;;Jürgen;Krüger;1964;REP;;Nordrhein-Westfalen;12
@@ -1675,7 +1675,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Jutta Maria Irene;Künstle;1939;PBC;;Bayern;13
 ;;;Dr. Hermann;Kues;1949;CDU;32;Niedersachsen;4
 ;;;Jörg-Friedrich;Küster;1964;DIE LINKE;32;Niedersachsen;17
-;;;Max;Kuhlmann;1985;VIOLETTEN;;Berlin;5
+;;;Max;Kuhlmann;1985;DIE VIOLETTEN;;Berlin;5
 ;;;Dr. Arnd;Kuhn;1957;GRÜNE;99;Nordrhein-Westfalen;26
 ;;;Fritz;Kuhn;1955;GRÜNE;274;Baden-Württemberg;2
 ;;;Klaus Dieter Kurt;Kuhn;1955;DVU;;Brandenburg;1
@@ -1709,7 +1709,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Andreas Gottfried;Lämmel;1959;CDU;160;Sachsen;8
 ;;;Uwe;Lämmel;1959;GRÜNE;135;;
 ;;;Rosemarie;Lämmer;1954;REP;;Hessen;1
-;;;Jean Dominique;Länge;1974;ödp;;Baden-Württemberg;7
+;;;Jean Dominique;Länge;1974;ÖDP;;Baden-Württemberg;7
 ;;;Mike;Lätzsch;1967;DIE LINKE;;Sachsen;14
 ;;;Oskar;Lafontaine;1943;DIE LINKE;;Saarland;1
 ;;;Erhard;Lahni;1965;FAMILIE;;Bayern;11
@@ -1723,7 +1723,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Barbara Katharina;Landgraf;1954;CDU;155;Sachsen;5
 ;;;Heinz;Lanfermann;1950;FDP;61;Brandenburg;1
 ;;;Peter;Lang;1940;ADM;;Baden-Württemberg;3
-;;;Rudolf;Lang;1953;ödp;247;Bayern;7
+;;;Rudolf;Lang;1953;ÖDP;247;Bayern;7
 ;;;Jürgen;Langanki;1972;REP;249;Bayern;15
 ;;;Christian;Lange;1964;SPD;269;Baden-Württemberg;4
 ;;;Cornelia;Lange;1959;CDU;;Hessen;29
@@ -1741,7 +1741,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Iris;Langguth;1959;GRÜNE;298;;
 ;;;Rita;Lanius-Heck;1959;CDU;;Rheinland-Pfalz;25
 ;;;Barbara Maria;Lanzinger;1954;CSU;;Bayern;23
-;;;Dr. Jürgen Hans;Lapsien;1957;ödp;;Nordrhein-Westfalen;10
+;;;Dr. Jürgen Hans;Lapsien;1957;ÖDP;;Nordrhein-Westfalen;10
 ;;;Dr. Hartmut;Lardon;1953;FDP;209;Rheinland-Pfalz;11
 ;;;Thomas;Laubel;1978;PIRATEN;;Baden-Württemberg;2
 ;;;Paul;Lauer;1957;FDP;282;Baden-Württemberg;31
@@ -1749,7 +1749,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dennis;Laurisch;1978;PIRATEN;271;Baden-Württemberg;1
 ;;;Mario Michael;Laurischk;1975;CDU;65;Brandenburg;9
 ;;;Sibylle;Laurischk;1954;FDP;284;Baden-Württemberg;6
-;;;Dr. Conrad;Lausberg;1959;ödp;220;Bayern;23
+;;;Dr. Conrad;Lausberg;1959;ÖDP;220;Bayern;23
 ;;;Brigitte Renate;Lauterbach;1934;NPD;160;;
 ;;;Prof. Dr. Karl;Lauterbach;1963;SPD;102;Nordrhein-Westfalen;49
 ;;;Claudia Marianne;Laux;1966;GRÜNE;;Rheinland-Pfalz;9
@@ -1763,7 +1763,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Klaus;Lederer;1974;DIE LINKE;76;Berlin;6
 ;;;Felix Paul Edgar;Lederle;1975;DIE LINKE;78;;
 ;;;Bernhard;Lehle;1963;GRÜNE;263;;
-;;;Klaus;Lehmann;1935;ödp;;Rheinland-Pfalz;3
+;;;Klaus;Lehmann;1935;ÖDP;;Rheinland-Pfalz;3
 ;;;Uwe;Lehmann;1959;;68;;
 ;;;Dr. Max;Lehmer;1946;CSU;214;;
 ;;;Erwine;Lehming;1928;NPD;95;;
@@ -1775,7 +1775,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Harald;Leibrecht;1961;FDP;266;Baden-Württemberg;4
 ;;;Sabine;Leidig;1961;DIE LINKE;187;Hessen;1
 ;;;Markus;Leidinger;1984;SPD;;Rheinland-Pfalz;23
-;;;Prof. Dr. Felix;Leinen;1957;ödp;206;Rheinland-Pfalz;2
+;;;Prof. Dr. Felix;Leinen;1957;ÖDP;206;Rheinland-Pfalz;2
 ;;;Andreas;Lelke;1980;BüSo;;Hessen;4
 ;;;Helmut;Lemke;1942;RENTNER;;Schleswig-Holstein;3
 ;;;Michael;Lemm;1975;DIE LINKE;;Thüringen;13
@@ -1817,7 +1817,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Hendrik;Lindemann;1964;FDP;250;Bayern;58
 ;;;Lars Friedrich;Lindemann;1971;FDP;;Berlin;2
 ;;;Thomas;Lindemann;1980;NPD;71;;
-;;;Hans;Linden;1936;Volksabst.;;Nordrhein-Westfalen;4
+;;;Hans;Linden;1936;Volksabstimmung;;Nordrhein-Westfalen;4
 ;;;Andrea;Lindholz;1970;CSU;;Bayern;29
 ;;;Manuel;Lindlar;1988;DIE LINKE;102;Nordrhein-Westfalen;18
 ;;;Andrea;Lindlohr;1975;GRÜNE;261;Baden-Württemberg;15
@@ -1849,7 +1849,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Markus Michael Maria;Löning;1960;FDP;84;;
 ;;;Johannes;Loepelmann;1987;PIRATEN;;Mecklenburg-Vorpommern;6
 ;;;Norbert;Loeper;1953;RRP;;Niedersachsen;13
-;;;Bernhard Paul;Lörch;1946;ödp;;Baden-Württemberg;9
+;;;Bernhard Paul;Lörch;1946;ÖDP;;Baden-Württemberg;9
 ;;;Wolfgang;Lörcher;1963;DIE LINKE;175;;
 ;;;Rudolf;Lörcks;1964;PIRATEN;;Nordrhein-Westfalen;5
 ;;;Gabriele;Lösekrug-Möller;1951;SPD;47;Niedersachsen;6
@@ -1859,7 +1859,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dorothee;Lohmann;1942;MLPD;;Baden-Württemberg;12
 ;;;Roland;Lohmeier;1945;RRP;225;;
 ;;;Johannes Hubertus;Lohmeyer;1964;FDP;160;;
-;;;Mario;Look;1964;ödp;;Berlin;2
+;;;Mario;Look;1964;ÖDP;;Berlin;2
 ;;;Stefan;Lorent;1961;DIE LINKE;;Baden-Württemberg;12
 ;;;Bernd Gerhard;Lorenz;1970;NPD;240;;
 ;;;Gertrud;Lorenz;1926;CDU;;Baden-Württemberg;61
@@ -1885,7 +1885,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Oliver;Luksic;1979;FDP;298;Saarland;1
 ;;;Manfred;Lurz;1945;DIE LINKE;136;;
 ;;;Dr. Michael Andreas;Luther;1956;CDU;166;Sachsen;4
-;;;Hans-Jürgen;Lutz;1948;Tierschutz;;Hessen;5
+;;;Hans-Jürgen;Lutz;1948;Die Tierschutzpartei;;Hessen;5
 ;;;Janet;Lutz;1970;GRÜNE;191;;
 ;;;Thomas;Lutze;1969;DIE LINKE;;Saarland;2
 ;;;Benedikt;Lux;1981;GRÜNE;80;;
@@ -1893,7 +1893,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Stefan;Lux;1959;NPD;;Berlin;6
 ;;;Karin;Maag;1962;CDU;259;Baden-Württemberg;8
 ;;;Herbert;Maar;1946;RRP;;Bayern;13
-;;;Jens;Maaß;1975;Tierschutz;;Berlin;6
+;;;Jens;Maaß;1975;Die Tierschutzpartei;;Berlin;6
 ;;;Simone;Maaß;1967;GRÜNE;197;;
 ;;;Bärbel Heike;Macamo;1961;;189;;
 ;;;Wolfgang;MacGregor;1944;DIE LINKE;137;;
@@ -1907,9 +1907,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Eric;Mäncher;1965;SPD;;Rheinland-Pfalz;33
 ;;;David;Mändlen;1988;PIRATEN;;Bayern;12
 ;;;Thomas;Mahlberg;1965;CDU;116;Nordrhein-Westfalen;36
-;;;Franz-Josef;Mai;1943;ödp;;Thüringen;2
-;;;Susann;Mai;1967;ödp;;Thüringen;7
-;;;Edeltraud;Maier;1938;ödp;;Baden-Württemberg;5
+;;;Franz-Josef;Mai;1943;ÖDP;;Thüringen;2
+;;;Susann;Mai;1967;ÖDP;;Thüringen;7
+;;;Edeltraud;Maier;1938;ÖDP;;Baden-Württemberg;5
 ;;;Franz;Maier;1963;BüSo;213;Bayern;5
 ;;;Norbert;Maier;1970;CDU;;Baden-Württemberg;57
 ;;;Sascha Andre;Maier;1984;NPD;127;;
@@ -1936,7 +1936,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Nicolas;Mantseris;1970;GRÜNE;18;Mecklenburg-Vorpommern;4
 ;;;Josef;Manz;1932;CDU;;Baden-Württemberg;63
 ;;;Dirk;Manzewski;1960;SPD;17;Mecklenburg-Vorpommern;3
-;;;Margitta;Marcian;1946;Tierschutz;180;Hessen;1
+;;;Margitta;Marcian;1946;Die Tierschutzpartei;180;Hessen;1
 ;;;André;Markau;1964;NPD;78;;
 ;;;Hans Christian;Markert;1968;GRÜNE;111;;
 ;;;Alfred;Market;1953;REP;;Bayern;20
@@ -1961,7 +1961,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Katja;Mast;1971;SPD;279;Baden-Württemberg;13
 ;;;Dr. Willi Alfred;Mast;1947;MLPD;;Nordrhein-Westfalen;10
 ;;;Ralf;Matheis;1969;;289;;
-;;;Gert;Mathiesen;1938;VIOLETTEN;;Bayern;15
+;;;Gert;Mathiesen;1938;DIE VIOLETTEN;;Bayern;15
 ;;;Danny;Matschke;1975;NPD;82;;
 ;;;Andreas;Mattfeldt;1969;CDU;35;Niedersachsen;28
 ;;;Hildegard;Mattheis;1954;SPD;291;Baden-Württemberg;5
@@ -1975,9 +1975,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Ulrich;Maurer;1948;DIE LINKE;259;Baden-Württemberg;1
 ;;;Michael Hans;May;1949;MLPD;;Nordrhein-Westfalen;6
 ;;;Dr. Oliver Matthias Werner;May;1967;FDP;;Sachsen;13
-;;;Bernhard;Mayer;1977;ödp;;Bayern;24
+;;;Bernhard;Mayer;1977;ÖDP;;Bayern;24
 ;;;Dieter;Mayer;1938;SPD;;Hessen;23
-;;;Erna;Mayer;1947;Tierschutz;;Hessen;6
+;;;Erna;Mayer;1947;Die Tierschutzpartei;;Hessen;6
 ;;;Johann;Mayer;1960;GRÜNE;235;;
 ;;;Stephan Ernst Johann;Mayer;1973;CSU;213;;
 ;;;Markus;Meckel;1952;SPD;58;Brandenburg;9
@@ -1988,12 +1988,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Agnes;Meier;1965;FDP;243;Bayern;19
 ;;;Edmund;Meier;1959;MLPD;;Sachsen-Anhalt;8
 ;;;Rolf;Meier;1967;DKP;84;Berlin;3
-;;;Sandy;Meier;1975;Tierschutz;;Berlin;2
+;;;Sandy;Meier;1975;Die Tierschutzpartei;;Berlin;2
 ;;;Wolfgang;Meier;1942;REP;;Baden-Württemberg;3
 ;;;Horst;Meierhofer;1972;FDP;233;Bayern;4
 ;;;Andreas;Meihsies;1960;GRÜNE;38;Niedersachsen;8
 ;;;Patrick;Meinhardt;1966;FDP;272;Baden-Württemberg;7
-;;;Wolfgang;Meischner;1954;ödp;234;Bayern;26
+;;;Wolfgang;Meischner;1954;ÖDP;234;Bayern;26
 ;;;Ariane Christine;Meise;1960;NPD;98;Nordrhein-Westfalen;14
 ;;;Dr. Michael;Meister;1961;CDU;188;Hessen;7
 ;;;Roland Matthäus;Meister;1953;MLPD;;Nordrhein-Westfalen;12
@@ -2003,7 +2003,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Thomas;Melber;1965;REP;;Baden-Württemberg;19
 ;;;Wilhelm Gerhard;Melchers;1964;FDP;11;Schleswig-Holstein;6
 ;;;Thomas;Melchinger;1978;PIRATEN;260;;
-;;;Christine;Melo-Plath;1956;ödp;;Bayern;25
+;;;Christine;Melo-Plath;1956;ÖDP;;Bayern;25
 ;;;Volker;Menge;1962;RRP;;Bremen;2
 ;;;Karl;Mennicken-Martensen;1943;GRÜNE;282;;
 ;;;Arend;Menssen;1966;FAMILIE;;Bayern;3
@@ -2024,7 +2024,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Carsten;Meyer;1961;GRÜNE;;Thüringen;4
 ;;;Cora;Meyer;1979;NPD;33;;
 ;;;Doris;Meyer;1957;CSU;;Bayern;25
-;;;Hartmut Heinrich Johann;Meyer;1956;ödp;;Niedersachsen;1
+;;;Hartmut Heinrich Johann;Meyer;1956;ÖDP;;Niedersachsen;1
 ;;;Heike;Meyer;1962;CDU;;Hessen;25
 ;;;Henry;Meyer;1986;BüSo;;Brandenburg;4
 ;;;Jens Gerd;Meyer;1957;SPD;;Schleswig-Holstein;19
@@ -2035,11 +2035,11 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Reinhardt Wilhelm;Meyer;1953;MLPD;118;;
 ;;;Steffen-Werner;Meyer;1970;SPD;;Saarland;14
 ;;;Torsten;Meyer;1956;DVU;;Berlin;1
-;;;Wolfgang;Meyer;1941;Volksabst.;;Nordrhein-Westfalen;7
+;;;Wolfgang;Meyer;1941;Volksabstimmung;;Nordrhein-Westfalen;7
 ;;;Andrea Erika Gesche Elisabeth;Meyer-Garbe;1967;SPD;;Niedersachsen;49
-;;;Leo;Meyer-Giesow;1970;ödp;218;Bayern;27
+;;;Leo;Meyer-Giesow;1970;ÖDP;218;Bayern;27
 ;;;Joachim;Meyer-Heithius;1955;DIE LINKE;;Niedersachsen;15
-;;;Bernd;Meyerding;1949;ödp;;Hamburg;10
+;;;Bernd;Meyerding;1949;ÖDP;;Hamburg;10
 ;;;Axel;Michaelis;1965;NPD;236;Bayern;7
 ;;;Ursula;Michalak;1952;CDU;;Schleswig-Holstein;18
 ;;;Maria Ludwiga;Michalk;1949;CDU;157;Sachsen;3
@@ -2055,7 +2055,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Richard;Miosga;1944;NPD;;Berlin;9
 ;;;Evmarie-Gertrud;Mischau;1958;MLPD;;Bayern;12
 ;;;Reinhard;Mischuda;1951;REP;;Brandenburg;3
-;;;Günter;Miß;1954;ödp;228;Bayern;28
+;;;Günter;Miß;1954;ÖDP;228;Bayern;28
 ;;;Philipp;Mißfelder;1979;CDU;122;Nordrhein-Westfalen;16
 ;;;Kim-Sun;Mo;1978;PIRATEN;;Rheinland-Pfalz;6
 ;;;Kerstin;Mock-Hofeditz;1966;GRÜNE;;Schleswig-Holstein;11
@@ -2070,8 +2070,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Silke;Möller;1966;;192;;
 ;;;Jan;Mönikes;1970;SPD;265;;
 ;;;Frank;Mörsch;1971;CDU;;Rheinland-Pfalz;21
-;;;Edith;Mörtel;1954;VIOLETTEN;;Bayern;4
-;;;Doris;Moezer;1948;VIOLETTEN;;Bayern;7
+;;;Edith;Mörtel;1954;DIE VIOLETTEN;;Bayern;4
+;;;Doris;Moezer;1948;DIE VIOLETTEN;;Bayern;7
 ;;;Ursula;Mogg;1953;SPD;200;Rheinland-Pfalz;10
 ;;;Hans-Jürgen Wilhelm;Mohme;1940;RRP;;Niedersachsen;10
 ;;;Sebastian;Mohr;1982;PIRATEN;;Bayern;10
@@ -2096,7 +2096,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Holger;Mrosek;1971;GRÜNE;114;;
 ;;;Jan;Mücke;1973;FDP;161;Sachsen;1
 ;;;Mark;Mühlbeyer;1986;CDU;;Baden-Württemberg;50
-;;;Dr. Otto Stephan;Mühleck;1953;ödp;;Baden-Württemberg;3
+;;;Dr. Otto Stephan;Mühleck;1953;ÖDP;;Baden-Württemberg;3
 ;;;Christine;Mühler-Aumann;1954;PBC;;Baden-Württemberg;5
 ;;;Daniel;Mühlhäuser;1977;PBC;;Bayern;3
 ;;;Jan;Mühlmann-Skupien;1968;FDP;63;Brandenburg;9
@@ -2125,7 +2125,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Petra;Müller;1960;FDP;88;Nordrhein-Westfalen;14
 ;;;Roland;Müller;1941;NPD;293;;
 ;;;Stefan;Müller;1975;CSU;242;Bayern;9
-;;;Thomas;Müller;1954;ödp;;Bayern;5
+;;;Thomas;Müller;1954;ÖDP;;Bayern;5
 ;;;Tino;Müller;1978;NPD;18;Mecklenburg-Vorpommern;2
 ;;;Veit-Harald;Müller;1941;MLPD;182;Hessen;1
 ;;;Vincent;Müller;1990;GRÜNE;195;Thüringen;5
@@ -2156,7 +2156,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Otto;Nagel;1942;NPD;263;;
 ;;;Mike;Nagler;1978;DIE LINKE;154;Sachsen;12
 ;;;Andrea;Nahles;1970;SPD;199;Rheinland-Pfalz;1
-;;;Renate;Narayan;1943;ödp;132;;
+;;;Renate;Narayan;1943;ÖDP;132;;
 ;;;Jürgen;Nass;1973;;270;;
 ;;;Traugott;Nassauer;1949;MLPD;;Rheinland-Pfalz;2
 ;;;Denny;Naterski;1980;NPD;;Niedersachsen;6
@@ -2193,7 +2193,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dirk;Niebel;1963;FDP;274;Baden-Württemberg;2
 ;;;Josef;Niederländer;1950;CM;;Bayern;4
 ;;;Franz;Niedermayr;1960;FDP;215;Bayern;35
-;;;Kornelia;Niedermeier;1965;Volksabst.;;Baden-Württemberg;3
+;;;Kornelia;Niedermeier;1965;Volksabstimmung;;Baden-Württemberg;3
 ;;;Gerd;Nier;1947;DIE LINKE;54;Niedersachsen;8
 ;;;Dietmar;Nietan;1964;SPD;91;Nordrhein-Westfalen;11
 ;;;Werner;Niggemann;1949;MLPD;;Hamburg;5
@@ -2221,7 +2221,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Franz;Obermeier;1946;CSU;215;;
 ;;;Marc-Ernst;Oberscheid;1962;FDP;294;Baden-Württemberg;36
 ;;;Monika;Obieray;1952;GRÜNE;;Schleswig-Holstein;5
-;;;Tanja;Och;1974;ödp;240;Bayern;29
+;;;Tanja;Och;1974;ÖDP;240;Bayern;29
 ;;;Holger;Odenthal;1967;NPD;154;;
 ;;;Kay;Oelke;1959;NPD;10;Schleswig-Holstein;5
 ;;;Thomas;Oelmayer;1954;GRÜNE;292;;
@@ -2279,11 +2279,11 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Bernd-Dieter;Pellmann;1942;RENTNER;;Nordrhein-Westfalen;4
 ;;;Dorit Emmy Beate;Pentz von;1950;MLPD;;Niedersachsen;4
 ;;;Hannes;Pentz von;1979;MLPD;;Niedersachsen;1
-;;;Wolfgang;Penzler;1943;Tierschutz;;Hessen;2
+;;;Wolfgang;Penzler;1943;Die Tierschutzpartei;;Hessen;2
 ;;;Bernhard;Perrefort;1954;DIE LINKE;128;;
 ;;;Rainer;Perschewski;1963;DKP;83;Berlin;1
 ;;;Josef;Perschl;1954;BüSo;;Bayern;9
-;;;David;Perteck;1977;ödp;23;Hamburg;1
+;;;David;Perteck;1977;ÖDP;23;Hamburg;1
 ;;;Jürgen;Peter;1956;;3;;
 ;;;David;Petereit;1981;NPD;;Mecklenburg-Vorpommern;4
 ;;;Jens;Petermann;1963;DIE LINKE;197;Thüringen;6
@@ -2303,13 +2303,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Janina;Pfau;1983;DIE LINKE;167;Sachsen;11
 ;;;Klaus;Pfeifer;1956;;82;;
 ;;;Dr. Joachim;Pfeiffer;1967;CDU;264;;
-;;;Michael;Pfeiffer;1946;VIOLETTEN;;Baden-Württemberg;5
+;;;Michael;Pfeiffer;1946;DIE VIOLETTEN;;Baden-Württemberg;5
 ;;;Oskar;Pfeiffer;1933;DVU;;Bayern;2
 ;;;Sibylle;Pfeiffer;1951;CDU;173;Hessen;6
 ;;;Prof. Dr. Thomas;Pfeiffer;1961;CDU;;Hessen;27
 ;;;Karl-Heinz Rudolf;Pfirrmann;1945;NPD;212;Rheinland-Pfalz;9
 ;;;Gerhard;Pfisterer;1948;MLPD;143;Nordrhein-Westfalen;3
-;;;Tanja;Pfisterer;1986;ödp;238;Bayern;30
+;;;Tanja;Pfisterer;1986;ÖDP;238;Bayern;30
 ;;;Stephan;Pfitzer;1984;NPD;;Baden-Württemberg;6
 ;;;Johannes Andreas;Pflug;1946;SPD;117;Nordrhein-Westfalen;69
 ;;;Beatrix;Philipp;1945;CDU;108;Nordrhein-Westfalen;12
@@ -2317,7 +2317,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Peter Hartmut;Pichl;1980;NPD;194;;
 ;;;Erich;Pichlmeier;1935;BP;;Bayern;33
 ;;;Hans Joachim;Picker;1938;RENTNER;;Hamburg;3
-;;;Jochen;Piehl;1973;ödp;;Rheinland-Pfalz;6
+;;;Jochen;Piehl;1973;ÖDP;;Rheinland-Pfalz;6
 ;;;Siegfried;Pielsticker;1943;RRP;223;Bayern;19
 ;;;Cornelia;Pieper;1959;FDP;73;Sachsen-Anhalt;1
 ;;;Hans-Heinrich;Piepgras;1961;PIRATEN;;Schleswig-Holstein;5
@@ -2372,16 +2372,16 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dirk Friedrich;Presch;1959;SPD;;Nordrhein-Westfalen;59
 ;;;Friedrich;Preuß;1943;NPD;52;;
 ;;;Joachim Jürgen;Preuß;1942;RRP;252;;
-;;;Walter;Price;1967;ödp;254;Bayern;31
+;;;Walter;Price;1967;ÖDP;254;Bayern;31
 ;;;Peter Jürgen;Pricelius;1938;REP;;Bremen;1
 ;;;Christoph;Pries;1958;SPD;127;Nordrhein-Westfalen;26
 ;;;Michaela;Pries;1966;CDU;5;Schleswig-Holstein;3
 ;;;Dr. Wilhelm;Priesmeier;1954;SPD;53;Niedersachsen;30
-;;;Martin;Pröhl;1935;Tierschutz;;Niedersachsen;6
-;;;Wilhelm;Pröhl;1935;Tierschutz;;Niedersachsen;7
+;;;Martin;Pröhl;1935;Die Tierschutzpartei;;Niedersachsen;6
+;;;Wilhelm;Pröhl;1935;Die Tierschutzpartei;;Niedersachsen;7
 ;;;Richard;Progl;1979;BP;;Bayern;35
 ;;;Florian;Pronold;1972;SPD;230;Bayern;1
-;;;Friederike;Prüll;1963;Tierschutz;183;Hessen;7
+;;;Friederike;Prüll;1963;Die Tierschutzpartei;183;Hessen;7
 ;;;Max;Prümm;1978;CDU;;Rheinland-Pfalz;22
 ;;;Peter;Przybylo;1944;RENTNER;;Nordrhein-Westfalen;9
 ;;;Rudolf;Puckl;1946;BP;;Bayern;7
@@ -2452,12 +2452,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Brigitte;Reifschneider-Groß;1951;FDP;;Hessen;25
 ;;;Dr. Carola;Reimann;1967;SPD;51;Niedersachsen;17
 ;;;Hermann Hans Hajo;Reinders;1952;CDU;;Niedersachsen;34
-;;;Rosa Maria;Reindl;1966;ödp;214;Bayern;10
+;;;Rosa Maria;Reindl;1966;ÖDP;214;Bayern;10
 ;;;Dr. Birgit;Reinemund;1959;FDP;275;Baden-Württemberg;11
 ;;;Marion;Reinert;1976;NPD;122;Nordrhein-Westfalen;10
 ;;;Johannes;Reinhard;1985;CSU;;Bayern;53
 ;;;Fabio;Reinhardt;1980;PIRATEN;;Niedersachsen;3
-;;;Manfred;Reinhart;1964;ödp;242;Bayern;32
+;;;Manfred;Reinhart;1964;ÖDP;242;Bayern;32
 ;;;Hagen;Reinhold;1978;FDP;14;Mecklenburg-Vorpommern;2
 ;;;Elke;Reinke;1958;DIE LINKE;69;Sachsen-Anhalt;7
 ;;;Ralf;Reinstädtler;1966;DIE LINKE;299;;
@@ -2467,25 +2467,25 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Reinhold;Reker;1935;ADM;;Baden-Württemberg;5
 ;;;Ingrid Liselotte;Remmers;1965;DIE LINKE;;Nordrhein-Westfalen;9
 ;;;Karsten;Renfordt;1963;DIE LINKE;151;;
-;;;Gabriele;Renner;1965;VIOLETTEN;;Bayern;8
+;;;Gabriele;Renner;1965;DIE VIOLETTEN;;Bayern;8
 ;;;Rita;Renner;1958;MLPD;;Sachsen-Anhalt;4
 ;;;Astrid;Renner-Knopp;1969;CSU;;Bayern;49
 ;;;Hans-Jörg;Rennert;1941;RRP;;Nordrhein-Westfalen;4
-;;;Christine;Renz;1975;Tierschutz;;Baden-Württemberg;2
+;;;Christine;Renz;1975;Die Tierschutzpartei;;Baden-Württemberg;2
 ;;;Dr. Wolfgang;Ressmann;1958;SPD;209;Rheinland-Pfalz;13
 ;;;Hans-Jürgen;Rettig;1950;;61;;
 ;;;Volker;Reusch;1970;ZENTRUM;;Nordrhein-Westfalen;4
-;;;Volker;Reusing;1971;ödp;;Nordrhein-Westfalen;14
+;;;Volker;Reusing;1971;ÖDP;;Nordrhein-Westfalen;14
 ;;;Dr. Alexander;Reuter;1967;FDP;293;;
 ;;;Marion;Reuther;1953;SPD;251;Bayern;24
 ;;;Fabian;Reymann;1979;PSG;;Berlin;2
 ;;;Ingrid;Reynders;1947;RENTNER;;Nordrhein-Westfalen;10
-;;;Bernhard;Richter;1943;ödp;285;Baden-Württemberg;2
+;;;Bernhard;Richter;1943;ÖDP;285;Baden-Württemberg;2
 ;;;Hartmut Manfred;Richter;1944;;160;;
 ;;;Dr. Jörg;Richter;1969;FDP;277;Baden-Württemberg;19
 ;;;Thomas;Richter;1969;FDP;159;Sachsen;12
 ;;;Wera;Richter;1969;DKP;;Berlin;2
-;;;Marie-Luise;Richtermeier;1947;VIOLETTEN;;Berlin;2
+;;;Marie-Luise;Richtermeier;1947;DIE VIOLETTEN;;Berlin;2
 ;;;Roland;Richwien;1955;CDU;194;Thüringen;5
 ;;;Matthias;Riebesam;1964;;269;;
 ;;;Lothar;Riebsamen;1957;CDU;293;;
@@ -2493,12 +2493,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Albert;Riedelsheimer;1966;GRÜNE;254;;
 ;;;Laszlo;Riedl;1972;FDP;249;Bayern;44
 ;;;Peter Hans;Riedl;1948;RRP;232;Bayern;12
-;;;Michael;Riedmaier;1969;Volksabst.;;Nordrhein-Westfalen;8
+;;;Michael;Riedmaier;1969;Volksabstimmung;;Nordrhein-Westfalen;8
 ;;;Josef;Rief;1960;CDU;292;;
 ;;;Ricarda;Riefling;1983;NPD;49;Niedersachsen;3
 ;;;Jürgen;Rieg;1968;FDP;270;Baden-Württemberg;35
 ;;;Stefan;Riegel;1985;PIRATEN;;Sachsen-Anhalt;6
-;;;Daniela;Rieger;1976;Tierschutz;;Niedersachsen;8
+;;;Daniela;Rieger;1976;Die Tierschutzpartei;;Niedersachsen;8
 ;;;Jürgen;Rieger;1946;NPD;19;Hamburg;1
 ;;;Rudolf;Rieger;1957;NPD;252;;
 ;;;Klaus;Riegert;1959;CDU;263;Baden-Württemberg;11
@@ -2547,12 +2547,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Claas Heinrich Remmert;Rohmeyer;1971;CDU;;Bremen;4
 ;;;Patricia Katharina;Rohrbach;1953;MLPD;;Nordrhein-Westfalen;19
 ;;;Heidi;Rohrlack;1946;GRÜNE;253;;
-;;;Margit Ricarda;Rolf;1953;ödp;;Hamburg;6
+;;;Margit Ricarda;Rolf;1953;ÖDP;;Hamburg;6
 ;;;Andreas;Roll;1967;GRÜNE;266;;
 ;;;Thorsten;Rollman;1969;CSU;;Bayern;58
 ;;;Dr. Eckart;Rolshoven;1951;FDP;;Saarland;5
 ;;;Christine;Rorich;1937;NPD;242;;
-;;;Clemens Josef;Roschka;1961;ödp;;Thüringen;4
+;;;Clemens Josef;Roschka;1961;ÖDP;;Thüringen;4
 ;;;Margarete;Rose;1948;RRP;45;Niedersachsen;2
 ;;;Dr. Olaf Volker Bernhard;Rose;1958;NPD;159;Sachsen;1
 ;;;Dr. Martin;Rosemann;1976;SPD;290;Baden-Württemberg;20
@@ -2596,9 +2596,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Marlene Dorothe Henriette;Rupprecht;1947;SPD;243;Bayern;10
 ;;;Hartmut;Rusin;1951;;14;;
 ;;;Wolfgang;Rußkamp;1955;CDU;134;Nordrhein-Westfalen;42
-;;;Christa;Rust;1944;Tierschutz;177;Hessen;3
+;;;Christa;Rust;1944;Die Tierschutzpartei;177;Hessen;3
 ;;;Dieter;Rust;1966;SPD;;Saarland;21
-;;;Bert;Rutkowsky;1970;Tierschutz;;Berlin;3
+;;;Bert;Rutkowsky;1970;Die Tierschutzpartei;;Berlin;3
 ;;;Anna;Rutz;1967;GRÜNE;223;;
 ;;;Sarah Janina;Ryglewski;1983;SPD;;Bremen;4
 ;;;Volker;Sachs;1934;NPD;174;Hessen;2
@@ -2628,7 +2628,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Christian;Schaarschmidt;1971;REP;;Brandenburg;2
 ;;;Dr. Hans-Joachim;Schabedoth;1952;SPD;176;Hessen;14
 ;;;Stefan;Schade;1960;;290;;
-;;;Regina Klothild;Schadwinkel;1938;ödp;;Niedersachsen;5
+;;;Regina Klothild;Schadwinkel;1938;ÖDP;;Niedersachsen;5
 ;;;Reinhold;Schäben;1960;NPD;109;;
 ;;;Gerald Rudolf Hermann;Schädlich;1956;FDP;118;;
 ;;;Andreas;Schäfer;1968;NPD;277;Baden-Württemberg;5
@@ -2647,7 +2647,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Wolfgang;Schäuble;1942;CDU;284;Baden-Württemberg;1
 ;;;Gerhard;Schaffarczyk;1957;BP;;Bayern;37
 ;;;Markus;Schalk;1949;DIE LINKE;33;Niedersachsen;12
-;;;Dr. Rainer;Schanne;1942;ödp;;Rheinland-Pfalz;10
+;;;Dr. Rainer;Schanne;1942;ÖDP;;Rheinland-Pfalz;10
 ;;;Peter;Schantz;1977;FDP;81;Berlin;8
 ;;;Dr. Marcus;Schaper;1973;GRÜNE;47;;
 ;;;Karl-Heinz;Schappert;1944;ADM;;Baden-Württemberg;7
@@ -2694,7 +2694,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Albert;Schill;1946;CDU;;Sachsen;11
 ;;;Dr. Konrad;Schily;1937;FDP;140;;
 ;;;Wolfgang;Schimmel;1962;NPD;4;Schleswig-Holstein;7
-;;;Gabriela;Schimmer-Göresz;1952;ödp;;Bayern;8
+;;;Gabriela;Schimmer-Göresz;1952;ÖDP;;Bayern;8
 ;;;Herold Albert;Schincke;1951;;122;;
 ;;;Jörg;Schindler;1972;DIE LINKE;71;Sachsen-Anhalt;8
 ;;;Norbert;Schindler;1949;CDU;209;Rheinland-Pfalz;5
@@ -2710,7 +2710,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Gudrun;Schlett;1961;DIE LINKE;245;Bayern;9
 ;;;Gertraude;Schlierer;1928;REP;;Baden-Württemberg;17
 ;;;Dr. Rolf;Schlierer;1955;REP;;Baden-Württemberg;1
-;;;Hanns-Dieter;Schlierf;1954;ödp;226;Bayern;12
+;;;Hanns-Dieter;Schlierf;1954;ÖDP;226;Bayern;12
 ;;;Bernd;Schlitter-Bankloh;1942;MLPD;;Nordrhein-Westfalen;14
 ;;;Klaus-Dieter;Schlottmann;1949;PBC;46;;
 ;;;Bärbel;Schlude;1976;REP;;Bayern;22
@@ -2808,11 +2808,11 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Alexander;Schopf;1977;FDP;265;Baden-Württemberg;20
 ;;;Susanne;Schoppen;1948;FDP;;Hessen;39
 ;;;Erwin;Schott;1952;DIE VIOLETTEN;206;;
-;;;Fritz;Schowald;1953;VIOLETTEN;;Baden-Württemberg;8
+;;;Fritz;Schowald;1953;DIE VIOLETTEN;;Baden-Württemberg;8
 ;;;Hartmut;Schrader;1950;;179;;
 ;;;Henning;Schramm;1962;CDU;;Mecklenburg-Vorpommern;12
 ;;;Inge;Schramm;1960;;242;;
-;;;Robert;Schramm;1959;ödp;;Rheinland-Pfalz;18
+;;;Robert;Schramm;1959;ÖDP;;Rheinland-Pfalz;18
 ;;;Elke;Schreiber;1945;SPD;;Schleswig-Holstein;17
 ;;;Peter;Schreiber;1973;NPD;156;;
 ;;;Bernd Nobert Harry;Schreiner;1967;PIRATEN;;Thüringen;3
@@ -2821,7 +2821,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Jendrik;Schröder;1984;SPD;;Niedersachsen;33
 ;;;Dr. Ole;Schröder;1971;CDU;7;Schleswig-Holstein;2
 ;;;Patrick Hermann;Schröder;1983;NPD;225;Bayern;6
-;;;Thea;Schröder;1939;VIOLETTEN;;Bayern;11
+;;;Thea;Schröder;1939;DIE VIOLETTEN;;Bayern;11
 ;;;Ulrich;Schröder;1947;DIE LINKE;30;;
 ;;;Petra;Schröer;1960;SPD;;Nordrhein-Westfalen;70
 ;;;Andrea;Schrutek;1963;DIE LINKE;165;Sachsen;13
@@ -2833,9 +2833,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Lothar;Schuchmann;1940;DIE LINKE;288;;
 ;;;Robert;Schuder;1968;BP;;Bayern;42
 ;;;Heiner Helmut Willi;Schülke;1950;FDP;41;Niedersachsen;11
-;;;Monika;Schüllenbach-Schöne;1941;Tierschutz;;Bayern;3
+;;;Monika;Schüllenbach-Schöne;1941;Die Tierschutzpartei;;Bayern;3
 ;;;Jörg;Schümann;1960;GRÜNE;232;;
-;;;Perdita;Schünemann;1960;VIOLETTEN;;Berlin;4
+;;;Perdita;Schünemann;1960;DIE VIOLETTEN;;Berlin;4
 ;;;Sigrid;Schüßler;1969;NPD;;Bayern;4
 ;;;Rainer;Schütten;1953;SPD;;Nordrhein-Westfalen;73
 ;;;Daniel;Schütz;1931;BP;;Bayern;40
@@ -2849,13 +2849,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Daniel;Schultheiß;1980;PIRATEN;;Thüringen;1
 ;;;Frank;Schultz;1972;PIRATEN;;Mecklenburg-Vorpommern;4
 ;;;Vasco;Schultz;1976;DIE LINKE;23;;
-;;;Velda;Schultz;1985;ödp;;Hamburg;4
+;;;Velda;Schultz;1985;ÖDP;;Hamburg;4
 ;;;Dr. Andreas;Schulz;1970;GRÜNE;;Hessen;12
 ;;;Dieter;Schulz;1969;NPD;140;;
 ;;;Gerhard-Walter;Schulz;1950;DIE LINKE;48;;
 ;;;Herbert Heinrich Paul;Schulz;1947;DIE LINKE;21;;
 ;;;Dr. Horst;Schulz;1943;FWD;;Brandenburg;7
-;;;Ines Rosika;Schulz;1961;VIOLETTEN;;Berlin;6
+;;;Ines Rosika;Schulz;1961;DIE VIOLETTEN;;Berlin;6
 ;;;Jimmy;Schulz;1968;FDP;222;Bayern;10
 ;;;Katrin;Schulz;1959;CDU;;Schleswig-Holstein;12
 ;;;Rico;Schulz;1978;BüSo;159;Sachsen;13
@@ -2867,7 +2867,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Sigrid;Schulze;1966;REP;;Hessen;10
 ;;;Tobias;Schulze;1976;DIE LINKE;;Berlin;10
 ;;;Heinz;Schumacher;1953;;187;;
-;;;Manfred;Schumacher;1959;ödp;;Rheinland-Pfalz;7
+;;;Manfred;Schumacher;1959;ÖDP;;Rheinland-Pfalz;7
 ;;;Markus;Schumacher;1977;NPD;142;;
 ;;;Ulrich;Schumacher;1966;PIRATEN;;Nordrhein-Westfalen;1
 ;;;Dieter;Schumann;1953;;193;;
@@ -2881,7 +2881,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Marina;Schuster;1975;FDP;246;Bayern;6
 ;;;Peter;Schuster;1950;BP;;Bayern;39
 ;;;Thorsten;Schuster;1964;NPD;21;Hamburg;5
-;;;Angelika;Schwab;1959;Tierschutz;;Nordrhein-Westfalen;3
+;;;Angelika;Schwab;1959;Die Tierschutzpartei;;Nordrhein-Westfalen;3
 ;;;Frank;Schwabe;1970;SPD;122;Nordrhein-Westfalen;43
 ;;;Dr. Angelica Klara;Schwall-Düren;1948;SPD;128;Nordrhein-Westfalen;2
 ;;;Stefan;Schwan;1969;GRÜNE;138;;
@@ -2901,7 +2901,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Frank;Schwarzer;1974;DIE LINKE;133;;
 ;;;Daniel;Schweer;1982;SPD;;Niedersachsen;57
 ;;;Dr. Erik;Schweickert;1972;FDP;279;Baden-Württemberg;10
-;;;Dr. Hermann;Schweiger;1954;ödp;241;Bayern;4
+;;;Dr. Hermann;Schweiger;1954;ÖDP;241;Bayern;4
 ;;;Angelika Elisabeth Christine;Schweitzer;1949;MLPD;;Nordrhein-Westfalen;28
 ;;;Gottfried;Schweitzer;1946;MLPD;95;;
 ;;;Felix;Schwenke;1979;SPD;;Hessen;31
@@ -2915,11 +2915,11 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Manfred;Seel;1954;DIE LINKE;254;;
 ;;;Peter;Seelmann;1952;CDU;;Rheinland-Pfalz;24
 ;;;Harry;Seemann;1955;;130;;
-;;;Wolfgand Josef Emil;Seemann;1950;ödp;;Nordrhein-Westfalen;7
+;;;Wolfgand Josef Emil;Seemann;1950;ÖDP;;Nordrhein-Westfalen;7
 ;;;Ulrike;Seemann-Katz;1955;GRÜNE;12;Mecklenburg-Vorpommern;7
 ;;;Matthias;Seestern-Pauly;1984;FDP;39;Niedersachsen;13
 ;;;Norbert;Segerath;1948;DIE LINKE;114;;
-;;;Daniela;Seibel;1969;Tierschutz;;Niedersachsen;5
+;;;Daniela;Seibel;1969;Die Tierschutzpartei;;Niedersachsen;5
 ;;;Dietrich;Seidel;1936;NPD;34;;
 ;;;Horst Gerhard;Seidel;1940;RRP;;Nordrhein-Westfalen;2
 ;;;Wolfgang;Seidel;1969;DIE LINKE;222;;
@@ -2930,7 +2930,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Berthold;Seifert;1964;REP;;Bayern;2
 ;;;Dr. Ilja;Seifert;1951;DIE LINKE;158;Sachsen;4
 ;;;Till;Seiler;1981;GRÜNE;287;Baden-Württemberg;16
-;;;Andreas;Seitz;1967;ödp;229;Bayern;34
+;;;Andreas;Seitz;1967;ÖDP;229;Bayern;34
 ;;;Petra;Selg;1961;GRÜNE;293;;
 ;;;Jürgen;Selke-Witzel;1967;GRÜNE;50;;
 ;;;Johannes;Selle;1956;CDU;191;Thüringen;9
@@ -2954,8 +2954,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Carsten Günter Erich;Sieling;1959;SPD;55;Bremen;3
 ;;;Melanie;Siemen;1974;CDU;;Schleswig-Holstein;25
 ;;;Sabine;Siemsen;1965;DIE LINKE;;Bayern;21
-;;;Michael;Siethoff;1970;Tierschutz;151;Nordrhein-Westfalen;2
-;;;Gudrun;Sievers;1961;ödp;;Niedersachsen;3
+;;;Michael;Siethoff;1970;Die Tierschutzpartei;151;Nordrhein-Westfalen;2
+;;;Gudrun;Sievers;1961;ÖDP;;Niedersachsen;3
 ;;;Wolfgang;Siewert;1942;GRÜNE;72;;
 ;;;Kosima;Sikora;1957;FAMILIE;;Bayern;2
 ;;;Thomas;Silberhorn;1968;CSU;236;;
@@ -2967,18 +2967,18 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Christopher;Sitte;1973;FDP;;Rheinland-Pfalz;20
 ;;;Dr. Petra;Sitte;1960;DIE LINKE;73;Sachsen-Anhalt;1
 ;;;Judith;Skudelny;1975;FDP;262;Baden-Württemberg;12
-;;;Hannelore;Slaugh;1949;Tierschutz;;Hessen;9
+;;;Hannelore;Slaugh;1949;Die Tierschutzpartei;;Hessen;9
 ;;;Günter Paul;Slave;1955;MLPD;161;Sachsen;1
 ;;;Oliver;Snelinski;1980;;87;;
 ;;;Karl;Söllner;1956;SPD;233;Bayern;37
 ;;;Peter;Sokolowski;1964;GRÜNE;27;;
 ;;;Dr. Hermann Otto;Solms-Hohensolms-Lich Prinz zu;1940;FDP;174;Hessen;2
 ;;;Lothar;Sommer;1954;;61;;
-;;;Volker Christoph;Sommer;1944;ödp;;Thüringen;11
+;;;Volker Christoph;Sommer;1944;ÖDP;;Thüringen;11
 ;;;Bernd;Sommerau;1954;;60;;
 ;;;Elke;Sommermeyer;1954;FDP;;Hessen;22
 ;;;Christoph;Sonnenberg-Westeson;1969;GRÜNE;79;;
-;;;Sebastian;Sonner;1953;ödp;;Bayern;9
+;;;Sebastian;Sonner;1953;ÖDP;;Bayern;9
 ;;;Sina;Sossna;1990;FDP;;Nordrhein-Westfalen;44
 ;;;Alois;Späth;1937;;234;;
 ;;;Jens;Spahn;1980;CDU;125;;
@@ -2993,14 +2993,14 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Richard;Spieß;1959;DIE LINKE;233;Bayern;8
 ;;;Frank;Spieth;1947;DIE LINKE;193;;
 ;;;Hans;Spieth;1943;ADM;;Baden-Württemberg;4
-;;;Anita;Spinner;1964;ödp;276;;
+;;;Anita;Spinner;1964;ÖDP;276;;
 ;;;Norbert;Spinrath;1957;SPD;90;Nordrhein-Westfalen;58
 ;;;Rolf;Spitz;1960;SPD;257;Bayern;23
 ;;;Wolfgang;Spitz;1960;CDU;;Rheinland-Pfalz;28
 ;;;Lars;Spönlein;1972;NPD;;Nordrhein-Westfalen;7
 ;;;Uta;Spöri;1955;DIE LINKE;281;Baden-Württemberg;9
 ;;;Ernst;Sporer;1950;GRÜNE;175;;
-;;;Heinz-Günter;Sprodowski;1930;Volksabst.;;Baden-Württemberg;10
+;;;Heinz-Günter;Sprodowski;1930;Volksabstimmung;;Baden-Württemberg;10
 ;;;Matthias;Stadie;1976;REP;;Mecklenburg-Vorpommern;3
 ;;;Dr. Maximilian;Stadler;1949;FDP;229;Bayern;2
 ;;;Maren;Stäbler;1983;CDU;;Baden-Württemberg;60
@@ -3009,19 +3009,19 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Rainer;Staib;1969;CDU;;Baden-Württemberg;48
 ;;;Josef;Stalleicher;1950;BüSo;;Hessen;9
 ;;;Martina;Stalleicken;1979;MLPD;;Nordrhein-Westfalen;11
-;;;Markus;Stamm;1970;ödp;;Nordrhein-Westfalen;8
+;;;Markus;Stamm;1970;ÖDP;;Nordrhein-Westfalen;8
 ;;;Thomas;Stamm;1968;DIE LINKE;;Thüringen;14
 ;;;Martina;Stamm-Fibich;1965;SPD;242;Bayern;38
 ;;;Dr. Michael;Stanglmaier;1963;GRÜNE;215;;
 ;;;Eduard;Stapel;1953;GRÜNE;67;;
-;;;Felix Johannes;Staratschek;1966;ödp;100;Nordrhein-Westfalen;9
+;;;Felix Johannes;Staratschek;1966;ÖDP;100;Nordrhein-Westfalen;9
 ;;;Bettina;Stark-Watzinger;1968;FDP;181;Hessen;9
 ;;;Alina;Staszewski;1986;REP;;Bayern;10
 ;;;Detlev;Stauch;1953;REP;;Thüringen;2
 ;;;Carola;Stauche;1952;CDU;196;Thüringen;6
 ;;;Peter;Staudenhöchtl;1955;REP;;Bayern;12
 ;;;Alfred;Staudt;1958;SPD;;Saarland;6
-;;;Horst;Stauffer;1934;ödp;;Rheinland-Pfalz;13
+;;;Horst;Stauffer;1934;ÖDP;;Rheinland-Pfalz;13
 ;;;Ingo;Stawitz;1950;NPD;7;Schleswig-Holstein;4
 ;;;Britta;Steck;1965;GRÜNE;201;Rheinland-Pfalz;7
 ;;;Anna-Elisabeth;Stefanutti-Bscheidl;1955;BP;225;;
@@ -3034,7 +3034,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Horst-Peter;Stein;1960;FDP;59;;
 ;;;Kevin;Stein;1984;NPD;1;;
 ;;;Peter;Stein;1968;CDU;14;Mecklenburg-Vorpommern;7
-;;;Uli;Stein;1957;ödp;;Baden-Württemberg;10
+;;;Uli;Stein;1957;ÖDP;;Baden-Württemberg;10
 ;;;Erika;Steinbach;1943;CDU;183;Hessen;3
 ;;;Wilfried;Steinberg;1940;REP;;Brandenburg;1
 ;;;Holger;Steinbiß;1971;NPD;145;;
@@ -3042,8 +3042,8 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dieter;Steinecke;1954;SPD;32;Niedersachsen;20
 ;;;Dorothea;Steiner;1948;GRÜNE;40;Niedersachsen;3
 ;;;Christina Theresa;Steinheuer;1979;FDP;199;Rheinland-Pfalz;13
-;;;Lilli;Steinke;1941;Volksabst.;;Baden-Württemberg;9
-;;;Frank-Thomas;Steinle;1962;VIOLETTEN;;Bayern;14
+;;;Lilli;Steinke;1941;Volksabstimmung;;Baden-Württemberg;9
+;;;Frank-Thomas;Steinle;1962;DIE VIOLETTEN;;Bayern;14
 ;;;Alfred;Steinleitner;1960;NPD;227;;
 ;;;Dr. Frank-Walter;Steinmeier;1956;SPD;61;Brandenburg;1
 ;;;Sven;Steinmeyer;1973;;220;;
@@ -3053,7 +3053,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Margitta Gisela;Stephan;1964;;257;;
 ;;;André;Stephany;1989;CDU;;Baden-Württemberg;51
 ;;;Andreas;Steppuhn;1962;SPD;69;Sachsen-Anhalt;6
-;;;Stephan Peter;Sterk;1965;VIOLETTEN;;Bayern;9
+;;;Stephan Peter;Sterk;1965;DIE VIOLETTEN;;Bayern;9
 ;;;Christian Alexander;Stetten von;1970;CDU;268;;
 ;;;Christian;Steup;1978;NPD;84;Rheinland-Pfalz;3
 ;;;Hendrik;Stiefel;1983;PIRATEN;;Thüringen;6
@@ -3068,7 +3068,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Hans Joachim;Stockschläger;1959;FDP;110;Nordrhein-Westfalen;26
 ;;;Christiane;Stodt-Kirchholtes;1962;GRÜNE;;Schleswig-Holstein;7
 ;;;Sebastian;Stöber;1977;NPD;37;;
-;;;Daniel;Stöckel;1979;ödp;;Baden-Württemberg;8
+;;;Daniel;Stöckel;1979;ÖDP;;Baden-Württemberg;8
 ;;;Volker;Stöckel;1966;;40;;
 ;;;Matthias;Stoll;1965;PIRATEN;;Niedersachsen;4
 ;;;Peter;Stoltenberg;1949;GRÜNE;8;;
@@ -3112,7 +3112,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Erich Walter;Sturm;1961;PIRATEN;;Bremen;1
 ;;;Jan;Sturm;1965;NPD;83;Berlin;4
 ;;;Ulrike;Sturm;1961;GRÜNE;269;;
-;;;Astrid;Suchanek;1946;Tierschutz;;Baden-Württemberg;3
+;;;Astrid;Suchanek;1946;Die Tierschutzpartei;;Baden-Württemberg;3
 ;;;Katja;Suding;1975;FDP;20;Hamburg;6
 ;;;Heike;Sudmann;1962;DIE LINKE;;Hamburg;3
 ;;;Wilhelm;Sudmann;1960;NPD;26;;
@@ -3139,7 +3139,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Dr. Peter;Tauber;1974;CDU;180;Hessen;13
 ;;;Dr. Ludwig;Tauscher;1956;CDU;207;Rheinland-Pfalz;15
 ;;;Claudia;Tausend;1964;SPD;219;Bayern;22
-;;;Adolf;Tegel;1955;Tierschutz;;Hessen;4
+;;;Adolf;Tegel;1955;Die Tierschutzpartei;;Hessen;4
 ;;;Gabriele;Teichmann;1959;SPD;276;Baden-Württemberg;23
 ;;;Michael;Teiser;1951;CDU;;Bremen;2
 ;;;Frank;Tempel;1969;DIE LINKE;195;Thüringen;4
@@ -3152,13 +3152,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Hendrik;Thalheim;1960;DIE LINKE;156;;
 ;;;Evi Manuela;Thanheiser;1968;SPD;;Bayern;51
 ;;;Claudia;Thannheimer;1966;CDU;;Baden-Württemberg;24
-;;;Monika;Thau;1955;Tierschutz;;Nordrhein-Westfalen;1
-;;;Klaus;Theis;1957;ödp;;Rheinland-Pfalz;8
+;;;Monika;Thau;1955;Die Tierschutzpartei;;Nordrhein-Westfalen;1
+;;;Klaus;Theis;1957;ÖDP;;Rheinland-Pfalz;8
 ;;;Andreas;Theißen;1972;NPD;;Mecklenburg-Vorpommern;6
 ;;;Roswitha;Theißen;1960;NPD;116;;
 ;;;Rudi Frank;Theißen;1959;NPD;117;;
 ;;;Renate;Thiedemann;1963;SPD;;Schleswig-Holstein;12
-;;;Margret;Thiel;1945;ödp;;Nordrhein-Westfalen;6
+;;;Margret;Thiel;1945;ÖDP;;Nordrhein-Westfalen;6
 ;;;Carl-Ludwig;Thiele;1953;FDP;40;Niedersachsen;1
 ;;;Axel;Thieme;1949;NPD;143;Nordrhein-Westfalen;5
 ;;;Wolfgang;Thierse;1943;SPD;77;Berlin;1
@@ -3174,9 +3174,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Heiko;Thomas;1969;GRÜNE;77;Berlin;10
 ;;;Sascha;Thomas;1976;DIE LINKE;11;Schleswig-Holstein;4
 ;;;Dr. Steffen;Thomas;1965;PIRATEN;;Brandenburg;2
-;;;Heinz;Thorau;1954;Tierschutz;;Hessen;10
-;;;Liane;Thorwart;1970;VIOLETTEN;254;Bayern;2
-;;;Fritz;Throne;1958;ödp;;Bayern;35
+;;;Heinz;Thorau;1954;Die Tierschutzpartei;;Hessen;10
+;;;Liane;Thorwart;1970;DIE VIOLETTEN;254;Bayern;2
+;;;Fritz;Throne;1958;ÖDP;;Bayern;35
 ;;;Udo;Thümmel;1956;REP;;Rheinland-Pfalz;6
 ;;;Hans Peter;Thul;1948;CDU;47;Niedersachsen;18
 ;;;Sebastian;Thul;1980;SPD;;Saarland;9
@@ -3197,7 +3197,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Serkan;Tören;1972;FDP;31;Niedersachsen;8
 ;;;Stefan;Tolksdorf;1979;BüSo;86;Berlin;5
 ;;;Florian;Toncar;1979;FDP;260;Baden-Württemberg;8
-;;;Bernd;Topka;1966;ödp;288;;
+;;;Bernd;Topka;1966;ÖDP;288;;
 ;;;Birgit;Tornau;1958;CDU;;Nordrhein-Westfalen;56
 ;;;Stefan;Träger;1988;NPD;68;;
 ;;;Gerhard;Träxler;1938;BP;;Bayern;46
@@ -3233,7 +3233,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Stefan;Urbat;1965;PIRATEN;258;Baden-Württemberg;4
 ;;;Herbert;Utz;1966;;218;;
 ;;;Arnold Eugen Hugo;Vaatz;1955;CDU;161;Sachsen;2
-;;;Dr. Wilhelm;Vachenauer;1949;ödp;256;Bayern;36
+;;;Dr. Wilhelm;Vachenauer;1949;ÖDP;256;Bayern;36
 ;;;Richard Ludwig Heinrich Karl;Vahlberg;1931;NPD;243;;
 ;;;Philipp;Valenta;1981;NPD;72;Sachsen-Anhalt;8
 ;;;Ulrich;Vanek;1947;DIE LINKE;34;;
@@ -3260,7 +3260,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Jörg;Vogelsänger;1964;SPD;64;Brandenburg;7
 ;;;Stefanie;Vogelsang;1966;CDU;83;Berlin;3
 ;;;Kathrin;Vogler;1963;DIE LINKE;129;Nordrhein-Westfalen;11
-;;;Karl-Edmund;Vogt;1944;ödp;189;Thüringen;1
+;;;Karl-Edmund;Vogt;1944;ÖDP;189;Thüringen;1
 ;;;Ute;Vogt;1964;SPD;258;Baden-Württemberg;1
 ;;;Arend;Vogtländer;1972;PIRATEN;;Bremen;3
 ;;;Udo;Voigt;1952;NPD;85;Berlin;1
@@ -3269,7 +3269,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Timo;Volkmar;1980;PIRATEN;;Saarland;5
 ;;;Dr. Eva Marlies;Volkmer;1947;SPD;160;Sachsen;2
 ;;;Sven;Volmering;1976;CDU;126;Nordrhein-Westfalen;28
-;;;Margit-Szu;Volosinovszky;1955;Tierschutz;;Bayern;4
+;;;Margit-Szu;Volosinovszky;1955;Die Tierschutzpartei;;Bayern;4
 ;;;Rolf;Vorberger;1950;RRP;50;;
 ;;;Christian;Vorländer;1973;SPD;220;Bayern;45
 ;;;Franziska;Vorpahl;1988;NPD;14;;
@@ -3295,9 +3295,9 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Arfst;Wagner;1954;GRÜNE;;Schleswig-Holstein;4
 ;;;Brigitte;Wagner;1947;REP;;Mecklenburg-Vorpommern;2
 ;;;Daniela;Wagner;1957;GRÜNE;186;Hessen;5
-;;;Gerhard;Wagner;1939;Volksabst.;;Nordrhein-Westfalen;2
+;;;Gerhard;Wagner;1939;Volksabstimmung;;Nordrhein-Westfalen;2
 ;;;Karla;Wagner;1957;SPD;;Saarland;11
-;;;Kay;Wagner;1984;ödp;;Berlin;5
+;;;Kay;Wagner;1984;ÖDP;;Berlin;5
 ;;;Kurt;Wagner;1937;CDU;;Baden-Württemberg;53
 ;;;Regina;Wagner;1964;CDU;;Baden-Württemberg;27
 ;;;Sascha;Wagner;1972;NPD;210;;
@@ -3310,15 +3310,15 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Thomas;Waldheim;1960;DIE LINKE;68;;
 ;;;Michael;Waldow;1971;;18;;
 ;;;Stefan;Walesch;1988;PIRATEN;;Sachsen-Anhalt;4
-;;;Kirsten;Wallbraun;1962;ödp;137;Nordrhein-Westfalen;2
+;;;Kirsten;Wallbraun;1962;ÖDP;137;Nordrhein-Westfalen;2
 ;;;Dr. Gabriele Anna;Wallenstein;1947;MLPD;;Brandenburg;1
 ;;;Klaus;Wallenstein;1943;MLPD;115;Nordrhein-Westfalen;15
 ;;;Max D.;Walser;1952;BP;252;;
-;;;Bruno;Walter;1961;VIOLETTEN;;Bayern;1
+;;;Bruno;Walter;1961;DIE VIOLETTEN;;Bayern;1
 ;;;Helmut;Walter;1952;NPD;30;;
 ;;;Markus;Walter;1975;NPD;211;;
 ;;;Uli;Walter;1945;FDP;291;Baden-Württemberg;30
-;;;Mechthild;Walter von;1939;ödp;221;Bayern;1
+;;;Mechthild;Walter von;1939;ÖDP;221;Bayern;1
 ;;;Beate;Walter-Rosenheimer;1964;GRÜNE;216;Bayern;11
 ;;;Claudia;Walther;1963;SPD;;Nordrhein-Westfalen;44
 ;;;Leo;Wandersleb;1977;PIRATEN;;Bayern;4
@@ -3336,13 +3336,13 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Karin;Weber;1951;MLPD;;Hessen;5
 ;;;Matthias;Weber;1985;FDP;;Hessen;40
 ;;;Patrick;Weber;1983;NPD;191;Thüringen;4
-;;;Peter;Weber;1949;ödp;;Rheinland-Pfalz;12
+;;;Peter;Weber;1949;ÖDP;;Rheinland-Pfalz;12
 ;;;Volker Helmut;Weber;1962;FDP;196;;
 ;;;Elke;Weckner-Lömm;1958;FDP;75;;
 ;;;Dirk;Wedel;1974;FDP;106;Nordrhein-Westfalen;45
 ;;;Dr. Christina- Elisabeth;Wedelstaedt von;1965;CDU;;Schleswig-Holstein;21
 ;;;Bastian Immanuel;Wefes;1982;DIE LINKE;105;;
-;;;Maximilian Anton;Wegele;1966;ödp;255;Bayern;11
+;;;Maximilian Anton;Wegele;1966;ÖDP;255;Bayern;11
 ;;;Daniela;Wegener;1974;NPD;148;;
 ;;;Gunnar;Wegener;1953;SPD;;Niedersachsen;56
 ;;;Sabine Barbara;Wegmann;1952;DIE LINKE;;Niedersachsen;20
@@ -3372,12 +3372,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Christian;Weiß;1960;DKP;;Berlin;14
 ;;;Emmi Paula;Weiß;1935;FDP;;Bayern;36
 ;;;Peter;Weiß;1956;CDU;283;;
-;;;Robert;Weiß;1971;ödp;;Rheinland-Pfalz;15
+;;;Robert;Weiß;1971;ÖDP;;Rheinland-Pfalz;15
 ;;;Sabine Katharina;Weiss;1958;CDU;114;Nordrhein-Westfalen;24
 ;;;Wolfgang;Weiß;1961;GRÜNE;238;;
 ;;;Dirk;Weissleder;1969;FDP;48;Niedersachsen;15
 ;;;Felix;Weitenhagen;1977;MLPD;79;Berlin;2
-;;;Gabriele;Weiter;1957;ödp;;Rheinland-Pfalz;14
+;;;Gabriele;Weiter;1957;ÖDP;;Rheinland-Pfalz;14
 ;;;Norbert;Welk;1964;PIRATEN;259;;
 ;;;Lukas Volkmar;Welke;1955;;161;;
 ;;;Ingo;Wellenreuther;1959;CDU;271;Baden-Württemberg;6
@@ -3396,12 +3396,12 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Jörg;Wenghöfer;1964;SPD;;Schleswig-Holstein;23
 ;;;Felizitas;Wennmacher;1952;DIE LINKE;109;Nordrhein-Westfalen;32
 ;;;Renate;Werlberger;1955;NPD;220;;
-;;;Elisabeth;Werle;1962;VIOLETTEN;;Baden-Württemberg;9
+;;;Elisabeth;Werle;1962;DIE VIOLETTEN;;Baden-Württemberg;9
 ;;;Daniel;Werner;1977;SPD;155;Sachsen;13
-;;;Elsbeth;Werner;1945;VIOLETTEN;;Baden-Württemberg;11
+;;;Elsbeth;Werner;1945;DIE VIOLETTEN;;Baden-Württemberg;11
 ;;;Karsten;Werner;1984;BüSo;154;Sachsen;5
 ;;;Katrin;Werner;1973;DIE LINKE;204;Rheinland-Pfalz;3
-;;;Reinhard;Wersing;1940;ödp;;Nordrhein-Westfalen;4
+;;;Reinhard;Wersing;1940;ÖDP;;Nordrhein-Westfalen;4
 ;;;Gudrun Elisabeth;Wesener;1959;MLPD;;Sachsen;8
 ;;;Claudia;Wesner;1971;CDU;;Hessen;38
 ;;;Herbert;Wessel;1951;DIE LINKE;132;;
@@ -3412,7 +3412,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Angela;Westfehling;1956;FDP;;Hamburg;5
 ;;;Benjamin;Westphal;1988;PIRATEN;;Sachsen-Anhalt;5
 ;;;Maaret;Westphely;1974;GRÜNE;43;;
-;;;Wolfgang;Wettlaufer;1948;ödp;;Baden-Württemberg;12
+;;;Wolfgang;Wettlaufer;1948;ÖDP;;Baden-Württemberg;12
 ;;;Dr. Margrit;Wetzel;1950;SPD;31;Niedersachsen;23
 ;;;Hans;Wetzelsberger;1949;RRP;;Bayern;11
 ;;;Kai;Whittaker;1985;CDU;;Baden-Württemberg;28
@@ -3435,11 +3435,11 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Roberto;Wienzek;1983;BüSo;;Sachsen;4
 ;;;Patrick;Wieschke;1981;NPD;190;Thüringen;2
 ;;;Heinz;Wiese;1945;CDU;;Baden-Württemberg;15
-;;;Rita;Wiesend;1960;ödp;235;Bayern;37
+;;;Rita;Wiesend;1960;ÖDP;235;Bayern;37
 ;;;Theodor;Wieser;1949;CM;;Bayern;5
-;;;Claudia;Wiest;1967;ödp;233;Bayern;3
+;;;Claudia;Wiest;1967;ÖDP;233;Bayern;3
 ;;;Susanne;Wiest;1967;;16;;
-;;;Dr. Frank-Eberhard;Wilde;1937;ödp;;Thüringen;3
+;;;Dr. Frank-Eberhard;Wilde;1937;ÖDP;;Thüringen;3
 ;;;Peter;Wildenradt von;1957;;5;;
 ;;;Sabine;Wilhelm;1965;SPD;211;Rheinland-Pfalz;8
 ;;;Ralf Heinrich;Wilhelmi;1952;FDP;201;Rheinland-Pfalz;6
@@ -3451,7 +3451,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Edna;Windecker;1946;NPD;188;Hessen;6
 ;;;Gert;Winkelmeier;1956;DIE LINKE;199;;
 ;;;Elisabeth;Winkelmeier-Becker;1962;CDU;98;Nordrhein-Westfalen;21
-;;;Elisabeth;Winkler;1971;ödp;217;Bayern;38
+;;;Elisabeth;Winkler;1971;ÖDP;217;Bayern;38
 ;;;Josef Philip;Winkler;1974;GRÜNE;200;Rheinland-Pfalz;2
 ;;;Manfred;Winkler;1949;;266;;
 ;;;Marco;Winkler;1989;DIE LINKE;;Bayern;25
@@ -3463,7 +3463,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Wolfgang;Winter;1957;RRP;;Bayern;16
 ;;;Dr. Claudia;Winterstein;1950;FDP;42;Niedersachsen;2
 ;;;Thorsten;Wirth;1968;PIRATEN;;Hessen;1
-;;;Claudia;Wirth-Schusser;1968;Tierschutz;;Bayern;2
+;;;Claudia;Wirth-Schusser;1968;Die Tierschutzpartei;;Bayern;2
 ;;;Konrad;Wirtz;1955;BP;216;Bayern;50
 ;;;Jürgen;Wischnat;1943;MLPD;;Schleswig-Holstein;4
 ;;;Dr. Volker;Wissing;1970;FDP;212;Rheinland-Pfalz;2
@@ -3480,7 +3480,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 ;;;Günther;Wohlert;1970;NPD;;Mecklenburg-Vorpommern;10
 ;;;Rüdiger;Wohltmann;1959;DIE LINKE;53;Niedersachsen;30
 ;;;Gerhard;Woitzik;1927;ZENTRUM;;Nordrhein-Westfalen;1
-;;;Dieter;Woizik;1934;Volksabst.;;Nordrhein-Westfalen;5
+;;;Dieter;Woizik;1934;Volksabstimmung;;Nordrhein-Westfalen;5
 ;;;Marcel;Wojnarowicz;1976;;116;;
 ;;;Andreas;Wolf;1981;NPD;51;;
 ;;;Martin Josef;Wolf;1962;FDP;6;Schleswig-Holstein;9
