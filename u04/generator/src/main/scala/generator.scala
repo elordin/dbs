@@ -14,6 +14,7 @@ object Generator {
     def randomAge:Int = scala.math.max(18:Int, scala.math.min(115:Int, (scala.math.round(Random.nextGaussian() * 10:Double):Long).toInt + 50))
 
     trait Erststimme {}
+
     object InvalidErststimme extends Erststimme {
         override def toString(): String = "NULL"
     }
@@ -151,22 +152,20 @@ object Generator {
 
     def main(args: Array[String]):Unit = {
         import GeneratorConfig._
+        import java.io._
+        def printToFile(f: File)(op: PrintWriter => Unit) {
+          val p = new PrintWriter(f)
+          try { op(p) } finally { p.close() }
+        }
 
-import java.io._
-def printToFile(f: File)(op: PrintWriter => Unit) {
-  val p = new PrintWriter(f)
-  try { op(p) } finally { p.close() }
-}
 
         val result = generate(distribution, sampleSize);
+        printToFile(new File(filename)) { p =>
+            result.votes.map((sz:Stimmzettel) => {
+                    p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+            })
+        }
 
-        val dwbid = 1
-
-    printToFile(new File("example.txt")) { p =>
-        result.votes.map((sz:Stimmzettel) => {
-                p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
-        })
-    }
         println(f"${sampleSize} Stimmzettel generated.")
         println(f"Deviation from target distribution: ${result.distribution.distance(distribution)}")
     }
@@ -180,6 +179,10 @@ object GeneratorConfig {
     def possibleParties = distribution.zweitstimmen.keys.toList
     def distribution:Distribution = GeneratorConfigHardcoded.distribution
     def sampleSize:Int = GeneratorConfigHardcoded.sampleSize
+
+    val dwbid:Int = 1
+
+    val filename:String = "insert_stimmzettel.sql"
 
     /** Loads distribution from database */
     object GeneratorConfigFromDatabase {
@@ -196,31 +199,25 @@ object GeneratorConfig {
 
     /** Loads hardcoded distribution */
     object GeneratorConfigHardcoded {
-        /* DEFINE LANDESLISTEN HERE */
-
-        /* DEFINE CANDIDACIES HERE */
-        val c1 = new Candidacy(1, "abc123", 0, 2013, None)
-        val c2 = new Candidacy(2, "defghi", 0, 2013, None)
-
-        def distribution:Distribution = new Distribution(Map[Erststimme, Double](
+        val distribution:Distribution = new Distribution(Map[Erststimme, Double](
             /* Erststimmen results */
-            (c1 -> 0.5),
-            (c2 -> 0.5)
+            (new Candidacy(1, "abc123", 0, 2013, None) -> 0.5),
+            (new Candidacy(2, "defghi", 0, 2013, None) -> 0.5)
         ), Map[Zweitstimme, Double](
             /* Zweitstimmen results */
-            (new Landesliste(25, 2009, 2, 13) -> 0.32824235251159950391),
-            (new Landesliste(34, 2009, 4, 13) -> 0.09627116083176469848),
+            (new Landesliste(25, 2009, 2, 13) -> 0.328242),
+            (new Landesliste(34, 2009, 4, 13) -> 0.096271),
             (new Landesliste(98, 2009, 18, 13) -> 0),
-            (new Landesliste(102, 2009, 12, 13) -> 0.38901934614682422266),
-            (new Landesliste(158, 2009, 5, 13) -> 0.10324030646613322589),
-            (new Landesliste(172, 2009, 1, 13) -> 0.00819677291413534119),
+            (new Landesliste(102, 2009, 12, 13) -> 0.38901),
+            (new Landesliste(158, 2009, 5, 13) -> 0.10324),
+            (new Landesliste(172, 2009, 1, 13) -> 0.00819),
             (new Landesliste(175, 2009, 13, 13) -> 0),
-            (new Landesliste(178, 2009, 3, 13) -> 0.07503006112954300788),
+            (new Landesliste(178, 2009, 3, 13) -> 0.07503),
             (new Landesliste(186, 2009, 7, 13) -> 0),
             (new Landesliste(187, 2009, 11, 13) -> 0),
             (InvalidZweitstimme -> 0)
         ))
 
-        def sampleSize:Int = 158843
+        val sampleSize:Int = 158843
     }
 }
