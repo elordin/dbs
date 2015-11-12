@@ -41,34 +41,34 @@ WITH RECURSIVE
         SELECT n + 1
         FROM SeatCount
         WHERE (
-                WITH RECURSIVE
-                    Factors(f) AS (
-                        VALUES (0.5)
-                        UNION ALL
-                        SELECT f + 1
-                        FROM Factors
-                        WHERE f < (n * (SELECT 1.250 * MAX(votes) / SUM(votes)
-                                                 FROM PartiesBeyondFivePercent))
-                    ),
+            WITH RECURSIVE
+                Factors(f) AS (
+                    VALUES (0.5)
+                    UNION ALL
+                    SELECT f + 1
+                    FROM Factors
+                    WHERE f < (n * (SELECT 1.250 * MAX(votes) / SUM(votes)
+                                             FROM PartiesBeyondFivePercent))
+                ),
 
-                    -- Seat Distribution for 598 seats using Sainte Lague
-                    RegularDistribution(pid, mandate) AS (
-                        SELECT pid, COUNT(quotient) AS mandate
-                        FROM (
-                            SELECT az.pid, az.votes / f.f AS quotient
-                              FROM PartiesBeyondFivePercent az, Factors f
-                              ORDER BY quotient DESC
-                              LIMIT 598) r
-                        GROUP BY pid
-                    ),
+                -- Seat Distribution for 598 seats using Sainte Lague
+                RegularDistribution(pid, mandate) AS (
+                    SELECT pid, COUNT(quotient) AS mandate
+                    FROM (
+                        SELECT az.pid, az.votes / f.f AS quotient
+                          FROM PartiesBeyondFivePercent az, Factors f
+                          ORDER BY quotient DESC
+                          LIMIT n) r
+                    GROUP BY pid
+                ),
 
-                    UnausgeglicheneUeberhangsmandate(pid, uhms) AS (
-                        SELECT rd.pid, dm.mandate - rd.mandate AS uhms
-                        FROM RegularDistribution rd INNER JOIN DirektmandatePerParty dm ON rd.pid = dm.pid
-                        WHERE rd.mandate < dm.mandate
-                    )
-                -- SELECT 1 > ALL(SELECT uhms FROM UnausgeglicheneUeberhangsmandate)
-                SELECT NOT 0 <  ANY(SELECT uhms FROM UnausgeglicheneUeberhangsmandate)
+                UnausgeglicheneUeberhangsmandate(pid, uhms) AS (
+                    SELECT rd.pid, dm.mandate - rd.mandate AS uhms
+                    FROM RegularDistribution rd INNER JOIN DirektmandatePerParty dm ON rd.pid = dm.pid
+                    WHERE rd.mandate < dm.mandate
+            )
+            -- SELECT 1 > ALL(SELECT uhms FROM UnausgeglicheneUeberhangsmandate)
+            SELECT NOT 0 <  ANY(SELECT uhms FROM UnausgeglicheneUeberhangsmandate)
     )
 
     Factors(f) AS (

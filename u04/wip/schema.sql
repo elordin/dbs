@@ -8,8 +8,7 @@ DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk()       CASCADE;
 DROP FUNCTION IF EXISTS decZweitstimmeWahlbezirk()       CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeDirektWahlbezirk() CASCADE;
 DROP FUNCTION IF EXISTS decZweitstimmeDirektWahlbezirk() CASCADE;
-DROP VIEW  IF EXISTS AccumulatedErststimmeFS             CASCADE;
-DROP VIEW  IF EXISTS AccumulatedZweitstimmenFS           CASCADE;
+DROP TABLE IF EXISTS AccumulatedZweitstimmenFS           CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenWK           CASCADE;
 DROP TABLE IF EXISTS CitizenRegistration                 CASCADE;
 DROP VIEW  IF EXISTS Vote                                CASCADE;
@@ -224,10 +223,9 @@ CREATE TABLE IF NOT EXISTS AccumulatedZweitstimmenWK (
 );
 
 CREATE TABLE IF NOT EXISTS AccumulatedZweitstimmenFS (
-    fsid INT REFERENCES FederalState(fsid),
-    llid INT REFERENCES LandesListe(llid),
-    votes INT NOT NULL DEFAULT 0,
-    PRIMARY KEY (fsid, llid)
+    -- fsid INT REFERENCES FederalState(fsid),
+    llid INT PRIMARY KEY REFERENCES LandesListe(llid),
+    votes INT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insertll$
@@ -274,12 +272,9 @@ CREATE OR REPLACE FUNCTION incZweitstimmeWahlbezirk() RETURNS TRIGGER AS $inc$
         SET votes = votes + 1
         WHERE wbid = TG_ARGV[0]
           AND llid = TG_ARGV[1];
+        -- TODO: Removed fsid from AccumulatedZweitstimmenFS
         UPDATE AccumulatedZweitstimmenFS
-        SET votes = votes + 1 WHERE fsid IN (
-            SELECT fsid
-            FROM Wahlbezirk NATURAL JOIN Wahlkreis
-            WHERE wbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
+        SET votes = votes + 1 WHERE llid = TG_ARGV[1];
         UPDATE AccumulatedZweitstimmenWK
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
