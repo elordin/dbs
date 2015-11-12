@@ -35,7 +35,8 @@ DROP TABLE IF EXISTS FederalState                        CASCADE;
 CREATE TABLE IF NOT EXISTS FederalState (
     fsid SERIAL PRIMARY KEY,
     name VARCHAR(255) UNIQUE NOT NULL,
-    outline POLYGON
+    outline POLYGON,
+    citizencount INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS ElectionYear (
@@ -233,7 +234,7 @@ CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insert
         _wkid INT;
         _wbid INT;
     BEGIN
-        INSERT INTO AccumulatedZweitstimmenFS (fsid, llid) VALUES (NEW.fsid, NEW.llid);
+        INSERT INTO AccumulatedZweitstimmenFS (llid) VALUES (NEW.llid);
         FOR _wkid IN SELECT wkid
                      FROM Wahlkreis
                      WHERE fsid = NEW.fsid

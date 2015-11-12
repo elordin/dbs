@@ -76,17 +76,17 @@ namespace DBS
 
             sr.Close();
 
-            StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_federalstates.sql"));
+        //    //StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_federalstates.sql"));
 
-            foreach (string s in federalStateIDs.Keys)
-            {
-                wl = "insert into FederalState (fsid, name, outline) VALUES (" + federalStateIDs[s] + ", '" + s + "', NULL);";
-                //wr.WriteLine(wl);
-                //wrges.WriteLine(wl);
-            }
+        //    foreach (string s in federalStateIDs.Keys)
+        //    {
+        //        wl = "insert into FederalState (fsid, name, outline) VALUES (" + federalStateIDs[s] + ", '" + s + "', NULL);";
+        //        wr.WriteLine(wl);
+        //        wrges.WriteLine(wl);
+        //    }
 
-            wr.Flush();
-            wr.Close();
+        //    wr.Flush();
+        //    wr.Close();
         }
 
         static void ReadWahlkreise()
