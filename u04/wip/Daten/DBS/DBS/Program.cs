@@ -328,7 +328,7 @@ namespace DBS
                             }
                             else
                             {
-                                wl = "insert into AccumulatedZweitstimmenWK (wkid, llid, votes) VALUES (" + wkid + ", (select llid from landesliste where year = '" + year + "' and pid = " + partyIDs[partys[i]] + " and fsid = (select fsid from wahlkreis where wkid = " + wkid + ")), " + numberofvotes + ");";
+                                wl = "update AccumulatedZweitstimmenWK set votes = " +numberofvotes+" where wkid=" + wkid + " and llid = (select llid from landesliste where year = '" + year + "' and pid = " + partyIDs[partys[i]] + " and fsid = (select fsid from wahlkreis where wkid = " + wkid + "));";
                                 wr.WriteLine(wl);
                                 wrges.WriteLine(wl);
                             }
