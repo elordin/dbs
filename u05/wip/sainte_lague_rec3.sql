@@ -1,4 +1,4 @@
-WITH RECURSIVE
+﻿WITH RECURSIVE
 Factors(f) AS (
     VALUES (0.5)
     UNION ALL
@@ -8,10 +8,16 @@ Factors(f) AS (
                              FROM FederalState))
 ),
 
+AggregatedZweitstimmenFS(llid, votes) AS (
+    SELECT llid, SUM(votes)
+    FROM AccumulatedZweitstimmenWK
+    GROUP BY llid
+),
+
 WahlkreisSieger AS (
     SELECT wk.wkid, c1.idno, c1.supportedby
     FROM Wahlkreis wk NATURAL JOIN Candidacy c1 INNER JOIN Candidacy c2 ON c1.wkid = c2.wkid
-    WHERE wk.year = 2009
+    WHERE wk.year = 2013
     GROUP BY wk.wkid, c1.idno, c1.supportedby, c1.votes
     HAVING c1.votes = MAX(c2.votes)
     LIMIT 1
@@ -38,7 +44,7 @@ SeatsPerFederalState(fsid, seats) AS (
 PartiesBeyondFivePercent(pid, votes) AS (
     SELECT a1.pid, a1.votes
     FROM Party p NATURAL JOIN AggregatedVotesZS a1 JOIN AggregatedVotesZS a2 ON a1.year = a2.year
-    WHERE a1.year = 2009
+    WHERE a1.year = 2013
     GROUP BY a1.pid, a1.votes, p.isminority
     HAVING a1.votes > 0
        AND p.isminority -- minority parties are exempted from 5% threshold
@@ -48,7 +54,7 @@ PartiesBeyondFivePercent(pid, votes) AS (
                 WHERE supportedby = a1.pid)
 ),
 
-SeatsPerLandelisteByZweitstimme(llid, seats) AS (
+/*SeatsPerLandelisteByZweitstimme(llid, seats) AS (
     SELECT ll.llid, (
         WITH RECURSIVE Factors(f) AS (
             VALUES (0.5)
@@ -58,7 +64,7 @@ SeatsPerLandelisteByZweitstimme(llid, seats) AS (
             WHERE f < (spfs.seats * (SELECT 1.250 * MAX(citizencount) / SUM(citizencount)
             FROM FederalState))
         )
-        SELECT COUNT(quotient) AS seats
+        SELECT SUM(quotient) AS seats
         FROM (
             SELECT azfs.llid, azfs.votes / f.f AS quotient
             FROM AccumulatedZweitstimmenFS azfs, Factors f
@@ -73,8 +79,38 @@ SeatsPerLandelisteByZweitstimme(llid, seats) AS (
         NATURAL JOIN SeatsPerFederalState spfs
         INNER JOIN AccumulatedZweitstimmenFS azfs ON azfs.llid = ll.llid
     WHERE ll.year = 2009
+)*/
+
+SeatsPerLandelisteByZweitstimme(llid, seats) AS (
+	WITH RECURSIVE Factors(f) AS (
+            VALUES (0.5)
+            UNION ALL
+            SELECT f + 1
+            FROM Factors
+            WHERE f < (select max(seats) from SeatsPerFederalState)
+        )
+
+    SELECT llid, Count(*) as numberOfSeats from 
+    (   
+    SELECT ll.llid, spfs.seats,
+    rank()  OVER
+    (Partition by ll.fsid Order by azfs.votes/f.f desc) as seatnumber
+    FROM PartiesBeyondFivePercent ps -- pid votes
+        NATURAL JOIN LandesListe ll
+        NATURAL JOIN SeatsPerFederalState spfs
+        INNER JOIN AggregatedZweitstimmenFS azfs ON azfs.llid = ll.llid,
+        Factors f
+    WHERE ll.year = 2013) as r
+    where seatnumber <= seats
+    group by llid
+    
+    
 )
-/*
 
 SELECT * FROM SeatsPerLandelisteByZweitstimme
-*/
+    NATURAL JOIN landesliste ll
+    NATURAL JOIN party
+    JOIN federalstate fs on ll.fsid = fs.fsid
+    where fs.name = 'Thüringen'
+    
+
