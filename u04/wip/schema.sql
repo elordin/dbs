@@ -247,6 +247,7 @@ CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insert
         LOOP
             INSERT INTO AccumulatedZweitstimmenWB (wbid, llid) VALUES (_wbid, NEW.llid);
         END LOOP;
+        RETURN NEW;
     END;
 $insertll$
 LANGUAGE plpgsql;
