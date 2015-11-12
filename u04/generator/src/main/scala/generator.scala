@@ -1,4 +1,5 @@
 import scala.util.Random
+import scala.annotation.tailrec
 
 object Generator {
     trait Gender {}
@@ -9,165 +10,120 @@ object Generator {
         override def toString(): String = "f"
     }
 
+    object Names {
+        val firstnamesM:List[String] = List("Ben","Luis","Louis","Paul","Lukas","Lucas","Jonas","Leon","Finn","Fynn","Noah","Elias","Luca","Luka","Maximilian","Felix","Max","Henry","Henri","Moritz","Julian","Tim","Jakob","Jacob","Emil","Philipp","Niklas","Niclas","Alexander","David","Oskar","Oscar","Mats","Mads","Jan","Tom","Anton","Liam","Erik","Eric","Fabian","Matteo","Leo","Rafael","Raphael","Samuel","Mika","Theo","Jonathan","Lennard","Lennart","Simon","Hannes","Linus","Jannik","Yannik","Yannick","Yannic","Nico","Niko","Carl","Karl","Till","Vincent","Jona","Jonah","Benjamin","Nick","Leonard","Milan","Julius","Marlon","Florian","Johannes","Nils","Niels","Adrian","Mattis","Mathis","Matthis","Constantin","Konstantin","Levi","Aaron","Ole","Maxim","Maksim","Daniel","Sebastian","Mohammed","Muhammad","Jannis","Janis","Yannis","Johann","Lennox","Phil","Joshua","Damian","Timo","Tobias","Robin","Joel","Lasse","Levin","Lenny","Lenni","Jayden","Jaden","John","Dominic","Dominik","Colin","Collin","Valentin","Gabriel","Artur","Arthur","Bruno","Bastian","Benedikt","Malte","Kilian","Marvin","Marwin","Noel","Toni","Tony","Bennet","Pepe","Luke","Luc","Justus","Tyler","Tayler","Jason","Theodor","Christian","Jamie","Michael","Sam","Lars","Marc","Mark","Lian","Emilio","Oliver","Frederik","Frederic","Leopold","Manuel","Richard","Matti","Lias","Elia","Eliah","Nicolas","Nikolas","Fritz","Tristan","Jannes","Ali","Len","Lenn","Dean","Marco","Marko","Emir","Franz","Henrik","Silas","Marcel","Marius","Andreas","Adam","Fabio","Matthias","Malik","Piet","Finnley","Finley","Finlay","Leandro","Clemens","Klemens","Lionel","Hugo","Ludwig","Diego","Julien","Carlo","Karlo","Jasper","Martin","Thore","Tore","Eddie","Eddy","Emilian","Ilias","Ilyas","Neo","Ian","Dennis","Milo","Lio","Ferdinand","Lorenz","Nikita","Georg","Arne","Michel","Alessio","Connor","Conner","Friedrich","Leonhard","Willi","Willy","Maik","Meik","Mike","Mailo","Jeremy","Roman","Fiete","Yusuf","Alessandro","Kevin","Leonardo","Lion","Bela","Konrad","Thomas","Nino","Josef","Joseph","Luan","Ahmet","Jonte","Tiago","Thiago","Pascal","Aiden","Ayden","Magnus","Enes","Laurens","Laurenz","Curt","Kurt","Can","Mehmet","Mert","Yasin","Enno","Henning","Charlie","Charly","Leander","Jack","Maurice","Robert","Benno","Brian","Bryan","Ryan","Hendrik","Mick","Thilo","Tilo","Nevio","Oemer","Alex","Carlos","Gustav","Hamza","Taylor","Arian","Dario","Christoph","Deniz","Chris","Markus","Marcus","Laurin","Nathan","Kian","Kaan","Patrick","Claas","Klaas","Lean","Lino","Titus","Devin","Justin","Kai","Kay","Kerem","Mustafa","Sami","Bjarne","Darian","Mirac","Amir","Janne","Victor","Viktor","Christopher","Darius","Elian","Korbinian","Marten","Samu","William","Xaver","Antonio","Joris","Edgar","Ensar","Janosch","Torben","Thorben","Leonas","Bilal","Elija","Elijah","Jerome","Ricardo","Riccardo","Stefan","Stephan","Tammo","Berat","Leif","Domenic","Domenik","Hans","Semih","Tamme","Wilhelm","Cedric","Cedrik","Gregor","Kalle","Kerim","Ruben","Andre","Eymen","Jaron","Mikail","Miran","Cem","Giuliano","Ibrahim","Kjell","Mio","Peter","Lutz","Mario","Danny","Romeo","Tino","Valentino","Arda","Damien","James","Erwin","Tjark","Marian","Timon","Timur","Umut","Hanno","Aras","Efe","Joscha","Leonidas","Anthony","Damon","Jano","Marek","Pius","Quentin","Alan","Alwin","Danilo","Emin","Otto","Armin","Hassan","Hasan","Jakub","Milian","Sascha","Sidney","Sydney","Taylan","Adem","Emanuel","Eren","Joost","Jost","Rocco","Sandro","Etienne","Jean","Karim","Tamino","Yunus","Albert","Angelo","Jamal","Kenan","Kuzey","Logan","Pierre","Rayan","Sven","Bosse","Enrico","Jarne","Nicolai","Nikolai","Thies","Berkay","Caspar","Dustin","Flynn","Ismail","Jesse","Johnny","Jordan","Juri","Mattes","Arno","Cornelius","Emre","Francesco","Artjom","Baran","Eray","Hauke","Ilja","Jannek","Janek","Miro","Nathanael","Neven","Omar","Amin","Dante","Ivan","Lorik","Miguel","Rene","Tommi","Yigit","Azad","Lewis","Mattia","Peer","Quirin","Rudi","Samir","Selim","Vinzenz","Yassin","Arik","Ayaz","Edwin","Ilay","Jake","Jenke","Jonne","Keno","Luiz","Marlo","Mete","Younes","Alfred","Amar","Arvid","Davin","Dylan","Eduard","Jesper","Koray","Tyron","Vitus","Ansgar","Aurel","Christiano","Cristiano","Jim","Joey","Luuk","Maddox","Mason","Miko","Nelio","Rico","Said","Taha","Tillman","Tilman","Veit","Anas","Bjoern","Davide","Dorian","Jaro","Jon","Kimi","Leano","Lennert","Marley","Raik","Ron","Severin","Cinar","Dion","Eliano","Emirhan","Hagen","Iven","Yven","Jay","Keanu","Lucien","Steven","Talha","Thorin","Vince","Vito","Aidan","Alexandros","Burak","Ege","Ethan","Jarno","Joe","Kirill","Mahir","Merlin","Micha","Mirco","Mirko","Simeon","Amon","Arjen","August","Bent","Falk","Gianluca","Hussein","Levian","Lorenzo","Noyan","Pablo","Ramon","Rasmus","Raul","Salvatore","Sean","Sinan","Aurelius","Batu","Benny","Demian","Devran","Furkan","Hennes","Hermann","Ilian","Josua","Junis","Milow")
+        val firstnamesF:List[String] = List("Emma","Mia","Hannah","Hanna","Sofia","Sophia","Emilia","Anna","Lena","Lea","Leah","Emily","Emilie","Marie","Lina","Leonie","Amelie","Sophie","Sofie","Luisa","Louisa","Johanna","Nele","Neele","Laura","Lilly","Lilli","Lara","Clara","Klara","Mila","Leni","Maja","Maya","Charlotte","Sarah","Sara","Frieda","Frida","Ida","Greta","Pia","Lotta","Lia","Liah","Lya","Mathilda","Matilda","Ella","Melina","Lisa","Julia","Paula","Alina","Mira","Zoe","Helena","Marlene","Emely","Emelie","Elisa","Victoria","Viktoria","Isabell","Isabel","Isabelle","Isabella","Jana","Amy","Mara","Marah","Finja","Finnja","Josephine/ Josefine","Katharina","Nora","Theresa","Teresa","Maria","Antonia","Jasmin","Yasmin","Stella","Pauline","Luise","Louise","Annika","Anni","Annie","Anny","Lucy","Lucie","Jule","Merle","Carla","Karla","Eva","Milena","Martha","Marta","Elena","Fiona","Melissa","Franziska","Luna","Magdalena","Nina","Annabell","Annabelle","Romy","Carlotta","Karlotta","Mina","Paulina","Ronja","Zoey","Chiara","Helene","Selina","Maila","Mayla","Fabienne","Elina","Jette","Sina","Sinah","Jolina","Joelina","Elif","Elisabeth","Linda","Miriam","Valentina","Lotte","Vanessa","Aylin","Eileen","Aileen","Ayleen","Rosalie","Celina","Olivia","Kira","Kyra","Carolin","Caroline","Karoline","Juna","Yuna","Samira","Joleen","Lenja","Lenya","Marla","Angelina","Hailey","Haylie","Thea","Anastasia","Leila","Leyla","Luana","Alexandra","Amelia","Ela","Lana","Marleen","Marlen","Amalia","Leticia","Letizia","Lene","Julie","Tessa","Lucia","Aaliyah","Aliya","Aurelia","Kim","Alissa","Alyssa","Elli","Elly","Mona","Diana","Vivien","Vivienne","Tabea","Amira","Mariella","Michelle","Alessia","Lynn","Linn","Carolina","Karolina","Liana","Laila","Layla","Larissa","Rebekka","Alisa","Elsa","Milla","Nala","Nahla","Malia","Svea","Nelly","Nelli","Alicia","Evelyn","Evelin","Eveline","Annalena","Giulia","Emmi","Emmy","Leana","Nisa","Amina","Lorena","Anne","Alexa","Kate","Tilda","Celine","Liv","Veronika","Zeynep","Dana","Hira","Linea","Linnea","Rieke","Rosa","Carina","Karina","Henriette","Alma","Christina","Felicitas","Ina","Melia","Elise","Kimberly","Kimberley","Azra","Daria","Helen","Nela","Noemi","Fenja","Miray","Jara","Yara","Maike","Meike","Natalie","Nathalie","Samantha","Tamara","Xenia","Liya","Josie","Josy","Medina","Ava","Cataleya","Jessika","Jessica","Liliana","Madita","Valerie","Enie","Jonna","Marlena","Janne","Livia","Aurora","Dilara","Malina","Edda","Marina","Selma","Tamina","Milana","Talia","Thalia","Alena","Leona","Enna","Florentine","Bella","Mailin","Maylin","Melinda","Alea","Amilia","Freya","Heidi","Leandra","Levke","Lilian","Lillian","Naila","Nayla","Alice","Elin","Enya","Joline","Joeline","Madlen","Madleen","Valeria","Annelie","Holly","Lilith","Malin","Meryem","Tuana","Estelle","Smilla","Aleyna","Ayla","Cheyenne","Chayenne","Melanie","Naomi","Jill","Jil","Lieselotte","Maira","Mayra","Mariam","Maryam","Melody","Selin","Ylvi","Ylvie","Cara","Felia","Felina","Mathea","Mattea","Matea","Abby","Jolien","Juliana","Marit","Nika","Viola","Alisha","Madeleine","Esila","Esma","Malea","Mary","Nike","Svenja","Hedi","Hedy","Adelina","Ariana","Adriana","Asya","Hermine","Josefin","Josephin","Lola","Ruby","Cassandra","Kassandra","Cecilia","Ellen","Esther","Lenia","Melek","Nicole","Elaine","Elea","Ilayda","Kaja","Kaya","Caja","Lilia","Ashley","Flora","Friederike","Judith","Malou","Mathilde","Nila","Patricia","Sonja","Tara","Alexia","Dalia","Fatima","Jamie","Lisann","Lysann","Anouk","Felicia","Melisa","Jasmina","Leia","Leya","Tiana","Aimee","Arina","Josephina","Josefina","Lydia","Alia","Alva","Eliana","Henrieke","Henrike","Jenna","Jolie","Juliane","Leonora","Fee","Maxi","Mirja","Philippa","Sarina","Zehra","Alica","Anja","Eleni","Janina","Saphira","Amanda","Melis","Nia","Romina","Shania","Soraya","Adele","Anisa","Joy","Miley","Wilma","Annemarie","Charlotta","Claire","Fritzi","Jennifer","Liara","Luca","Luka","Marieke","Marike","Marisa","Meyra","Mieke","Verena","Ceyda","Ceylin","Cora","Eda","Eliza","Feline","Gloria","Inga","Joyce","Katja","Lejla","Lou","Malena","Maren","Nea","Sila","Eslem","Janna","Sena","Summer","Ziva","Ann","Davina","Defne","Ecrin","Enni","Femke","Joana","Lavinia","Maxima","Rahel","Saskia","Toni","Tony","Zara","Ada","Bianca","Bianka","Clarissa","Fina","Gina","Megan","Naemi","Natalia","Ria","Tia","Tina","Yaren","Alara","Annabella","Betty","Beyza","Christin","Kristin","Cleo","Dilay","Eleanor","Elenor","Eleonora","Ellie","Eyluel","Franka","Giuliana","Hanne","Hedda","Jamila","Jenny","Jona","Jonah","Julina","Liyana","Loreen","Stefanie","Stephanie","Stina","Tamia","Zuemra","Erva","Ewa","Iva","Katrin","Catrin","Kathrin","Malak","Penelope","Rabia","Salome","Sandra","Sienna","Yagmur","Abigail","Ariane","Delia","Dila","Dina","Fine","Havin","Isa","Kaethe","Lisbeth","Liz","Maileen","Mayleen","Neyla","Palina","Samia","Shirin","Talea","Thalea","Vera","Vivian","Aria","Erna","Helin","Hilda","Kiana","Luzi","Luzie","Melike","Mika","Scarlett","Stine","Alana","Alba","Asmin","Celia","Damla","Elissa","Eve","Evelina","Grace","Kathleen","Lale","Laureen","Line","Milina","Minna","Neela","Rita","Sidney","Sydney","Sura")
+        val   lastnames:List[String] = List("Mueller","Schmidt","Schneider","Fischer","Weber","Meyer","Wagner","Becker","Schulz","Hoffmann","Schaefer","Koch","Bauer","Richter","Klein","Wolf","Schroeder","Schneider","Neumann","Schwarz","Zimmermann","Braun","Krueger","Hofmann","Hartmann","Lange","Schmitt","Werner","Schmitz","Krause","Meier","Lehmann","Schmid","Schulze","Maier","Koehler","Herrmann","Koenig","Walter","Mayer","Huber","Kaiser","Fuchs","Peters","Lang","Scholz","Moeller","Weiss","Jung","Hahn","Schubert","Vogel","Friedrich","Keller","Guenther","Frank","Berger","Winkler","Roth","Beck","Lorenz","Baumann","Franke","Albrecht","Schuster","Simon","Ludwig","Boehm","Winter","Kraus","Martin","Schumacher","Kraemer","Vogt","Stein","Jaeger","Otto","Sommer","Gross","Seidel","Heinrich","Brandt","Haas","Schreiber","Graf","Schulte","Dietrich","Ziegler","Kuhn","Kuehn","Pohl","Engel","Horn","Busch","Bergmann","Thomas","Voigt","Sauer","Arnold","Wolff","Pfeiffer")
+
+        def getName(g:Gender):(String, String) = (getFirstName(g), getLastName)
+        def getFirstName(g:Gender):String =
+            if (g == Male) firstnamesM.apply(Random.nextInt(firstnamesM.length))
+            else firstnamesF.apply(Random.nextInt(firstnamesF.length))
+        def getLastName:String =
+                lastnames.apply(Random.nextInt(lastnames.length))
+    }
+
+    def randomDateOfBirth:(Int, Int, Int) =
+        (Random.nextInt(28) + 1, Random.nextInt(12) + 1, 1991 - Random.nextInt(80))
+
     def randomGender:Gender = if (Random.nextInt(2) == 1) Male else Female
     // Gauss Curve values are empirical estimates
     def randomAge:Int = scala.math.max(18:Int, scala.math.min(115:Int, (scala.math.round(Random.nextGaussian() * 10:Double):Long).toInt + 50))
 
     trait Erststimme {}
-
     object InvalidErststimme extends Erststimme {
         override def toString(): String = "NULL"
     }
-    case class Candidacy(val cid:Int, val idno:String, val wkid:Int, val year:Int, val supporter:Option[Int]) extends Erststimme {
+    case class Candidacy(val cid:Int) extends Erststimme {
         override def toString(): String = cid.toString
     }
     trait Zweitstimme {}
     object InvalidZweitstimme extends Zweitstimme {
         override def toString(): String = "NULL"
     }
-    case class Landesliste(val llid:Int, val year:Int, val pid:Int, val fsid:Int) extends Zweitstimme {
+    case class Landesliste(val llid:Int) extends Zweitstimme {
         override def toString(): String = llid.toString
     }
 
+    class Distribution(val erststimmen:Map[Erststimme, Int], val zweitstimmen:Map[Zweitstimme, Int]) {
+        def inNeedOfErststimme:Erststimme = erststimmen.filter(_._2 > 0).head._1
+        def inNeedOfZweitstimme:Zweitstimme = zweitstimmen.filter(_._2 > 0).head._1
+
+        def next(es:Erststimme, zs:Zweitstimme):Distribution = {
+
+            new Distribution(
+                erststimmen.toList.map((kv:(Erststimme, Int)) => {
+                    val (k,v) = kv
+                    (k, if (k == es)
+                            if (v < 1) throw new IllegalStateException
+                            else v - 1
+                        else v)
+                }).toMap,
+                zweitstimmen.toList.map((kv:(Zweitstimme, Int)) => {
+                    val (k,v) = kv
+                    (k, if (k == zs)
+                            if (v < 1) throw new IllegalStateException(f"Generated for ${k}, ")
+                            else v - 1
+                        else v)
+                }).toMap)
+        }
+    }
+
     case class Stimmzettel(gender:Gender, age:Int, erststimme:Erststimme, zweitstimme:Zweitstimme) {
+        val id = Stimmzettel.c
+        Stimmzettel.c += 1
+
         def this(erststimme:Erststimme, zweitstimme:Zweitstimme) =
             this(randomGender, randomAge, erststimme, zweitstimme)
 
-        override def toString(): String = f"(${erststimme}, ${zweitstimme})"
+        // override def toString(): String = f"(${erststimme}, ${zweitstimme})"
+        override def toString:String = f"${gender}${age}${erststimme}${zweitstimme}${id}"
     }
 
     object Stimmzettel {
+        var c:Int = 0
         /** Generates a random Stimmzettel */
         def random():Stimmzettel = {
             val erststimme = GeneratorConfig.possibleCandidates.apply(Random.nextInt(GeneratorConfig.possibleCandidates.length))
             val zweitstimme = GeneratorConfig.possibleParties.apply(Random.nextInt(GeneratorConfig.possibleParties.length))
             new Stimmzettel(randomGender, randomAge, erststimme, zweitstimme)
         }
+
     }
 
-    class Ergebnis(val votes:List[Stimmzettel]) {
-        /** Adds a Stimmzettel */
-        def insert(vote:Stimmzettel):Ergebnis = new Ergebnis(vote :: votes)
+    import java.io._
+    import GeneratorConfig._
 
-        /** Calculates current distribution */
-        def distribution():Distribution = {
-            def cummulate(maps:(Map[Erststimme, Int], Map[Zweitstimme, Int]),
-                 sz:Stimmzettel):(Map[Erststimme, Int], Map[Zweitstimme, Int]) = {
-
-                val (erststimmen, zweitstimmen) = maps
-                val Stimmzettel(g, a, e, z) = sz
-
-                val esc = erststimmen.getOrElse(e, 0) + 1
-                val zsc = zweitstimmen.getOrElse(z, 0) + 1
-
-                (erststimmen + (e -> esc), zweitstimmen + (z -> zsc))
-            }
-
-            val (erststimmenCount, zweitstimmenCount) = votes.foldLeft(Map[Erststimme, Int](), Map[Zweitstimme, Int]())(cummulate)
-            val totalErststimme:Double = erststimmenCount.values.sum
-            val totalZweistimme:Double = zweitstimmenCount.values.sum
-
-            new Distribution(erststimmenCount.mapValues(_ / totalErststimme:Double), zweitstimmenCount.mapValues(_ / totalZweistimme:Double))
-        }
-
-        override def toString(): String = votes.toString()
+    def printToFile(f: File)(op: PrintWriter => Unit) {
+        val p = new PrintWriter(f)
+        try { op(p) } finally { p.close() }
     }
 
-    class Distribution(val erststimmen:Map[Erststimme, Double], val zweitstimmen:Map[Zweitstimme, Double]) {
-        /** Mean of deviations from desired value for all values */
-        def distance(other:Distribution):Double = {
-            val (erststimmenDiffs, zweitstimmenDiffs) = deviation(other)
-            (erststimmenDiffs.values.map(scala.math.abs(_)).sum /
-                    (erststimmenDiffs.values.toList.length:Double) +
-            zweitstimmenDiffs.values.map(scala.math.abs(_)).sum /
-                (zweitstimmenDiffs.values.toList.length:Double)
-            ) / (2.0)
+    @tailrec
+    def generate(distribution: Distribution, result:List[Stimmzettel]):List[Stimmzettel] = {
+        val totalES:Int = distribution.erststimmen.values.sum
+        val totalZS:Int = distribution.zweitstimmen.values.sum
+        assert(totalES == totalZS)
+        if (totalES > 1 && totalZS > 1) {
+            val sz = new Stimmzettel(distribution.inNeedOfErststimme, distribution.inNeedOfZweitstimme)
+            val newDistribution:Distribution = distribution.next(sz.erststimme, sz.zweitstimme)
+            generate(newDistribution, sz :: result)
+        } else {
+            result
         }
-
-        /** Relative differences between this and others entry count */
-        def deviation(other:Distribution):(Map[Erststimme, Double], Map[Zweitstimme, Double]) = {
-            val allCandidacies:List[Erststimme] = (erststimmen.keys ++ other.erststimmen.keys).toList
-            val allParties:List[Zweitstimme] = (zweitstimmen.keys ++ other.zweitstimmen.keys).toList
-
-            val erststimmenDiffs:Map[Erststimme, Double] = allCandidacies.map((c:Erststimme) => {
-                (c -> (erststimmen.getOrElse(c, 0.0) - other.erststimmen.getOrElse(c, 0.0)))
-            }).toMap
-
-            val zweitstimmenDiffs:Map[Zweitstimme, Double] = allParties.map((p:Zweitstimme) => {
-                (p -> (zweitstimmen.getOrElse(p, 0:Double) - other.zweitstimmen.getOrElse(p, 0:Double)))
-            }).toMap
-
-            (erststimmenDiffs, zweitstimmenDiffs)
-
-            // (Map((c1 -> 0.5), (c2 -> -0.5)), Map((cdu -> -0.5), (spd -> 0.5)))
-        }
-
-        /** Returns a random Candidacy that needs more Erststimmen to reach desired distribution */
-        def inNeedOfErststimme(other:Distribution):Erststimme = {
-            val dev = deviation(other)._1
-            val folksWithVotesMissing:List[Erststimme] = deviation(other)._1.filter(_._2 < 0).map(_._1).toList
-            if (folksWithVotesMissing.length < 1)
-                GeneratorConfig.possibleCandidates.apply(Random.nextInt(GeneratorConfig.possibleCandidates.length))
-            else
-                folksWithVotesMissing.apply(Random.nextInt(folksWithVotesMissing.length))
-        }
-
-        /** Returns a random Landesliste that needs more Zweitstimmen to reach desired distribution */
-        def inNeedOfZweitstimme(other:Distribution):Zweitstimme = {
-            val dev = deviation(other)._2
-            val folksWithVotesMissing:List[Zweitstimme] = deviation(other)._2.filter(_._2 < 0).map(_._1).toList
-            if (folksWithVotesMissing.length < 1)
-                GeneratorConfig.possibleParties.apply(Random.nextInt(GeneratorConfig.possibleParties.length))
-            else
-                folksWithVotesMissing.apply(Random.nextInt(folksWithVotesMissing.length))
-        }
-
-        override def toString(): String = f"${erststimmen}\n${zweitstimmen}"
     }
-
-    /** Generates list of Stimmzettel for given distribution etc. */
-    def generate(targetDist:Distribution, size:Int):Ergebnis = {
-        var result:Ergebnis = new Ergebnis(List[Stimmzettel]())
-        println("Generating Stimmzettel")
-        for (i <- 1 to size) {
-
-            // Progress indicator
-            val prevPercentage:Int = scala.math.round(((i - 1):Float) / (size:Float) * 100:Float)
-            val percentage:Int = scala.math.round((i:Float) / (size:Float) * 100:Float)
-            if (percentage - prevPercentage != 0) {
-                val bar:String = (for (p <- 0 to 99) yield if (p < percentage) "=" else " ").fold("")(_+_)
-                print("\r[" + bar + "] " + percentage + "%")
-            }
-
-            val erststimme:Erststimme = result.distribution.inNeedOfErststimme(targetDist)
-            val zweitstimme:Zweitstimme = result.distribution.inNeedOfZweitstimme(targetDist)
-            var newvote:Stimmzettel = new Stimmzettel(erststimme, zweitstimme)
-            result = result.insert(newvote)
-        }
-        println("")
-
-        result
-    }
-
 
     def main(args: Array[String]):Unit = {
-        import GeneratorConfig._
-        import java.io._
-        def printToFile(f: File)(op: PrintWriter => Unit) {
-          val p = new PrintWriter(f)
-          try { op(p) } finally { p.close() }
-        }
+        val szs = generate(distribution, List())
 
-
-        val result = generate(distribution, sampleSize);
         printToFile(new File(filename)) { p =>
-            result.votes.map((sz:Stimmzettel) => {
-                    p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+            szs.map((sz:Stimmzettel) => {
+                val (firstname, lastname) = Names.getName(sz.gender)
+                val (dobDay, dobMonth, dobYear) = randomDateOfBirth
+                p.append(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${dobYear}.', '${sz.gender}', '');\n")
+                p.append(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});\n")
             })
         }
-
-        println(f"${sampleSize} Stimmzettel generated.")
-        println(f"Deviation from target distribution: ${result.distribution.distance(distribution)}")
     }
 }
 
@@ -184,40 +140,26 @@ object GeneratorConfig {
 
     val filename:String = "insert_stimmzettel.sql"
 
-    /** Loads distribution from database */
-    object GeneratorConfigFromDatabase {
-        def distributionWahlbezirk(wbid:Int, year:Int):Distribution = throw new NotImplementedError
-        def distributionWahlkreis(wkid:Int, year:Int):Distribution  = throw new NotImplementedError
-        def distributionBundesland(fsid:Int, year:Int):Distribution = throw new NotImplementedError
-        def distributionBundesweit(year:Int):Distribution           = throw new NotImplementedError
-
-        def sampleSizeWahlbezirk(wbid:Int, year:Int):Int            = throw new NotImplementedError
-        def sampleSizeWahlkreis(wkid:Int, year:Int):Int             = throw new NotImplementedError
-        def sampleSizeBundesland(fsid:Int, year:Int):Int            = throw new NotImplementedError
-        def sampleSizeBundesweit(year:Int):Int                      = throw new NotImplementedError
-    }
-
     /** Loads hardcoded distribution */
     object GeneratorConfigHardcoded {
-        val distribution:Distribution = new Distribution(Map[Erststimme, Double](
+        val distribution:Distribution = new Distribution(Map[Erststimme, Int](
             /* Erststimmen results */
-            (new Candidacy(1, "abc123", 0, 2013, None) -> 0.5),
-            (new Candidacy(2, "defghi", 0, 2013, None) -> 0.5)
-        ), Map[Zweitstimme, Double](
-            /* Zweitstimmen results */
-            (new Landesliste(25, 2009, 2, 13) -> 0.328242),
-            (new Landesliste(34, 2009, 4, 13) -> 0.096271),
-            (new Landesliste(98, 2009, 18, 13) -> 0),
-            (new Landesliste(102, 2009, 12, 13) -> 0.38901),
-            (new Landesliste(158, 2009, 5, 13) -> 0.10324),
-            (new Landesliste(172, 2009, 1, 13) -> 0.00819),
-            (new Landesliste(175, 2009, 13, 13) -> 0),
-            (new Landesliste(178, 2009, 3, 13) -> 0.07503),
-            (new Landesliste(186, 2009, 7, 13) -> 0),
-            (new Landesliste(187, 2009, 11, 13) -> 0),
+            (new Candidacy(1) -> 2000000),
+            (new Candidacy(2) -> 2000000)
+        ), Map[Zweitstimme, Int](
+            (new Landesliste(25) -> 1000000),
+            (new Landesliste(34) -> 1200000),
+            (new Landesliste(98) -> 0),
+            (new Landesliste(102) -> 800000),
+            (new Landesliste(158) -> 200000),
+            (new Landesliste(172) -> 100000),
+            (new Landesliste(175) -> 0),
+            (new Landesliste(178) -> 700000),
+            (new Landesliste(186) -> 0),
+            (new Landesliste(187) -> 0),
             (InvalidZweitstimme -> 0)
         ))
 
-        val sampleSize:Int = 158843
+        val sampleSize:Int = 4000000 // 158843
     }
 }

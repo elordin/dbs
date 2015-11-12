@@ -1,7 +1,7 @@
-DROP TRIGGER IF EXISTS CandidacyCounterStimmzettel      ON Stimmzettel CASCADE;
-DROP TRIGGER IF EXISTS CandidacyCounterWahlschein       ON Wahlschein CASCADE;
-DROP TRIGGER IF EXISTS LandeslisteCounterStimmzettel    ON Stimmzettel CASCADE;
-DROP TRIGGER IF EXISTS LandeslisteCounterWahlschein     ON Wahlschein CASCADE;
+DROP TRIGGER IF EXISTS CandidacyCounterStimmzettel       ON Stimmzettel CASCADE;
+DROP TRIGGER IF EXISTS CandidacyCounterWahlschein        ON Wahlschein  CASCADE;
+DROP TRIGGER IF EXISTS LandeslisteCounterStimmzettel     ON Stimmzettel CASCADE;
+DROP TRIGGER IF EXISTS LandeslisteCounterWahlschein      ON Wahlschein  CASCADE;
 DROP FUNCTION IF EXISTS incErststimme()                  CASCADE;
 DROP FUNCTION IF EXISTS decErststimme()                  CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk()       CASCADE;
@@ -422,7 +422,7 @@ CREATE TRIGGER OnStimmzettelUpdate
     FOR EACH ROW
     EXECUTE PROCEDURE handleStimmzettelUpdate();
 
-CREATE FUNCTION initalizeHasVoted(_year INT) RETURNS VOID AS $init$
+CREATE OR REPLACE FUNCTION initalizeHasVoted(_year INT) RETURNS VOID AS $init$
     BEGIN
         INSERT INTO hasVoted (year, indo) SELECT _year, idno
                 FROM Citizen
