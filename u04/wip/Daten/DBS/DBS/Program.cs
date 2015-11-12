@@ -81,8 +81,8 @@ namespace DBS
             foreach (string s in federalStateIDs.Keys)
             {
                 wl = "insert into FederalState (fsid, name, outline) VALUES (" + federalStateIDs[s] + ", '" + s + "', NULL);";
-                wr.WriteLine(wl);
-                wrges.WriteLine(wl);
+                //wr.WriteLine(wl);
+                //wrges.WriteLine(wl);
             }
 
             wr.Flush();
