@@ -15,6 +15,7 @@ namespace DBS
         static Dictionary<string, int> wahlkreisIDs = new Dictionary<string, int>();
         static Dictionary<string, int> partyIDs = new Dictionary<string, int>();
         static Dictionary<string, int> landeslistenIDs = new Dictionary<string, int>();
+        static Dictionary<string, int> candidacyIDs = new Dictionary<string, int>();
         static StreamWriter wrges;
 
         static void Main(string[] args)
@@ -27,6 +28,7 @@ namespace DBS
             ReadParties();
             ReadCandidates();
             ReadVotes();
+            ReadFreeDirectVotes();
             wrges.Flush();
             wrges.Close();
         }
@@ -92,10 +94,10 @@ namespace DBS
             int id = 1;
             string wl = "";
 
-            foreach(string year in new List<string>{"2013"})
+            foreach(string year in years)
             {
                 StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Wahlkreisnamen\Wahlkreisnamen_" + year + ".csv"), System.Text.Encoding.Default);
-                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_wahlkreise_" + "2009+2013" + ".sql"));
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_wahlkreise_" + year+ ".sql"));
 
                 string line;
                 string [] wk;
@@ -105,14 +107,8 @@ namespace DBS
                 {
                     wk = line.Split(';');
 
-                    wahlkreisIDs["2009"+"_"+wk[0]] = id;
-                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + "2009" + ");";
-                    wr.WriteLine(wl);
-                    wrges.WriteLine(wl);
-                    id++;
-
-                    wahlkreisIDs["2013" + "_" + wk[0]] = id;
-                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + "2013" + ");";
+                    wahlkreisIDs[year + "_" + wk[0]] = id;
+                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + year + ");";
                     wr.WriteLine(wl);
                     wrges.WriteLine(wl);
                     id++;
@@ -285,7 +281,7 @@ namespace DBS
         {
             string wl = "";
 
-            foreach (string year in new List<string> { "2013" })
+            foreach (string year in years)
             {
                 StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Ergebnis\kerg_" + year + ".csv"), System.Text.Encoding.Default);
                 StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_votes_" + year + ".sql"));
@@ -345,6 +341,45 @@ namespace DBS
 
             }
         }
+
+        static void ReadFreeDirectVotes()
+        {
+            string wl = "";
+
+            foreach (string year in years)
+            {
+                StreamReader sr = new StreamReader(File.OpenRead(@"..\..\..\..\Ergebnis\udkerg_" + year + ".csv"), System.Text.Encoding.Default);
+                StreamWriter wr = new StreamWriter(File.Create(@"..\..\..\..\sql\insert_votes_freedirect_" + year + ".sql"));
+
+                string line;
+                string[] c;
+
+                string[] partys = sr.ReadLine().Split(';');
+
+                int wkid;
+                int numberofvotes = 0;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    c = line.Split(';');
+
+                    wkid = wahlkreisIDs[year + "_" + c[0].Split(' ')[0]];
+
+                    numberofvotes = Int32.Parse(c[2].Replace(" ", ""));
+
+                    wl = "update Candidacy set votes = " + numberofvotes + " where wkid = " + wkid + " and idno in (select idno from candidates where lastname='"+c[1].Split(',')[0]+"') and supportedby IS NULL;";
+                    wr.WriteLine(wl);
+                    wrges.WriteLine(wl);
+
+                }
+                sr.Close();
+                wr.Flush();
+                wr.Close();
+
+            }
+        }
+
+
 
         static string GetFederalStateFromShortcut(string shortcut)
         {
