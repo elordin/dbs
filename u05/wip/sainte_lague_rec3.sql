@@ -82,29 +82,27 @@ PartiesBeyondFivePercent(pid, votes) AS (
 )*/
 
 SeatsPerLandelisteByZweitstimme(llid, seats) AS (
-	WITH RECURSIVE Factors(f) AS (
-            VALUES (0.5)
-            UNION ALL
-            SELECT f + 1
-            FROM Factors
-            WHERE f < (select max(seats) from SeatsPerFederalState)
-        )
-
-    SELECT llid, Count(*) as numberOfSeats from 
-    (   
-    SELECT ll.llid, spfs.seats,
-    rank()  OVER
-    (Partition by ll.fsid Order by azfs.votes/f.f desc) as seatnumber
-    FROM PartiesBeyondFivePercent ps -- pid votes
-        NATURAL JOIN LandesListe ll
-        NATURAL JOIN SeatsPerFederalState spfs
-        INNER JOIN AggregatedZweitstimmenFS azfs ON azfs.llid = ll.llid,
-        Factors f
-    WHERE ll.year = 2013) as r
-    where seatnumber <= seats
-    group by llid
-    
-    
+	WITH RECURSIVE Factors(fsid, f) AS (
+	    (select fsid, 0.5 from federalstate)
+	    UNION ALL
+	    SELECT fsid, f + 1
+	    FROM Factors f
+	    WHERE f < (select max(seats) from SeatsPerFederalState spfs where spfs.fsid = f.fsid)
+	),
+	RankedSeatsPerLandesliste (llid, seatsInFS, seatnumber) AS (
+		SELECT ll.llid, spfs.seats, rank()  OVER
+			(Partition by ll.fsid Order by azfs.votes/f.f desc) as seatnumber
+		FROM PartiesBeyondFivePercent ps -- pid votes
+		NATURAL JOIN LandesListe ll
+		NATURAL JOIN SeatsPerFederalState spfs
+		INNER JOIN AggregatedZweitstimmenFS azfs ON azfs.llid = ll.llid
+		INNER JOIN Factors f ON f.fsid = ll.fsid
+		WHERE ll.year = 2013)      
+       
+	SELECT llid, Count(*) as numberOfSeats 
+	from RankedSeatsPerLandesliste  
+	where seatnumber <= seatsInFS
+	group by llid   
 )
 
 SELECT * FROM SeatsPerLandelisteByZweitstimme
