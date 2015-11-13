@@ -172,8 +172,39 @@ SeatsPerLandesliste (llid, seats)  AS(
 	FROM Landesliste ll 
 	LEFT OUTER JOIN WahlkreisesiegePerPartyPerFS wkspll ON ll.pid = wkspll.pid AND ll.fsid = wkspll.fsid
 	LEFT OUTER JOIN AdditionalSeatsToDirektmandatePerLandeliste astdkpll ON ll.llid = astdkpll.llid
-	WHERE ll.year = 2013
+	WHERE ll.year = 2013 AND ll.pid in (select pid from PartiesBeyondFivePercent) AND (coalesce(wkspll.seats,0)+coalesce(astdkpll.seats,0)) >0
+),
+
+Delegates (idno, fsid, pid, wkid, rank) AS (
+	WITH MergedCandidates (idno, fsid, pid, wkid, rank) AS (
+		(select wks.idno, wk.fsid, wks.pid, wk.wkid, 0 as position
+		 from WahlkreisSieger wks
+		 NATURAL JOIN Wahlkreis wk)
+		UNION
+		(select c.idno, ll.fsid, ll.pid, NULL as wkid,llp.position as rank
+		 from Candidates c
+		 NATURAL JOIN Landeslistenplatz llp
+		 NATURAL JOIN Landesliste ll
+		 WHERE ll.year = 2013 AND ll.pid in (select pid from PartiesBeyondFivePercent) AND  not exists (select * from WahlkreisSieger wks where wks.idno = c.idno)
+		 )
+	 ),
+	MergedRankedCandidates (idno, fsid, pid, wkid,  rank)  AS (
+		select mc.idno, mc.fsid,  mc.pid, mc.wkid, rank() OVER (Partition by mc.fsid, mc.pid Order by rank asc) as rank
+		from MergedCandidates mc	
+		)
+	 
+	--select * from MergedRankedCandidates
+
+	select mrc.idno, mrc.fsid, mrc.pid, mrc.wkid, mrc.rank
+	FROM MergedRankedCandidates mrc
+	LEFT OUTER JOIN Landesliste ll ON mrc.fsid = ll.fsid AND mrc.pid=ll.pid
+	NATURAL JOIN SeatsPerLandesliste spll	
+	WHERE mrc.pid is NULL or spll.seats >= rank
 )
+
+
+
+
 --select p.name, fs.name, seats from SeatsPerLandelisteFINAL_STEP4 NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
 --where p.name = 'CDU'
 
@@ -182,8 +213,16 @@ SeatsPerLandesliste (llid, seats)  AS(
 
 --select * from WahlkreisesiegePerPartyPerFS ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' 
 
-SELECT *from  SeatsPerLandesliste x NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' --and fs.name='Saarland' 
+--SELECT seats, p.name, fs.name from  SeatsPerLandesliste x NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' --and fs.name='Saarland' 
 
---select * from RankedSeatsPerLandesliste NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' 
+select  c.Firstname, c.Lastname, p.name, fs.name, d.rank 
+from Delegates d 
+NATURAL JOIN Candidates c
+NATURAL JOIN Federalstate fs
+JOIN Party p ON p.pid=d.pid
+where p.name='CDU' and fs.name='Niedersachsen'
 
---select * from WahlkreisesiegePerPartyPerFS NATURAL JOIN Landesliste where llid=310
+
+
+
+
