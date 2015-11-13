@@ -77,15 +77,16 @@ SeatsPerLandelisteByZweitstimme_STEP2_1(llid, seats) AS (
 	group by llid   
 ),
 
+WahlkreisesiegePerPartyPerFS (pid, fsid, seats) AS (
+	select pid, wk.fsid, count(*)
+	from WahlkreisSieger wks
+	join Wahlkreis wk ON wks.wkid = wk.wkid
+	join Federalstate fs ON wk.fsid = fs.fsid
+	group by pid, wk.fsid
+),
+
 MinimumSeatsPerParty (pid,seatsMin) AS (
-	WITH WahlkreisesiegePerPartyPerFS (pid, fsid, seats) AS (
-		select pid, wk.fsid, count(*)
-		from WahlkreisSieger wks
-		join Wahlkreis wk ON wks.wkid = wk.wkid
-		join Federalstate fs ON wk.fsid = fs.fsid
-		group by pid, wk.fsid
-	),
-	MinimumSeatsPerPartyPerFederalstate (pid, fsid, seats) AS (
+	WITH MinimumSeatsPerPartyPerFederalstate (pid, fsid, seats) AS (
 	select ll.pid, ll.fsid as fsid, GREATEST(coalesce(wkspppfs.seats,0), coalesce(spllbzs.seats,0)) as seats
 	from  WahlkreisesiegePerPartyPerFS wkspppfs
 	FULL OUTER JOIN Landesliste ll on ll.pid= wkspppfs.pid and ll.fsid=wkspppfs.fsid
@@ -128,37 +129,61 @@ SeatsPerParty_STEP3(pid,seats) AS (
 ),
 
 --ohne berücksichtigung der gewonnenen Wahlkreise
-SeatsPerLandelisteFINAL_STEP4(llid, seats) AS (
+AdditionalSeatsToDirektmandatePerLandeliste(llid, seats) AS (
 	WITH RECURSIVE Factors(fsid, f) AS (
 	    (select fsid, 0.5 from federalstate)
 	    UNION ALL
 	    SELECT fsid, f + 1
 	    FROM Factors f
-	    WHERE f < (select max(seats) from SeatsPerFederalState_STEP1 spfs where spfs.fsid = f.fsid)
+	    WHERE f < (select max(seats)+20 from SeatsPerFederalState_STEP1 spfs where spfs.fsid = f.fsid)
 	),
-	RankedSeatsPerLandesliste (llid, seatsperParty, seatnumber) AS (
-		SELECT ll.llid, spp.seats, rank()  OVER
-			(Partition by spp.pid Order by azfs.votes/f.f desc) as seatnumber
+	RankedSeatsPerLandesliste (llid, seatsForParty, seatnumberInParty, seatnumberLL) AS (
+		SELECT ll.llid, spp.seats as seatsForParty,
+			rank()  OVER (Partition by spp.pid Order by azfs.votes/f.f desc) as seatnumberInParty,
+			rank()  OVER (Partition by spp.pid, ll.llid Order by azfs.votes/f.f desc) as seatnumberInLL
 		FROM SeatsPerParty_STEP3 spp -- pid votes
 		NATURAL JOIN LandesListe ll
 		INNER JOIN AggregatedZweitstimmenFS azfs ON azfs.llid = ll.llid
 		INNER JOIN Factors f ON f.fsid = ll.fsid
-		WHERE ll.year = 2013)      
+		WHERE ll.year = 2013
+	),
+	RemainingRankedSeatsPerLandesliste (llid, seatsForParty, seatnumberInParty) AS (
+		SELECT rspll.llid, rspll.seatsForParty,
+		rank()  OVER (Partition by ll.pid  Order by rspll.seatnumberInParty asc) as seatnumberInParty
+		FROM RankedSeatsPerLandesliste rspll
+		JOIN Landesliste ll ON ll.llid=rspll.llid
+		Left Outer JOIN WahlkreisesiegePerPartyPerFS wkspll ON wkspll.pid=ll.pid and wkspll.fsid=ll.fsid
+		where rspll.seatnumberLL > coalesce(wkspll.seats,0)
+	)
+
+	--select * from Factors
+
+	--select * from RemainingRankedSeatsPerLandesliste where llid=310 order by seatnumberInParty asc
        
-	SELECT llid, Count(*) as seats 
-	from RankedSeatsPerLandesliste  
-	where seatnumber <= seatsperParty
-	group by llid   
+	SELECT  rrspll.llid, count(*)
+	FROM RemainingRankedSeatsPerLandesliste rrspll
+	NATURAL JOIN Landesliste ll
+	where rrspll.seatnumberInParty <= (rrspll.seatsForParty - (select sum(seats) from WahlkreisesiegePerPartyPerFS wkspppfs  where wkspppfs.pid=ll.pid))
+	group by  rrspll.llid
+),
+
+SeatsPerLandesliste (llid, seats)  AS(
+	select ll.llid, (coalesce(wkspll.seats,0)+coalesce(astdkpll.seats,0)) as seats
+	FROM Landesliste ll 
+	LEFT OUTER JOIN WahlkreisesiegePerPartyPerFS wkspll ON ll.pid = wkspll.pid AND ll.fsid = wkspll.fsid
+	LEFT OUTER JOIN AdditionalSeatsToDirektmandatePerLandeliste astdkpll ON ll.llid = astdkpll.llid
+	WHERE ll.year = 2013
 )
+--select p.name, fs.name, seats from SeatsPerLandelisteFINAL_STEP4 NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
+--where p.name = 'CDU'
 
-select p.name, fs.name, seats from SeatsPerLandelisteFINAL_STEP4 NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
-where p.name = 'CDU'
+--select p.name, fs.name, seatsperParty, seatnumber from RankedSeatsPerLandesliste NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
+--where p.name = 'CDU' and seatnumber <= seatsperParty
 
+--select * from WahlkreisesiegePerPartyPerFS ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' 
 
+SELECT *from  SeatsPerLandesliste x NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' --and fs.name='Saarland' 
 
+--select * from RankedSeatsPerLandesliste NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' 
 
---SELECT * from  SeatsPerParty Natural Join Party
-
-
-    
-
+--select * from WahlkreisesiegePerPartyPerFS NATURAL JOIN Landesliste where llid=310
