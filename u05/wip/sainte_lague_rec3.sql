@@ -77,7 +77,7 @@ SeatsPerLandelisteByZweitstimme_STEP2_1(llid, seats) AS (
 	group by llid   
 ),
 
-MinimumSeatsPerParty (pid,seats) AS (
+MinimumSeatsPerParty (pid,seatsMin) AS (
 	WITH WahlkreisesiegePerPartyPerFS (pid, fsid, seats) AS (
 		select pid, wk.fsid, count(*)
 		from WahlkreisSieger wks
@@ -91,22 +91,34 @@ MinimumSeatsPerParty (pid,seats) AS (
 	FULL OUTER JOIN Landesliste ll on ll.pid= wkspppfs.pid and ll.fsid=wkspppfs.fsid
 	JOIN SeatsPerLandelisteByZweitstimme_STEP2_1 spllbzs on ll.llid = spllbzs.llid)
 
-	select pid, sum(seats) as seats
+	select pid, sum(seats) as seatsMin
 	from MinimumSeatsPerPartyPerFederalstate
 	group by pid
 
 	
 ),
 
- WahlkreisesiegePerPartyPerFS (pid, fsid, seats) AS (
-		select pid, wk.fsid, count(*)
-		from WahlkreisSieger wks
-		join Wahlkreis wk ON wks.wkid = wk.wkid
-		join Federalstate fs ON wk.fsid = fs.fsid
-		group by pid, wk.fsid)
+RankedSeatsPerParty(pid,seatnumberGes, seatnumberParty) AS (
+	WITH RECURSIVE Factors(f) AS (
+	    VALUES (0.5)
+	    UNION ALL
+	    SELECT f + 1
+	    FROM Factors f
+	    WHERE f < (400)
+	)
 
+	SELECT pbfp.pid, rank()  OVER (Order by pbfp.votes/f.f desc) as seatnumberGes,
+		rank()  OVER (Partition by pbfp.pid Order by pbfp.votes/f.f desc) as seatnumberParty
+		FROM PartiesBeyondFivePercent pbfp , Factors f-- pid votes			
+	
+	
+)
 
-SELECT sum(seats) from MinimumSeatsPerParty
+SELECT * 
+from RankedSeatsPerParty rspp
+NATURAL JOIN MinimumSeatsPerParty mspp
+NATURAL JOIN Party
+where rspp.seatnumberParty = mspp.seatsMin
 
 
 
