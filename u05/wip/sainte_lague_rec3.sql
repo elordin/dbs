@@ -83,18 +83,32 @@ MinimumSeatsPerParty (pid,seats) AS (
 		from WahlkreisSieger wks
 		join Wahlkreis wk ON wks.wkid = wk.wkid
 		join Federalstate fs ON wk.fsid = fs.fsid
+		group by pid, wk.fsid
+	),
+	MinimumSeatsPerPartyPerFederalstate (pid, fsid, seats) AS (
+	select ll.pid, ll.fsid as fsid, GREATEST(coalesce(wkspppfs.seats,0), coalesce(spllbzs.seats,0)) as seats
+	from  WahlkreisesiegePerPartyPerFS wkspppfs
+	FULL OUTER JOIN Landesliste ll on ll.pid= wkspppfs.pid and ll.fsid=wkspppfs.fsid
+	JOIN SeatsPerLandelisteByZweitstimme_STEP2_1 spllbzs on ll.llid = spllbzs.llid)
+
+	select pid, sum(seats) as seats
+	from MinimumSeatsPerPartyPerFederalstate
+	group by pid
+
+	
+),
+
+ WahlkreisesiegePerPartyPerFS (pid, fsid, seats) AS (
+		select pid, wk.fsid, count(*)
+		from WahlkreisSieger wks
+		join Wahlkreis wk ON wks.wkid = wk.wkid
+		join Federalstate fs ON wk.fsid = fs.fsid
 		group by pid, wk.fsid)
 
-	/*select * from WahlkreisesiegePerPartyPerFS*/
-	select wkspppfs.pid, GREATEST(wkspppfs.seats, spllbzs.seats)
-	from WahlkreisesiegePerPartyPerFS wkspppfs
-	JOIN Landesliste ll on ll.pid=wkspppfs.pid and ll.fsid=wkspppfs.fsid
-	JOIN SeatsPerLandelisteByZweitstimme_STEP2_1 spllbzs on spllbzs.llid = ll.llid
-)
+
+SELECT sum(seats) from MinimumSeatsPerParty
 
 
-
-SELECT SUM(seats) FROM MinimumSeatsPerParty
 
     
 
