@@ -98,7 +98,7 @@ MinimumSeatsPerParty (pid,seatsMin) AS (
 	
 ),
 
-SeatsPerParty(pid,seats) AS (
+SeatsPerParty_STEP3(pid,seats) AS (
 	WITH RECURSIVE Factors(f) AS (
 	    VALUES (0.5)
 	    UNION ALL
@@ -125,12 +125,39 @@ SeatsPerParty(pid,seats) AS (
 	from RankedSeatsPerParty
 	where seatnumberGes <= (SELECT * from TotalNumberOfSeats)	
 	group by pid	
-	
-	
+),
+
+--ohne berücksichtigung der gewonnenen Wahlkreise
+SeatsPerLandelisteFINAL_STEP4(llid, seats) AS (
+	WITH RECURSIVE Factors(fsid, f) AS (
+	    (select fsid, 0.5 from federalstate)
+	    UNION ALL
+	    SELECT fsid, f + 1
+	    FROM Factors f
+	    WHERE f < (select max(seats) from SeatsPerFederalState_STEP1 spfs where spfs.fsid = f.fsid)
+	),
+	RankedSeatsPerLandesliste (llid, seatsperParty, seatnumber) AS (
+		SELECT ll.llid, spp.seats, rank()  OVER
+			(Partition by spp.pid Order by azfs.votes/f.f desc) as seatnumber
+		FROM SeatsPerParty_STEP3 spp -- pid votes
+		NATURAL JOIN LandesListe ll
+		INNER JOIN AggregatedZweitstimmenFS azfs ON azfs.llid = ll.llid
+		INNER JOIN Factors f ON f.fsid = ll.fsid
+		WHERE ll.year = 2013)      
+       
+	SELECT llid, Count(*) as seats 
+	from RankedSeatsPerLandesliste  
+	where seatnumber <= seatsperParty
+	group by llid   
 )
 
+select p.name, fs.name, seats from SeatsPerLandelisteFINAL_STEP4 NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
+where p.name = 'CDU'
 
-SELECT * from  SeatsPerParty Natural Join Party
+
+
+
+--SELECT * from  SeatsPerParty Natural Join Party
 
 
     
