@@ -98,28 +98,39 @@ MinimumSeatsPerParty (pid,seatsMin) AS (
 	
 ),
 
-RankedSeatsPerParty(pid,seatnumberGes, seatnumberParty) AS (
+SeatsPerParty(pid,seats) AS (
 	WITH RECURSIVE Factors(f) AS (
 	    VALUES (0.5)
 	    UNION ALL
 	    SELECT f + 1
 	    FROM Factors f
 	    WHERE f < (400)
+	),
+	
+	RankedSeatsPerParty(pid,seatnumberGes, seatnumberParty) AS (
+		SELECT pbfp.pid, rank()  OVER (Order by pbfp.votes/f.f desc) as seatnumberGes,
+		rank()  OVER (Partition by pbfp.pid Order by pbfp.votes/f.f desc) as seatnumberParty
+		FROM PartiesBeyondFivePercent pbfp , Factors f
+	),
+
+	TotalNumberOfSeats (seats) AS (
+		SELECT max(seatnumberges) as seats
+		from RankedSeatsPerParty rspp
+		NATURAL JOIN MinimumSeatsPerParty mspp
+		NATURAL JOIN Party
+		where rspp.seatnumberParty = mspp.seatsMin
 	)
 
-	SELECT pbfp.pid, rank()  OVER (Order by pbfp.votes/f.f desc) as seatnumberGes,
-		rank()  OVER (Partition by pbfp.pid Order by pbfp.votes/f.f desc) as seatnumberParty
-		FROM PartiesBeyondFivePercent pbfp , Factors f-- pid votes			
+	select pid, max(seatnumberParty)
+	from RankedSeatsPerParty
+	where seatnumberGes <= (SELECT * from TotalNumberOfSeats)	
+	group by pid	
 	
 	
 )
 
-SELECT * 
-from RankedSeatsPerParty rspp
-NATURAL JOIN MinimumSeatsPerParty mspp
-NATURAL JOIN Party
-where rspp.seatnumberParty = mspp.seatsMin
 
+SELECT * from  SeatsPerParty Natural Join Party
 
 
     
