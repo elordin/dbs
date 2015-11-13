@@ -39,6 +39,15 @@ CREATE TABLE IF NOT EXISTS FederalState (
     citizencount INT NOT NULL
 );
 
+CREATE OR REPLACE MATERIALIZED VIEW FederalStateWithCitizenCount(fisd, year, citizencount) AS (
+    SELECT fsid, year, COUNT(idno) as citizencount
+    FROM CitizenRegistration
+        NATURAL JOIN DirektWahlBezirk
+        NATURAL JOIN Wahlbezirk
+        NATURAL JOIN Wahlkreis
+    GROUP BY fsid, year
+)
+
 CREATE TABLE IF NOT EXISTS ElectionYear (
     year INT PRIMARY KEY
 );
@@ -422,11 +431,12 @@ CREATE TRIGGER OnStimmzettelUpdate
     FOR EACH ROW
     EXECUTE PROCEDURE handleStimmzettelUpdate();
 
-CREATE OR REPLACE FUNCTION initalizeHasVoted(_year INT) RETURNS VOID AS $init$
+CREATE OR REPLACE FUNCTION initalizeHasVoted(_year INT) RETURNS INT AS $init$
     BEGIN
         INSERT INTO hasVoted (year, indo) SELECT _year, idno
                 FROM Citizen
                 WHERE canvote;
+        RETURN _year;
     END;
 $init$
 LANGUAGE plpgsql;
