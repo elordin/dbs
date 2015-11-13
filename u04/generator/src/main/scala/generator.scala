@@ -23,8 +23,8 @@ object Generator {
                 lastnames.apply(Random.nextInt(lastnames.length))
     }
 
-    def randomDateOfBirth:(Int, Int, Int) =
-        (Random.nextInt(28) + 1, Random.nextInt(12) + 1, 1991 - Random.nextInt(80))
+    def randomDayOfBirth:(Int, Int) =
+        (Random.nextInt(28) + 1, Random.nextInt(12) + 1)
 
     def randomGender:Gender = if (Random.nextInt(2) == 1) Male else Female
     // Gauss Curve values are empirical estimates
@@ -46,6 +46,7 @@ object Generator {
     }
 
     class Distribution(val erststimmen:Map[Erststimme, Int], val zweitstimmen:Map[Zweitstimme, Int]) {
+        // TODO: Maybe don't use head but random index instead
         def inNeedOfErststimme:Erststimme = erststimmen.filter(_._2 > 0).head._1
         def inNeedOfZweitstimme:Zweitstimme = zweitstimmen.filter(_._2 > 0).head._1
 
@@ -76,7 +77,6 @@ object Generator {
         def this(erststimme:Erststimme, zweitstimme:Zweitstimme) =
             this(randomGender, randomAge, erststimme, zweitstimme)
 
-        // override def toString(): String = f"(${erststimme}, ${zweitstimme})"
         override def toString:String = f"${gender}${age}${erststimme}${zweitstimme}${id}"
     }
 
@@ -119,8 +119,8 @@ object Generator {
         printToFile(new File(filename)) { p =>
             szs.map((sz:Stimmzettel) => {
                 val (firstname, lastname) = Names.getName(sz.gender)
-                val (dobDay, dobMonth, dobYear) = randomDateOfBirth
-                p.append(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${dobYear}.', '${sz.gender}', '');\n")
+                val (dobDay, dobMonth) = randomDayOfBirth
+                p.append(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${2009 - sz.age}.', '${sz.gender}', '');\n")
                 p.append(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});\n")
             })
         }
@@ -144,22 +144,22 @@ object GeneratorConfig {
     object GeneratorConfigHardcoded {
         val distribution:Distribution = new Distribution(Map[Erststimme, Int](
             /* Erststimmen results */
-            (new Candidacy(1) -> 2000000),
-            (new Candidacy(2) -> 2000000)
+            (new Candidacy(1) -> 200000),
+            (new Candidacy(2) -> 200000)
         ), Map[Zweitstimme, Int](
-            (new Landesliste(25) -> 1000000),
-            (new Landesliste(34) -> 1200000),
+            (new Landesliste(25) -> 100000),
+            (new Landesliste(34) -> 120000),
             (new Landesliste(98) -> 0),
-            (new Landesliste(102) -> 800000),
-            (new Landesliste(158) -> 200000),
-            (new Landesliste(172) -> 100000),
+            (new Landesliste(102) -> 80000),
+            (new Landesliste(158) -> 20000),
+            (new Landesliste(172) -> 10000),
             (new Landesliste(175) -> 0),
-            (new Landesliste(178) -> 700000),
+            (new Landesliste(178) -> 70000),
             (new Landesliste(186) -> 0),
             (new Landesliste(187) -> 0),
             (InvalidZweitstimme -> 0)
         ))
 
-        val sampleSize:Int = 4000000 // 158843
+        val sampleSize:Int = 400000
     }
 }
