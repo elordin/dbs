@@ -1,7 +1,7 @@
-DROP TRIGGER IF EXISTS CandidacyCounterStimmzettel      ON Stimmzettel CASCADE;
-DROP TRIGGER IF EXISTS CandidacyCounterWahlschein       ON Wahlschein CASCADE;
-DROP TRIGGER IF EXISTS LandeslisteCounterStimmzettel    ON Stimmzettel CASCADE;
-DROP TRIGGER IF EXISTS LandeslisteCounterWahlschein     ON Wahlschein CASCADE;
+DROP TRIGGER IF EXISTS CandidacyCounterStimmzettel       ON Stimmzettel CASCADE;
+DROP TRIGGER IF EXISTS CandidacyCounterWahlschein        ON Wahlschein  CASCADE;
+DROP TRIGGER IF EXISTS LandeslisteCounterStimmzettel     ON Stimmzettel CASCADE;
+DROP TRIGGER IF EXISTS LandeslisteCounterWahlschein      ON Wahlschein  CASCADE;
 DROP FUNCTION IF EXISTS incErststimme()                  CASCADE;
 DROP FUNCTION IF EXISTS decErststimme()                  CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk()       CASCADE;
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS Citizen (
 CREATE TABLE IF NOT EXISTS hasVoted (
     year INT NOT NULL REFERENCES ElectionYear(Year) ON DELETE CASCADE,
     idno VARCHAR(255) NOT NULL REFERENCES Citizen(idno) ON DELETE CASCADE,
-    hasvoted BOOLEAN NOT NULL DEFAULT true,
+    hasvoted BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY (year, idno)
 );
 
@@ -421,3 +421,12 @@ CREATE TRIGGER OnStimmzettelUpdate
     AFTER UPDATE ON Stimmzettel
     FOR EACH ROW
     EXECUTE PROCEDURE handleStimmzettelUpdate();
+
+CREATE OR REPLACE FUNCTION initalizeHasVoted(_year INT) RETURNS VOID AS $init$
+    BEGIN
+        INSERT INTO hasVoted (year, indo) SELECT _year, idno
+                FROM Citizen
+                WHERE canvote;
+    END;
+$init$
+LANGUAGE plpgsql;
