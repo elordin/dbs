@@ -1,4 +1,4 @@
-Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bundesland;Listenplatz
+﻿Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bundesland;Listenplatz
 22.09.2013;1;;Per Lennart;Aae;1940;NPD;157;;
 22.09.2013;2;;Ali;Abed-Ali;1993;Die PARTEI;;BE;53
 22.09.2013;3;;Klaus-Dieter;Abend;1946;FDP;22;;
@@ -296,7 +296,7 @@ Wahltermin;Kandidatennummer;Titel;Vorname;Nachname;Jahrgang;Partei;Wahlkreis;Bun
 22.09.2013;295;;Katja;Beyer;1984;PIRATEN;;NI;9
 22.09.2013;296;;Peter;Beyer;1970;CDU;105;NW;51
 22.09.2013;297;;Thomas;Bezler;1966;DIE VIOLETTEN;264;;
-22.09.2013;298;;Matern;Bieberstein Marschall von;1962;CDU;281;BW;7
+22.09.2013;298;;Matern;Marschall von Bieberstein;1962;CDU;281;BW;7
 22.09.2013;299;;Lucia;Biedermann;1981;FDP;278;BW;25
 22.09.2013;300;;Dieter;Bielang;1961;AfD;264;;
 22.09.2013;301;;Susanne;Bielig-Schultz;1960;AfD;;NI;15

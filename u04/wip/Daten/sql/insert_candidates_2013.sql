@@ -1114,7 +1114,7 @@ insert into Landeslistenplatz (llid, idno, position) VALUES (310, 3853, 51);
 insert into Citizen (idno, title, firstname, lastname, dateofbirth, gender) VALUES (3854, '', 'Thomas', 'Bezler', '1.1.1966.', 'n');
 insert into CandidatesData (idno) VALUES (3854);
 insert into Candidacy (wkid, idno, supportedby) VALUES (563, 3854, 6);
-insert into Citizen (idno, title, firstname, lastname, dateofbirth, gender) VALUES (3855, '', 'Matern', 'Bieberstein Marschall von', '1.1.1962.', 'n');
+insert into Citizen (idno, title, firstname, lastname, dateofbirth, gender) VALUES (3855, '', 'Matern', 'Marschall von Bieberstein', '1.1.1962.', 'n');
 insert into CandidatesData (idno) VALUES (3855);
 insert into Candidacy (wkid, idno, supportedby) VALUES (580, 3855, 12);
 insert into Landeslistenplatz (llid, idno, position) VALUES (279, 3855, 7);
