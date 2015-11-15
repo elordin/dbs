@@ -39,15 +39,6 @@ CREATE TABLE IF NOT EXISTS FederalState (
     citizencount INT NOT NULL
 );
 
-CREATE OR REPLACE MATERIALIZED VIEW FederalStateWithCitizenCount(fisd, year, citizencount) AS (
-    SELECT fsid, year, COUNT(idno) as citizencount
-    FROM CitizenRegistration
-        NATURAL JOIN DirektWahlBezirk
-        NATURAL JOIN Wahlbezirk
-        NATURAL JOIN Wahlkreis
-    GROUP BY fsid, year
-)
-
 CREATE TABLE IF NOT EXISTS ElectionYear (
     year INT PRIMARY KEY
 );
@@ -205,6 +196,15 @@ CREATE TABLE IF NOT EXISTS CitizenRegistration (
     idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
     dwbid INT NOT NULL REFERENCES DirektWahlBezirkData(dwbid),
     PRIMARY KEY (idno, dwbid)
+);
+
+CREATE MATERIALIZED VIEW FederalStateWithCitizenCount(fisd, year, citizencount) AS (
+    SELECT fsid, year, COUNT(idno) as citizencount
+    FROM CitizenRegistration
+        NATURAL JOIN DirektWahlBezirk
+        NATURAL JOIN Wahlbezirk
+        NATURAL JOIN Wahlkreis
+    GROUP BY fsid, year
 );
 
 -- Massive TODO:
