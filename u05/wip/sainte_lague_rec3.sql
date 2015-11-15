@@ -61,7 +61,7 @@ PartiesBeyondFivePercent2(pid, votes) AS (
 	    OR 2 < (SELECT COUNT(DISTINCT wkid) FROM WahlkreisWinners WHERE pid = a1.pid))
 ),
 
----------------- STEP 1: Seats per Federalstatet ----------------
+---------------- STEP 1: Seats per Federalstate ----------------
 -- creates the seat ranking for the Federalstates according to Sainte-Laguë with Höchstzahlverfahren
 RankedSeatsperFederalState(fsid, seatnumber) as (
 	WITH RECURSIVE Factors(f) AS (
@@ -85,8 +85,8 @@ SeatsPerFederalState(fsid, seats) AS (
 ),
 
 ---------------- STEP 2: Seats per Landesliste for each Federalstate ----------------
--- creates the seat ranking for the Landeslisten according to Sainte-Laguë with Höchstzahlverfahren
-RankedSeatsPerLandesliste (llid, sumSeatsInFS, seatnumber) AS (
+-- creates the seat ranking for the Landeslisten by Zweitstimmen according to Sainte-Laguë with Höchstzahlverfahren
+RankedSeatsPerLandesliste (llid, seatnumber) AS (
 	WITH RECURSIVE Factors(fsid, f) AS (
 	    (select fsid, 0.5 from federalstate)
 	    UNION ALL
@@ -95,11 +95,10 @@ RankedSeatsPerLandesliste (llid, sumSeatsInFS, seatnumber) AS (
 	    WHERE f < (select max(seats) from SeatsPerFederalState spfs where spfs.fsid = f.fsid)
 	)
 	
-	SELECT ll.llid, spfs.seats as sumSeatsInFS, rank()  OVER
+	SELECT ll.llid, rank()  OVER
 		(Partition by ll.fsid Order by azfs.votes/f.f desc) as seatnumber
 	FROM PartiesBeyondFivePercent ps -- pid votes
 	NATURAL JOIN LandesListe ll
-	NATURAL JOIN SeatsPerFederalState spfs
 	INNER JOIN AggregatedZweitstimmenForLL azfs ON azfs.llid = ll.llid
 	INNER JOIN Factors f ON f.fsid = ll.fsid
 	WHERE ll.year = 2013
@@ -109,7 +108,9 @@ RankedSeatsPerLandesliste (llid, sumSeatsInFS, seatnumber) AS (
 SeatsPerLandelisteByZweitstimme(llid, seats) AS (
 	SELECT llid, Count(*) as numberOfSeats 
 	from RankedSeatsPerLandesliste  
-	where seatnumber <= sumSeatsInFS
+	NATURAL JOIN LandesListe ll
+	NATURAL JOIN SeatsPerFederalState spfs
+	where seatnumber <= spfs.seats
 	group by llid   
 ),
 
@@ -140,7 +141,7 @@ MinimumSeatsPerParty (pid,minSeats) AS (
 
 ---------------- STEP 3: final number of Seats per Party ----------------
 -- creates the seat ranking for the Bundestag for each Party based on Zweitstimmen according to Sainte-Laguë with Höchstzahlverfahren
-RankedSeatsPerParty(pid,seatnumberTotal, seatnumberParty) AS (
+RankedSeatsPerParty(pid, seatnumberTotal, seatnumberParty) AS (
 	WITH RECURSIVE Factors(f) AS (
 	    VALUES (0.5)
 	    UNION ALL
@@ -159,7 +160,6 @@ TotalNumberOfSeats (seats) AS (
 	SELECT max(seatnumberTotal) as seats		-- take the last seat,  fullfilling the minimum requirement for the last party
 	from RankedSeatsPerParty rspp
 	NATURAL JOIN MinimumSeatsPerParty mspp
-	NATURAL JOIN Party
 	where rspp.seatnumberParty = mspp.minSeats  	-- select the first seat, fullfilling the minimum requirement for each party
 ),
 
@@ -172,7 +172,7 @@ TotalNumberOfSeatsPerParty(pid,seats) AS (
 ),
 
 ---------------- STEP 4: final number of Seats per Landesliste ----------------
--- creates the seat ranking for each Landesliste within its Party based on Zweitstimmen
+-- creates the seat ranking for each Landesliste and within its Party based on Zweitstimmen
 RankedSeatsPerLandesliste2 (llid, seatnumberInParty, seatnumberLL) AS (
 	WITH RECURSIVE Factors(fsid, f) AS (
 	    (select fsid, 0.5 from federalstate)
@@ -195,11 +195,11 @@ RankedSeatsPerLandesliste2 (llid, seatnumberInParty, seatnumberLL) AS (
 -- removes the seats used by Direktkandidaturen and re-ranks the remaining seats by the number within the Party
 RemainingRankedSeatsPerLandesliste (llid, seatnumberInParty) AS (
 	SELECT rspll.llid,
-	rank()  OVER (Partition by ll.pid  Order by rspll.seatnumberInParty asc) as seatnumberInParty
+	rank()  OVER (Partition by ll.pid  Order by rspll.seatnumberInParty asc) as seatnumberInParty		--rerank the remaining seats
 	FROM RankedSeatsPerLandesliste2 rspll
 	JOIN Landesliste ll ON ll.llid=rspll.llid
 	Left Outer JOIN WahlkreisesiegePerPartyPerFS wkspll ON wkspll.pid=ll.pid and wkspll.fsid=ll.fsid
-	where rspll.seatnumberLL > coalesce(wkspll.seats,0)
+	where rspll.seatnumberLL > coalesce(wkspll.seats,0)							--remove seats won by Direktkandidaturen
 ),
 
 ---calculates the number of seats per Party, without the seats for Direktkandidaturen
@@ -247,42 +247,107 @@ SeatsPerLandesliste (llid, seats)  AS(
 
 --ranks the unioned Candidates
 MergedRankedCandidates (idno, fsid, pid, wkid,  rank)  AS (
-	select mc.idno, mc.fsid,  mc.pid, mc.wkid, 
-	       rank() OVER (Partition by mc.fsid, mc.pid Order by mc.rank asc) as rank
-	from MergedCandidates mc	
+	SELECT mc.idno, mc.fsid,  mc.pid, mc.wkid, 
+	       rank() OVER (Partition by mc.fsid, mc.pid Order by mc.rank asc) as rank		--re-rank to match with number of seats, (all Direktmandate have rank 0 from MergedCandidates)
+	FROM MergedCandidates mc	
 ),
 
 -- selecte the Candidates which get a seat in Bundestag --> RESULT STEP 5
 Delegates (idno, fsid, pid, wkid, rankInFS) AS (
-	select mrc.idno, mrc.fsid, mrc.pid, mrc.wkid, mrc.rank
+	SELECT mrc.idno, mrc.fsid, mrc.pid, mrc.wkid, mrc.rank
 	FROM MergedRankedCandidates mrc
 	LEFT OUTER JOIN Landesliste ll ON mrc.fsid = ll.fsid AND mrc.pid=ll.pid
 	NATURAL JOIN SeatsPerLandesliste spll	
-	WHERE mrc.pid is NULL or spll.seats >= rank
+	WHERE mrc.pid is NULL or spll.seats >= rank						--take only candidates who have ll-rank <= ll-number of seats
 )
 
+------------------------------ TESTING ------------------------------
+---------- STEP 1: Seats per Federalstate ----------
+----Ranked Seats
+-- select fs.name, rspfs.seatnumber
+-- FROM RankedSeatsperFederalState rspfs
+-- NATURAL JOIN FederalState fs
+-- ORDER BY rspfs.seatnumber
+
+----Seats per fs
+-- SELECT fs.name, spfs.seats
+-- from SeatsPerFederalstate spfs
+-- NATURAL JOIN FederalState fs
+-- ORDER BY fs.fsid
+
+---------------- STEP 2: Seats per Landesliste for each Federalstate ----------------
+----Ranked seats
+-- SELECT rspll.seatnumber, fs.name, p.name
+-- FROM RankedSeatsPerLandesliste rspll
+-- NATURAL JOIN Landesliste ll
+-- NATURAL JOIN Federalstate fs
+-- JOIN Party p on ll.pid = p.pid
+-- WHERE fs.name='Thüringen'
+
+----Number of Seats per Landesliste
+-- SELECT spllpzw.seats, fs.name, p.name
+-- FROM SeatsPerLandelisteByZweitstimme spllpzw
+-- NATURAL JOIN Landesliste ll
+-- NATURAL JOIN Federalstate fs
+-- JOIN Party p on ll.pid = p.pid
+-- WHERE fs.name='Thüringen'
+-- ORDER BY spllpzw.seats desc
+
+---------------- STEP ZWISCHENERGEBNIS: minimum Number of Seats per Party ----------------
+---Minimum seats per Party per Federalstate
+-- SELECT mspppf.minSeats, fs.name, p.name
+-- FROM MinimumSeatsPerPartyPerFederalstate mspppf
+-- NATURAL JOIN Landesliste ll
+-- NATURAL JOIN Federalstate fs
+-- JOIN Party p on ll.pid = p.pid
+-- WHERE fs.name='Thüringen'
+
+----Minimum seats per Party in Bundestag
+-- SELECT mspp.minSeats, p.name
+-- FROM MinimumSeatsPerParty mspp
+-- NATURAL JOIN Party p 
 
 
+---------------- STEP 3: final number of Seats per Party ----------------
 
---select p.name, fs.name, seats from SeatsPerLandelisteFINAL_STEP4 NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
---where p.name = 'CDU'
+----ranked Seats in Bundestag, total and in Party
+-- SELECT p.name, rspp.seatnumberTotal, rspp.seatnumberParty
+-- FROM RankedSeatsPerParty rspp
+-- NATURAL JOIN Party p 
+-- ORDER BY rspp.seatnumberTotal
 
---select p.name, fs.name, seatsperParty, seatnumber from RankedSeatsPerLandesliste NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid
---where p.name = 'CDU' and seatnumber <= seatsperParty
+----total number of seats in Bundestag for Party
+-- SELECT p.name, tnospp.seats
+-- FROM TotalNumberOfSeatsPerParty tnospp
+-- NATURAL JOIN Party p 
+-- ORDER BY tnospp.seats desc
 
---select * from WahlkreisesiegePerPartyPerFS ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' 
 
---SELECT seats, p.name, fs.name from  SeatsPerLandesliste x NATURAL JOIN LandesListe ll NATURAL JOIN FederalState fs JOIN Party p ON ll.pid=p.pid where p.name = 'CDU' --and fs.name='Saarland' 
+---------------- STEP 4: final number of Seats per Landesliste ----------------
+----ranks seats fro each Landesliste within Party and LL
+-- SELECT fs.name, p.name, rspll.seatnumberInParty, rspll.seatnumberLL
+-- FROM RankedSeatsPerLandesliste2 rspll
+-- NATURAL JOIN Landesliste ll
+-- NATURAL JOIN Federalstate fs
+-- JOIN Party p on ll.pid = p.pid
+-- WHERE fs.name='Thüringen' AND p.name='CDU'
 
-select  Count(*) --c.Lastname, c.Firstname, p.name, fs.name, d.rank 
-from Delegates d 
+----total number of seats per Landesliste
+-- SELECT fs.name, p.name, spll.seats
+-- FROM SeatsPerLandesliste spll
+-- NATURAL JOIN Landesliste ll
+-- NATURAL JOIN Federalstate fs
+-- JOIN Party p on ll.pid = p.pid
+-- WHERE p.name='CDU'
+
+---------------- STEP 5: List of Delegates for Bundestag ----------------
+SELECT  c.Lastname, c.Firstname, p.name, fs.name, d.rankInFS 
+FROM Delegates d 
 NATURAL JOIN Candidates c
 NATURAL JOIN Federalstate fs
 JOIN Party p ON p.pid=d.pid
--- where p.name='CDU'
--- order by c.Lastname, c.Firstname
-
--- select * from NumberOfAdditionalSeatsPerParty
+WHERE p.name='CDU'
+ORDER BY c.Lastname, c.Firstname
 
 
 
