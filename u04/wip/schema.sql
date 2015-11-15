@@ -196,7 +196,7 @@ CREATE TABLE IF NOT EXISTS Stimmzettel (
 CREATE OR REPLACE VIEW Vote AS (
     SELECT gender, age, erststimme, zweitstimme
     FROM Wahlschein
-    UNION
+    UNION ALL
     SELECT gender, age, erststimme, zweitstimme
     FROM Stimmzettel
 );
