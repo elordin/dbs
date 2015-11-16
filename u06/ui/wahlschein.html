@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bundestagswahl 2017 - Wahlschein</title>
+        <style>
+        body {
+            background-color: #888;
+            font-family: Segoe UI, sans-serif;
+        }
+
+        header {
+            margin: 0 0 2em 0;
+            padding: 0;
+        }
+
+        .titles {
+            border-left: .25em solid #000;
+            padding: 0 1em 1em 1em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .titles::before {
+            content: '';
+            background-color: #f00;
+            position: absolute;
+            top: 33.3%;
+            height: 33.3%;
+            width: .25em;
+            left: -.25em;
+        }
+
+        .titles::after {
+            content: '';
+            background-color: #fc0;
+            position: absolute;
+            top: 66.6%;
+            height: 33.4%;
+            width: .25em;
+            left: -.25em;
+        }
+
+        h1, h2 {
+            padding: 0;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        h3 {
+            font-weight: 500;
+            padding: 0;
+            font-size: 1.25em;
+            margin: 0 0 .5em 0;
+        }
+
+        dt {
+            font-weight: bold;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        dt::after {
+            content: ':';
+        }
+
+        dd {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        dl {
+            text-align: right;
+            float: right;
+            margin: .5em 0;
+            display: inline-block;
+        }
+
+        form {
+            padding: 2em;
+            margin: 1em auto;
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0,0,0,.1), 0px 6px 16px rgba(0,0,0,.2);
+            max-width: 48em;
+        }
+
+        .col {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            width: 50%;
+            vertical-align: top;
+            padding: 1em 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .radios {
+            background-color: #ddd;
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.25em;
+            margin: 0;
+        }
+
+        .radios li:not(:last-of-type) {
+            border-bottom: thin solid #bbb;
+        }
+
+        .radios label {
+            display: block;
+        }
+
+        .radios label:hover {
+            background-color: #eee;
+        }
+
+        .validity {
+            background-color: #ffcc00;
+        }
+
+        button {
+            background-color: #0e117e;
+            color: #fff;
+            text-transform: uppercase;
+            width: 50%;
+            padding: 1em 0;
+            font-weight: bold;
+            font-size: 1.25em;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,.1), 0 4px 12px rgba(0,0,0,.2);
+        }
+
+        .terms {
+            display: inline-block;
+            width: 49%;
+            vertical-align: top;
+            font-size: 1.25em;
+        }
+
+        label {
+            padding: 1em;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        label input {
+            width: 0;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        label input::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 1em;
+            height: 1em;
+            border: .25em solid #000;
+            border-radius: 50%;
+            top: calc(50% - .75em);
+            background: transparent;
+        }
+
+        label input:checked::before {
+            // background: #000;
+        }
+
+        label input:checked + span::after,
+        label input:checked + span::before {
+            content: '';
+            display: block;
+            background-color: #000;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        label input:checked + span::after {
+            height: 2em;
+            width: .25em;
+            top: calc(50% - 1em);
+            left: 1.5875em;
+        }
+        label input:checked + span::before {
+            height: .25em;
+            width: 2em;
+            top: calc(50% - .1375em);
+            left: .75em;
+        }
+
+        label span {
+            padding-left: 2em;
+        }
+        </style>
+    </head>
+    <body>
+        <form action="" method="POST">
+            <header>
+                <div class="titles">
+                    <h1>Bundestagswahl 2017</h1>
+                    <h2>Wahlschein</h2>
+                </div>
+                <dl class="info">
+                    <dt>Personalausweis-Nr.</dt>
+                    <dd>LF084K2ZL</dd><br>
+                    <dt>Wahlkreis</dt>
+                    <dd>M&uuml;chen-Nord</dd><br>
+                    <dt>Wahlbezirk</dt>
+                    <dd>Maxvorstadt</dd>
+                </dl>
+            </header>
+
+            <section>
+                <h3>Erl&auml;uterungen</h3>
+                <p>
+                    lipsum
+                </p>
+            </section>
+            <section class="erststimme col left">
+                <h3>Erststimme</h3>
+                <ul class="radios">
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Christ-Demokratische Union</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Sozialdemokratische Partei Deutschlands</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>DIE LINKE</span>
+                        </label>
+                    </li>
+                    <li class="validity" id="validityZweitstimme">
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Ung&uuml;ltige Stimme</span>
+                        </label>
+                    </li>
+                </ul>
+            </section>
+            <section class="zweitstimme col right">
+                <h3>Zweitstimme</h3>
+                <ul class="radios">
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Christ-Demokratische Union</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Sozialdemokratische Partei Deutschlands</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>DIE LINKE</span>
+                        </label>
+                    </li>
+                    <li class="validity" id="validityZweitstimme">
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Ung&uuml;ltige Stimme</span>
+                        </label>
+                    </li>
+                </ul>
+            </section>
+            <div>
+                <label class="terms">
+                    <input type="checkbox" name="terms">
+                    <span>Ich best&auml;tige, dass ich die Hinweise und Bedingungen der Wahl kurz &uuml;berflogen habe und davon &uuml;berzeugt bin, sie verstanden zu haben.</span>
+                </label>
+                <button type="submit">Wahlzettel abgeben</button>
+            </div>
+        </form>
+    </body>
+</html>

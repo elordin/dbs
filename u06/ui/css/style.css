@@ -1,0 +1,299 @@
+body {
+    background-color: #fff;
+    font-family: Segoe UI, sans-serif;
+    margin: 0;
+}
+
+header {
+    height: 6em;
+    border-bottom: 2em solid #000;
+}
+
+header .logo {
+    float: left;
+}
+
+.logo img {
+    width: 4em;
+    height: 4em;
+    padding: 1em;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    line-height: 3;
+    display: inline-block;
+}
+
+header aside {
+    float: right;
+    padding: 1em;
+    text-align: right;
+}
+
+header aside a {
+    display: block;
+}
+
+header aside .info {
+    display: inline-block;
+    padding: .5em 1em;
+}
+
+header aside .btn {
+    display: inline-block;
+    height: 3em;
+    position: relative;
+    line-height: 3;
+    top: -.5em;
+    padding: .5em 2em;
+}
+
+.btn {
+    display: block;
+    background-color: #0e117e;
+    color: #fff;
+    padding: .5em 1em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #05e;
+}
+
+.with-submenu::after {
+    content: '\f078';
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 3;
+    padding: 0 1em;
+}
+
+nav {
+    background-color: #ddd;
+    width: 20%;
+    position: absolute;
+    top: 8em;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    border-right: thin solid #888;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    display: block;
+    padding: .75em 1em;
+    border-bottom: thin solid rgba(0,0,0,.4);
+    text-decoration: none;
+    color: #333;
+    transition: background-color .2s ease-in-out;
+}
+
+nav a:not([href]), nav a[href="#"] {
+    text-decoration: line-through;
+}
+
+nav a:hover {
+    background-color: #ccc;
+}
+
+nav a.active {
+    background-color: #fff;
+}
+
+nav ul ul {
+    background-color: #ccc;
+    background-color: rgba(0,0,0,.2);
+    margin-left: 2em;
+    height: 0;
+    overflow: hidden;
+}
+
+nav .active + ul {
+    height: auto;
+}
+
+nav li:hover > ul {
+    height: auto;
+}
+
+nav ul ul::after {
+    content: '';
+    display:block;
+    height: 0;
+    border-bottom: 1px solid rgba(0,0,0,.4);
+    margin-left: -2em;
+    margin-top: -1px;
+}
+
+nav ul ul li {
+    border-left: thin solid rgba(0,0,0,.4);
+}
+
+nav ul ul li:first-of-type a {
+    border-top: none;
+}
+
+main {
+    position: absolute;
+    top: 8em;
+    left: 20%;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 1em;
+}
+
+h2, h3 {
+    font-weight: normal;
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+    padding: 0 0 .25em 0;
+}
+
+h3 select {
+    float: right;
+}
+
+select {
+    padding: .75em .5em;
+    min-width: 8em;
+}
+
+.compare-primary, .compare-secondary {
+    position: absolute;
+    top: 0;
+    padding: 0 1em;
+    margin: 1em 0;
+    box-sizing: border-box;
+}
+
+.compare-primary {
+    width: 60%;
+    left: 0;
+    box-shadow: 1px 0 0 0 #333;
+}
+
+.compare-secondary {
+    width: 40%;
+    right: 0;
+    border-left: 1px solid #333;
+}
+
+.chart {
+    min-height: 10em;
+}
+
+.cdu, .csu {
+    stroke: #000;
+}
+
+.spd {
+    stroke: #f00;
+}
+
+.linke {
+    stroke: #b05;
+}
+
+.gruene {
+    stroke: #0c0;
+}
+
+.other {
+    stroke: #888;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table table {
+    border: thin solid #bbb;
+}
+
+th {
+    width: 35%;
+    text-align: right;
+    font-weight: 500;
+}
+
+thead th {
+    font-size: .8em;
+    white-space: nowrap;
+}
+
+.distribution th, .distribution td {
+    text-align: center;
+    white-space: nowrap;
+    padding: 0;
+    width: auto;
+}
+
+.distribution td:nth-of-type(2n),
+.distribution th:nth-of-type(2n) {
+    background-color: #f8f8f8;
+    border-left: thin solid #eee;
+    border-right: thin solid #eee;
+}
+
+td, th {
+    padding: 1em .5em;
+    vertical-align: top;
+}
+
+tr {
+    border-bottom: thin solid #eee;
+}
+
+tr:last-of-type {
+    border-bottom: none;
+}
+
+tr:nth-of-type(2n) {
+    background-color: #f8f8f8;
+}
+
+.seat-distribution {
+    margin-bottom: calc(-100px + 1em);
+}
+
+dl {
+    display: flex;
+    margin: 0;
+}
+
+.dl-item {
+    flex: 1;
+    padding: 1em;
+}
+
+dt {
+    font-weight: normal;
+    font-size: .8em;
+    text-align: center;
+}
+
+dd {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+}
