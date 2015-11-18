@@ -115,13 +115,23 @@ object Generator {
 
     def main(args: Array[String]):Unit = {
         val szs = generate(distribution, List())
+        var availableCitizens = existingCitizens
 
         printToFile(new File(filename)) { p =>
             szs.map((sz:Stimmzettel) => {
-                val (firstname, lastname) = Names.getName(sz.gender)
-                val (dobDay, dobMonth) = randomDayOfBirth
-                p.append(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${2009 - sz.age}.', '${sz.gender}', '');\n")
-                p.append(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, ${sz.gender}, ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});\n")
+                val idno:String = if (availableCitizens.length < 1) {
+                        val (firstname, lastname) = Names.getName(sz.gender)
+                        val (dobDay, dobMonth) = randomDayOfBirth
+                        p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${2009 - sz.age}.', '${sz.gender}', '');")
+                        sz.toString
+                    } else {
+                        val ret = availableCitizens.head
+                        availableCitizens = availableCitizens.tail
+                        ret
+                    }
+                p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
+                p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
+                p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
             })
         }
     }
@@ -135,7 +145,9 @@ object GeneratorConfig {
     def possibleParties = distribution.zweitstimmen.keys.toList
     def distribution:Distribution = GeneratorConfigHardcoded.distribution
     def sampleSize:Int = GeneratorConfigHardcoded.sampleSize
+    def existingCitizens:List[String] = GeneratorConfigHardcoded.existingCitizens
 
+    val year:Int = 2009
     val dwbid:Int = 1
 
     val filename:String = "insert_stimmzettel.sql"
@@ -144,22 +156,26 @@ object GeneratorConfig {
     object GeneratorConfigHardcoded {
         val distribution:Distribution = new Distribution(Map[Erststimme, Int](
             /* Erststimmen results */
-            (new Candidacy(1) -> 200000),
-            (new Candidacy(2) -> 200000)
+            (new Candidacy(1) -> 6000)
         ), Map[Zweitstimme, Int](
-            (new Landesliste(25) -> 100000),
-            (new Landesliste(34) -> 120000),
+            (new Landesliste(25) -> 1500),
+            (new Landesliste(34) -> 1700),
             (new Landesliste(98) -> 0),
-            (new Landesliste(102) -> 80000),
-            (new Landesliste(158) -> 20000),
-            (new Landesliste(172) -> 10000),
+            (new Landesliste(102) -> 1200),
+            (new Landesliste(158) -> 600),
+            (new Landesliste(172) -> 300),
             (new Landesliste(175) -> 0),
-            (new Landesliste(178) -> 70000),
+            (new Landesliste(178) -> 700),
             (new Landesliste(186) -> 0),
             (new Landesliste(187) -> 0),
             (InvalidZweitstimme -> 0)
         ))
 
-        val sampleSize:Int = 400000
+        assert(distribution.erststimmen.values.sum == distribution.zweitstimmen.values.sum, "Same amount of ES & ZS required.")
+
+        val sampleSize:Int = distribution.erststimmen.values.sum
+
+        // idnos
+        val existingCitizens:List[String] = List()
     }
 }
