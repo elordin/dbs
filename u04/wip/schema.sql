@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS FederalState (
 );
 
 CREATE TABLE IF NOT EXISTS ElectionYear (
-    year INT PRIMARY KEY
+    year INT PRIMARY KEY,
+    iscurrent BOOLEAN NOT NULL DEFAULT false
 );
 
 CREATE TABLE IF NOT EXISTS Citizen (
