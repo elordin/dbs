@@ -1,7 +1,14 @@
+package Wahlinfo
+
 import scala.util.Random
 import scala.annotation.tailrec
+import java.io.File
+
+import Helpers._
+import GeneratorConfig._
 
 object Generator {
+
     trait Gender {}
     object Male extends Gender {
         override def toString(): String = "m"
@@ -27,7 +34,7 @@ object Generator {
         (Random.nextInt(28) + 1, Random.nextInt(12) + 1)
 
     def randomGender:Gender = if (Random.nextInt(2) == 1) Male else Female
-    // Gauss Curve values are empirical estimates
+    // Gauss Curve parameters are empirical estimates
     def randomAge:Int = scala.math.max(18:Int, scala.math.min(115:Int, (scala.math.round(Random.nextGaussian() * 10:Double):Long).toInt + 50))
 
     trait Erststimme {}
@@ -37,6 +44,7 @@ object Generator {
     case class Candidacy(val cid:Int) extends Erststimme {
         override def toString(): String = cid.toString
     }
+
     trait Zweitstimme {}
     object InvalidZweitstimme extends Zweitstimme {
         override def toString(): String = "NULL"
@@ -68,6 +76,8 @@ object Generator {
                         else v)
                 }).toMap)
         }
+
+        override def toString(): String = f"Erststimmen:\n----------------\n${erststimmen}\nZweitstimmen:\n----------------\n${zweitstimmen}"
     }
 
     case class Stimmzettel(gender:Gender, age:Int, erststimme:Erststimme, zweitstimme:Zweitstimme) {
@@ -83,20 +93,11 @@ object Generator {
     object Stimmzettel {
         var c:Int = 0
         /** Generates a random Stimmzettel */
-        def random():Stimmzettel = {
-            val erststimme = GeneratorConfig.possibleCandidates.apply(Random.nextInt(GeneratorConfig.possibleCandidates.length))
-            val zweitstimme = GeneratorConfig.possibleParties.apply(Random.nextInt(GeneratorConfig.possibleParties.length))
+        def random(config:GeneratorConfigFromDatabase):Stimmzettel = {
+            val erststimme = config.possibleErststimmen.apply(Random.nextInt(config.possibleErststimmen.length))
+            val zweitstimme = config.possibleZweitstimmen.apply(Random.nextInt(config.possibleZweitstimmen.length))
             new Stimmzettel(randomGender, randomAge, erststimme, zweitstimme)
         }
-
-    }
-
-    import java.io._
-    import GeneratorConfig._
-
-    def printToFile(f: File)(op: PrintWriter => Unit) {
-        val p = new PrintWriter(f)
-        try { op(p) } finally { p.close() }
     }
 
     @tailrec
@@ -114,10 +115,13 @@ object Generator {
     }
 
     def main(args: Array[String]):Unit = {
-        val szs = generate(distribution, List())
-        var availableCitizens = existingCitizens
 
-        printToFile(new File(filename)) { p =>
+        println(allWKConfigs(2013))
+        /*
+        val szs = generate(allWKConfigs(year).head.distribution, List())
+        var availableCitizens = allWKConfigs(year).existingCitizens
+
+        withPrintWriter(new File(filename)) { p =>
             szs.map((sz:Stimmzettel) => {
                 val idno:String = if (availableCitizens.length < 1) {
                         val (firstname, lastname) = Names.getName(sz.gender)
@@ -133,49 +137,6 @@ object Generator {
                 p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
                 p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
             })
-        }
-    }
-}
-
-/** General configuration of the generator */
-object GeneratorConfig {
-    import Generator._
-
-    def possibleCandidates = distribution.erststimmen.keys.toList
-    def possibleParties = distribution.zweitstimmen.keys.toList
-    def distribution:Distribution = GeneratorConfigHardcoded.distribution
-    def sampleSize:Int = GeneratorConfigHardcoded.sampleSize
-    def existingCitizens:List[String] = GeneratorConfigHardcoded.existingCitizens
-
-    val year:Int = 2009
-    val dwbid:Int = 1
-
-    val filename:String = "insert_stimmzettel.sql"
-
-    /** Loads hardcoded distribution */
-    object GeneratorConfigHardcoded {
-        val distribution:Distribution = new Distribution(Map[Erststimme, Int](
-            /* Erststimmen results */
-            (new Candidacy(1) -> 6000)
-        ), Map[Zweitstimme, Int](
-            (new Landesliste(25) -> 1500),
-            (new Landesliste(34) -> 1700),
-            (new Landesliste(98) -> 0),
-            (new Landesliste(102) -> 1200),
-            (new Landesliste(158) -> 600),
-            (new Landesliste(172) -> 300),
-            (new Landesliste(175) -> 0),
-            (new Landesliste(178) -> 700),
-            (new Landesliste(186) -> 0),
-            (new Landesliste(187) -> 0),
-            (InvalidZweitstimme -> 0)
-        ))
-
-        assert(distribution.erststimmen.values.sum == distribution.zweitstimmen.values.sum, "Same amount of ES & ZS required.")
-
-        val sampleSize:Int = distribution.erststimmen.values.sum
-
-        // idnos
-        val existingCitizens:List[String] = List()
+        } */
     }
 }
