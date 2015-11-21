@@ -1,0 +1,16 @@
+insert into FederalState (fsid, name, citizencount, outline) VALUES (1, 'Berlin',3025288,  NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (2, 'Rheinland-Pfalz',3672888, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (3, 'Niedersachsen',7354892, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (4, 'Bayern',11353264, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (5, 'Nordrhein-Westfalen',15895182, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (6, 'Sachsen-Anhalt',2247673, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (7, 'Hessen',5388350, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (8, 'Hamburg',1559655, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (9, 'Thüringen',2154202, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (10, 'Baden-Württemberg',9482902, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (11, 'Bremen',575805, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (12, 'Saarland',919402, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (13, 'Schleswig-Holstein', 2686085, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (14, 'Brandenburg',2418267, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (15, 'Mecklenburg-Vorpommern',1585032, NULL);
+insert into FederalState (fsid, name, citizencount, outline) VALUES (16, 'Sachsen',4005278, NULL);
