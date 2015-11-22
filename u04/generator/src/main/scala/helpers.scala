@@ -29,7 +29,7 @@ object Helpers {
         result
     }
 
-    def withPrintWriter(f: File)(op: PrintWriter => Unit) {
+    def withPrintWriter(f: File)(op: PrintWriter => Unit):Unit = {
         val p = new PrintWriter(f)
         try { op(p) } finally { p.close() }
     }

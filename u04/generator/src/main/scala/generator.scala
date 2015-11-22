@@ -61,23 +61,19 @@ object Generator {
         def next(es:Erststimme, zs:Zweitstimme):Distribution = {
 
             new Distribution(
-                erststimmen.toList.map((kv:(Erststimme, Int)) => {
-                    val (k,v) = kv
+                erststimmen.toList.map({ case (k, v) =>
                     (k, if (k == es)
                             if (v < 1) throw new IllegalStateException
                             else v - 1
                         else v)
                 }).toMap,
-                zweitstimmen.toList.map((kv:(Zweitstimme, Int)) => {
-                    val (k,v) = kv
+                zweitstimmen.toList.map({ case (k, v) =>
                     (k, if (k == zs)
                             if (v < 1) throw new IllegalStateException(f"Generated for ${k}, ")
                             else v - 1
                         else v)
                 }).toMap)
         }
-
-        override def toString(): String = f"Erststimmen:\n----------------\n${erststimmen}\nZweitstimmen:\n----------------\n${zweitstimmen}"
     }
 
     case class Stimmzettel(gender:Gender, age:Int, erststimme:Erststimme, zweitstimme:Zweitstimme) {
@@ -93,7 +89,7 @@ object Generator {
     object Stimmzettel {
         var c:Int = 0
         /** Generates a random Stimmzettel */
-        def random(config:GeneratorConfigFromDatabase):Stimmzettel = {
+        def random(config:GeneratorConfig):Stimmzettel = {
             val erststimme = config.possibleErststimmen.apply(Random.nextInt(config.possibleErststimmen.length))
             val zweitstimme = config.possibleZweitstimmen.apply(Random.nextInt(config.possibleZweitstimmen.length))
             new Stimmzettel(randomGender, randomAge, erststimme, zweitstimme)
@@ -115,28 +111,68 @@ object Generator {
     }
 
     def main(args: Array[String]):Unit = {
+        val year = try {
+            if (args.length > 0) {
+                args(0).toInt
+            } else {
+                2013
+            }
+        } catch {
+            case e:Exception => 2013
+        }
 
-        println(allWKConfigs(2013))
-        /*
-        val szs = generate(allWKConfigs(year).head.distribution, List())
-        var availableCitizens = allWKConfigs(year).existingCitizens
+        val wkInput = try {
+            if (args.length > 1) {
+                Some(args(1).toInt)
+            } else {
+                None
+            }
+        } catch {
+            case e:Exception => None
+        }
 
-        withPrintWriter(new File(filename)) { p =>
-            szs.map((sz:Stimmzettel) => {
-                val idno:String = if (availableCitizens.length < 1) {
+        val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
+        var existingCitizens = GeneratorConfig.existingCitizens
+
+        var c = 0
+
+        def generateAndPrint(gc:GeneratorConfig):Unit = {
+            withPrintWriter(new File("wk" + gc.wkid + ".sql")) ({ p =>
+                val stimmzettel = generate(gc.distribution, Nil)
+                val wbid = gc.wkid + 1000 * year
+                val dwbid = gc.wkid + 1000 * year
+
+                p.println(f"INSERT INTO Wahlbezirk (wbid, wkid) VALUES (${wbid}, ${gc.wkid});")
+                p.println(f"INSERT INTO DirektWahlbezirkData (wbid, dwbid) VALUES (${wbid}, ${dwbid});")
+
+                stimmzettel.map((sz:Stimmzettel) => {
+                    val idno:String = if (existingCitizens.length > 0) {
+                        val idno = existingCitizens.head
+                        println(idno)
+                        existingCitizens = existingCitizens.tail
+                        idno
+                    } else {
                         val (firstname, lastname) = Names.getName(sz.gender)
                         val (dobDay, dobMonth) = randomDayOfBirth
                         p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${2009 - sz.age}.', '${sz.gender}', '');")
                         sz.toString
-                    } else {
-                        val ret = availableCitizens.head
-                        availableCitizens = availableCitizens.tail
-                        ret
                     }
-                p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
-                p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
-                p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+                    p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
+                    p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
+                    p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+                })
             })
-        } */
+        }
+
+        wkInput match {
+            case None => for ((wkid, gc) <- distributionsByWahlkreis) {
+                c = c + 1
+                if (c > 3) return
+                generateAndPrint(gc)
+            }
+            case Some(wkid) => {
+                (distributionsByWahlkreis get wkid) map generateAndPrint
+            }
+        }
     }
 }
