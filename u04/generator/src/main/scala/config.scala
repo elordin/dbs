@@ -6,9 +6,14 @@ import Helpers._
 
 /** General configuration of the generator */
 object GeneratorConfig {
+    implicit val connInfo:(String, Int, String, String, String) = ("localhost", 5432, "wisdb", "postgres", "abc123")
 
+    /**
+     *  generates configs for every Wahlkreis of the given year
+     *  @returns Map of WKID -> Config
+     */
     def allWKConfigs(year:Int):Map[Int, GeneratorConfig] = {
-        val wkids:List[Int] = withDatabase("localhost", 5432, "wisdb", "postgres", "abc123", conn => {
+        val wkids:List[Int] = withDatabase(conn => {
                 val statement = conn.createStatement()
                 val resultset:ResultSet = statement.executeQuery(
                     f"SELECT wkid FROM Wahlkreis WHERE year = ${year}")
@@ -21,18 +26,27 @@ object GeneratorConfig {
                 statement.close()
                 Some(result)
             }).getOrElse(Nil)
-        wkids.map((wkid:Int) => (wkid, new GeneratorConfig("localhost", 5432, "wisdb", "postgres", "abc123", year, wkid))).toMap
+        wkids.map((wkid:Int) => (wkid, new GeneratorConfig(year, wkid))).toMap
     }
 
-    val filename:String = "insert_stimmzettel.sql"
+    /**
+     *  Creates a single config for given Wahlkreis and year
+     *  @returns Config Class instance
+     */
+    def singleWKConfig(year:Int, wkid:Int):GeneratorConfig = new GeneratorConfig(year, wkid)
+
 
     var _existingCitizens:List[String] = null
+    /**
+     *  Queries the database for Citizens that have not voted yet
+     *  @returns List of IDNos
+     */
     def existingCitizens:List[String] = {
         if (_existingCitizens == null) {
-            _existingCitizens = withDatabase("localhost", 5432, "wisdb", "postgres", "abc123", conn => {
+            _existingCitizens = withDatabase(conn => {
                 val statement = conn.createStatement()
                 val resultset:ResultSet = statement.executeQuery(
-                    f"SELECT idno FROM Citizen NATURAL JOIN hasVoted WHERE NOT hasVoted;")
+                    f"SELECT idno FROM hasVoted WHERE NOT hasVoted;")
                 var result = List[String]()
 
                 while (resultset.next()) {
@@ -47,9 +61,15 @@ object GeneratorConfig {
     }
 }
 
-case class GeneratorConfig(host:String, port:Int, dbname:String, user:String, password:String, val year:Int, val wkid:Int) {
+class GeneratorConfig(val year:Int, val wkid:Int) {
+    import GeneratorConfig.connInfo
+
+    /**
+     *  Queries the database for the Erststimmen-Distribution
+     *  @returns Map of Direktkandidat -> number of votes it got
+     */
     def erststimmenDist:Map[Erststimme, Int] = {
-        withDatabase(host, port, dbname, user, password, conn => {
+        withDatabase(conn => {
             val statement = conn.createStatement()
             val resultset:ResultSet = statement.executeQuery(
                 f"SELECT cid, votes FROM Candidacy NATURAL JOIN Wahlkreis WHERE year = ${year} AND wkid = ${wkid}")
@@ -66,8 +86,12 @@ case class GeneratorConfig(host:String, port:Int, dbname:String, user:String, pa
         }).getOrElse(Map())
     }
 
+    /**
+     *  Queries the database for the Zweitstimmen-Distribution
+     *  @returns Map of Landesliste -> number of votes it got
+     */
     def zweitstimmenDist:Map[Zweitstimme, Int] = {
-        withDatabase(host, port, dbname, user, password, conn => {
+        withDatabase(conn => {
             val statement = conn.createStatement()
             val resultset:ResultSet = statement.executeQuery(
                 f"SELECT llid, votes FROM AccumulatedZweitstimmenWK NATURAL JOIN Wahlkreis WHERE year = ${year} AND wkid = ${wkid};")
@@ -84,8 +108,11 @@ case class GeneratorConfig(host:String, port:Int, dbname:String, user:String, pa
         }).getOrElse(Map())
     }
 
+    /**
+     * @returns Lower bound for the number of citizens that voted
+     */
     def sampleSize:Int = {
-        val sizeInDB:Int = withDatabase(host, port, dbname, user, password, conn => {
+        val sizeInDB:Int = withDatabase(conn => {
             val statement = conn.createStatement()
             val resultset:ResultSet = statement.executeQuery(
                 f"SELECT GREATEST(e.es, z.zs) AS total FROM (SELECT SUM(votes) AS es FROM Candidacy NATURAL JOIN Wahlkreis WHERE wkid = ${wkid} AND year = ${year}) e, (SELECT SUM(votes) AS zs FROM AccumulatedZweitstimmenWK NATURAL JOIN Landesliste WHERE wkid = ${wkid} AND year = ${year}) z")
@@ -97,6 +124,9 @@ case class GeneratorConfig(host:String, port:Int, dbname:String, user:String, pa
         scala.math.max(sizeInDB, scala.math.max(erststimmenDist.size, zweitstimmenDist.size))
     }
 
+    /**
+     *  Accessor for erststimmenDist without having to query the DB each time
+     */
     var _erststimmen:Map[Erststimme, Int] = null
     def erststimmen:Map[Erststimme, Int] = {
         if (_erststimmen == null) {
@@ -105,6 +135,9 @@ case class GeneratorConfig(host:String, port:Int, dbname:String, user:String, pa
         _erststimmen
     }
 
+    /**
+     *  Accessor for zweitstimmenDist without having to query the DB each time
+     */
     var _zweitstimmen:Map[Zweitstimme, Int] = null
     def zweitstimmen:Map[Zweitstimme, Int] = {
         if (_zweitstimmen == null) {
@@ -116,6 +149,9 @@ case class GeneratorConfig(host:String, port:Int, dbname:String, user:String, pa
     def possibleErststimmen:List[Erststimme] = erststimmen.keys.toList
     def possibleZweitstimmen:List[Zweitstimme] = zweitstimmen.keys.toList
 
+    /**
+     *  @returns Instance of Distribution with Erst- and Zweitstimmen
+     */
     def distribution:Distribution = {
         val size:Int = sampleSize
         if (erststimmen.values.sum < size) {

@@ -55,11 +55,13 @@ object Generator {
 
     class Distribution(val erststimmen:Map[Erststimme, Int], val zweitstimmen:Map[Zweitstimme, Int]) {
         // TODO: Maybe don't use head but random index instead
+        /** Returns an Erststimme that has not reached its target distributions */
         def inNeedOfErststimme:Erststimme = erststimmen.filter(_._2 > 0).head._1
+        /** Returns a Zweitstimme that has not reached its target distributions */
         def inNeedOfZweitstimme:Zweitstimme = zweitstimmen.filter(_._2 > 0).head._1
 
+        /** Decreases entries for given Erst and Zweitstimme in this distribution and returns the new one */
         def next(es:Erststimme, zs:Zweitstimme):Distribution = {
-
             new Distribution(
                 erststimmen.toList.map({ case (k, v) =>
                     (k, if (k == es)
@@ -96,19 +98,26 @@ object Generator {
         }
     }
 
+    /**
+     *  Tailrecursively generates Stimmzettel for a given desired distribution
+     */
     @tailrec
-    def generate(distribution: Distribution, result:List[Stimmzettel]):List[Stimmzettel] = {
+    def generateTailRec(distribution: Distribution, result:List[Stimmzettel]):List[Stimmzettel] = {
         val totalES:Int = distribution.erststimmen.values.sum
         val totalZS:Int = distribution.zweitstimmen.values.sum
         assert(totalES == totalZS)
         if (totalES > 1 && totalZS > 1) {
             val sz = new Stimmzettel(distribution.inNeedOfErststimme, distribution.inNeedOfZweitstimme)
             val newDistribution:Distribution = distribution.next(sz.erststimme, sz.zweitstimme)
-            generate(newDistribution, sz :: result)
+            generateTailRec(newDistribution, sz :: result)
         } else {
             result
         }
     }
+
+    /** Wrapper for tail-recursive version */
+    def generate(distribution:Distribution):List[Stimmzettel] = generateTailRec(distribution, Nil)
+
 
     def main(args: Array[String]):Unit = {
         val year = try {
@@ -131,24 +140,28 @@ object Generator {
             case e:Exception => None
         }
 
-        val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
         var existingCitizens = GeneratorConfig.existingCitizens
 
-        var c = 0
 
         def generateAndPrint(gc:GeneratorConfig):Unit = {
-            withPrintWriter(new File("wk" + gc.wkid + ".sql")) ({ p =>
-                val stimmzettel = generate(gc.distribution, Nil)
+            withPrintWriter(new File("insert_votes_wk" + gc.wkid + ".sql")) ({ p =>
+                val stimmzettel = generate(gc.distribution)
                 val wbid = gc.wkid + 1000 * year
                 val dwbid = gc.wkid + 1000 * year
 
                 p.println(f"INSERT INTO Wahlbezirk (wbid, wkid) VALUES (${wbid}, ${gc.wkid});")
                 p.println(f"INSERT INTO DirektWahlbezirkData (wbid, dwbid) VALUES (${wbid}, ${dwbid});")
+                p.println(f"UPDATE Candidacy SET votes = 0 WHERE wkid = ${gc.wkid};")
+
+                gc.zweitstimmen.foreach({
+                    case (InvalidZweitstimme, votes) => return
+                    case (zs:Landesliste, votes) =>
+                        p.println(f"UPDATE AccumulatedZweitstimmenWK SET votes = votes - ${votes} WHERE wkid = ${gc.wkid} AND llid = ${zs.llid};")
+                })
 
                 stimmzettel.map((sz:Stimmzettel) => {
                     val idno:String = if (existingCitizens.length > 0) {
                         val idno = existingCitizens.head
-                        println(idno)
                         existingCitizens = existingCitizens.tail
                         idno
                     } else {
@@ -161,17 +174,27 @@ object Generator {
                     p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
                     p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
                 })
+                p.println("REFRESH MATERIALIZED VIEW FederalStateWithCitizenCount");
             })
         }
 
         wkInput match {
-            case None => for ((wkid, gc) <- distributionsByWahlkreis) {
-                c = c + 1
-                if (c > 3) return
-                generateAndPrint(gc)
+            case None => {
+                val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
+                if (distributionsByWahlkreis.size < 1) println(f"No entries for year ${year}")
+                else {
+                    var c = 0
+                    for ((wkid, gc) <- distributionsByWahlkreis) {
+                        c = c + 1
+                        if (c > 1) return
+                        generateAndPrint(gc)
+                    }
+                }
             }
             case Some(wkid) => {
-                (distributionsByWahlkreis get wkid) map generateAndPrint
+                val distribution = singleWKConfig(year, wkid)
+                if (distribution.sampleSize < 1) println(f"WKID ${wkid} not found for year ${year}")
+                else generateAndPrint(distribution)
             }
         }
     }

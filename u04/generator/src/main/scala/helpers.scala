@@ -8,8 +8,13 @@ import java.io.PrintWriter
 import java.io.File
 
 object Helpers {
+    /**
+     *  Database-Connection loaner
+     */
+    def withDatabase[R](action:(Connection => Option[R]))(
+            implicit connInfo:(String, Int, String, String, String)):Option[R] = {
+        val (host, port, dbname, username, password) = connInfo
 
-    def withDatabase[R](host:String, port:Int, dbname:String, username:String, password:String, action:(Connection => Option[R])):Option[R] = {
         var connection:Connection = null;
         var result:Option[R] = None
 
@@ -29,6 +34,9 @@ object Helpers {
         result
     }
 
+    /**
+     *  PrintWriter loaner
+     */
     def withPrintWriter(f: File)(op: PrintWriter => Unit):Unit = {
         val p = new PrintWriter(f)
         try { op(p) } finally { p.close() }
