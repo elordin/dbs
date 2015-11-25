@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS Results_RankedCandidatesFirstVotes_Old (
 	votes INT NOT NULL DEFAULT 0	
 );
 
-CREATE OR REPLACE VIEW Results_RankedCandidatesFirstVotes (year, wkid, rank, idno, pid, votes) AS (
 	SELECT *
 	FROM Results_RankedCandidatesFirstVotes_Old
 	UNION ALL
@@ -50,12 +49,12 @@ CREATE OR REPLACE VIEW Results_RankedCandidatesFirstVotes (year, wkid, rank, idn
 );
 
 --WahlkreisWinnersFirstVotes
-CREATE OR REPLACE VIEW Results_WahlkreisWinnersFirstVotes_Current (wkid, idno, pid) AS (
+CREATE OR REPLACE VIEW Results_WahlkreisWinnersFirstVotes_Current (wkid, idno, pid, votes) AS (
 	WITH RankedCandidatesFirstVotes AS (
 		SELECT * FROM Results_RankedCandidatesFirstVotes_Current
 	)
 	
-	SELECT wkid, idno, pid
+	SELECT wkid, idno, pid, votes
 	FROM RankedCandidatesFirstVotes 
 	WHERE rank = 1
 );
@@ -64,10 +63,11 @@ CREATE TABLE IF NOT EXISTS Results_WahlkreisWinnersFirstVotes_Old (
 	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
 	wkid INT REFERENCES Wahlkreis(wkid),
 	idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
-	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE
+	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
+	votes INT NOT NULL DEFAULT 0	
 );
 
-CREATE OR REPLACE VIEW Results_WahlkreisWinnersFirstVotes (year, wkid, idno, pid) AS (
+CREATE OR REPLACE VIEW Results_WahlkreisWinnersFirstVotes (year, wkid, idno, pid, votes) AS (
 	SELECT *
 	FROM Results_WahlkreisWinnersFirstVotes_Old
 	UNION ALL
@@ -429,6 +429,75 @@ CREATE OR REPLACE VIEW Results_Delegates (year, idno, fsid, pid, wkid, llpos, ct
 	SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_Delegates_Current r
 );
+
+CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idno, pid, rank, diffvotes) AS (
+	WITH LostWahlkreiseTop10 (wkid, idno, rank, pid, diffvotes) AS (
+		WITH LostWahlkreiseDiffVotes AS(
+			SELECT  c.wkid, 
+				rank() OVER (PARTITION BY c.supportedby ORDER BY (c.votes-wkwfv.votes) desc) as rank,
+				c.idno, c.supportedby as pid, (c.votes-wkwfv.votes) as diffvotes
+			FROM Candidacy c
+			JOIN Results_WahlkreisWinnersFirstVotes_Current wkwfv ON c.wkid = wkwfv.wkid
+			JOIN Wahlkreis wk ON c.wkid = wk.wkid
+			WHERE wk.year= (select year from electionyear where iscurrent=true) AND c.votes-wkwfv.votes < 0
+		)
+		SELECT wkid, idno, rank, pid, diffvotes
+		FROM  LostWahlkreiseDiffVotes 
+		WHERE rank <=10
+	),
+
+	WonWahlkreiseTop10 (wkid, idno, rank, pid, diffvotes) AS (
+		WITH WahlkreisSecondPlacedFirstVotes AS (
+			SELECT wkid, idno, pid, votes
+			FROM Results_RankedCandidatesFirstVotes_Current
+			WHERE rank = 2
+		),
+		
+		WonWahlkreiseDiffVotes AS(
+			SELECT  c.wkid, 
+				rank() OVER (PARTITION BY c.supportedby ORDER BY (c.votes-wkspfv.votes) asc) as rank,
+				c.idno, c.supportedby as pid, (c.votes-wkspfv.votes) as diffvotes
+			FROM Candidacy c
+			JOIN WahlkreisSecondPlacedFirstVotes wkspfv ON c.wkid = wkspfv.wkid
+			JOIN Wahlkreis wk ON c.wkid = wk.wkid
+			WHERE wk.year= (select year from electionyear where iscurrent=true) AND c.votes-wkspfv.votes > 0
+		)
+		SELECT wkid, idno, rank, pid, diffvotes 
+		FROM  WonWahlkreiseDiffVotes 
+		WHERE rank <=10
+	),
+
+	MergedTop10WinsAndLosings (wkid, idno, rank, pid, diffvotes) AS (
+		(SELECT *
+		FROM WonWahlkreiseTop10)
+		UNION ALL
+		(SELECT *
+		FROM LostWahlkreiseTop10 lwt10
+		WHERE not exists (SELECT * from  WonWahlkreiseTop10 wwt10 where lwt10.pid = wwt10.pid))
+	)
+
+	SELECT wkid, idno, pid, rank, diffvotes
+	FROM MergedTop10WinsAndLosings
+)
+
+
+CREATE TABLE IF NOT EXISTS Results_NarrowWahlkreisWinsAndLosings_Old (
+	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
+	wkid INT REFERENCES Wahlkreis(wkid),
+	idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
+	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
+	rank INT NOT NULL DEFAULT 0,
+	diffvotes INT NOT NULL DEFAULT 0
+);
+
+CREATE OR REPLACE VIEW Results_NarrowWahlkreisWinsAndLosings (year, wkid, idno, pid, rank, diffvotes) AS (
+	SELECT *
+	FROM Results_NarrowWahlkreisWinsAndLosings_Old 
+	UNION ALL
+	SELECT (select year from electionyear where iscurrent=true) as year, r.*
+	FROM Results_NarrowWahlkreisWinsAndLosings_Current r
+);
+
 
 ------------------------------ TESTING ------------------------------
 ---------- STEP 1: Seats per Federalstate ----------
