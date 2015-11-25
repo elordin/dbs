@@ -33,13 +33,13 @@ router.get(/^\/overview(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) 
     // get overview data for year
     req.db.connect(function (err) {
         if (err) {
-            res.send("error: " + err);
+            res.render("error", {error: err});
         } else {
             req.db.query('SELECT * FROM AccumulatedZweitstimmenWK;', function (err, result) {
                 if (err) {
-                    res.send("error: " + err);
+                    res.render("error", {error: err});
                 } else {
-                    res.send(result.rows);
+                    res.json(result.rows);
                 }
             });
         }
@@ -56,7 +56,20 @@ router.get(/^\/q1(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
 router.get(/^\/seat-distribution(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
     var year = parseYear(req.params[1]);
     // get overview data for year
-    res.render('seat-distribution', { year: year, data: [] });
+    req.db.connect(function (err) {
+        if (err) {
+            res.render("error", {error: err});
+        } else {
+            req.db.query('SELECT * FROM SeatDistribution;', function (err, result) {
+                if (err) {
+                    res.render("error", {error: err});
+                } else {
+                    res.json(result.rows);
+                }
+            });
+        }
+        // req.db.end();
+    });
 });
 
 // Q2: Delegates of the Bundestag
