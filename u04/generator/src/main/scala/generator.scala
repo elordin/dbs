@@ -55,29 +55,27 @@ object Generator {
 
     class Distribution(val erststimmen:Map[Erststimme, Int], val zweitstimmen:Map[Zweitstimme, Int]) {
         // TODO: Maybe don't use head but random index instead
+        /** Returns an Erststimme that has not reached its target distributions */
         def inNeedOfErststimme:Erststimme = erststimmen.filter(_._2 > 0).head._1
+        /** Returns a Zweitstimme that has not reached its target distributions */
         def inNeedOfZweitstimme:Zweitstimme = zweitstimmen.filter(_._2 > 0).head._1
 
+        /** Decreases entries for given Erst and Zweitstimme in this distribution and returns the new one */
         def next(es:Erststimme, zs:Zweitstimme):Distribution = {
-
             new Distribution(
-                erststimmen.toList.map((kv:(Erststimme, Int)) => {
-                    val (k,v) = kv
+                erststimmen.toList.map({ case (k, v) =>
                     (k, if (k == es)
                             if (v < 1) throw new IllegalStateException
                             else v - 1
                         else v)
                 }).toMap,
-                zweitstimmen.toList.map((kv:(Zweitstimme, Int)) => {
-                    val (k,v) = kv
+                zweitstimmen.toList.map({ case (k, v) =>
                     (k, if (k == zs)
                             if (v < 1) throw new IllegalStateException(f"Generated for ${k}, ")
                             else v - 1
                         else v)
                 }).toMap)
         }
-
-        override def toString(): String = f"Erststimmen:\n----------------\n${erststimmen}\nZweitstimmen:\n----------------\n${zweitstimmen}"
     }
 
     case class Stimmzettel(gender:Gender, age:Int, erststimme:Erststimme, zweitstimme:Zweitstimme) {
@@ -93,50 +91,111 @@ object Generator {
     object Stimmzettel {
         var c:Int = 0
         /** Generates a random Stimmzettel */
-        def random(config:GeneratorConfigFromDatabase):Stimmzettel = {
+        def random(config:GeneratorConfig):Stimmzettel = {
             val erststimme = config.possibleErststimmen.apply(Random.nextInt(config.possibleErststimmen.length))
             val zweitstimme = config.possibleZweitstimmen.apply(Random.nextInt(config.possibleZweitstimmen.length))
             new Stimmzettel(randomGender, randomAge, erststimme, zweitstimme)
         }
     }
 
+    /**
+     *  Tailrecursively generates Stimmzettel for a given desired distribution
+     */
     @tailrec
-    def generate(distribution: Distribution, result:List[Stimmzettel]):List[Stimmzettel] = {
+    def generateTailRec(distribution: Distribution, result:List[Stimmzettel]):List[Stimmzettel] = {
         val totalES:Int = distribution.erststimmen.values.sum
         val totalZS:Int = distribution.zweitstimmen.values.sum
         assert(totalES == totalZS)
         if (totalES > 1 && totalZS > 1) {
             val sz = new Stimmzettel(distribution.inNeedOfErststimme, distribution.inNeedOfZweitstimme)
             val newDistribution:Distribution = distribution.next(sz.erststimme, sz.zweitstimme)
-            generate(newDistribution, sz :: result)
+            generateTailRec(newDistribution, sz :: result)
         } else {
             result
         }
     }
 
+    /** Wrapper for tail-recursive version */
+    def generate(distribution:Distribution):List[Stimmzettel] = generateTailRec(distribution, Nil)
+
+
     def main(args: Array[String]):Unit = {
+        val year = try {
+            if (args.length > 0) {
+                args(0).toInt
+            } else {
+                2013
+            }
+        } catch {
+            case e:Exception => 2013
+        }
 
-        println(allWKConfigs(2013))
-        /*
-        val szs = generate(allWKConfigs(year).head.distribution, List())
-        var availableCitizens = allWKConfigs(year).existingCitizens
+        val wkInput = try {
+            if (args.length > 1) {
+                Some(args(1).toInt)
+            } else {
+                None
+            }
+        } catch {
+            case e:Exception => None
+        }
 
-        withPrintWriter(new File(filename)) { p =>
-            szs.map((sz:Stimmzettel) => {
-                val idno:String = if (availableCitizens.length < 1) {
+        var existingCitizens = GeneratorConfig.existingCitizens
+
+
+        def generateAndPrint(gc:GeneratorConfig):Unit = {
+            withPrintWriter(new File("insert_votes_wk" + gc.wkid + ".sql")) ({ p =>
+                val stimmzettel = generate(gc.distribution)
+                val wbid = gc.wkid + 1000 * year
+                val dwbid = gc.wkid + 1000 * year
+
+                p.println(f"INSERT INTO Wahlbezirk (wbid, wkid) VALUES (${wbid}, ${gc.wkid});")
+                p.println(f"INSERT INTO DirektWahlbezirkData (wbid, dwbid) VALUES (${wbid}, ${dwbid});")
+                p.println(f"UPDATE Candidacy SET votes = 0 WHERE wkid = ${gc.wkid};")
+
+                gc.zweitstimmen.foreach({
+                    case (InvalidZweitstimme, votes) => return
+                    case (zs:Landesliste, votes) =>
+                        p.println(f"UPDATE AccumulatedZweitstimmenWK SET votes = votes - ${votes} WHERE wkid = ${gc.wkid} AND llid = ${zs.llid};")
+                })
+
+                stimmzettel.map((sz:Stimmzettel) => {
+                    val idno:String = if (existingCitizens.length > 0) {
+                        val idno = existingCitizens.head
+                        existingCitizens = existingCitizens.tail
+                        idno
+                    } else {
                         val (firstname, lastname) = Names.getName(sz.gender)
                         val (dobDay, dobMonth) = randomDayOfBirth
                         p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${2009 - sz.age}.', '${sz.gender}', '');")
                         sz.toString
-                    } else {
-                        val ret = availableCitizens.head
-                        availableCitizens = availableCitizens.tail
-                        ret
                     }
-                p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
-                p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
-                p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+                    p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
+                    p.println(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
+                    p.println(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+                })
+                p.println("REFRESH MATERIALIZED VIEW FederalStateWithCitizenCount");
             })
-        } */
+        }
+
+        wkInput match {
+            case None => {
+                val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
+                if (distributionsByWahlkreis.size < 1) println(f"No entries for year ${year}")
+                else {
+                    var c = 0
+                    for ((wkid, gc) <- distributionsByWahlkreis) {
+                        c = c + 1
+                        if (c > 1) return
+                        generateAndPrint(gc)
+                    }
+                }
+            }
+            case Some(wkid) => {
+                val distribution = singleWKConfig(year, wkid)
+                if (distribution.sampleSize < 1) println(f"WKID ${wkid} not found for year ${year}")
+                else generateAndPrint(distribution)
+            }
+        }
     }
 }
