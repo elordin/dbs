@@ -31,7 +31,20 @@ router.get('/', function(req, res, next) {
 router.get(/^\/overview(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
     var year = parseYear(req.params[1]);
     // get overview data for year
-    res.render('overview', { year: year, data: [] });
+    req.db.connect(function (err) {
+        if (err) {
+            res.send("error: " + err);
+        } else {
+            req.db.query('SELECT * FROM AccumulatedZweitstimmenWK;', function (err, result) {
+                if (err) {
+                    res.send("error: " + err);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+        // req.db.end();
+    });
 });
 
 // Q1: Seat distributions

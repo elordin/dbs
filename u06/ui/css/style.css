@@ -106,7 +106,7 @@ nav a {
 }
 
 nav a:not([href]), nav a[href="#"] {
-    text-decoration: line-through;
+
 }
 
 nav a:hover {
@@ -221,6 +221,8 @@ select {
     stroke: #888;
 }
 
+/*
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -271,6 +273,28 @@ tr:last-of-type {
 tr:nth-of-type(2n) {
     background-color: #f8f8f8;
 }
+
+*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    border-bottom: thin solid #333;
+    padding: .5em;
+    text-align: left;
+}
+
+tbody td {
+    padding: .5em;
+}
+
+tbody tr:nth-of-type(2n) {
+    background-color: #eee;
+}
+
 
 .seat-distribution {
     margin-bottom: calc(-100px + 1em);

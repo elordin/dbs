@@ -4,8 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var postgres = require('pg');
-var conString = "postgres://username:password@localhost/database";
+
+var conString = "postgres://postgres:abc123@localhost/wisdb";
 
 var routes = require('./routes/index');
 var jsonroutes = require('./routes/json');
@@ -15,6 +17,11 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(function (req, res, next) {
+  req.db = new postgres.Client(conString);
+  next();
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
