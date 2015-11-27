@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title #{title} Wahl-Informationssystem zur Bundestagswahl
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/css/chartist.min.css')
+        link(rel='stylesheet', href='/css/style.css')
+
+        script(src='/js/chartist.min.js')
+    body
+        header
+            a.logo(href='/')
+                img(src='/img/logo.svg', alt='Wahl-Informationssystem zur Bundestagswahl')
+
+            h1='Wahl-Informationsssystem zur Bundestagswahl'
+            aside#currentInformation
+                div.info
+                a#voteOnline.btn(href='#') Online w&auml;hlen
+
+        nav
+            ul
+                li.with-subnav.active
+                    a(href='/overview/') Bundestagswahl 2013
+                    ul
+                        li
+                            a(href='/seat-distribution/') Sitzverteilung
+                        li
+                            a(href='/delegates/') Abgeordnete
+        main
+            block content

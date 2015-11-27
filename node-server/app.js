@@ -7,12 +7,16 @@ var bodyParser = require('body-parser');
 
 var postgres = require('pg');
 
-var conString = "postgres://postgres:abc123@localhost/wisdb";
+var conString = "postgres://postgres:abc123@127.0.0.1/wisdb";
 
 var routes = require('./routes/index');
 var jsonroutes = require('./routes/json');
 
 var app = express();
+
+if (app.get('env') === 'development') {
+    app.locals.pretty = true;
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,5 +1,17 @@
-extends layout
+extends base
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h2= title
+    if data.length < 1
+        p.error.empty= 'No results found.'
+    else
+        table
+            thead
+                tr
+                    th='Partei'
+                    th='Sitze'
+            tbody
+                each row in data
+                    tr
+                        td #{row.shorthand} (#{row.name})
+                        td= row.seats

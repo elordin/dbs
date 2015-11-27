@@ -1,5 +1,42 @@
-extends layout
+extends base
+
 
 block content
-  h1= title
-  p Welcome to #{title}
+    - var page_size = 10
+    - var max_pages = Math.ceil(data.length / page_size)
+
+    h2= title
+    if data.length < 1
+        p.error.empty= 'No results found.'
+    else
+        - var page_entries = data.slice(((page || 1) - 1) * page_size, (page || 1) * page_size)
+        if page_entries.length < 1
+            p.error.empty= 'Nothing found for page ' + page
+            a(href='/delegates/' + year + '/' + max_pages) Go to last page
+        else
+            table
+                thead
+                    tr
+                        th(colspan=3) Abgeordneter
+                        th='Partei'
+                        th='Bundesland'
+                        th='Wahlkreis'
+                tbody
+                    each row in page_entries
+                        tr
+                            td= row.title
+                            td= row.lastname
+                            td= row.firstname
+                            td= row.p_shorthand
+                            td= row.fs_name
+                            td
+                                a(href='/wahlkreise/' + year + '/' + row.wk_wknr)= row.wk_name
+
+            if (page || 1) > 1
+                a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
+                    &lt;
+
+            span.pagination Seite #{page || 1}
+            if (page || 1) < Math.ceil(data.length / page_size)
+                a.pagination(href='/delegates/' + year + '/' + ((page || 1) + 1))
+                    &gt;

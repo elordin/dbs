@@ -154,7 +154,7 @@ object Generator {
                 p.println(f"UPDATE Candidacy SET votes = 0 WHERE wkid = ${gc.wkid};")
 
                 gc.zweitstimmen.foreach({
-                    case (InvalidZweitstimme, votes) => return
+                    case (InvalidZweitstimme, votes) => {}
                     case (zs:Landesliste, votes) =>
                         p.println(f"UPDATE AccumulatedZweitstimmenWK SET votes = votes - ${votes} WHERE wkid = ${gc.wkid} AND llid = ${zs.llid};")
                 })
@@ -183,10 +183,7 @@ object Generator {
                 val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
                 if (distributionsByWahlkreis.size < 1) println(f"No entries for year ${year}")
                 else {
-                    var c = 0
                     for ((wkid, gc) <- distributionsByWahlkreis) {
-                        c = c + 1
-                        if (c > 1) return
                         generateAndPrint(gc)
                     }
                 }

@@ -1,5 +1,17 @@
-extends layout
+extends base
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2= title
+  each wks, i in data
+    if wks
+        div.fsgroup
+            a(name=i)
+            h3= data[i][0].fs_name
+            ul.wahlkreise
+                each wk in wks
+                    li
+                        a(href='/wahlkreise/' + year + '/' + wk.wknr)
+                            span= wk.wknr
+                            span= wk.name
+
+

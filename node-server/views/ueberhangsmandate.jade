@@ -1,5 +1,10 @@
-extends layout
+extends base
 
 block content
-  h1=unescape('%DCberhangsmandate ') + year
-  p=data
+    h1=unescape('%DCberhangsmandate ') + year
+    ul.ueberhangsmandate
+        each uhm in data
+            li
+                span= uhm.p_name
+                span= uhm.fs_name
+                span= uhm.mandates
