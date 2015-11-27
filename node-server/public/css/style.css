@@ -287,6 +287,9 @@ table {
 
 thead th {
     border-bottom: thin solid #333;
+}
+
+th {
     padding: .5em;
     text-align: left;
 }
@@ -295,8 +298,14 @@ tbody td {
     padding: .5em;
 }
 
+tr.total {
+    border-top: medium solid #ccc;
+}
+
 tbody tr:nth-of-type(2n) {
     background-color: #eee;
+    border-bottom: thin solid #ccc;
+    border-top: thin solid #ccc;
 }
 
 
@@ -338,43 +347,31 @@ a.pagination {
     margin: .5em 0;
 }
 
-ul.wahlkreise, ul.ueberhangsmandate {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-
 .fsgroup {
     width: 45%;
     float: left;
     padding: 1%;
 }
 
-.ueberhangsmandate li:nth-of-type(2n + 1),
-.wahlkreise li:nth-of-type(2n + 1) {
-    background-color: #eee;
-}
-
-.ueberhangsmandate span,
-.wahlkreise span {
-    padding: .5em;
-    display: inline-block;
-}
-
-.ueberhangsmandate span:first-of-type,
-.wahlkreise span:first-of-type {
-    width: 3em;
-    text-align: right;
-}
-
-.ueberhangsmandate a,
-.wahlkreise a {
-    display: block;
+th a {
     text-decoration: none;
-    color: #333;
 }
 
-.ueberhangsmandate a:hover,
-.wahlkreise a:hover {
-    background-color: #ddd;
+.order-asc::before,
+.order-desc::before,
+.order-none::before {
+    padding: 0 .5em 0 0;
+    font-family: FontAwesome;
+}
+
+.order-asc::before {
+    content: '\f0de';
+}
+
+.order-desc::before {
+    content: '\f0dd';
+}
+
+.order-none::before {
+    content: '\f0dc';
 }

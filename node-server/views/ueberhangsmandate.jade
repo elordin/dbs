@@ -1,10 +1,26 @@
 extends base
 
 block content
-    h1=unescape('%DCberhangsmandate ') + year
-    ul.ueberhangsmandate
-        each uhm in data
-            li
-                span= uhm.p_name
-                span= uhm.fs_name
-                span= uhm.mandates
+    -
+        var ordering = {
+            party: 'order-none',
+            federalstate: 'order-none',
+            mandates: 'order-none'
+        }
+
+    h2= unescape('%DCberhangsmandate ') + year
+    table.ueberhangsmandate
+        thead
+            tr
+                th(class=ordering.party, data-orders='party') Partei
+                th(class=ordering.federalstate, data-orders='federalstate') Bundesland
+                th(class=ordering.mandates, data-orders='mandates') &Uuml;berhangmandate
+        tbody
+            each uhm in data
+                tr
+                    td= uhm.p_name
+                    td= uhm.fs_name
+                    td= uhm.mandates
+            tr.total
+                th(colspan=2) Gesamt
+                td= data.reduce(function (i, e) { return i + parseInt(e.mandates); }, 0)

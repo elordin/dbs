@@ -2,8 +2,15 @@ extends base
 
 
 block content
-    - var page_size = 10
-    - var max_pages = Math.ceil(data.length / page_size)
+    -
+        var page_size = 10
+        var max_pages = Math.ceil(data.length / page_size)
+        var ordering = {
+            name: 'order-none',
+            party: 'order-none',
+            federalstate: 'order-none',
+            wahlkreis: 'order-none',
+        }
 
     h2= title
     if data.length < 1
@@ -17,10 +24,14 @@ block content
             table
                 thead
                     tr
-                        th(colspan=3) Abgeordneter
-                        th='Partei'
-                        th='Bundesland'
-                        th='Wahlkreis'
+                        th(colspan=3)
+                            a(class=ordering.name, href='#') Abgeordneter
+                        th
+                            a(class=ordering.party, href='#') Partei
+                        th
+                            a(class=ordering.federalstate, href='#') Bundesland
+                        th
+                            a(class=ordering.wahlkreis, href='#') Wahlkreis
                 tbody
                     each row in page_entries
                         tr

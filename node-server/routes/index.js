@@ -196,7 +196,7 @@ router.get(/^\/closest-winners(\/([0-9]{2}|[0-9]{4}))?\/?$/, function(req, res, 
         res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
     } else {
         renderForDBQuery(req, res, 'SELECT * FROM Ueberhangsmandate WHERE year = ' + year,
-            'ueberhangsmandate');
+            'closest-winners');
     }
 });
 
