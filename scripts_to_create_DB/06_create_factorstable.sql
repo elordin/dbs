@@ -1,4 +1,0 @@
-CREATE TABLE IF NOT EXISTS Factors (
-    f REAL PRIMARY KEY
-);
-
