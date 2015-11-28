@@ -60,19 +60,14 @@ CREATE OR REPLACE VIEW Results_View_UeberhangsMandate(year, fsid, fs_name, p_nam
     WHERE fsspppfs.fvseats > fsspppfs.svseats
 );
 
-CREATE OR REPLACE VIEW  Results_View_NarrowWahlkreisWinsAndLosings (year, fsid, fs_name, wkid, wk_name, idno, c_title, c_firstname, c_lastname, pid, p_name, rank, diffvotes) AS
+CREATE OR REPLACE VIEW  Results_View_NarrowWahlkreisWinsAndLosings (year, fsid, fs_name, wkid, wk_name, idno, c_title, c_firstname, c_lastname, pid, p_name, p_shorthand, rank, diffvotes) AS
 (
     SELECT nwkwl.year, fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, c.idno, c.title as c_title, c.firstname as c_firstname, c.lastname as c_lastname,
-           p.pid, p.name, nwkwl.rank, nwkwl.diffvotes
+           p.pid, p.name, p.shorthand nwkwl.rank, nwkwl.diffvotes
     FROM Results_NarrowWahlkreisWinsAndLosings nwkwl
     JOIN Wahlkreis wk ON wk.wkid = nwkwl.wkid
     JOIN Federalstate fs ON fs.fsid = wk.fsid
     JOIN Party p ON p.pid = nwkwl.pid
     JOIN Candidates c ON c.idno = nwkwl.idno
-)
+);
 
-
-
-Select * from Results_View_Wahlkreiswinners
-
-DROP VIEW Results_View_WahlkreisOverview_DKWinners

@@ -478,7 +478,7 @@ CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idn
 
     SELECT wkid, idno, pid, rank, diffvotes
     FROM MergedTop10WinsAndLosings
-)
+);
 
 
 CREATE TABLE IF NOT EXISTS Results_NarrowWahlkreisWinsAndLosings_Old (

@@ -106,7 +106,7 @@ router.get(/^\/wahlkreise\/?$/i, function(req, res, next) {
 router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/?$/i, function (req, res, next) {
     var year = parseYear(req.params[0]);
     if (!year) {
-        res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
+        res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
         renderForDBQuery(req, res,
             'SELECT wk.wkid, wk.name AS name, wk.wknr, fs.fsid, fs.name AS fs_name ' +
@@ -133,9 +133,9 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/?$/, function (req
     var year = parseYear(req.params[0]),
         wknr = parseInt(req.params[1]);
     if (!year) {
-        res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
+        res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else if (!wknr) {
-        res.status(404).render(error, {error: "Error: Invalid wknr format - " + req.params[1]});
+        res.status(404).render('error', {error: "Error: Invalid wknr format - " + req.params[1]});
     } else {
         renderForDBQuery(req, res,
             'SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners NATURAL JOIN Wahlkreis WHERE year = ' + year + ' AND wknr = ' + wknr,
@@ -178,7 +178,7 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/winners\/?$/i, function(req, res
 // Q5: Überhangsmandate
 
 router.get(/^\/q5(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
-    res.redirect(301, '/ueberhangsmandate/' + req.params[1]);
+    res.redirect(301, '/ueberhangmandate/' + (req.params[1] || ''));
 });
 
 router.get(/^\/ueberhangmandate\/?$/i, function(req, res, next) {
@@ -186,9 +186,9 @@ router.get(/^\/ueberhangmandate\/?$/i, function(req, res, next) {
 });
 
 router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, next) {
-    var year = parseYear(req.params[0]);
+    var year = parseYear(req.params[1]);
     if (!year) {
-        res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
+        res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
         renderForDBQuery(req, res, 'SELECT * FROM Results_View_UeberhangsMandate WHERE year = ' + year,
             'ueberhangsmandate', year, 'Ueberhangsmandate ' + year);
@@ -198,22 +198,38 @@ router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, n
 // Q6: Closest winners
 
 router.get(/^\/q6(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
-    res.redirect(301, '');
+    res.redirect(301, '/closest-winners/' + (req.params[1] || ''));
 });
 
-router.get(/^\/closest-winners(\/([0-9]{2}|[0-9]{4}))?\/?$/, function(req, res, next) {
-    var year = parseYear(req.params[1]);
+router.get(/^\/closest-winners\/?$/, function(req, res, next) {
+    res.redirect(301, '/closest-winners/' + maxYearInDB());
+});
+
+router.get(/^\/closest-winners\/([0-9]{2}|[0-9]{4})\/?$/, function(req, res, next) {
+    var year = parseYear(req.params[0]);
     if (!year) {
-        res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
+        res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
-        renderForDBQuery(req, res, 'SELECT * FROM Ueberhangsmandate WHERE year = ' + year,
-            'closest-winners');
+        renderForDBQuery(req, res, 'SELECT DISTINCT pid, p_name, p_shorthand FROM Results_View_NarrowWahlkreisWinsAndLosings WHERE year = ' + year,
+            'closest-winners-all', year, 'Knappste Sieger ' + year);
+    }
+});
+
+router.get(/^\/closest-winners(\/([0-9]{2}|[0-9]{4}))?(\/([A-Za-z0-9%\+]+))?\/?$/, function(req, res, next) {
+    var year = parseYear(req.params[1]);
+    var shorthand = req.params[3];
+    console.log(shorthand);
+    if (!year) {
+        res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
+    } else {
+        renderForDBQuery(req, res, 'SELECT * FROM Results_View_NarrowWahlkreisWinsAndLosings WHERE year = ' + year + ' AND LOWER(p_shorthand) = LOWER(\'' + shorthand + '\')' ,
+            'closest-winners-single', year, 'Knappste Sieger ' + year + ' - ' + shorthand, {});
     }
 });
 
 
 // Q7: Wahlkreis overview again
-
+/*
 router.get(/^\/q7(\/([0-9]{2}|[0-9]{4}))?\/wk\/([0-9]{1,3})\/slow\/?$/, function(req, res, next) {
     res.redirect(301, '');
 });
@@ -227,6 +243,7 @@ router.get(/^\/wahlkreise(\/[0-9]{2}|[0-9]{4})\/wk\/([0-9]{1,3})\/slow\/?$/, fun
             'ueberhangsmandate');
     }
 });
+*/
 
 
 module.exports = router;
