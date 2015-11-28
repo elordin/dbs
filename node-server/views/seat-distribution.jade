@@ -1,10 +1,17 @@
 extends base
 
+block js-includes
+    script
+        != 'var data =' + JSON.stringify(data) + ';'
+    script(src='/js/Chart.min.js')
+    script(src='/js/seat-distribution.js')
+
 block content
     h2= title
     if data.length < 1
         p.error.empty= 'No results found.'
     else
+        canvas#seatDist
         table
             thead
                 tr

@@ -1,5 +1,11 @@
-extends layout
+extends base
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h2= title
+    = JSON.stringify(data)
+    if data.length < 1
+        p.error.empty= 'No results found.'
+    else
+        dl
+            dt Direktkandidat (Sieger nach Erstimmen)
+            dd= (data[0].title ? (data[0].title + ' ') : '') + data[0].firstname + ' ' + data[0].lastname + (data[0].p_name ? ' (' + data[0].p_name + ')' : '')

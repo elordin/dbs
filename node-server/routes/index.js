@@ -119,7 +119,6 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/?$/i, function (req, res, next) 
                 var grouped = [];
                 rows.map(function (elem) {
                     if (grouped[elem.fsid]) {
-                        console.log("!");
                         grouped[elem.fsid].push(elem);
                     } else {
                         grouped[elem.fsid] = [elem];
@@ -130,17 +129,17 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/?$/i, function (req, res, next) 
     }
 });
 
-router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{3})\/?$/, function (req, res, next) {
+router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/?$/, function (req, res, next) {
     var year = parseYear(req.params[0]),
-        wkid = parseInt(req.params[1]);
+        wknr = parseInt(req.params[1]);
     if (!year) {
         res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
-    } else if (!wkid) {
-        res.status(404).render(error, {error: "Error: Invalid wkid format - " + req.params[1]});
+    } else if (!wknr) {
+        res.status(404).render(error, {error: "Error: Invalid wknr format - " + req.params[1]});
     } else {
         renderForDBQuery(req, res,
-            'SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners WHERE year = ' + year + ' AND wkid = ' + wkid,
-            'wahlkreise-single', year, 'Wahlkreis Ergebnisse ' + year + ' - Wahlkreis ' + wkid);
+            'SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners NATURAL JOIN Wahlkreis WHERE year = ' + year + ' AND wknr = ' + wknr,
+            'wahlkreise-single', year, 'Wahlkreis Ergebnisse ' + year + ' - Wahlkreis ' + wknr);
     }
 });
 
@@ -160,21 +159,33 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/winners\/?$/i, function(req, res
         res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
     } else {
         renderForDBQuery(req, res, 'SELECT * FROM Results_View_Wahlkreiswinners WHERE year = ' + year,
-            'wahlkreise-winners', year, 'Wahlkreis-Sieger ' + year);
+            'wahlkreise-winners', year, 'Wahlkreis-Sieger ' + year, {},
+            function (result) {
+                var rows = result.rows;
+                var grouped = [];
+                rows.map(function (elem) {
+                    if (grouped[elem.fsid]) {
+                        grouped[elem.fsid].push(elem);
+                    } else {
+                        grouped[elem.fsid] = [elem];
+                    }
+                });
+                return grouped;
+            });
     }
 });
 
 // Q5: Überhangsmandate
 
 router.get(/^\/q5(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
-    res.redirect(301, 'ueberhangsmandate/' + req.params[1]);
+    res.redirect(301, '/ueberhangsmandate/' + req.params[1]);
 });
 
-router.get(/^\/ueberhangsmandate\/?$/i, function(req, res, next) {
-    res.redirect(301, 'ueberhangsmandate/' + maxYearInDB());
+router.get(/^\/ueberhangmandate\/?$/i, function(req, res, next) {
+    res.redirect(301, '/ueberhangmandate/' + maxYearInDB());
 });
 
-router.get(/^\/ueberhangsmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, next) {
+router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, next) {
     var year = parseYear(req.params[0]);
     if (!year) {
         res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});

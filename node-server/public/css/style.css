@@ -313,28 +313,6 @@ tbody tr:nth-of-type(2n) {
     margin-bottom: calc(-100px + 1em);
 }
 
-dl {
-    display: flex;
-    margin: 0;
-}
-
-.dl-item {
-    flex: 1;
-    padding: 1em;
-}
-
-dt {
-    font-weight: normal;
-    font-size: .8em;
-    text-align: center;
-}
-
-dd {
-    text-align: center;
-    font-size: 2em;
-    margin: 0;
-}
-
 .pagination {
     display: inline-block;
     padding: .25em .5em;

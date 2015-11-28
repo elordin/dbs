@@ -1,6 +1,27 @@
 extends base
 
 block content
-  h2= title
-  h3= JSON.stringify(data)
+    h2= title
+    if data.length < 1
+        p.error.empty= 'No results found.'
+    else
+        each set in data
+            if !set || set.length < 1
 
+            else
+                h3= set[0] && set[0].fs_name
+                table
+                    thead
+                        tr
+                            th #
+                            th='Wahlkreis'
+                            th='Erstimmen'
+                            th='Zweitstimmen'
+                    tbody
+                    each row in set
+                        if row
+                            tr
+                                td= row.wkid
+                                td= row.wk_name
+                                td(style='color: #fff; background: #888; background-color: ' + row.fv_p_colourcode)= (row.fv_title ? row.fv_title + ' ' : '') + row.fv_firstname + ' ' + row.fv_lastname
+                                td(style='color: #fff; background: #888; background-color: ' + row.sv_p_colourcode) #{row.sv_p_shorthand} ( #{row.sv_p_name} )
