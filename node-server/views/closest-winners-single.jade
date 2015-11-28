@@ -1,0 +1,18 @@
+extends base
+
+block content
+    h2= title
+    table
+        thead
+            tr
+                th Abgeordnete/r
+                th Wahlkreis
+                th Vorsprung
+                th Rückstand
+        tbody
+            each row in data
+                tr
+                    td= (row.c_title ? row.c_title + ' ' : '') + row.c_firstname + ' ' + row.c_lastname
+                    td= row.wk_name
+                    td.green= (row.diffvotes > 0) ? '+' + row.diffvotes : ''
+                    td.red= (row.diffvotes < 0) ? row.diffvotes : ''

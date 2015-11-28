@@ -182,7 +182,7 @@ router.get(/^\/q5(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
 });
 
 router.get(/^\/ueberhangmandate\/?$/i, function(req, res, next) {
-    res.redirect(301, '/ueberhangmandate/' + maxYearInDB());
+    res.redirect(301, '/wahlkreise/' + maxYearInDB() + '/winners/');
 });
 
 router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, next) {
@@ -191,7 +191,7 @@ router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, n
         res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
         renderForDBQuery(req, res, 'SELECT * FROM Results_View_UeberhangsMandate WHERE year = ' + year,
-            'ueberhangsmandate', year, 'Ueberhangsmandate ' + year);
+            'ueberhangsmandate', year, '&Uuml;berhangmandate ' + year);
     }
 });
 

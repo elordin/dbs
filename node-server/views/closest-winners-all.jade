@@ -1,0 +1,9 @@
+extends base
+
+block content
+    h2= title
+    ul.closest-winners
+        each row in data
+            li
+                a(href=encodeURI('/closest-winners/' + year + '/' + row.p_shorthand))
+                    = row.p_name

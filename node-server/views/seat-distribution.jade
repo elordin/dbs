@@ -3,7 +3,7 @@ extends base
 block js-includes
     script
         != 'var data =' + JSON.stringify(data) + ';'
-    script(src='/js/Chart.min.js')
+    script(src='/js/d3.min.js')
     script(src='/js/seat-distribution.js')
 
 block content
@@ -11,7 +11,7 @@ block content
     if data.length < 1
         p.error.empty= 'No results found.'
     else
-        canvas#seatDist
+        .pie-chart
         table
             thead
                 tr
