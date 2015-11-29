@@ -1,4 +1,4 @@
-﻿--Factors Table
+--Factors Table
 CREATE TABLE IF NOT EXISTS Factors (
     f REAL PRIMARY KEY
 );
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Results_AggregatedZweitstimmenForLL_Old (
 
 CREATE OR REPLACE VIEW Results_AggregatedZweitstimmenForLL (year, fsid, llid, votes) AS (
 	SELECT *
-	FROM Results_AggregatedZweitstimmenForLL_Old 
+	FROM Results_AggregatedZweitstimmenForLL_Old
 	UNION ALL
 	SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_AggregatedZweitstimmenForLL_Current r
@@ -28,12 +28,12 @@ CREATE OR REPLACE VIEW Results_AggregatedZweitstimmenForLL (year, fsid, llid, vo
 
 --RankedCandidatesFirstVotes
 CREATE OR REPLACE VIEW Results_RankedCandidatesFirstVotes_Current(wkid, rank, idno, pid, votes) AS (
-	SELECT  c.wkid, 
+	SELECT  c.wkid,
 		rank() OVER (PARTITION BY c.wkid ORDER BY c.votes desc) as rank,
 		c.idno, c.supportedby as pid, c.votes
 	FROM Candidacy c
 	JOIN Wahlkreis wk ON c.wkid = wk.wkid
-	WHERE wk.year= (select year from electionyear where iscurrent=true)  
+	WHERE wk.year= (select year from electionyear where iscurrent=true)
 );
 
 CREATE TABLE IF NOT EXISTS Results_RankedCandidatesFirstVotes_Old (
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS Results_RankedCandidatesFirstVotes_Old (
 	rank INT NOT NULL DEFAULT 0,
 	idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
-	votes INT NOT NULL DEFAULT 0	
+	votes INT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_RankedCandidatesFirstVotes (year, wkid, rank, idno, pid, votes) AS (
@@ -58,9 +58,9 @@ CREATE OR REPLACE VIEW Results_WahlkreisWinnersFirstVotes_Current (wkid, idno, p
 	WITH RankedCandidatesFirstVotes AS (
 		SELECT * FROM Results_RankedCandidatesFirstVotes_Current
 	)
-	
+
 	SELECT wkid, idno, pid, votes
-	FROM RankedCandidatesFirstVotes 
+	FROM RankedCandidatesFirstVotes
 	WHERE rank = 1
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS Results_WahlkreisWinnersFirstVotes_Old (
 	wkid INT REFERENCES Wahlkreis(wkid),
 	idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
-	votes INT NOT NULL DEFAULT 0	
+	votes INT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_WahlkreisWinnersFirstVotes (year, wkid, idno, pid, votes) AS (
@@ -106,7 +106,7 @@ CREATE OR REPLACE VIEW Results_PartiesQualified_Current( pid, votes) AS (
 CREATE TABLE IF NOT EXISTS Results_PartiesQualified_Old (
 	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
-	votes INT NOT NULL DEFAULT 0	
+	votes INT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_PartiesQualified (year, pid, votes) AS (
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS Results_AggregatedZweitstimmenForLLQualified_Old (
 	fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
 	llid INT NOT NULL REFERENCES LandesListe(llid) ON DELETE CASCADE,
-	votes INT NOT NULL DEFAULT 0	
+	votes INT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_AggregatedZweitstimmenForLLQualified (year, fsid, pid, llid, votes) AS (
@@ -153,7 +153,7 @@ CREATE OR REPLACE VIEW Results_WahlkreisesiegePerPartyPerFS_Current (pid, fsid, 
 	WITH WahlkreisWinnersFirstVotes AS (
 		SELECT * FROM Results_WahlkreisWinnersFirstVotes_Current
 	)
-		
+
 	SELECT pid, wk.fsid, count(*)
 	FROM WahlkreisWinnersFirstVotes wkwfv
 	JOIN Wahlkreis wk ON wkwfv.wkid = wk.wkid
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS Results_WahlkreisesiegePerPartyPerFS_Old (
 	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
 	fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
-	seats BIGINT NOT NULL DEFAULT 0	
+	seats BIGINT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_WahlkreisesiegePerPartyPerFS (year, pid, fsid, seats) AS (
@@ -193,7 +193,7 @@ CREATE OR REPLACE VIEW Results_SeatsPerFederalState_Current(fsid, seats) AS (
 CREATE TABLE IF NOT EXISTS Results_SeatsPerFederalState_Old (
 	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
 	fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
-	seats BIGINT NOT NULL DEFAULT 0		
+	seats BIGINT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_SeatsPerFederalState (year, fsid, seats) AS (
@@ -216,22 +216,22 @@ CREATE OR REPLACE VIEW Results_FVandSVSeatsPerPartyPerFederalstate_Current (pid,
 		SELECT * FROM Results_WahlkreisesiegePerPartyPerFS_Current
 	),
 	RankedSeatsPerLandesliste (llid, seatnumberInFS) AS (
-		SELECT azllq.llid, 
-			rank()  OVER (Partition by azllq.fsid Order by azllq.votes/f.f desc) as seatnumberInFS		--rank within Federalstate			
-		FROM AggregatedZweitstimmenForLLQualified azllq, Factors f 
+		SELECT azllq.llid,
+			rank()  OVER (Partition by azllq.fsid Order by azllq.votes/f.f desc) as seatnumberInFS		--rank within Federalstate
+		FROM AggregatedZweitstimmenForLLQualified azllq, Factors f
 		WHERE f.f < ((select seats from SeatsPerFederalState spfs where spfs.fsid = azllq.fsid) -- (800.0/599.0) factor if seats in Bundestag reach max.
 			     *((azllq.votes)*1.00/(SELECT sum(votes) FROM AggregatedZweitstimmenForLLQualified agzwfll where agzwfll.fsid = azllq.fsid)*1.00)
-			     +1)   
-	),	
+			     +1)
+	),
 	SeatsPerLandelisteByZweitstimme(llid, seats) AS (
-		SELECT rspll.llid, Count(*) as numberOfSeats 
+		SELECT rspll.llid, Count(*) as numberOfSeats
 		FROM RankedSeatsPerLandesliste rspll
 		JOIN LandesListe ll ON ll.llid = rspll.llid
-		JOIN SeatsPerFederalState spfs ON spfs.fsid = ll.fsid 
+		JOIN SeatsPerFederalState spfs ON spfs.fsid = ll.fsid
 		WHERE seatnumberInFS <= spfs.seats
-		GROUP BY rspll.llid   
+		GROUP BY rspll.llid
 	)
-	
+
 	select ll.pid, ll.fsid as fsid, coalesce(wkspppfs.seats,0) as fvseats, coalesce(spllbzs.seats,0) as svseats
 	from  WahlkreisesiegePerPartyPerFS wkspppfs
 	FULL OUTER JOIN Landesliste ll on ll.pid= wkspppfs.pid and ll.fsid=wkspppfs.fsid
@@ -243,7 +243,7 @@ CREATE TABLE IF NOT EXISTS Results_FVandSVSeatsPerPartyPerFederalstate_Old (
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
 	fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
 	fvseats BIGINT NOT NULL DEFAULT 0,
-	svseats BIGINT NOT NULL DEFAULT 0	
+	svseats BIGINT NOT NULL DEFAULT 0
 );
 
 CREATE OR REPLACE VIEW Results_FVandSVSeatsPerPartyPerFederalstate(year, pid, fsid, fvseats, svseats) AS (
@@ -275,7 +275,7 @@ CREATE OR REPLACE VIEW Results_TotalNumberOfSeatsPerParty_Current(pid,seats) AS 
 	MinimumSeatsPerParty (pid,minSeats) AS (
 		select pid, sum(minSeats) as minSeats
 		from MinimumSeatsPerPartyPerFederalstate
-		group by pid	
+		group by pid
 	),
 	TotalNumberOfSeats (seats) AS (
 		SELECT max(seatnumberTotal) as seats		-- take the last seat,  fullfilling the minimum requirement for the last party
@@ -283,11 +283,11 @@ CREATE OR REPLACE VIEW Results_TotalNumberOfSeatsPerParty_Current(pid,seats) AS 
 		NATURAL JOIN MinimumSeatsPerParty mspp
 		where rspp.seatnumberParty = mspp.minSeats  	-- select the first seat, fullfilling the minimum requirement for each party
 	)
-		
+
 	select pid, max(seatnumberParty)				--take the last seat getting into Bundestag
 	from RankedSeatsPerParty
-	where seatnumberTotal <= (SELECT * from TotalNumberOfSeats)	--select the seats, which are in Bundestag	
-	group by pid	
+	where seatnumberTotal <= (SELECT * from TotalNumberOfSeats)	--select the seats, which are in Bundestag
+	group by pid
 );
 
 CREATE TABLE IF NOT EXISTS Results_TotalNumberOfSeatsPerParty_Old (
@@ -316,24 +316,24 @@ CREATE OR REPLACE VIEW Results_SeatsPerLandesliste_Current (llid, seats)  AS(
 		SELECT * FROM Results_WahlkreisesiegePerPartyPerFS_Current
 	),
 	RankedSeatsPerLandesliste (llid, seatnumberInParty, seatnumberLL) AS (
-		SELECT azllq.llid, 
+		SELECT azllq.llid,
 			rank()  OVER (Partition by azllq.pid Order by azllq.votes/f.f desc) as seatnumberInParty,		--rank within Party
 			rank()  OVER (Partition by azllq.pid, azllq.llid Order by azllq.votes/f.f desc) as seatnumberInLL	--rank within Landesliste
-			
-		FROM AggregatedZweitstimmenForLLQualified azllq, Factors f 
+
+		FROM AggregatedZweitstimmenForLLQualified azllq, Factors f
 		WHERE f.f < (Greatest(
 				   ((select seats from TotalNumberOfSeatsPerParty tnospp where tnospp.pid = azllq.pid)
 				    *((azllq.votes)*1.00
 				      /(SELECT sum(votes) FROM AggregatedZweitstimmenForLLQualified agzwfll where agzwfll.pid = azllq.pid)*1.00
 				      )
 				     +1 --todoGB: check if falid now
-				    ), 	
+				    ),
 				    (select seats from WahlkreisesiegePerPartyPerFS wkspppfs where wkspppfs.fsid =azllq.fsid and wkspppfs.pid = azllq.pid)
 				   )
-				 ) 
-	
+				 )
+
 	),
-	RemainingRankedSeatsPerLandesliste (llid, seatnumberInParty) AS (		
+	RemainingRankedSeatsPerLandesliste (llid, seatnumberInParty) AS (
 		SELECT rspll.llid,
 		rank()  OVER (Partition by ll.pid  Order by rspll.seatnumberInParty asc) as seatnumberInParty		--rerank the remaining seats
 		FROM RankedSeatsPerLandesliste rspll
@@ -355,7 +355,7 @@ CREATE OR REPLACE VIEW Results_SeatsPerLandesliste_Current (llid, seats)  AS(
 		where rrspll.seatnumberInParty <= aspp.seats
 		group by  rrspll.llid
 	)
-	
+
 	select ll.llid, (coalesce(wkspll.seats,0)+coalesce(astdkpll.seats,0)) as seats
 	FROM AggregatedZweitstimmenForLLQualified azllq
 	JOIN Landesliste ll ON azllq.llid=ll.llid
@@ -398,21 +398,21 @@ CREATE OR REPLACE VIEW Results_Delegates_Current (idno, fsid, pid, wkid, llpos, 
 		 from AggregatedZweitstimmenForLLQualified azllq
 		 JOIN Landesliste ll ON ll.llid = azllq.llid
 		 JOIN Landeslistenplatz llp ON llp.llid = ll.llid
-		 JOIN Candidates c ON c.idno = llp.idno 
+		 JOIN Candidates c ON c.idno = llp.idno
 		 WHERE not exists (select * from WahlkreisWinnersFirstVotes wkwfv where wkwfv.idno = c.idno)	-- remove Landeslistenplätze which won a Direktmandat
 		)
 	),
 	MergedRankedCandidates (idno, fsid, pid, wkid, llpos, ctype,  rank)  AS (
 		SELECT mc.idno, mc.fsid,  mc.pid, mc.wkid, mc.llpos, mc.ctype,
 		       rank() OVER (Partition by mc.fsid, mc.pid Order by mc.rank asc) as rank		--re-rank to match with number of seats, (all Direktmandate have rank 0 from MergedCandidates)
-		FROM MergedCandidates mc	
+		FROM MergedCandidates mc
 	)
-	
+
 	SELECT mrc.idno, mrc.fsid, mrc.pid, mrc.wkid, mrc.llpos, mrc.ctype, mrc.rank
 	FROM MergedRankedCandidates mrc
 	LEFT OUTER JOIN Landesliste ll ON mrc.fsid = ll.fsid AND mrc.pid=ll.pid
-	NATURAL JOIN SeatsPerLandesliste spll	
-	WHERE mrc.pid is NULL or spll.seats >= rank				
+	NATURAL JOIN SeatsPerLandesliste spll
+	WHERE mrc.pid is NULL or spll.seats >= rank
 );
 
  CREATE TABLE IF NOT EXISTS Results_Delegates_Old (
@@ -438,7 +438,7 @@ CREATE OR REPLACE VIEW Results_Delegates (year, idno, fsid, pid, wkid, llpos, ct
 CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idno, pid, rank, diffvotes) AS (
 	WITH LostWahlkreiseTop10 (wkid, idno, rank, pid, diffvotes) AS (
 		WITH LostWahlkreiseDiffVotes AS(
-			SELECT  c.wkid, 
+			SELECT  c.wkid,
 				rank() OVER (PARTITION BY c.supportedby ORDER BY (c.votes-wkwfv.votes) desc) as rank,
 				c.idno, c.supportedby as pid, (c.votes-wkwfv.votes) as diffvotes
 			FROM Candidacy c
@@ -447,7 +447,7 @@ CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idn
 			WHERE wk.year= (select year from electionyear where iscurrent=true) AND c.votes-wkwfv.votes < 0
 		)
 		SELECT wkid, idno, rank, pid, diffvotes
-		FROM  LostWahlkreiseDiffVotes 
+		FROM  LostWahlkreiseDiffVotes
 		WHERE rank <=10
 	),
 
@@ -457,9 +457,9 @@ CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idn
 			FROM Results_RankedCandidatesFirstVotes_Current
 			WHERE rank = 2
 		),
-		
+
 		WonWahlkreiseDiffVotes AS(
-			SELECT  c.wkid, 
+			SELECT  c.wkid,
 				rank() OVER (PARTITION BY c.supportedby ORDER BY (c.votes-wkspfv.votes) asc) as rank,
 				c.idno, c.supportedby as pid, (c.votes-wkspfv.votes) as diffvotes
 			FROM Candidacy c
@@ -467,8 +467,8 @@ CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idn
 			JOIN Wahlkreis wk ON c.wkid = wk.wkid
 			WHERE wk.year= (select year from electionyear where iscurrent=true) AND c.votes-wkspfv.votes > 0
 		)
-		SELECT wkid, idno, rank, pid, diffvotes 
-		FROM  WonWahlkreiseDiffVotes 
+		SELECT wkid, idno, rank, pid, diffvotes
+		FROM  WonWahlkreiseDiffVotes
 		WHERE rank <=10
 	),
 
@@ -497,7 +497,7 @@ CREATE TABLE IF NOT EXISTS Results_NarrowWahlkreisWinsAndLosings_Old (
 
 CREATE OR REPLACE VIEW Results_NarrowWahlkreisWinsAndLosings (year, wkid, idno, pid, rank, diffvotes) AS (
 	SELECT *
-	FROM Results_NarrowWahlkreisWinsAndLosings_Old 
+	FROM Results_NarrowWahlkreisWinsAndLosings_Old
 	UNION ALL
 	SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_NarrowWahlkreisWinsAndLosings_Current r
@@ -561,7 +561,7 @@ CREATE OR REPLACE VIEW Results_NarrowWahlkreisWinsAndLosings (year, wkid, idno, 
 ----total number of seats in Bundestag for Party
 -- SELECT p.name, tnospp.seats
 -- FROM Results_TotalNumberOfSeatsPerParty_Current tnospp
--- JOIN Party p ON tnospp.pid = p.pid 
+-- JOIN Party p ON tnospp.pid = p.pid
 -- ORDER BY tnospp.seats desc
 
 
@@ -583,8 +583,8 @@ CREATE OR REPLACE VIEW Results_NarrowWahlkreisWinsAndLosings (year, wkid, idno, 
 -- WHERE p.name='CDU'
 
 ---------------- STEP 5: List of Results_Delegates_Current for Bundestag ----------------
--- SELECT  c.Lastname, c.Firstname, p.name, fs.name, d.ctype, d.llpos as Listenplatz 
--- FROM Results_Delegates_Current d 
+-- SELECT  c.Lastname, c.Firstname, p.name, fs.name, d.ctype, d.llpos as Listenplatz
+-- FROM Results_Delegates_Current d
 -- JOIN Candidates c ON d.idno = c.idno
 -- JOIN Federalstate fs ON fs.fsid = d.fsid
 -- JOIN Party p ON p.pid=d.pid

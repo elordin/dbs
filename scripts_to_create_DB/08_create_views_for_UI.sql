@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE VIEW Results_View_Seatdistribution_Bundestag(year, seats, name, shorthand, colourcode, website, isminority) AS (
+CREATE OR REPLACE VIEW Results_View_Seatdistribution_Bundestag(year, seats, name, shorthand, colourcode, website, isminority) AS (
     SELECT tnospp.year, tnospp.seats, p.name, p.shorthand, p.colourcode, p.website, p.isminority
     FROM Results_TotalNumberOfSeatsPerParty tnospp
     JOIN Party p on p.pid = tnospp.pid

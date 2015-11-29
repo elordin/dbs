@@ -21,7 +21,7 @@ block content
             img(src= personimg || '/img/placeholder.svg')
             dl
                 dt Name
-                dd= (person.title ? person.title + ' ' : '') + person.firstname + person.lastname
+                dd= (person.title ? person.title + ' ' : '') + person.firstname + ' ' + person.lastname
                 dt Partei
                 if person.p_website
                     dd

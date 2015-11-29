@@ -1,11 +1,13 @@
-﻿DROP FUNCTION IF EXISTS incErststimme()                  CASCADE;
+DROP FUNCTION IF EXISTS incErststimme()                  CASCADE;
 DROP FUNCTION IF EXISTS decErststimme()                  CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk()       CASCADE;
 DROP FUNCTION IF EXISTS decZweitstimmeWahlbezirk()       CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeDirektWahlbezirk() CASCADE;
 DROP FUNCTION IF EXISTS decZweitstimmeDirektWahlbezirk() CASCADE;
+DROP MATERIALIZED VIEW FederalStateWithCitizenCount      CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenFS           CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenWK           CASCADE;
+DROP TABLE IF EXISTS AccumulatedZweitstimmenWB           CASCADE;
 DROP TABLE IF EXISTS CitizenRegistration                 CASCADE;
 DROP VIEW  IF EXISTS Vote                                CASCADE;
 DROP TABLE IF EXISTS Stimmzettel                         CASCADE;
@@ -242,7 +244,7 @@ CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insert
         INSERT INTO AccumulatedZweitstimmenFS (llid) VALUES (NEW.llid);
         FOR _wkid IN SELECT wkid
                      FROM Wahlkreis
-                     WHERE fsid = NEW.fsid
+                     WHERE fsid = NEW.llid
         LOOP
             INSERT INTO AccumulatedZweitstimmenWK (wkid, llid) VALUES (_wkid, NEW.llid);
         END LOOP;
@@ -257,111 +259,93 @@ CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insert
 $insertll$
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION incErststimme() RETURNS TRIGGER AS $inc$
+CREATE OR REPLACE FUNCTION incErststimme(INTEGER) RETURNS VOID AS $inc$
     BEGIN
-        UPDATE Candidacy SET votes = votes + 1 WHERE cid = TG_ARGV[0];
-        RETURN NEW;
+        UPDATE Candidacy SET votes = votes + 1 WHERE cid = $1;
     END;
 $inc$
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION decErststimme() RETURNS TRIGGER AS $dec$
+CREATE OR REPLACE FUNCTION decErststimme(INTEGER) RETURNS VOID AS $dec$
     BEGIN
-        UPDATE Candidacy SET votes = votes - 1 WHERE cid = TG_ARGV[0];
-        RETURN NEW;
+        UPDATE Candidacy SET votes = votes - 1 WHERE cid = $1;
     END;
 $dec$
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION incZweitstimmeWahlbezirk() RETURNS TRIGGER AS $inc$
+CREATE OR REPLACE FUNCTION incZweitstimmeWahlbezirk(INTEGER, INTEGER) RETURNS VOID AS $inc$
     BEGIN
         UPDATE AccumulatedZweitstimmenWB
         SET votes = votes + 1
-        WHERE wbid = TG_ARGV[0]
-          AND llid = TG_ARGV[1];
+        WHERE wbid = $1
+          AND llid = $2;
         -- TODO: Removed fsid from AccumulatedZweitstimmenFS
         UPDATE AccumulatedZweitstimmenFS
-        SET votes = votes + 1 WHERE llid = TG_ARGV[1];
+        SET votes = votes + 1 WHERE llid = $2;
         UPDATE AccumulatedZweitstimmenWK
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk
-            WHERE wbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
-        RETURN NEW;
+            WHERE wbid = $1
+        ) AND llid = $2;
     END;
 $inc$
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION decZweitstimmeWahlbezirk() RETURNS TRIGGER AS $dec$
+CREATE OR REPLACE FUNCTION decZweitstimmeWahlbezirk(INTEGER, INTEGER) RETURNS VOID AS $dec$
     BEGIN
         UPDATE AccumulatedZweitstimmenWB
         SET votes = votes - 1
-        WHERE wbid = TG_ARGV[0]
-          AND llid = TG_ARGV[1];
+        WHERE wbid = $1
+          AND llid = $2;
         UPDATE AccumulatedZweitstimmenFS
-        SET votes = votes - 1 WHERE fsid IN (
-            SELECT fsid
-            FROM Wahlbezirk NATURAL JOIN Wahlkreis
-            WHERE wbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
+        SET votes = votes - 1 WHERE llid = $2;
         UPDATE AccumulatedZweitstimmenWK
         SET votes = votes - 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk
-            WHERE wbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
-        RETURN NEW;
+            WHERE wbid = $1
+        ) AND llid = $2;
     END;
 $dec$
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION incZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $inc$
+CREATE OR REPLACE FUNCTION incZweitstimmeDirektWahlbezirk(INTEGER, INTEGER) RETURNS VOID AS $inc$
     BEGIN
         UPDATE AccumulatedZweitstimmenWB
         SET votes = votes + 1 WHERE wbid IN (
             SELECT wbid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
-            WHERE dwbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
+            WHERE dwbid = $1
+        ) AND llid = $2;
         UPDATE AccumulatedZweitstimmenWK
         SET votes = votes + 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
-            WHERE dwbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
+            WHERE dwbid = $1
+        ) AND llid = $2;
         UPDATE AccumulatedZweitstimmenFS
-        SET votes = votes + 1 WHERE fsid IN (
-            SELECT fsid
-            FROM Wahlkreis NATURAL JOIN Wahlbezirk NATURAL JOIN DirektWahlBezirkData
-            WHERE dwbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
-        RETURN NEW;
+        SET votes = votes + 1 WHERE llid = $2;
     END;
 $inc$
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION decZweitstimmeDirektWahlbezirk() RETURNS TRIGGER AS $dec$
+CREATE OR REPLACE FUNCTION decZweitstimmeDirektWahlbezirk(INTEGER, INTEGER) RETURNS VOID AS $dec$
     BEGIN
         UPDATE AccumulatedZweitstimmenWB
         SET votes = votes - 1 WHERE wbid IN (
             SELECT wbid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
-            WHERE dwbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
+            WHERE dwbid = $1
+        ) AND llid = $2;
         UPDATE AccumulatedZweitstimmenWK
         SET votes = votes - 1 WHERE wkid IN (
             SELECT wkid
             FROM Wahlbezirk NATURAL JOIN DirektWahlBezirkData
-            WHERE dwbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
+            WHERE dwbid = $1
+        ) AND llid = $2;
         UPDATE AccumulatedZweitstimmenFS
-        SET votes = votes - 1 WHERE fsid IN (
-            SELECT fsid
-            FROM Wahlkreis NATURAL JOIN Wahlbezirk NATURAL JOIN DirektWahlBezirkData
-            WHERE dwbid = TG_ARGV[0]
-        ) AND llid = TG_ARGV[1];
-        RETURN NEW;
+        SET votes = votes - 1 WHERE llid = $2;
     END;
 $dec$
 LANGUAGE plpgsql;
@@ -370,6 +354,7 @@ CREATE OR REPLACE FUNCTION handleWahlscheinInsert() RETURNS TRIGGER AS $wsin$
     BEGIN
         PERFORM incErststimme(NEW.erststimme);
         PERFORM incZweitstimmeWahlbezirk(NEW.wbid, NEW.zweitstimme);
+        RETURN NEW;
     END;
 $wsin$
 LANGUAGE plpgsql;
@@ -378,6 +363,7 @@ CREATE OR REPLACE FUNCTION handleStimmzettelInsert() RETURNS TRIGGER AS $wsin$
     BEGIN
         PERFORM incErststimme(NEW.erststimme);
         PERFORM incZweitstimmeDirektWahlbezirk(NEW.dwbid, NEW.zweitstimme);
+        RETURN NEW;
     END;
 $wsin$
 LANGUAGE plpgsql;
@@ -388,16 +374,18 @@ CREATE OR REPLACE FUNCTION handleWahlscheinUpdate() RETURNS TRIGGER AS $wsin$
         PERFORM incErststimme(NEW.erststimme);
         PERFORM decZweitstimmeWahlbezirk(OLD.wbid, OLD.zweitstimme);
         PERFORM incZweitstimmeWahlbezirk(NEW.wbid, NEW.zweitstimme);
+        RETURN NEW;
     END;
 $wsin$
 LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION handleStimmzettelUpdate() RETURNS TRIGGER AS $wsin$
     BEGIN
-        PERFORM decErststimme(OLD.erststimme);
-        PERFORM incErststimme(NEW.erststimme);
-        PERFORM decZweitstimmeDirektWahlbezirk(OLD.dwbid, OLD.zweitstimme);
-        PERFORM incZweitstimmeDirektWahlbezirk(NEW.dwbid, NEW.zweitstimme);
+        SELECT decErststimme(OLD.erststimme);
+        SELECT incErststimme(NEW.erststimme);
+        SELECT decZweitstimmeDirektWahlbezirk(OLD.dwbid, OLD.zweitstimme);
+        SELECT incZweitstimmeDirektWahlbezirk(NEW.dwbid, NEW.zweitstimme);
+        RETURN NEW;
     END;
 $wsin$
 LANGUAGE plpgsql;
