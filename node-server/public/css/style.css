@@ -397,3 +397,25 @@ th a {
     color: #aaa;
     line-height: 0;
 }
+
+.first {
+    width: calc(40% - 2em);
+    float: left;
+    box-sizing: border-box;
+    padding: 0 1em 1em 1em;
+    margin-right: 2em;
+}
+
+.first img {
+    display: block;
+    width: 12em;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.second {
+    float: right;
+    width: 60%;
+    box-sizing: border-box;
+
+}

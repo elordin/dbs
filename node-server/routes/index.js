@@ -137,9 +137,42 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/?$/, function (req
     } else if (!wknr) {
         res.status(404).render('error', {error: "Error: Invalid wknr format - " + req.params[1]});
     } else {
-        renderForDBQuery(req, res,
-            'SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners NATURAL JOIN Wahlkreis WHERE year = ' + year + ' AND wknr = ' + wknr,
-            'wahlkreise-single', year, 'Wahlkreis Ergebnisse ' + year + ' - Wahlkreis ' + wknr);
+        req.db.connect(function (err) {
+            if (err) {
+                res.status(500).render("error", {error: err});
+            } else {
+                req.db.query("SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners WHERE year = " + year + " AND wknr = " + wknr,
+                function (err, result1) {
+                    if (err) {
+                        res.status(500).render("error", {error: err});
+                    } else {
+                        req.db.query("SELECT * FROM Results_View_WahlkreisOverview_SecondVoteDistribution WHERE year = " + year + " AND wknr = " + wknr + ' ORDER BY votesabs DESC',
+                        function (err, result2) {
+                            if (err) {
+                                res.status(500).render("error", {error: err});
+                            } else {
+                                if (result1.rows.length < 1 && result2.rows.length < 1) {
+                                    res.redirect('/wahlkreise/' + year);
+                                    return;
+                                }
+                                var wkname = result1.rows[0] && result1.rows[0].wk_name ||
+                                             result2.rows[0] && result2.rows[0].wk_name;
+                                var locals = {
+                                    year: year,
+                                    title: 'Wahlkreise ' + year + ' - ' + wkname,
+                                    data: {
+                                        first: result1.rows,
+                                        second: result2.rows
+                                    }
+                                };
+                                res.render('wahlkreise-single', locals);
+                            }
+                            req.db.end();
+                        });
+                    }
+                });
+            }
+        });
     }
 });
 
@@ -228,8 +261,9 @@ router.get(/^\/closest-winners(\/([0-9]{2}|[0-9]{4}))?(\/([A-Za-z0-9%\+]+))?\/?$
 });
 
 
+
 // Q7: Wahlkreis overview again
-/*
+
 router.get(/^\/q7(\/([0-9]{2}|[0-9]{4}))?\/wk\/([0-9]{1,3})\/slow\/?$/, function(req, res, next) {
     res.redirect(301, '');
 });
@@ -243,7 +277,7 @@ router.get(/^\/wahlkreise(\/[0-9]{2}|[0-9]{4})\/wk\/([0-9]{1,3})\/slow\/?$/, fun
             'ueberhangsmandate');
     }
 });
-*/
+
 
 
 module.exports = router;

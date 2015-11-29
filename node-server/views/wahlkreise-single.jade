@@ -2,10 +2,44 @@ extends base
 
 block content
     h2= title
-    = JSON.stringify(data)
-    if data.length < 1
-        p.error.empty= 'No results found.'
-    else
+    .general-info
         dl
-            dt Direktkandidat (Sieger nach Erstimmen)
-            dd= (data[0].title ? (data[0].title + ' ') : '') + data[0].firstname + ' ' + data[0].lastname + (data[0].p_name ? ' (' + data[0].p_name + ')' : '')
+            dt Stimmberechtigt
+            dd
+            dt Stimmen abgegeben
+            dd
+            dt Wahlbeteiligung
+            dd
+            dt Ungültige Stimmen
+            dd
+    .first
+        h3 Sieger nach Erstimmen
+        if data.first.length < 1
+            p.error.empty= 'No Erststimmen-results found.'
+        else
+            - var person = data.first[0]
+            img(src= personimg || '/img/placeholder.svg')
+            dl
+                dt Name
+                dd= (person.title ? person.title + ' ' : '') + person.firstname + person.lastname
+                dt Partei
+                if person.p_website
+                    dd
+                        a(href=person.p_website)= person.p_name ? person.p_name + ' (' + person.p_shorthand + ')' : 'Parteilos'
+                else
+                    dd= person.p_name ? person.p_name + ' (' + person.p_shorthand + ')' : 'Parteilos'
+    .second
+        h3 Zweitstimmenverteilung
+        table
+            thead
+                th Partei
+                th Stimmen (absolut)
+                th Stimmen (relativ)
+                th Änderung zum Vorjahr
+            tbody
+                each row in data.second
+                    if row.votesabs > 0
+                        tr
+                            td= row.p_name + ' (' + row.p_shorthand + ')'
+                            td= row.votesabs
+                            td= Math.round(row.votesrel * 10000) / 100 + '%'

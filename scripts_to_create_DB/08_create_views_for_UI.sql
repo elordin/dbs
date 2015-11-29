@@ -5,9 +5,9 @@
     ORDER BY tnospp.seats DESC
 );
 
-CREATE OR REPLACE VIEW Results_View_Delegates(year, title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name, ctype, listenplatz) AS (
+CREATE OR REPLACE VIEW Results_View_Delegates(year, title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name, wknr, ctype, listenplatz) AS (
     SELECT  d.year, c.title, c.lastname, c.firstname, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
-        fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, d.ctype, d.llpos as listenplatz
+        fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr, d.ctype, d.llpos as listenplatz
     FROM Results_Delegates d
     JOIN Candidates c ON d.idno = c.idno
     JOIN Federalstate fs ON fs.fsid = d.fsid
@@ -16,9 +16,9 @@ CREATE OR REPLACE VIEW Results_View_Delegates(year, title, lastname, firstname, 
     ORDER BY c.Lastname, c.Firstname
 );
 
-CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name) AS (
+CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name, wknr) AS (
     SELECT wkwsv.year, c.title, c.lastname, c.firstname, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
-           fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name
+           fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr
     FROM Results_WahlkreisWinnersFirstVotes wkwsv
     JOIN Wahlkreis wk ON wk.wkid = wkwsv.wkid
     JOIN Candidates c ON c.idno = wkwsv.idno
@@ -26,8 +26,8 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, tit
     LEFT OUTER JOIN Party p on p.pid = wkwsv.pid
 );
 
-CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel)  AS (
-    SELECT ll.year,wk.wkid, wk.name as wk_name, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
+CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, wknr, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel)  AS (
+    SELECT ll.year,wk.wkid, wk.name as wk_name, wk.wknr, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
            azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel
     FROM AccumulatedZweitstimmenWK azwwk
     JOIN Wahlkreis wk on azwwk.wkid = wk.wkid
