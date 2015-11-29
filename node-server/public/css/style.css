@@ -384,3 +384,16 @@ th a {
 .closest-winners a:active {
     box-shadow: inset 2px 2px 6px rgba(0,0,0,.1);
 }
+
+.handle {
+    position: relative;
+    width: 1em;
+}
+
+.handle::before {
+    position: absolute;
+    font-family: FontAwesome;
+    content: '\f0c9';
+    color: #aaa;
+    line-height: 0;
+}

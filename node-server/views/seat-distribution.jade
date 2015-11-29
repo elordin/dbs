@@ -4,6 +4,7 @@ block js-includes
     script
         != 'var data =' + JSON.stringify(data) + ';'
     script(src='/js/d3.min.js')
+    script(src='/js/Sortable.min.js')
     script(src='/js/seat-distribution.js')
 
 block content
@@ -15,10 +16,11 @@ block content
         table
             thead
                 tr
-                    th='Partei'
+                    th(colspan=2)='Partei'
                     th='Sitze'
-            tbody
+            tbody.sortable#seats
                 each row in data
                     tr
+                        td.handle
                         td #{row.shorthand} (#{row.name})
                         td= row.seats
