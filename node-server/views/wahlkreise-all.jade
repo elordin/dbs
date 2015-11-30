@@ -7,11 +7,19 @@ block content
         div.fsgroup
             a(name=i)
             h3= data[i][0].fs_name
-            ul.wahlkreise
-                each wk in wks
-                    li
-                        a(href='/wahlkreise/' + year + '/' + wk.wknr)
-                            span= wk.wknr
-                            span= wk.name
+            table.wahlkreise
+                thead
+                    tr
+                        th #
+                        th Wahlkreis
+                tbody
+                    each wk in wks
+                        tr
+                            td
+                                a(href='/wahlkreise/' + year + '/' + wk.wknr)
+                                    span= wk.wknr
+                            td
+                                a(href='/wahlkreise/' + year + '/' + wk.wknr)
+                                    span= wk.name
 
 
