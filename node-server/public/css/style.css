@@ -123,6 +123,7 @@ nav ul ul {
     margin-left: 2em;
     height: 0;
     overflow: hidden;
+    height: auto;
 }
 
 nav .active + ul {

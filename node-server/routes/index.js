@@ -219,7 +219,7 @@ router.get(/^\/ueberhangmandate\/?$/i, function(req, res, next) {
 });
 
 router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, next) {
-    var year = parseYear(req.params[1]);
+    var year = parseYear(req.params[0]);
     if (!year) {
         res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
