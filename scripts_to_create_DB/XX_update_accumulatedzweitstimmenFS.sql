@@ -1,4 +1,4 @@
-﻿WITH ACCZWWK (llid, votes) AS (
+WITH ACCZWWK (llid, votes) AS (
 
 select llid, sum(votes)
 from AccumulatedZweitstimmenWK azwwk

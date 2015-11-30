@@ -1,4 +1,4 @@
-﻿update FederalState set citizencount = 3025288 where fsid = 1;
+update FederalState set citizencount = 3025288 where fsid = 1;
 update FederalState set citizencount = 3672888 where fsid = 2;
 update FederalState set citizencount = 7354892 where fsid = 3;
 update FederalState set citizencount = 11353264 where fsid = 4;

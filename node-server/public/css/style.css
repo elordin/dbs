@@ -313,28 +313,6 @@ tbody tr:nth-of-type(2n) {
     margin-bottom: calc(-100px + 1em);
 }
 
-dl {
-    display: flex;
-    margin: 0;
-}
-
-.dl-item {
-    flex: 1;
-    padding: 1em;
-}
-
-dt {
-    font-weight: normal;
-    font-size: .8em;
-    text-align: center;
-}
-
-dd {
-    text-align: center;
-    font-size: 2em;
-    margin: 0;
-}
-
 .pagination {
     display: inline-block;
     padding: .25em .5em;
@@ -374,4 +352,78 @@ th a {
 
 .order-none::before {
     content: '\f0dc';
+}
+
+.pie-chart svg {
+    margin: 0 calc(50% - 200px);
+}
+
+.closest-winners {
+    list-style-type: none;
+    padding: 0;
+}
+
+.closest-winners li {
+    display: inline-block;
+    width: auto;
+}
+
+.closest-winners a {
+    display: block;
+    padding: .5em 1em;
+    margin: .25em;
+    border: thin solid #aaa;
+    color: #333;
+    text-decoration: none;
+}
+
+.closest-winners a:hover {
+    background-color: #eee;
+}
+
+.closest-winners a:active {
+    box-shadow: inset 2px 2px 6px rgba(0,0,0,.1);
+}
+
+.handle {
+    position: relative;
+    width: 1em;
+}
+
+.handle::before {
+    position: absolute;
+    font-family: FontAwesome;
+    content: '\f0c9';
+    color: #aaa;
+    line-height: 0;
+}
+
+.first {
+    width: calc(40% - 2em);
+    float: left;
+    box-sizing: border-box;
+    padding: 0 1em 1em 1em;
+    margin-right: 2em;
+}
+
+.first img {
+    display: block;
+    width: 12em;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.second {
+    float: right;
+    width: 60%;
+    box-sizing: border-box;
+
+}
+
+.red {
+    color: #c00;
+}
+
+.green {
+    color: #0c0;
 }

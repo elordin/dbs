@@ -7,7 +7,7 @@ html
         link(rel='stylesheet', href='/css/font-awesome.min.css')
         link(rel='stylesheet', href='/css/style.css')
 
-        script(src='/js/chartist.min.js')
+        block js-includes
     body
         header
             a.logo(href='/')
@@ -27,5 +27,13 @@ html
                             a(href='/seat-distribution/') Sitzverteilung
                         li
                             a(href='/delegates/') Abgeordnete
+                        li
+                            a(href='/wahlkreise/') Wahlkreis&uuml;bersicht
+                        li
+                            a(href='/wahlkreise/winners') Wahlkreis-Sieger
+                        li
+                            a(href='/ueberhangmandate/') &Uuml;berhangmandate
+                        li
+                            a(href='/closest-winners/') Knappste Sieger
         main
             block content
