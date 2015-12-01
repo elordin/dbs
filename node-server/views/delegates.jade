@@ -41,7 +41,7 @@ block content
                             td= row.p_shorthand
                             td= row.fs_name
                             td
-                                a(href='/wahlkreise/' + year + '/' + row.wk_wknr)= row.wk_name
+                                a(href='/wahlkreise/' + year + '/' + row.wknr)= row.wk_name
 
             if (page || 1) > 1
                 a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
