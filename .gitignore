@@ -2,3 +2,5 @@
 Thumbs.db
 *.class
 */target/*
+*/project/*
+*/node_modules/*
