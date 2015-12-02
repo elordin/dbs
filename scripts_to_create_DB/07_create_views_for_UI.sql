@@ -36,6 +36,12 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(yea
     JOIN Party p ON p.pid = ll.pid
 );
 
+CREATE OR REPLACE VIEW Results_View_Results_View_WahlkreisOverview_Voterparticipation (year, wkid, wk_name, elective, voted, participationrate) AS (
+	SELECT rvppwk.year, rvppwk.wkid, wk.name, rvppwk.elective, rvppwk.voted, ((rvppwk.voted*1.0)/(rvppwk.elective*1.0))*100.0 as participationrate
+	FROM Results_VoterparticipationPerWK rvppwk
+	JOIN Wahlkreis wk ON wk.wkid = rvppwk.wkid
+);
+
 CREATE OR REPLACE VIEW Results_View_Wahlkreiswinners(year, fsid, fs_name, wkid, wk_name, wknr, fv_title, fv_lastname, fv_firstname, fv_p_name, fv_p_shorthand, fv_p_colourcode, fv_p_website, sv_p_name, sv_p_shorthand, sv_p_colourcode, sv_p_website)  AS (
     SELECT  wkwfv.year, fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr,
         c.title as fv_title, c.lastname as fv_lastname, c.firstname as fv_firstname, p.name as fv_p_name, p.shorthand as fv_p_shorthand, p.colourcode as fv_p_colourcode, p.website as fv_p_website,
