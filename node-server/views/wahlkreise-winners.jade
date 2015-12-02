@@ -23,5 +23,5 @@ block content
                             tr
                                 td= row.wkid
                                 td= row.wk_name
-                                td(style='color: #fff; background: #888; background-color: ' + row.fv_p_colourcode)= (row.fv_title ? row.fv_title + ' ' : '') + row.fv_firstname + ' ' + row.fv_lastname
-                                td(style='color: #fff; background: #888; background-color: ' + row.sv_p_colourcode) #{row.sv_p_shorthand} ( #{row.sv_p_name} )
+                                td.es(style='color: #fff; background: #888; background-color: ' + row.fv_p_colourcode)= (row.fv_title ? row.fv_title + ' ' : '') + row.fv_firstname + ' ' + row.fv_lastname
+                                td.zs(style='color: #fff; background: #888; background-color: ' + row.sv_p_colourcode) #{row.sv_p_shorthand} ( #{row.sv_p_name} )

@@ -73,7 +73,7 @@ window.onload = function () {
             d3.select(this).attr('stroke-width', '4px');
             svg.append('text')
                 .attr('class', 'tooltip')
-                .text(d.name)
+                .text(d.shorthand)
                 .attr('x', 200)
                 .attr('y', 130)
                 .attr('style', 'text-anchor: middle; dominant-baseline: hanging;')
