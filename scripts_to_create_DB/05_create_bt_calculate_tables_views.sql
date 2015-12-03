@@ -342,9 +342,9 @@ CREATE OR REPLACE VIEW Results_SeatsPerLandesliste_Current (llid, seats)  AS(
 		where rspll.seatnumberLL > coalesce(wkspll.seats,0)							--remove seats won by Direktkandidaturen
 	),
 	NumberOfAdditionalSeatsPerParty (pid, seats) AS (
-		SELECT spp.pid, (spp.seats-sum(wks.seats)) as seats
+		SELECT spp.pid, (spp.seats-sum(coalesce(wks.seats,0))) as seats
 		FROM TotalNumberOfSeatsPerParty spp
-		JOIN WahlkreisesiegePerPartyPerFS wks ON spp.pid=wks.pid
+		Left OUTER JOIN WahlkreisesiegePerPartyPerFS wks ON spp.pid=wks.pid
 		group by spp.pid, spp.seats
 	),
 	AdditionalSeatsToDirektmandatePerLandeliste(llid, seats) AS (
