@@ -3,6 +3,7 @@ package Wahlinfo
 import scala.util.Random
 import scala.annotation.tailrec
 import java.io.File
+import java.sql.SQLException
 
 import Helpers._
 import GeneratorConfig._
@@ -142,6 +143,62 @@ object Generator {
 
         var existingCitizens = GeneratorConfig.existingCitizens
 
+        def generateAndExecute(gc:GeneratorConfig):Unit = {
+            withDatabase {
+                c => {
+                    try {
+                        val stimmzettel = generate(gc.distribution)
+                        val wbid = gc.wkid + 1000 * year
+                        val dwbid = gc.wkid + 1000 * year
+
+                        c.setAutoCommit(false)
+                        val statement = c.createStatement()
+
+                        println("Starting")
+                        statement.executeUpdate(f"INSERT INTO Wahlbezirk (wbid, wkid) VALUES (${wbid}, ${gc.wkid});")
+                        statement.executeUpdate(f"INSERT INTO DirektWahlbezirkData (wbid, dwbid) VALUES (${wbid}, ${dwbid});")
+                        statement.executeUpdate(f"INSERT INTO AccumulatedZweitstimmenWB (wbid, llid) SELECT ${wbid}, llid FROM Landesliste;")
+                        statement.executeUpdate(f"UPDATE Candidacy SET votes = 0 WHERE wkid = ${gc.wkid};")
+
+
+                        gc.zweitstimmen.foreach({
+                            case (InvalidZweitstimme, votes) => {}
+                            case (zs:Landesliste, votes) =>
+                                statement.executeUpdate(f"UPDATE AccumulatedZweitstimmenWK SET votes = votes - ${votes} WHERE wkid = ${gc.wkid} AND llid = ${zs.llid};")
+                        })
+
+                        println("Starting mapping")
+                        stimmzettel.map((sz:Stimmzettel) => {
+                            val idno:String = if (existingCitizens.length > 0) {
+                                val idno = existingCitizens.head
+                                existingCitizens = existingCitizens.tail
+                                idno
+                            } else {
+                                val (firstname, lastname) = Names.getName(sz.gender)
+                                val (dobDay, dobMonth) = randomDayOfBirth
+                                statement.executeUpdate(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${2009 - sz.age}.${dobMonth}.${dobDay}', '${sz.gender}', '');")
+                                sz.toString
+                            }
+                            statement.executeUpdate(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
+                            statement.executeUpdate(f"INSERT INTO hasVoted (idno, year, hasvoted) VALUES('${idno}', ${year}, true);")
+                            statement.executeUpdate(f"INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) VALUES (${dwbid}, '${sz.gender}', ${sz.age}, ${sz.erststimme}, ${sz.zweitstimme});")
+                        })
+                        statement.execute("REFRESH MATERIALIZED VIEW FederalStateWithCitizenCount;");
+
+                        println("Commiting")
+                        c.commit()
+                    } catch {
+                        case e:SQLException =>
+                            println(e)
+                            c.rollback()
+                    } finally {
+                        c.setAutoCommit(true)
+                    }
+
+                    None
+                }
+            }
+        }
 
         def generateAndPrint(gc:GeneratorConfig):Unit = {
             withPrintWriter(new File("insert_votes_wk" + gc.wkid + ".sql")) ({ p =>
@@ -189,7 +246,7 @@ object Generator {
                     for (wkid <- fromwkid to towkid) {
                         val distribution = singleWKConfig(year, wkid)
                         if (distribution.sampleSize < 1) println(f"WKID ${wkid} not found for year ${year}")
-                        else generateAndPrint(distribution)
+                        else generateAndExecute(distribution)
                     }
                 } catch {
                     case e:Exception => {
@@ -206,7 +263,7 @@ object Generator {
             case Some(wkid) => {
                 val distribution = singleWKConfig(year, wkid)
                 if (distribution.sampleSize < 1) println(f"WKID ${wkid} not found for year ${year}")
-                else generateAndPrint(distribution)
+                else generateAndExecute(distribution)
             }
         }
     }
