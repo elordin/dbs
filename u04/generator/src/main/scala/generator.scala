@@ -151,6 +151,7 @@ object Generator {
 
                 p.println(f"INSERT INTO Wahlbezirk (wbid, wkid) VALUES (${wbid}, ${gc.wkid});")
                 p.println(f"INSERT INTO DirektWahlbezirkData (wbid, dwbid) VALUES (${wbid}, ${dwbid});")
+                p.println(f"INSERT INTO AccumulatedZweitstimmenWB (wbid, llid) SELECT ${wbid}, llid FROM Landesliste;")
                 p.println(f"UPDATE Candidacy SET votes = 0 WHERE wkid = ${gc.wkid};")
 
                 gc.zweitstimmen.foreach({
@@ -167,7 +168,7 @@ object Generator {
                     } else {
                         val (firstname, lastname) = Names.getName(sz.gender)
                         val (dobDay, dobMonth) = randomDayOfBirth
-                        p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${dobDay}.${dobMonth}.${2009 - sz.age}.', '${sz.gender}', '');")
+                        p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${2009 - sz.age}.${dobMonth}.${dobDay}', '${sz.gender}', '');")
                         sz.toString
                     }
                     p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
@@ -180,11 +181,25 @@ object Generator {
 
         wkInput match {
             case None => {
-                val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
-                if (distributionsByWahlkreis.size < 1) println(f"No entries for year ${year}")
-                else {
-                    for ((wkid, gc) <- distributionsByWahlkreis) {
-                        generateAndPrint(gc)
+                try {
+                    val fromS = args(1).takeWhile(_ != '-')
+                    val toS = args(1).dropWhile(_ != '-').tail
+                    val fromwkid = fromS.toInt
+                    val towkid = toS.toInt
+                    for (wkid <- fromwkid to towkid) {
+                        val distribution = singleWKConfig(year, wkid)
+                        if (distribution.sampleSize < 1) println(f"WKID ${wkid} not found for year ${year}")
+                        else generateAndPrint(distribution)
+                    }
+                } catch {
+                    case e:Exception => {
+                        val distributionsByWahlkreis:Map[Int, GeneratorConfig] = allWKConfigs(year)
+                        if (distributionsByWahlkreis.size < 1) println(f"No entries for year ${year}")
+                        else {
+                            for ((wkid, gc) <- distributionsByWahlkreis) {
+                                generateAndPrint(gc)
+                            }
+                        }
                     }
                 }
             }
