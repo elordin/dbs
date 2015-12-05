@@ -10,5 +10,5 @@ resolvers += "Big Bee Consultants" at "http://repo.bigbeeconsultants.co.uk/repo"
 
 libraryDependencies ++= Seq(
     "com.typesafe.akka" %% "akka-actor" % "2.4.1",
-    "uk.co.bigbeeconsultants" %% "bee-client" % "0.28.+"
+    "io.spray"          %%  "spray-can" % "1.3.3"
 )
