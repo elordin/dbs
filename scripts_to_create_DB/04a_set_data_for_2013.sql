@@ -16,3 +16,4 @@ update FederalState set citizencount = 1585032 where fsid = 15;
 update FederalState set citizencount = 4005278 where fsid = 16;
 
 update electionyear set iscurrent=TRUE where year=2013;
+update electionyear set iscurrent=FALSE where year=2009;

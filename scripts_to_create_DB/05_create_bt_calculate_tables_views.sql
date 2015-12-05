@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS Results_RankedCandidatesFirstVotes_Old (
 	wkid INT REFERENCES Wahlkreis(wkid),
 	rank INT NOT NULL DEFAULT 0,
 	idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
-	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
+	pid INT REFERENCES Party(pid) ON DELETE CASCADE,
 	votes INT NOT NULL DEFAULT 0
 );
 
@@ -420,7 +420,7 @@ CREATE OR REPLACE VIEW Results_Delegates_Current (idno, fsid, pid, wkid, llpos, 
 	idno VARCHAR(32) NOT NULL REFERENCES CandidatesData(idno) ON DELETE CASCADE,
 	fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
 	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
-	wkid INT NOT NULL REFERENCES Wahlkreis(wkid) ON DELETE CASCADE,
+	wkid INT REFERENCES Wahlkreis(wkid) ON DELETE CASCADE,
 	llpos INT NOT NULL DEFAULT 0,
 	ctype VARCHAR(255) NOT NULL,
 	rankInFS INT NOT NULL DEFAULT 0
@@ -485,12 +485,12 @@ CREATE OR REPLACE VIEW  Results_NarrowWahlkreisWinsAndLosings_Current (wkid, idn
 	FROM MergedTop10WinsAndLosings
 );
 
-
+--NarrowWahlkreisWinsAndLosings
 CREATE TABLE IF NOT EXISTS Results_NarrowWahlkreisWinsAndLosings_Old (
 	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
 	wkid INT REFERENCES Wahlkreis(wkid),
 	idno VARCHAR(32) NOT NULL REFERENCES Citizen(idno),
-	pid INT NOT NULL REFERENCES Party(pid) ON DELETE CASCADE,
+	pid INT REFERENCES Party(pid) ON DELETE CASCADE,
 	rank INT NOT NULL DEFAULT 0,
 	diffvotes INT NOT NULL DEFAULT 0
 );
@@ -503,6 +503,7 @@ CREATE OR REPLACE VIEW Results_NarrowWahlkreisWinsAndLosings (year, wkid, idno, 
 	FROM Results_NarrowWahlkreisWinsAndLosings_Current r
 );
 
+--VoterparticipationPerWK
 CREATE OR REPLACE VIEW Results_VoterparticipationPerWK_Current(wkid, elective, voted) AS
 (
 	WITH Results_NumberOfElectivesPerWK(wkid, sum) AS (
