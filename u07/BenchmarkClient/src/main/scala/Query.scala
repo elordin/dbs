@@ -7,9 +7,10 @@ trait Query {
     def prop:Int
 }
 
-case class GenericQuery(_uri:String, _prop:Int) extends Query {
+case class GenericQuery(name:String, _uri:String, _prop:Int) extends Query {
     def uri = Uri(_uri)
     def prop = _prop
+    override def toString:String = name
 }
 
 object Q1 extends Query {
