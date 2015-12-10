@@ -101,18 +101,27 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLO
 
 
 CREATE OR REPLACE VIEW Results_View_Wahlkreiswinners(year, fsid, fs_name, wkid, wk_name, wknr, fv_title, fv_lastname, fv_firstname, fv_p_name, fv_p_shorthand, fv_p_colourcode, fv_p_website, sv_p_name, sv_p_shorthand, sv_p_colourcode, sv_p_website)  AS (
-    SELECT  wkwfv.year, fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr,
-        c.title as fv_title, c.lastname as fv_lastname, c.firstname as fv_firstname, p.name as fv_p_name, p.shorthand as fv_p_shorthand, p.colourcode as fv_p_colourcode, p.website as fv_p_website,
-        p2.name as sv_p_name, p2.shorthand as sv_p_shorthand, p2.colourcode as sv_p_colourcode, p2.website as sv_p_website
-    FROM Results_WahlkreisWinnersFirstVotes wkwfv
-    JOIN Wahlkreis wk ON wk.wkid = wkwfv.wkid
-    JOIN Candidates c ON c.idno = wkwfv.idno
-    JOIN Federalstate fs ON fs.fsid = wk.fsid
-    LEFT OUTER JOIN Party p on p.pid = wkwfv.pid
-    JOIN AccumulatedZweitstimmenWK azwwk ON wkwfv.wkid = azwwk.wkid
-    JOIN Landesliste ll ON azwwk.llid = ll.llid
-    JOIN Party p2 ON p2.pid = ll.pid
-    WHERE azwwk.votes = (select max(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk2.wkid = azwwk.wkid)
+    WITH RankedLandeslistenPerWK (wkid, llid, rank) AS (
+		SELECT acczswk.wkid, acczswk.llid, rank() OVER (PARTITION BY acczswk.wkid ORDER BY acczswk.votes desc) as rank
+		FROM AccumulatedZweitstimmenWK acczswk
+	),
+	WahlkreisWinnersSecondVotes (wkid, llid) AS (
+		SELECT wkllpwk.wkid, wkllpwk.llid
+		FROM RankedLandeslistenPerWK wkllpwk
+		WHERE rank = 1
+	)
+
+	SELECT  wkwfv.year, fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr,
+	c.title as fv_title, c.lastname as fv_lastname, c.firstname as fv_firstname, p.name as fv_p_name, p.shorthand as fv_p_shorthand, p.colourcode as fv_p_colourcode, p.website as fv_p_website,
+	p2.name as sv_p_name, p2.shorthand as sv_p_shorthand, p2.colourcode as sv_p_colourcode, p2.website as sv_p_website
+	FROM Results_WahlkreisWinnersFirstVotes wkwfv
+	JOIN Wahlkreis wk ON wk.wkid = wkwfv.wkid
+	JOIN Candidates c ON c.idno = wkwfv.idno
+	JOIN Federalstate fs ON fs.fsid = wk.fsid
+	LEFT OUTER JOIN Party p on p.pid = wkwfv.pid
+	JOIN WahlkreisWinnersSecondVotes wkwsv ON wkwfv.wkid = wkwsv.wkid
+	JOIN Landesliste ll ON wkwsv.llid = ll.llid
+	JOIN Party p2 ON p2.pid = ll.pid
 );
 
 CREATE OR REPLACE VIEW Results_View_UeberhangsMandate(year, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, mandates)  AS (
