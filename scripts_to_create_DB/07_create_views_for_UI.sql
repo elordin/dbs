@@ -1,3 +1,5 @@
+BEGIN;
+
 CREATE OR REPLACE VIEW Results_View_Seatdistribution_Bundestag(year, seats, name, shorthand, colourcode, website, isminority) AS (
     SELECT tnospp.year, tnospp.seats, p.name, p.shorthand, p.colourcode, p.website, p.isminority
     FROM Results_TotalNumberOfSeatsPerParty tnospp
@@ -51,24 +53,24 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners_SLOW(titl
 		GROUP BY c.wkid, c.idno, c.supportedby
 	),
 	Results_RankedCandidatesFirstVotes_Current_SLOW(wkid, rank, idno, pid, votes) AS (
-		SELECT  c.wkid, 
+		SELECT  c.wkid,
 			rank() OVER (PARTITION BY c.wkid ORDER BY c.votes desc) as rank,
 			c.idno, c.supportedby as pid, c.votes
 		FROM CandidacyWithVotes_SLOW c
 		JOIN Wahlkreis wk ON c.wkid = wk.wkid
-		WHERE wk.year= (select year from electionyear where iscurrent=true)  
+		WHERE wk.year= (select year from electionyear where iscurrent=true)
 	),
 	Results_WahlkreisWinnersFirstVotes_Current_SLOW (wkid, idno, pid, votes) AS (
 		WITH RankedCandidatesFirstVotes AS (
 			SELECT * FROM Results_RankedCandidatesFirstVotes_Current_SLOW
 		)
-		
+
 		SELECT wkid, idno, pid, votes
-		FROM RankedCandidatesFirstVotes 
+		FROM RankedCandidatesFirstVotes
 		WHERE rank = 1
 	)
-	
-	
+
+
 	SELECT c.title, c.lastname, c.firstname, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
 	   fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name
 	FROM Results_WahlkreisWinnersFirstVotes_Current_SLOW wkwsv
@@ -89,7 +91,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLO
 		GROUP BY wk.wkid, ll.llid
 
 	)
-	
+
 	SELECT wk.wkid, wk.name as wk_name, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
 	   azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel
 	FROM AccumulatedZweitstimmenWK_SLOW azwwk
@@ -134,3 +136,5 @@ CREATE OR REPLACE VIEW  Results_View_NarrowWahlkreisWinsAndLosings (year, fsid, 
     JOIN Party p ON p.pid = nwkwl.pid
     JOIN Candidates c ON c.idno = nwkwl.idno
 )
+
+COMMIT;

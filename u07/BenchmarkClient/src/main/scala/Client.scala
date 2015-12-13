@@ -27,15 +27,19 @@ object Client extends App {
         if (parsedDuration.isFinite)
             FiniteDuration(parsedDuration.toMillis, TimeUnit.MILLISECONDS).fromNow
         else
-            30.seconds.fromNow
+            throw new IllegalArgumentException
     } catch {
-        case _:NumberFormatException => 30.seconds.fromNow
+        case _:NumberFormatException =>
+            println("Invalid format for deadline. Falling back to 30 seconds.")
+            30.seconds.fromNow
     }
 
     val n:Int = try {
         config.getInt("benchmark.n")
     } catch {
-        case _:Exception => 2
+        case _:Exception =>
+            println("Invalid format for n. Falling back to 2.")
+            2
     }
 
     val t:FiniteDuration = try {
@@ -43,9 +47,11 @@ object Client extends App {
         if (parsedDuration.isFinite)
             FiniteDuration(parsedDuration.toMillis, TimeUnit.MILLISECONDS)
         else
-            100.millis
+            throw new IllegalArgumentException
     } catch {
-        case _:Exception => 100.millis
+        case _:Exception =>
+            println("Invalid format for t. Falling back to 100 millis.")
+            100.millis
     }
 
     val queries:List[Query] = try {
@@ -63,14 +69,20 @@ object Client extends App {
                     queryList ::= query
                 } catch {
                     case e:IllegalUriException =>
-                        println("Invalid URI format found in config.")
+                        println("Invalid URI format found in config. Ingoring.")
                 }
             }
         )
-
-        queryList
+        if (queryList.length < 1) {
+            println("No valid queries found. Falling back to default.")
+            throw new IllegalArgumentException
+        } else {
+            queryList
+        }
     } catch {
-        case _:Exception => List(Q1, Q2, Q3, Q4, Q5, Q6)
+        case _:Exception =>
+            println("Invalid query format. Falling back to default.")
+            List(Q1, Q2, Q3, Q4, Q5, Q6)
     }
 
     val aggregator = system.actorOf(AggregationActor.props( deadline, n, t, queries ), "aggregator")

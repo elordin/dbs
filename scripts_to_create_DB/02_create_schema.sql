@@ -1,3 +1,5 @@
+BEGIN;
+
 DROP FUNCTION IF EXISTS incErststimme(INTEGER)                           CASCADE;
 DROP FUNCTION IF EXISTS decErststimme(INTEGER)                           CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk(INTEGER, INTEGER)       CASCADE;
@@ -424,3 +426,5 @@ CREATE OR REPLACE FUNCTION initalizeHasVoted(_year INT) RETURNS INT AS $init$
     END;
 $init$
 LANGUAGE plpgsql;
+
+COMMIT;

@@ -1,3 +1,5 @@
+BEGIN;
+
 WITH RECURSIVE Factors2(f) AS (
 	Values(0.5)
 	UNION ALL
@@ -10,3 +12,5 @@ WITH RECURSIVE Factors2(f) AS (
 INSERT INTO Factors
 SELECT f
 FROM Factors2;
+
+COMMIT;

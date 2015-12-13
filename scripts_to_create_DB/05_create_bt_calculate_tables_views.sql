@@ -1,3 +1,4 @@
+BEGIN;
 --Factors Table
 CREATE TABLE IF NOT EXISTS Factors (
     f REAL PRIMARY KEY
@@ -538,7 +539,7 @@ CREATE TABLE IF NOT EXISTS Results_VoterparticipationPerWK_Old (
 
 CREATE OR REPLACE VIEW Results_VoterparticipationPerWK  (year, wkid, elective, voted) AS (
 	SELECT *
-	FROM Results_VoterparticipationPerWK_Old 
+	FROM Results_VoterparticipationPerWK_Old
 	UNION ALL
 	SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_VoterparticipationPerWK_Current r
@@ -645,3 +646,4 @@ CREATE OR REPLACE VIEW Results_VoterparticipationPerWK  (year, wkid, elective, v
 -- select * from RankedWahlkreisCandidatesFirstVotes
 
 
+COMMIT;

@@ -33,7 +33,7 @@ class HttpRequester(
     import AggregationActor._
     import context._
 
-    implicit val timeout: Timeout = Timeout(10.seconds)
+    implicit val timeout: Timeout = Timeout(30.seconds)
 
 
     val logging = Logging(context.system, this)

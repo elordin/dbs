@@ -1,6 +1,125 @@
 var express = require('express');
 var router = express.Router();
 
+
+router.get('/vote', function (req, res) {
+    if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
+        res.render('auth');
+    } else {
+        // get cookie in db
+        req.db.connect(function (err) {
+            if (err) {
+                res.status(500).render("error", {error: err});
+            } else {
+                req.db.query(
+                    "SELECT * FROM Tokens WHERE token = $1 AND address = $2",
+                    [req.cookies.token, req.connection.remoteAddress],
+                    function (err, result) {
+                        if (err) {
+                            res.status(500).render("error", {error: err});
+                        } else if (result.rowsCount < 1) {
+                            res.cookie('token', '');
+                            res.render('auth');
+                        } else {
+                            res.render('vote', {});
+                        }
+                });
+            }
+        });
+    }
+});
+
+
+router.post('/vote', function () {
+    var erststimme = req.body.erststimme;
+    var zweitstimme = req.body.zweitstimme;
+
+    if (!erststimme || !zweitstimme) {
+        res.status(500).render("error", {error: err});
+    } else if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
+        res.redirect('/vote');
+    } else {
+        // get cookie in db
+        req.db.connect(function (err) {
+            if (err) {
+                res.status(500).render("error", {error: err});
+            } else {
+                req.db.query(
+                    "SELECT * FROM Tokens WHERE token = $1 AND address = $2",
+                    [req.cookies.token, req.connection.remoteAddress],
+                    function (err, result) {
+                        if (err) {
+                            res.status(500).render("error", {error: err});
+                        } else if (result.rowsCount < 1) {
+                            res.cookie('token', '');
+                            res.redirect('/vote');
+                        } else {
+                            req.db.query(
+                               "BEGIN;" +
+                               "DELETE FROM Tokens WHERE token = $1 AND address = $2;" +
+                               "INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme)" +
+                               "                 VALUES ($3,    $4,     $5,  $6,         $7);" +
+                               "COMMIT;",
+                                [req.cookies.token,
+                                 req.connection.remoteAddress,
+                                 result.rows[0].dwbid,
+                                 result.rows[0].gender,
+                                 result.rows[0].age,
+                                 erststimme,
+                                 zweitstimme], function (err, result) {
+                                if (err) {
+                                    res.status(500).render("error", {error: err});
+                                } else {
+                                    res.cookie('token', '').redirect('/voted');
+                                }
+                            });
+
+                        }
+                });
+            }
+        });
+    }
+});
+
+
+router.post('/auth', function (req, res) {
+    var idno = req.body.idno;
+    var pin = req.body.pin;
+
+    if (!idno || !pin) {
+        res.status(500).render("error", {error: err});
+        return;
+    }
+
+    if (req.cookies.token && typeof(req.cookies.token) == 'string') {
+        res.redirect('/vote');
+    }
+
+    req.db.connect(function (err) {
+        if (err) {
+            res.status(500).render("error", {error: err});
+        } else {
+            req.db.query("SELECT dwbid FROM CitizenRegistration WHERE idno = $1 AND authtoken = $2", [idno, pin], function (err, result) {
+                if (err ||
+                    result.rowsCount != 1 ||
+                    !result.rows[0] ||
+                    !result.rows[0].dwbid) {
+                    res.status(500).render("error", {error: err});
+                } else {
+                    var dwbid = result.rows[0].dwbid;
+                    req.db.query("INSERT INTO Tokens (token, dwbid) SELECT *, $1 FROM tokenGenerator() LIMIT 1", [dbwid], function (err, result) {
+                        if (err) {
+                            res.status(500).render("error", {error: err});
+                        } else {
+                            res.cookie('token', token).redirect('/vote');
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
 function maxYearInDB() {
     return 2013;
 }
@@ -277,7 +396,6 @@ router.get(/^\/wahlkreise(\/[0-9]{2}|[0-9]{4})\/wk\/([0-9]{1,3})\/slow\/?$/, fun
             'ueberhangsmandate');
     }
 });
-
 
 
 module.exports = router;

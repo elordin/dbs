@@ -49,8 +49,11 @@ class AggregationActor(
 
 
     def printAvgs:Unit = {
+        println("Query\tCount\tResponse Time")
         val avgs = responses.mapValues( ds => (ds.length, ds.sum / ds.length) )
-        avgs.map( (kvp:(Query, (Int, Long))) => println ( kvp._1 + ";" + kvp._2._1 + ";" + kvp._2._2 ) )
+        avgs.toList.sortBy(_._1.toString).map {
+            case (query, (count, time)) => println(query + "\t" + count + "\t" + time)
+        }
         println("")
     }
 

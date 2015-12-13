@@ -1,3 +1,4 @@
+BEGIN;
 update FederalState set citizencount = 3025288 where fsid = 1;
 update FederalState set citizencount = 3672888 where fsid = 2;
 update FederalState set citizencount = 7354892 where fsid = 3;
@@ -17,3 +18,4 @@ update FederalState set citizencount = 4005278 where fsid = 16;
 
 update electionyear set iscurrent=TRUE where year=2013;
 update electionyear set iscurrent=FALSE where year=2009;
+COMMIT;
