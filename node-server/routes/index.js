@@ -17,11 +17,18 @@ router.get('/vote', function (req, res) {
                     function (err, result) {
                         if (err) {
                             res.status(500).render("error", {error: err});
-                        } else if (result.rowsCount < 1) {
+                        } else if (result.rowCount != 1) {
                             res.cookie('token', '');
                             res.render('auth');
                         } else {
-                            res.render('vote', {});
+                            var dwbid = result.dwbid;
+                            req.db.query("SELECT * FROM Votables NATURAL JOIN Wahlbezirk NATURAL JOIN DirekwahlbezirkData WHERE dwbid = $1", [dwbid], function (err, result) {
+                                if (err) {
+                                    res.status(500).render("error", {error: err});
+                                } else {
+                                    res.render('vote', { votables: result.rows });
+                                }
+                            });
                         }
                 });
             }
@@ -54,6 +61,8 @@ router.post('/vote', function () {
                             res.cookie('token', '');
                             res.redirect('/vote');
                         } else {
+                            // validate voted Candidate and Landesliste are actually votable for this person
+
                             req.db.query(
                                "BEGIN;" +
                                "DELETE FROM Tokens WHERE token = $1 AND address = $2;" +
@@ -87,7 +96,7 @@ router.post('/auth', function (req, res) {
     var pin = req.body.pin;
 
     if (!idno || !pin) {
-        res.status(500).render("error", {error: err});
+        res.status(500).render("error", {error: "Parameters missing"});
         return;
     }
 
@@ -99,18 +108,25 @@ router.post('/auth', function (req, res) {
         if (err) {
             res.status(500).render("error", {error: err});
         } else {
-            req.db.query("SELECT dwbid FROM CitizenRegistration WHERE idno = $1 AND authtoken = $2", [idno, pin], function (err, result) {
-                if (err ||
-                    result.rowsCount != 1 ||
+            req.db.query("SELECT random_string(64) AS token, dwbid, FLOOR(EXTRACT(DAYS FROM (now() - dateofbirth)) / 365) AS age, gender, hasvoted " +
+                         "FROM CitizenRegistration NATURAL JOIN Citizen NATURAL JOIN hasVoted NATURAL JOIN ElectionYear WHERE iscurrent AND idno = $1 AND authtoken = $2", [idno, pin], function (err, result) {
+                if (err)
+                    res.status(500).render("error", {error: err});
+                if (result.rowCount && result.rowCount != 1 ||
                     !result.rows[0] ||
                     !result.rows[0].dwbid) {
-                    res.status(500).render("error", {error: err});
+                    res.render('auth', { error: 'Personalausweis-Nr. konnte nicht gefunden werden oder die PIN ist falsch.'});
+                } else if (results.rows[0].hasvoted) {
+                    res.render('auth', { error: 'Sie haben bereits gewählt.'});
                 } else {
-                    var dwbid = result.rows[0].dwbid;
-                    req.db.query("INSERT INTO Tokens (token, dwbid) SELECT *, $1 FROM tokenGenerator() LIMIT 1", [dbwid], function (err, result) {
+                    var token = result.rows[0].token;
+                    console.log(result.rows[0]);
+                    req.db.query("BEGIN; UPDATE hasVoted SET hasvoted = true WHERE idno = $1; INSERT INTO Tokens (token, age, gender, dwbid, address) VALUES ($1, $2, $3, $4, $5); COMMIT;",
+                        [idno, token, result.rows[0].age, result.rows[0].gender, result.rows[0].dwbid, req.connection.remoteAddress ], function (err, result) {
                         if (err) {
                             res.status(500).render("error", {error: err});
                         } else {
+                            console.log(result);
                             res.cookie('token', token).redirect('/vote');
                         }
                     });
@@ -378,8 +394,6 @@ router.get(/^\/closest-winners(\/([0-9]{2}|[0-9]{4}))?(\/([A-Za-z0-9%\+]+))?\/?$
             'closest-winners-single', year, 'Knappste Sieger ' + year + ' - ' + shorthand, {});
     }
 });
-
-
 
 // Q7: Wahlkreis overview again
 

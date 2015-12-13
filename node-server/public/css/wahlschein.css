@@ -262,13 +262,13 @@ label {
     box-sizing: border-box;
 }
 
-label input {
+/* label input {
     visibility: hidden;
     width: 0;
     height: 0;
     margin: -.25em;
     display: block;
-}
+} */
 
 input:focus {
     outline: none;
@@ -318,4 +318,27 @@ label input:checked::before {
 label span {
     padding-left: 2em;
     display: inline-block;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: .5em;
+    font-size: 1.5em;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: .5em 0;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.error {
+    background-color: rgba(255,0,0,.1);
+    color: #c00;
+    border: thin solid #c00;
+    padding: 1em;
+    font-size: 1.25em;
 }

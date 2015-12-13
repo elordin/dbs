@@ -1,0 +1,86 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title #{title} - Wahl-Informationssystem zur Bundestagswahl
+        link(rel='stylesheet', href='/css/wahlschein.css')
+    body
+        form(action="/vote", method="POST")
+            header
+                #titles
+                    h1 Bundestagswahl 2013
+                    h2 Wahlschein für die Wahl Wahl zum Deutschen Bundestag am 22.09.2013
+                dl.info
+                    dt Wahlkreis
+                    dd= wk_name + ' (' + wknr + ')'
+                    dt Wahlbezirk
+                    dd= dwb_name
+
+            section.explanations
+                label(for="expl-toggle")
+                    h3 Erl&auml;uterungen
+                input#expl-toggle.collapse-toggle(type="checkbox")
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et tincidunt leo. Fusce molestie mollis molestie. Pellentesque id rhoncus orci. Donec eu euismod massa. Morbi et ultricies leo. Praesent venenatis ac ante vel euismod. Pellentesque commodo, nibh a elementum rutrum, nisi quam ultrices nibh, id faucibus sapien sem quis arcu. Ut nisl elit, consectetur non vehicula cursus, pulvinar id velit. In quis risus ex. Nulla in quam fringilla, ornare nibh id, consectetur sem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu suscipit mauris, sit amet hendrerit justo. Nunc id elit feugiat, viverra leo ac.
+            section.erststimme.col.left
+                h3 Erststimme
+                ul.radios
+                  //
+                    <li>
+                        <label>
+                            <input type="radio" name="erststimme">
+                            <span><abbr title="Christ-Demokratische Union">CDU</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="erststimme">
+                            <span><abbr title="Sozialdemokratische Partei Deutschlands">SPD</abbr></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="erststimme">
+                            <span><abbr title="DIE LINKE">DIE LINKE</abbr></span>
+                        </label>
+                    </li>
+                    <li class="validity" id="validityZweitstimme">
+                        <label>
+                            <input type="radio" name="erststimme">
+                            <span>Ung&uuml;ltige Stimme</span>
+                        </label>
+                    </li>
+
+            section.zweitstimme.col.right
+                h3 Zweitstimme
+                ul.radios
+                  //
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span><abbr title="Christ-Demokratische Union">CDU</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span><abbr title="Sozialdemokratische Partei Deutschlands">SPD</abbr></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span><abbr title="DIE LINKE">DIE LINKE</abbr></span>
+                        </label>
+                    </li>
+                    <li class="validity" id="validityZweitstimme">
+                        <label>
+                            <input type="radio" name="zweitstimme">
+                            <span>Ung&uuml;ltige Stimme</span>
+                        </label>
+                    </li>
+
+            div
+                label.terms
+                    input(type="checkbox", name="terms")
+                    span Ich best&auml;tige, dass ich die Hinweise und Bedingungen der Wahl kurz &uuml;berflogen habe und davon &uuml;berzeugt bin, sie verstanden zu haben.
+                button(type="submit") Wahlzettel abgeben
