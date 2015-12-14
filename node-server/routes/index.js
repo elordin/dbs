@@ -22,7 +22,7 @@ router.get('/vote', function (req, res) {
                             res.render('auth');
                         } else {
                             var dwbid = result.dwbid;
-                            req.db.query("SELECT * FROM Votables NATURAL JOIN Wahlbezirk NATURAL JOIN DirekwahlbezirkData WHERE dwbid = $1", [dwbid], function (err, result) {
+                            req.db.query("SELECT * FROM Votables NATURAL JOIN Wahlbezirk NATURAL JOIN DirektwahlbezirkData WHERE dwbid = $1 ORDER BY ll_pname", [dwbid], function (err, result) {
                                 if (err) {
                                     res.status(500).render("error", {error: err});
                                 } else {
@@ -37,7 +37,7 @@ router.get('/vote', function (req, res) {
 });
 
 
-router.post('/vote', function () {
+router.post('/vote', function (req, res) {
     var erststimme = req.body.erststimme;
     var zweitstimme = req.body.zweitstimme;
 
@@ -112,11 +112,13 @@ router.post('/auth', function (req, res) {
                          "FROM CitizenRegistration NATURAL JOIN Citizen NATURAL JOIN hasVoted NATURAL JOIN ElectionYear WHERE iscurrent AND idno = $1 AND authtoken = $2", [idno, pin], function (err, result) {
                 if (err)
                     res.status(500).render("error", {error: err});
-                if (result.rowCount && result.rowCount != 1 ||
+                if (!result ||
+                    !result.rowCount ||
+                     result.rowCount != 1 ||
                     !result.rows[0] ||
                     !result.rows[0].dwbid) {
                     res.render('auth', { error: 'Personalausweis-Nr. konnte nicht gefunden werden oder die PIN ist falsch.'});
-                } else if (results.rows[0].hasvoted) {
+                } else if (result.rows[0].hasvoted) {
                     res.render('auth', { error: 'Sie haben bereits gewählt.'});
                 } else {
                     var token = result.rows[0].token;

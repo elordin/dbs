@@ -24,60 +24,38 @@ html
             section.erststimme.col.left
                 h3 Erststimme
                 ul.radios
-                  //
-                    <li>
-                        <label>
-                            <input type="radio" name="erststimme">
-                            <span><abbr title="Christ-Demokratische Union">CDU</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="erststimme">
-                            <span><abbr title="Sozialdemokratische Partei Deutschlands">SPD</abbr></span>
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="erststimme">
-                            <span><abbr title="DIE LINKE">DIE LINKE</abbr></span>
-                        </label>
-                    </li>
-                    <li class="validity" id="validityZweitstimme">
-                        <label>
-                            <input type="radio" name="erststimme">
-                            <span>Ung&uuml;ltige Stimme</span>
-                        </label>
-                    </li>
+                    for candidate in votables
+                        li
+                            label
+                                if candidate.cid != 'undefined' && candidate.cid != 'null'
+                                    input(type="radio", name="erststimme")
+                                    span
+                                        = candidate.c_firstname + ' ' + candidate.c_lastname + ' (' + candidate.c_age + ')'
+                                        br
+                                        abbr(title=candidate.ll_pname)= candidate.ll_pshorthand
+
+                    li.validity#validityErststimme
+                        label
+                            input(type="radio", name="erststimme")
+                            span Ung&uuml;ltige Stimme
 
             section.zweitstimme.col.right
                 h3 Zweitstimme
                 ul.radios
-                  //
-                    <li>
-                        <label>
-                            <input type="radio" name="zweitstimme">
-                            <span><abbr title="Christ-Demokratische Union">CDU</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="zweitstimme">
-                            <span><abbr title="Sozialdemokratische Partei Deutschlands">SPD</abbr></span>
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="zweitstimme">
-                            <span><abbr title="DIE LINKE">DIE LINKE</abbr></span>
-                        </label>
-                    </li>
-                    <li class="validity" id="validityZweitstimme">
-                        <label>
-                            <input type="radio" name="zweitstimme">
-                            <span>Ung&uuml;ltige Stimme</span>
-                        </label>
-                    </li>
+
+
+                    for landesliste in votables
+                        li
+                            label
+                                if landesliste.llid != 'undefined' && landesliste.llid != 'null'
+                                    input(type="radio", name="zweitstimme")
+                                    span
+                                        abbr(title=landesliste.ll_pname)= landesliste.ll_pshorthand
+
+                    li.validity#validityZweitstimme
+                        label
+                            input(type="radio", name="zweitsitmme")
+                            span Ung&uuml;ltige Stimme
 
             div
                 label.terms

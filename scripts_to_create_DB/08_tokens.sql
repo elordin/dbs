@@ -32,4 +32,21 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+CREATE OR REPLACE VIEW Votables(wkid,
+    cid, c_idno, c_firstname, c_lastname, c_age,
+    llid, ll_pid, ll_pname, ll_pshorthand) AS (
+
+    SELECT
+        wk.wkid,
+        cas.cid, cas.idno, cis.firstname, cis.lastname,
+        FLOOR(EXTRACT(DAYS FROM (now() - cis.dateofbirth)) / 365) AS age,
+        lls.llid, lls.pid, p.name, p.shorthand
+
+    FROM
+        Candidacy cas NATURAL JOIN Citizen cis NATURAL JOIN Wahlkreis wk FULL OUTER JOIN LandesListe lls
+        ON cas.supportedby = lls.pid AND wk.fsid = lls.fsid AND wk.year = lls.year
+        INNER JOIN Party p
+        ON cas.supportedby = p.pid AND lls.pid = p.pid
+);
+
 COMMIT;
