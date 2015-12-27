@@ -4,13 +4,14 @@ block js-includes
     script(src="/js/jquery-latest.js")
     script(src="/js/jquery.tablesorter.min.js")
     script.
-        $(document).ready(function () {
-            $('#uhm-table').tablesorter();
+        $(document).ready(function() {
+            $(".ueberhangsmandate").tablesorter();
         });
+
 
 block content
     h2= unescape('%DCberhangsmandate ') + year
-    table.ueberhangsmandate.tablesorter(id="uhm-table")
+    table.ueberhangsmandate.tablesorter
         thead
             tr
                 th Partei
@@ -22,7 +23,9 @@ block content
                     td= uhm.p_name + ' (' + uhm.p_shorthand + ')'
                     td= uhm.fs_name
                     td= uhm.mandates
-
-#            tr.total
-#               th(colspan=2) Gesamt
-#               td= data.reduce(function (i, e) { return i + parseInt(e.mandates); }, 0)
+    table
+        tbody
+            tr.total
+                td(colspan=2)
+                    em Gesamt
+                td= data.reduce(function (i, e) { return i + parseInt(e.mandates); }, 0)

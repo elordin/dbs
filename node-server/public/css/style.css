@@ -443,3 +443,22 @@ th a {
 .green {
     color: #0c0;
 }
+
+.tablesorter th::before {
+    content: '\f0dc';
+    font-family: FontAwesome;
+    padding: 0 .25em;
+}
+
+
+th.headerSortUp::before {
+    content: '\f0dd';
+}
+
+th.headerSortDown::before {
+    content: '\f0de';
+}
+
+.tablesorter th.no-order::before {
+    content: '';
+}

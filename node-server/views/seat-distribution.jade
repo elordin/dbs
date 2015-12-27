@@ -13,12 +13,12 @@ block content
         p.error.empty= 'No results found.'
     else
         .pie-chart
-        table
+        table.seat-distribution
             thead
                 tr
                     th(colspan=2)='Partei'
                     th='Sitze'
-            tbody.sortable#seats
+            tbody#seats
                 each row in data
                     tr
                         td.handle
