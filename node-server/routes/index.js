@@ -2,38 +2,45 @@ var express = require('express');
 var router = express.Router();
 
 
+function sanitize(input) {
+    return input;
+}
+
+
 router.get('/vote', function (req, res) {
-    if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
-        res.render('auth');
-    } else {
+    // if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
+        // res.render('auth');
+    // } else {
         // get cookie in db
         req.db.connect(function (err) {
             if (err) {
                 res.status(500).render("error", {error: err});
             } else {
-                req.db.query(
-                    "SELECT * FROM Tokens WHERE token = $1 AND address = $2",
-                    [req.cookies.token, req.connection.remoteAddress],
-                    function (err, result) {
-                        if (err) {
-                            res.status(500).render("error", {error: err});
-                        } else if (result.rowCount != 1) {
-                            res.cookie('token', '');
-                            res.render('auth');
-                        } else {
-                            var dwbid = result.dwbid;
-                            req.db.query("SELECT * FROM Votables NATURAL JOIN Wahlbezirk NATURAL JOIN DirektwahlbezirkData WHERE dwbid = $1 ORDER BY ll_pname", [dwbid], function (err, result) {
+                // req.db.query(
+                    // "SELECT * FROM Tokens WHERE token = $1 AND address = $2",
+                    // ([req.cookies.token, req.connection.remoteAddress]).map(sanitize),
+                    // function (err, result) {
+                        // if (err) {
+                            // res.status(500).render("error", {error: err});
+                        // } else if (result.rowCount != 1) {
+                            // res.cookie('token', '');
+                            // res.render('auth');
+                        // } else {
+                            // var dwbid = result.dwbid;
+                            var dwbid = 2013300;
+                            req.db.query("SELECT * FROM Votables NATURAL JOIN Wahlbezirk NATURAL JOIN DirektwahlbezirkData WHERE dwbid = $1 ORDER BY ll_pname",
+                                [sanitize(dwbid)], function (err, result) {
                                 if (err) {
                                     res.status(500).render("error", {error: err});
                                 } else {
                                     res.render('vote', { votables: result.rows });
                                 }
                             });
-                        }
-                });
+                        // }
+                // });
             }
         });
-    }
+    // }
 });
 
 
@@ -53,7 +60,7 @@ router.post('/vote', function (req, res) {
             } else {
                 req.db.query(
                     "SELECT * FROM Tokens WHERE token = $1 AND address = $2",
-                    [req.cookies.token, req.connection.remoteAddress],
+                    ([req.cookies.token, req.connection.remoteAddress]).map(sanitize),
                     function (err, result) {
                         if (err) {
                             res.status(500).render("error", {error: err});
@@ -69,13 +76,13 @@ router.post('/vote', function (req, res) {
                                "INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme)" +
                                "                 VALUES ($3,    $4,     $5,  $6,         $7);" +
                                "COMMIT;",
-                                [req.cookies.token,
+                                ([req.cookies.token,
                                  req.connection.remoteAddress,
                                  result.rows[0].dwbid,
                                  result.rows[0].gender,
                                  result.rows[0].age,
                                  erststimme,
-                                 zweitstimme], function (err, result) {
+                                 zweitstimme]).map(sanitize), function (err, result) {
                                 if (err) {
                                     res.status(500).render("error", {error: err});
                                 } else {
@@ -109,7 +116,7 @@ router.post('/auth', function (req, res) {
             res.status(500).render("error", {error: err});
         } else {
             req.db.query("SELECT random_string(64) AS token, dwbid, FLOOR(EXTRACT(DAYS FROM (now() - dateofbirth)) / 365) AS age, gender, hasvoted " +
-                         "FROM CitizenRegistration NATURAL JOIN Citizen NATURAL JOIN hasVoted NATURAL JOIN ElectionYear WHERE iscurrent AND idno = $1 AND authtoken = $2", [idno, pin], function (err, result) {
+                         "FROM CitizenRegistration NATURAL JOIN Citizen NATURAL JOIN hasVoted NATURAL JOIN ElectionYear WHERE iscurrent AND idno = $1 AND authtoken = $2", ([idno, pin]).map(sanitize), function (err, result) {
                 if (err)
                     res.status(500).render("error", {error: err});
                 if (!result ||
@@ -124,7 +131,7 @@ router.post('/auth', function (req, res) {
                     var token = result.rows[0].token;
                     console.log(result.rows[0]);
                     req.db.query("BEGIN; UPDATE hasVoted SET hasvoted = true WHERE idno = $1; INSERT INTO Tokens (token, age, gender, dwbid, address) VALUES ($1, $2, $3, $4, $5); COMMIT;",
-                        [idno, token, result.rows[0].age, result.rows[0].gender, result.rows[0].dwbid, req.connection.remoteAddress ], function (err, result) {
+                        ([idno, token, result.rows[0].age, result.rows[0].gender, result.rows[0].dwbid, req.connection.remoteAddress ]).map(sanitize), function (err, result) {
                         if (err) {
                             res.status(500).render("error", {error: err});
                         } else {
@@ -182,6 +189,7 @@ router.get('/', function(req, res, next) {
 
 router.get(/^\/overview(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
     var year = parseYear(req.params[1]);
+    // TODO
     res.send('Overview');
 });
 
@@ -207,6 +215,10 @@ router.get(/^\/seat-distribution\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, 
 
 // Q2: Delegates of the Bundestag
 
+// TODO: Next icons
+// TODO: Show all view
+// TODO: Ordering option by name or by federal state
+
 router.get(/^\/q2(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
     res.redirect(301, '/delegates/' + (req.params[1] || ''));
 });
@@ -221,7 +233,6 @@ router.get(/^\/delegates\/([0-9]{2}|[0-9]{4})(\/([0-9]+))?\/?$/i, function(req, 
     if (!year) {
         res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
     } else {
-        // TODO: Ordering
         renderForDBQuery(req, res, 'SELECT * FROM Results_View_Delegates WHERE year = ' + year +
             ' ORDER BY fs_name, lastname, firstname ASC',
             'delegates', year, 'Abegordnete ' + year, {
@@ -230,7 +241,25 @@ router.get(/^\/delegates\/([0-9]{2}|[0-9]{4})(\/([0-9]+))?\/?$/i, function(req, 
     }
 });
 
+router.get(/^\/delegates\/([0-9]{2}|[0-9]{4})\/all\/?$/i, function(req, res, next) {
+    var year = parseYear(req.params[0]);
+    if (!year) {
+        res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
+    } else {
+        renderForDBQuery(req, res, 'SELECT * FROM Results_View_Delegates WHERE year = ' + year +
+            ' ORDER BY fs_name, lastname, firstname ASC',
+            'delegates', year, 'Abegordnete ' + year, {
+                page: 0,
+                all: true,
+            });
+    }
+});
+
+
 // Q3: Wahlkreis overview
+
+// TODO: Delta to last year
+// TODO: Participation
 
 router.get(/^\/q3(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function (req, res, next) {
     res.redirect(301, '/wahlkreise/' + req.params[1] || '');
@@ -315,6 +344,8 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/?$/, function (req
 
 // Q4: Wahlkreis winners
 
+// TODO: Show wknr instead of wkid
+
 router.get(/^\/q4(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function (req, res, next) {
     res.redirect(301, '/wahlkreise/' + req.params[1] ? req.params[1] : maxYearInDB() + '/');
 });
@@ -361,7 +392,7 @@ router.get(/^\/ueberhangmandate\/([0-9]{2}|[0-9]{4})\/?$/i, function(req, res, n
         res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
         renderForDBQuery(req, res, 'SELECT * FROM Results_View_UeberhangsMandate WHERE year = ' + year,
-            'ueberhangmandate', year, '&Uuml;berhangmandate ' + year);
+            'ueberhangmandate', year, unescape('%DCberhangsmandate ') + year);
     }
 });
 

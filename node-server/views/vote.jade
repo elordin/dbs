@@ -7,7 +7,7 @@ html
     body
         form(action="/vote", method="POST")
             header
-                #titles
+                #titles.titles
                     h1 Bundestagswahl 2013
                     h2 Wahlschein für die Wahl Wahl zum Deutschen Bundestag am 22.09.2013
                 dl.info
@@ -54,7 +54,7 @@ html
 
                     li.validity#validityZweitstimme
                         label
-                            input(type="radio", name="zweitsitmme")
+                            input(type="radio", name="zweitstimme")
                             span Ung&uuml;ltige Stimme
 
             div

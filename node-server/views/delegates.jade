@@ -16,7 +16,7 @@ block content
     if data.length < 1
         p.error.empty= 'No results found.'
     else
-        - var page_entries = data.slice(((page || 1) - 1) * page_size, (page || 1) * page_size)
+        - var page_entries = all ? data : data.slice(((page || 1) - 1) * page_size, (page || 1) * page_size)
         if page_entries.length < 1
             p.error.empty= 'Nothing found for page ' + page
             a(href='/delegates/' + year + '/' + max_pages) Go to last page
@@ -45,7 +45,12 @@ block content
 
             if (page || 1) > 1
                 a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
+                    i.fa.fa-chevron-left
 
             span.pagination Seite #{page || 1}
             if (page || 1) < Math.ceil(data.length / page_size)
                 a.pagination(href='/delegates/' + year + '/' + ((page || 1) + 1))
+                    i.fa.fa-chevron-right
+
+            if !all
+                a(style="float: right;", href='/delegates/' + year + '/all') Alle anzeigen
