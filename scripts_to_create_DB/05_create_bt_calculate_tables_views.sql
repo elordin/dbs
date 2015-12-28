@@ -527,7 +527,7 @@ CREATE OR REPLACE VIEW Results_VoterparticipationPerWK_Current(wkid, elective, v
 	)
 	SELECT rnoe.wkid, rnoe.sum, rnov.sum
 	FROM Results_NumberOfElectivesPerWK rnoe
-	JOIN Results_NumberOfVotesPerWK rnov ON rnoe.wkid=rnoe.wkid
+	INNER JOIN Results_NumberOfVotesPerWK rnov ON rnoe.wkid=rnov.wkid
 );
 
 CREATE TABLE IF NOT EXISTS Results_VoterparticipationPerWK_Old (

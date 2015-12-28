@@ -6,7 +6,7 @@ DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk(INTEGER, INTEGER)       CASCADE
 DROP FUNCTION IF EXISTS decZweitstimmeWahlbezirk(INTEGER, INTEGER)       CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeDirektWahlbezirk(INTEGER, INTEGER) CASCADE;
 DROP FUNCTION IF EXISTS decZweitstimmeDirektWahlbezirk(INTEGER, INTEGER) CASCADE;
-DROP MATERIALIZED VIEW FederalStateWithCitizenCount      CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS FederalStateWithCitizenCount      CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenFS           CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenWK           CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenWB           CASCADE;
