@@ -462,3 +462,32 @@ th.headerSortDown::before {
 .tablesorter th.no-order::before {
     content: '';
 }
+
+dl.general-info {
+    width: 100%;
+    display: flex;
+    padding: 1em 0;
+}
+
+dl.general-info div {
+    display: inline-block;
+    text-align: center;
+    flex: 1;
+}
+
+.general-info dd {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+.general-info dt {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    position: relative;
+    top: 4em;
+    margin-top: -2em;
+}

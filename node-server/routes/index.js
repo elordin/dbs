@@ -321,19 +321,28 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/?$/, function (req
                                     res.redirect('/wahlkreise/' + year);
                                     return;
                                 }
-                                var wkname = result1.rows[0] && result1.rows[0].wk_name ||
-                                             result2.rows[0] && result2.rows[0].wk_name;
-                                var locals = {
-                                    year: year,
-                                    title: 'Wahlkreise ' + year + ' - ' + wkname,
-                                    data: {
-                                        first: result1.rows,
-                                        second: result2.rows
+                                req.db.query("SELECT * FROM Results_View_Results_View_WahlkreisOverview_Voterparticipation WHERE year = $1 AND wknr = $2",
+                                    ([year, wknr]).map(sanitize),
+                                function (err, result3) {
+                                    if (err) {
+                                        res.status(500).render("error", {error: err});
+                                    } else {
+                                        var wkname = result1.rows[0] && result1.rows[0].wk_name ||
+                                                     result2.rows[0] && result2.rows[0].wk_name;
+                                        var locals = {
+                                            year: year,
+                                            title: 'Wahlkreise ' + year + ' - ' + wkname,
+                                            data: {
+                                                first: result1.rows,
+                                                second: result2.rows,
+                                                meta: result3.rows
+                                            }
+                                        };
+                                        res.render('wahlkreise-single', locals);
                                     }
-                                };
-                                res.render('wahlkreise-single', locals);
+                                    req.db.end();
+                                });
                             }
-                            req.db.end();
                         });
                     }
                 });
