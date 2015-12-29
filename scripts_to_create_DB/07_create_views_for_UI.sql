@@ -28,14 +28,18 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, tit
     LEFT OUTER JOIN Party p on p.pid = wkwsv.pid
 );
 
-CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, wknr, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel)  AS (
-    SELECT ll.year,wk.wkid, wk.name as wk_name, wk.wknr, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
-           azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel
+CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, wknr, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel, votesab_prev, votesrel_prev)  AS (
+    SELECT wk.year, wk.wkid, wk.name as wk_name, wk.wknr, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
+           azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel,
+           azwwk_prev.votes as votesab_prev, (azwwk_prev.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk_prev.wkid=azwwk2.wkid)) as votesrel_prev           
     FROM AccumulatedZweitstimmenWK azwwk
     JOIN Wahlkreis wk on azwwk.wkid = wk.wkid
     JOIN Federalstate fs ON fs.fsid = wk.fsid
     JOIN Landesliste ll ON azwwk.llid = ll.llid
     JOIN Party p ON p.pid = ll.pid
+    LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank = (select rank-1 from OrderedElectionyears where year = ll.year)) 
+    LEFT JOIN Landesliste ll_prev ON ll_prev.pid = ll.pid AND ll_prev.fsid = ll.fsid AND ll_prev.year = wk_prev.year
+    LEFT JOIN AccumulatedZweitstimmenWK azwwk_prev on azwwk_prev.wkid = wk_prev.wkid AND azwwk_prev.llid = ll_prev.llid
 );
 
 CREATE OR REPLACE VIEW Results_View_Results_View_WahlkreisOverview_Voterparticipation (year, wkid, wknr, wk_name, elective, voted, participationrate) AS (

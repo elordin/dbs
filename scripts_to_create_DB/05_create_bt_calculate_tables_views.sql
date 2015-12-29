@@ -4,6 +4,11 @@ CREATE TABLE IF NOT EXISTS Factors (
     f REAL PRIMARY KEY
 );
 
+CREATE OR REPLACE VIEW  OrderedElectionyears(year, rank) AS (
+	SELECT ey.year, rank()  OVER (ORDER BY ey.year asc) as rank
+	FROM electionyear ey
+);
+
 --AggregatedZweitstimmenForLL
 CREATE OR REPLACE VIEW Results_AggregatedZweitstimmenForLL_Current(fsid, llid, votes) AS (
 	SELECT ll.fsid, azwfs.llid, azwfs.votes

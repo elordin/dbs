@@ -246,7 +246,7 @@ CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insert
         INSERT INTO AccumulatedZweitstimmenFS (llid) VALUES (NEW.llid);
         FOR _wkid IN SELECT wkid
                      FROM Wahlkreis
-                     WHERE fsid = NEW.fsid
+                     WHERE fsid = NEW.fsid  AND year = NEW.year
         LOOP
             INSERT INTO AccumulatedZweitstimmenWK (wkid, llid) VALUES (_wkid, NEW.llid);
         END LOOP;
