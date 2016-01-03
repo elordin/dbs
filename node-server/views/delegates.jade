@@ -46,14 +46,14 @@ block content
                             td
                                 a(href='/wahlkreise/' + year + '/' + row.wknr)= row.wk_name
 
-            if (page || 1) > 1
-                a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
-                    i.fa.fa-chevron-left
-
-            span.pagination Seite #{page || 1}
-            if (page || 1) < Math.ceil(data.length / page_size)
-                a.pagination(href='/delegates/' + year + '/' + ((page || 1) + 1))
-                    i.fa.fa-chevron-right
-
             if !all
+                if (page || 1) > 1
+                    a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
+                        i.fa.fa-chevron-left
+
+                span.pagination Seite #{page || 1}
+                if (page || 1) < Math.ceil(data.length / page_size)
+                    a.pagination(href='/delegates/' + year + '/' + ((page || 1) + 1))
+                        i.fa.fa-chevron-right
+
                 a(style="float: right;", href='/delegates/' + year + '/all') Alle anzeigen
