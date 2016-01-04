@@ -32,6 +32,38 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+CREATE OR REPLACE FUNCTION random_pin(length integer) RETURNS TEXT AS
+$$
+DECLARE
+  digits text[] := '{0,1,2,3,4,5,6,7,8,9}';
+  result text := '';
+  i integer := 0;
+BEGIN
+  if length < 0 then
+    raise exception 'Given length cannot be less than 0';
+  end if;
+  for i in 1..length loop
+    result := result || digits[1+random()*(array_length(digits, 1)-1)];
+  end loop;
+  return result;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION generate_new_pins() RETURNS INTEGER AS
+$$
+DECLARE
+    _idno VARCHAR;
+BEGIN
+    FOR _idno IN SELECT idno FROM citizen LOOP
+        UPDATE citizen SET authtoken = random_pin(4) WHERE idno = _idno;
+    END LOOP;
+    RETURN 1;
+END;
+$$ LANGUAGE plpgsql;
+
+
 CREATE OR REPLACE VIEW Votables(wkid,
     cid, c_idno, c_firstname, c_lastname, c_age,
     llid, ll_pid, ll_pname, ll_pshorthand) AS (
