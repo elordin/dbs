@@ -37,6 +37,31 @@ function renderForDBQuery(req, res, query, template, year, title, locals, transf
     });
 }
 
+/**
+ *  Requires open db connection
+ */
+function runMultipleQueries(req, res, queryList, resultList, callback) {
+    if (queryList.length < 1) {
+        // execute callback
+        callback(req, res, resultList);
+        req.db.end();
+    } else {
+        // run next query
+        req.db.query(queryList[0], function (err, result) {
+            if (err) {
+                res.status(500).render("error", {error: err});
+            } else {
+                var newQueryList = queryList.slice(1, queryList.length),
+                    newResultList = resultList;
+                    newResultList.push(result);
+                runMultipleQueries(
+                    req, res, newQueryList, newResultList, callback);
+            }
+        });
+    }
+}
+
+
 router.get('/', function(req, res, next) {
     // get most recent election
     var year = maxYearInDB();
@@ -154,54 +179,43 @@ router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/?$/i, function (req, res, next) 
 router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/?$/, function (req, res, next) {
     var year = parseYear(req.params[0]),
         wknr = parseInt(req.params[1]);
+
     if (!year) {
         res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else if (!wknr) {
         res.status(404).render('error', {error: "Error: Invalid wknr format - " + req.params[1]});
     } else {
+
         req.db.connect(function (err) {
             if (err) {
                 res.status(500).render("error", {error: err});
             } else {
-                req.db.query("SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners WHERE year = " + year + " AND wknr = " + wknr,
-                function (err, result1) {
-                    if (err) {
-                        res.status(500).render("error", {error: err});
-                    } else {
-                        req.db.query("SELECT * FROM Results_View_WahlkreisOverview_SecondVoteDistribution WHERE year = " + year + " AND wknr = " + wknr + ' ORDER BY votesabs DESC',
-                        function (err, result2) {
-                            if (err) {
-                                res.status(500).render("error", {error: err});
-                            } else {
-                                if (result1.rows.length < 1 && result2.rows.length < 1) {
-                                    res.redirect('/wahlkreise/' + year);
-                                    return;
+                runMultipleQueries(
+                    req, res,
+                    ["SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners WHERE year = " + year + " AND wknr = " + wknr,
+                     "SELECT * FROM Results_View_WahlkreisOverview_SecondVoteDistribution WHERE year = " + year + " AND wknr = " + wknr + ' ORDER BY votesabs DESC',
+                     "SELECT * FROM Results_View_Results_View_WahlkreisOverview_Voterparticipation WHERE year = " + year + " AND wknr = " + wknr,
+                    ], [], function (req, res, results) {
+                        if (results.length != 3) {
+                            res.status(500).render("error", {error: 'Missing results'});
+                        } else if (results[0].rows && results[0].rows.length && results[0].rows.length < 1 ||
+                                   results[1].rows && results[1].rows.length && results[1].rows.length < 1) {
+                            res.redirect('/wahlkreise/' + year);
+                        } else {
+                            var wkname = results[0].rows[0] && results[0].rows[0].wk_name ||
+                                         results[1].rows[0] && results[1].rows[0].wk_name;
+                            res.render('wahlkreise-single', {
+                                year: year,
+                                title: 'Wahlkreise ' + year + ' - ' + wkname,
+                                data: {
+                                    first:  results[0].rows,
+                                    second: results[1].rows,
+                                    meta:   results[2].rows
                                 }
-                                req.db.query("SELECT * FROM Results_View_Results_View_WahlkreisOverview_Voterparticipation WHERE year = $1 AND wknr = $2",
-                                    ([year, wknr]).map(sanitize),
-                                function (err, result3) {
-                                    if (err) {
-                                        res.status(500).render("error", {error: err});
-                                    } else {
-                                        var wkname = result1.rows[0] && result1.rows[0].wk_name ||
-                                                     result2.rows[0] && result2.rows[0].wk_name;
-                                        var locals = {
-                                            year: year,
-                                            title: 'Wahlkreise ' + year + ' - ' + wkname,
-                                            data: {
-                                                first: result1.rows,
-                                                second: result2.rows,
-                                                meta: result3.rows
-                                            }
-                                        };
-                                        res.render('wahlkreise-single', locals);
-                                    }
-                                    req.db.end();
-                                });
-                            }
-                        });
+                            });
+                        }
                     }
-                });
+                );
             }
         });
     }
