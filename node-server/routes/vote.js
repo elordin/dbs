@@ -8,6 +8,31 @@ function sanitize(input) {
 }
 
 
+/**
+ *  Requires open db connection
+ */
+function runMultipleQueries(req, res, queryList, resultList, callback) {
+    if (queryList.length < 1) {
+        // execute callback
+        callback(req, res, resultList);
+        req.db.end();
+    } else {
+        // run next query
+        req.db.query(queryList[0].query || "", (queryList[0].args || []).map(sanitize), function (err, result) {
+            if (err) {
+                res.status(500).render("error", {error: err});
+            } else {
+                var newQueryList = queryList.slice(1, queryList.length),
+                    newResultList = resultList;
+                    newResultList.push(result);
+                runMultipleQueries(
+                    req, res, newQueryList, newResultList, callback);
+            }
+        });
+    }
+}
+
+
 router.get('/', function (req, res) {
     if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
         res.render('auth');
@@ -27,13 +52,21 @@ router.get('/', function (req, res) {
                             res.cookie('token', '');
                             res.render('auth');
                         } else {
-                            var dwbid = result.dwbid;
-                            req.db.query("SELECT * FROM Votables NATURAL JOIN Wahlbezirk NATURAL JOIN DirektwahlbezirkData WHERE dwbid = $1 ORDER BY ll_pname",
+                            var dwbid = result.rows[0].dwbid;
+                            req.db.query("SELECT * FROM WahlscheinEntries WHERE dwbid = $1 ORDER BY ll_pname",
                                 [sanitize(dwbid)], function (err, result) {
                                 if (err) {
                                     res.status(500).render("error", {error: err});
+                                } else if (result.rows.length < 2) {
+                                    res.status(451).send("You do not have a choice whom to vote for, so we voted for you!");
                                 } else {
-                                    res.render('vote', { votables: result.rows });
+                                    console.log(result.rows[0]);
+                                    res.render('vote', {
+                                        votables: result.rows,
+                                        wk_name: result.rows[0].wk_name,
+                                        wknr: result.rows[0].wknr,
+                                        fs_name: result.rows[0].fs_name
+                                    });
                                 }
                             });
                         }
@@ -128,26 +161,35 @@ router.post('/auth', function (req, res) {
                     !result.rows[0] ||
                     !result.rows[0].dwbid) {
 
-                    console.log(result);
-
                     res.render('auth', { error: 'Personalausweis-Nr. konnte nicht gefunden werden oder die PIN ist falsch.'});
                 } else if (result.rows[0].hasvoted) {
                     res.render('auth', { error: 'Sie haben bereits gewählt.'});
                 } else {
                     var token = result.rows[0].token;
-                    console.log(result.rows[0]);
-                    req.db.query("BEGIN; " +
-                                 "UPDATE hasVoted SET hasvoted = true WHERE idno = $1;" +
-                                 "INSERT INTO Tokens (token, age, gender, dwbid, address) VALUES ($1, $2, $3, $4, $5);" +
-                                 "COMMIT;",
-                        ([idno, token, result.rows[0].age, result.rows[0].gender, result.rows[0].dwbid, req.connection.remoteAddress ]).map(sanitize), function (err, result) {
-                        if (err) {
-                            res.status(500).render("error", {error: err});
-                        } else {
-                            console.log(result);
+                    runMultipleQueries(req, res,
+                        [
+                            {
+                                query: "BEGIN;",
+                                args: []
+                            }, {
+                                query: "UPDATE hasVoted SET hasvoted = true WHERE idno = $1;",
+                                args: [idno]
+                            }, {
+                                query: "INSERT INTO Tokens (token, age, gender, dwbid, address) VALUES ($1, $2, $3, $4, $5);",
+                                args: [
+                                    token,
+                                    result.rows[0].age,
+                                    result.rows[0].gender,
+                                    result.rows[0].dwbid,
+                                    req.connection.remoteAddress
+                                ]
+                            }, {
+                                query: "COMMIT;",
+                                args: []
+                            }
+                        ], [], function (req, res, results) {
                             res.cookie('token', token).redirect('/vote');
-                        }
-                    });
+                        });
                 }
             });
         }

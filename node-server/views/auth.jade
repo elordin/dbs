@@ -2,7 +2,7 @@ doctype html
 html
     head
         meta(charset='utf-8')
-        title #{title} - Wahl-Informationssystem zur Bundestagswahl
+        title Wahl-Informationssystem zur Bundestagswahl
         link(rel='stylesheet', href='/css/wahlschein.css')
     body
         form(action="/vote/auth", method="POST")
@@ -12,8 +12,8 @@ html
                     h2 Wahlschein für die Wahl Wahl zum Deutschen Bundestag am 22.09.2013
 
                 section
-                    br
                     if (error)
+                        br
                         .error= error
                     br
                     h3 Bitte melden Sie sich mit ihrer Personalausweis-Nummer und der PIN an.

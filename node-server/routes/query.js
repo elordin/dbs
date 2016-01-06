@@ -38,29 +38,6 @@ function renderForDBQuery(req, res, query, template, year, title, locals, transf
     });
 }
 
-/**
- *  Requires open db connection
- */
-function runMultipleQueries(req, res, queryList, resultList, callback) {
-    if (queryList.length < 1) {
-        // execute callback
-        callback(req, res, resultList);
-        req.db.end();
-    } else {
-        // run next query
-        req.db.query(queryList[0], function (err, result) {
-            if (err) {
-                res.status(500).render("error", {error: err});
-            } else {
-                var newQueryList = queryList.slice(1, queryList.length),
-                    newResultList = resultList;
-                    newResultList.push(result);
-                runMultipleQueries(
-                    req, res, newQueryList, newResultList, callback);
-            }
-        });
-    }
-}
 
 
 router.get('/', function(req, res, next) {

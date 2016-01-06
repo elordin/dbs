@@ -2,7 +2,7 @@ doctype html
 html
     head
         meta(charset='utf-8')
-        title #{title} - Wahl-Informationssystem zur Bundestagswahl
+        title Wahl-Informationssystem zur Bundestagswahl
         link(rel='stylesheet', href='/css/wahlschein.css')
     body
         form(action="/vote", method="POST")
@@ -13,8 +13,8 @@ html
                 dl.info
                     dt Wahlkreis
                     dd= wk_name + ' (' + wknr + ')'
-                    dt Wahlbezirk
-                    dd= dwb_name
+                    dt Bundesland
+                    dd= fs_name
 
             section.explanations
                 label(for="expl-toggle")

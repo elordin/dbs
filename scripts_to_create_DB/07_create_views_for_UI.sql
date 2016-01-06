@@ -31,13 +31,13 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, tit
 CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, wknr, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel, votesab_prev, votesrel_prev)  AS (
     SELECT wk.year, wk.wkid, wk.name as wk_name, wk.wknr, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
            azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel,
-           azwwk_prev.votes as votesab_prev, (azwwk_prev.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk_prev.wkid=azwwk2.wkid)) as votesrel_prev           
+           azwwk_prev.votes as votesab_prev, (azwwk_prev.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk_prev.wkid=azwwk2.wkid)) as votesrel_prev
     FROM AccumulatedZweitstimmenWK azwwk
     JOIN Wahlkreis wk on azwwk.wkid = wk.wkid
     JOIN Federalstate fs ON fs.fsid = wk.fsid
     JOIN Landesliste ll ON azwwk.llid = ll.llid
     JOIN Party p ON p.pid = ll.pid
-    LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank = (select rank-1 from OrderedElectionyears where year = ll.year)) 
+    LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank = (select rank-1 from OrderedElectionyears where year = ll.year))
     LEFT JOIN Landesliste ll_prev ON ll_prev.pid = ll.pid AND ll_prev.fsid = ll.fsid AND ll_prev.year = wk_prev.year
     LEFT JOIN AccumulatedZweitstimmenWK azwwk_prev on azwwk_prev.wkid = wk_prev.wkid AND azwwk_prev.llid = ll_prev.llid
 );
@@ -149,5 +149,37 @@ CREATE OR REPLACE VIEW  Results_View_NarrowWahlkreisWinsAndLosings (year, fsid, 
     JOIN Party p ON p.pid = nwkwl.pid
     JOIN Candidates c ON c.idno = nwkwl.idno
 );
+
+
+
+CREATE OR REPLACE VIEW WahlscheinEntries AS (
+    SELECT wk.wkid,
+           wk.name AS wk_name,
+           wk.wknr,
+           fs.name AS fs_name,
+           v.c_firstname,
+           v.c_lastname,
+           v.c_age,
+           v.ll_pname,
+           v.ll_pshorthand,
+           dwbd.dwbid
+    FROM Votables v
+        INNER JOIN
+        Wahlkreis wk
+            ON v.wkid = wk.wkid
+        INNER JOIN
+        Federalstate fs
+            ON wk.fsid = fs.fsid
+        INNER JOIN
+        Wahlbezirk wb
+            ON wk.wkid = wb.wkid
+        INNER JOIN
+        DirektwahlbezirkData dwbd
+            ON wb.wbid = dwbd.wbid
+        -- JOIN Results of last election
+    ORDER BY ll_pname ASC -- ORDER BY Results of last election
+);
+
+
 
 COMMIT;
