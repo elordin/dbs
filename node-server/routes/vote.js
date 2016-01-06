@@ -136,7 +136,10 @@ router.post('/auth', function (req, res) {
                 } else {
                     var token = result.rows[0].token;
                     console.log(result.rows[0]);
-                    req.db.query("BEGIN; UPDATE hasVoted SET hasvoted = true WHERE idno = $1; INSERT INTO Tokens (token, age, gender, dwbid, address) VALUES ($1, $2, $3, $4, $5); COMMIT;",
+                    req.db.query("BEGIN; " +
+                                 "UPDATE hasVoted SET hasvoted = true WHERE idno = $1;" +
+                                 "INSERT INTO Tokens (token, age, gender, dwbid, address) VALUES ($1, $2, $3, $4, $5);" +
+                                 "COMMIT;",
                         ([idno, token, result.rows[0].age, result.rows[0].gender, result.rows[0].dwbid, req.connection.remoteAddress ]).map(sanitize), function (err, result) {
                         if (err) {
                             res.status(500).render("error", {error: err});

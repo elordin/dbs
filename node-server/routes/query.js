@@ -29,6 +29,7 @@ function renderForDBQuery(req, res, query, template, year, title, locals, transf
                     locals.data = transformator === undefined ? result.rows : transformator(result);
                     locals.year = year;
                     locals.title = title;
+                    locals.req = req;
                     res.render(template, locals);
                 }
                 req.db.end();
@@ -71,7 +72,7 @@ router.get('/', function(req, res, next) {
 router.get(/^\/overview(\/([0-9]{2}|[0-9]{4}))?\/?$/i, function(req, res, next) {
     var year = parseYear(req.params[1]);
     // TODO
-    res.send('Overview');
+    res.render('overview', {year: year, res: res, title: 'Bundestagswahl ' + year + unescape(' - %DCbersicht ')});
 });
 
 // Q1: Seat distributions

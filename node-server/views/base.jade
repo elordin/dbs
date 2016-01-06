@@ -20,9 +20,9 @@ html
         nav#yearNav.year-nav
             ul
                 li
-                    a(class= (year == 2009) ? 'active' : '', href= req && req.url ? req.url.substr(req.url.indexOf('/')) + '/2009' : '/overview/2009') 2009
+                    a(class= (year == 2009) ? 'active' : '', href= req && req.url ? req.url.substr(0, req.url.substr(1).indexOf('/') + 1) + '/2009' : '/overview/2009') 2009
                 li
-                    a(class= (year == 2013) ? 'active' : '', href= req && req.url ? req.url.substr(req.url.indexOf('/')) + '/2013' : '/overview/2013') 2013
+                    a(class= (year == 2013) ? 'active' : '', href= req && req.url ? req.url.substr(0, req.url.substr(1).indexOf('/') + 1) + '/2013' : '/overview/2013') 2013
         nav#queryNav.query-nav
             ul
                 li.with-subnav.active
