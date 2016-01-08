@@ -16,7 +16,7 @@ html
             h1='Wahl-Informationsssystem zur Bundestagswahl'
             aside#currentInformation
                 div.info
-                a#voteOnline.btn(href='#') Online w&auml;hlen
+                a#voteOnline.btn(href='/vote') W&auml;hlen
         nav#yearNav.year-nav
             ul
                 li
@@ -28,17 +28,17 @@ html
                 li.with-subnav.active
                     ul
                         li
-                            a(href='/seat-distribution/' + year || '') Sitzverteilung
+                            a(href='/seat-distribution/' + (year || '')) Sitzverteilung
                         li
-                            a(href='/delegates/' + year || '') Abgeordnete
+                            a(href='/delegates/' + (year || '')) Abgeordnete
                         li
-                            a(href='/wahlkreise/' + year || '') Wahlkreis&uuml;bersicht
+                            a(href='/wahlkreise/' + (year || '')) Wahlkreis&uuml;bersicht
                         li
                             a(href='/wahlkreise/' + (year + '/' || '') + 'winners/') Wahlkreis-Sieger
                         li
-                            a(href='/ueberhangmandate/' + year || '') &Uuml;berhangmandate
+                            a(href='/ueberhangmandate/' + (year || '')) &Uuml;berhangmandate
                         li
-                            a(href='/closest-winners/' + year || '') Knappste Sieger
+                            a(href='/closest-winners/' + (year || '')) Knappste Sieger
                         li
                             a(href='/impressum/') Impressum
         main

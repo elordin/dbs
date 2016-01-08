@@ -28,7 +28,7 @@ html
                         li
                             label
                                 if candidate.cid != 'undefined' && candidate.cid != 'null'
-                                    input(type="radio", name="erststimme")
+                                    input(type="radio", name="erststimme", value=candidate.cid)
                                     span
                                         = candidate.c_firstname + ' ' + candidate.c_lastname + ' (' + candidate.c_age + ')'
                                         br
@@ -48,7 +48,7 @@ html
                         li
                             label
                                 if landesliste.llid != 'undefined' && landesliste.llid != 'null'
-                                    input(type="radio", name="zweitstimme")
+                                    input(type="radio", name="zweitstimme", value= landesliste.llid)
                                     span
                                         abbr(title=landesliste.ll_pname)= landesliste.ll_pshorthand
 

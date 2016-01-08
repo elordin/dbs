@@ -157,9 +157,11 @@ CREATE OR REPLACE VIEW WahlscheinEntries AS (
            wk.name AS wk_name,
            wk.wknr,
            fs.name AS fs_name,
+           v.cid,
            v.c_firstname,
            v.c_lastname,
            v.c_age,
+           v.llid,
            v.ll_pname,
            v.ll_pshorthand,
            dwbd.dwbid

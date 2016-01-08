@@ -79,11 +79,14 @@ router.get('/', function (req, res) {
 
 
 router.post('/', function (req, res) {
-    var erststimme = req.body.erststimme;
-    var zweitstimme = req.body.zweitstimme;
+    var erststimme = parseInt(req.body.erststimme);
+    var zweitstimme = parseInt(req.body.zweitstimme);
 
-    if (!erststimme || !zweitstimme) {
-        res.status(500).render("error", {error: err});
+    if (!erststimme || !zweitstimme ||
+        typeof erststimme != 'number' ||
+        typeof zweitstimme != 'number' ||
+        isNaN(erststimme) || isNaN(zweitstimme)) {
+        res.status(500).send("invalid format");
     } else if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
         res.redirect('/vote');
     } else {
@@ -104,33 +107,39 @@ router.post('/', function (req, res) {
                         } else {
                             // validate voted Candidate and Landesliste are actually votable for this person
 
-                            req.db.query(
-                               "BEGIN;" +
-                               "DELETE FROM Tokens WHERE token = $1 AND address = $2;" +
-                               "INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme)" +
-                               "                 VALUES ($3,    $4,     $5,  $6,         $7);" +
-                               "COMMIT;",
-                                ([req.cookies.token,
-                                 req.connection.remoteAddress,
-                                 result.rows[0].dwbid,
-                                 result.rows[0].gender,
-                                 result.rows[0].age,
-                                 erststimme,
-                                 zweitstimme]).map(sanitize), function (err, result) {
-                                if (err) {
-                                    res.status(500).render("error", {error: err});
-                                } else {
-                                    res.cookie('token', '').redirect('/voted');
-                                }
+                            runMultipleQueries(req, res, [
+                                {
+                                    query: "BEGIN;",
+                                    args: []
+                                },
+                                {
+                                    query: "DELETE FROM Tokens WHERE token = $1 AND address = $2;",
+                                    args: [req.cookies.token, req.connection.remoteAddress]
+                                },
+                                {
+                                    query: "INSERT INTO Stimmzettel (dwbid, gender, age, erststimme, zweitstimme) " +
+                                           "VALUES ($1, $2, $3, $4, $5);",
+                                    args: [
+                                        result.rows[0].dwbid,
+                                        result.rows[0].gender,
+                                        result.rows[0].age,
+                                        erststimme,
+                                        zweitstimme
+                                    ]
+                                },
+                                {
+                                    query: "COMMIT;",
+                                    args: []
+                                },
+                            ], [], function (results) {
+                                res.cookie('token', '').redirect('/voted');
                             });
-
                         }
                 });
             }
         });
     }
 });
-
 
 
 router.post('/auth', function (req, res) {
