@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var postgres = require('pg');
 
-var conString = "postgres://postgres:abc123@127.0.0.1/wisdb";
+var conString = "postgres://uiuser:uiuser123@127.0.0.1/wisdb";
 
 var routes = require('./routes/index');
 var jsonroutes = require('./routes/json');
