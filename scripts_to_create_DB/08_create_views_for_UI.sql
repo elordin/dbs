@@ -153,7 +153,6 @@ CREATE OR REPLACE VIEW  Results_View_NarrowWahlkreisWinsAndLosings (year, fsid, 
 );
 
 
-
 CREATE OR REPLACE VIEW WahlscheinEntries AS (
     SELECT wk.wkid,
            wk.name AS wk_name,
@@ -166,7 +165,8 @@ CREATE OR REPLACE VIEW WahlscheinEntries AS (
            v.llid,
            v.ll_pname,
            v.ll_pshorthand,
-           dwbd.dwbid
+           dwbd.dwbid,
+           azwwk_prev.votes
     FROM Votables v
         INNER JOIN
         Wahlkreis wk
@@ -180,8 +180,12 @@ CREATE OR REPLACE VIEW WahlscheinEntries AS (
         INNER JOIN
         DirektwahlbezirkData dwbd
             ON wb.wbid = dwbd.wbid
-        -- JOIN Results of last election
-    ORDER BY ll_pname ASC -- ORDER BY Results of last election
+	JOIN Landesliste ll ON v.llid = ll.llid
+	LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank = 
+	(select rank-1 from OrderedElectionyears where year = ll.year))
+	LEFT JOIN Landesliste ll_prev ON ll_prev.pid = ll.pid AND ll_prev.fsid = ll.fsid AND ll_prev.year = wk_prev.year
+	LEFT JOIN AccumulatedZweitstimmenWK azwwk_prev on azwwk_prev.wkid = wk_prev.wkid AND azwwk_prev.llid = ll_prev.llid
+    ORDER BY coalesce(azwwk_prev.votes, 0) DESC, ll_pname ASC
 );
 
 
