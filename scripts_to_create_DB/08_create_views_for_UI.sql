@@ -18,14 +18,15 @@ CREATE OR REPLACE VIEW Results_View_Delegates(year, title, lastname, firstname, 
     ORDER BY c.Lastname, c.Firstname
 );
 
-CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name, wknr) AS (
+CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name, wknr, votes) AS (
     SELECT wkwsv.year, c.title, c.lastname, c.firstname, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
-           fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr
+           fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr, wkwsv.votes as votes
     FROM Results_WahlkreisWinnersFirstVotes wkwsv
     JOIN Wahlkreis wk ON wk.wkid = wkwsv.wkid
     JOIN Candidates c ON c.idno = wkwsv.idno
     JOIN Federalstate fs ON fs.fsid = wk.fsid
     LEFT OUTER JOIN Party p on p.pid = wkwsv.pid
+    WHERE wkwsv.votes > 50 --Anonymity
 );
 
 CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, wknr, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel, votesab_prev, votesrel_prev, delta)  AS (
@@ -42,6 +43,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(yea
     LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank = (select rank-1 from OrderedElectionyears where year = ll.year))
     LEFT JOIN Landesliste ll_prev ON ll_prev.pid = ll.pid AND ll_prev.fsid = ll.fsid AND ll_prev.year = wk_prev.year
     LEFT JOIN AccumulatedZweitstimmenWK azwwk_prev on azwwk_prev.wkid = wk_prev.wkid AND azwwk_prev.llid = ll_prev.llid
+    WHERE (SELECT SUM(azwwk2.votes) FROM AccumulatedZweitstimmenWK azwwk2 WHERE azwwk2.wkid = azwwk.wkid) > 50 --Anonymity
 );
 
 CREATE OR REPLACE VIEW Results_View_Results_View_WahlkreisOverview_Voterparticipation (year, wkid, wknr, wk_name, elective, voted, participationrate) AS (
@@ -84,6 +86,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners_SLOW(titl
 	JOIN Candidates c ON c.idno = wkwsv.idno
 	JOIN Federalstate fs ON fs.fsid = wk.fsid
 	LEFT OUTER JOIN Party p on p.pid = wkwsv.pid
+	WHERE wkwsv.votes > 50 --Anonymity
 );
 
 CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLOW(wkid, wk_name, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel)  AS (
@@ -105,6 +108,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLO
 	JOIN Federalstate fs ON fs.fsid = wk.fsid
 	JOIN Landesliste ll ON azwwk.llid = ll.llid
 	JOIN Party p ON p.pid = ll.pid
+	WHERE (SELECT SUM(azwwk2.votes) FROM AccumulatedZweitstimmenWK azwwk2 WHERE azwwk2.wkid = azwwk.wkid) > 50 --Anonymity
 );
 
 
