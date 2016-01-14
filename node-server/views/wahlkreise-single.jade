@@ -53,4 +53,4 @@ block content
                             td= row.p_name + ' (' + row.p_shorthand + ')'
                             td= row.votesabs
                             td= Math.round(row.votesrel * 10000) / 100 + '%'
-                            td= row.delta ? row.delta : 'N/A'
+                            td(class= row.delta > 0 ? 'green' : (row.delta < 0 ? 'red' : ''))= row.delta ? Math.round(row.delta * 10000) / 100 + ' %' : 'N/A'
