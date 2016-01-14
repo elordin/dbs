@@ -69,3 +69,9 @@ where `n` is the number of clients,
 `deadline` is the total runtime of the benchmarking process
 
 and `queries` is a list of queries
+
+
+Like the generator it uses Scala. Run it using sbt with
+```
+sbt run
+```
