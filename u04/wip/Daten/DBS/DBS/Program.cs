@@ -108,7 +108,7 @@ namespace DBS
                     wk = line.Split(';');
 
                     wahlkreisIDs[year + "_" + wk[0]] = id;
-                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + year + ");";
+                    wl = "insert into Wahlkreis (wkid, wknr, name, outline, fsid, year, electorate) VALUES (" + id.ToString() + ", " + wk[0] + ", '" + wk[1] + "', NULL, " + wk[2] + ", " + year + ", "+ wk[3] + ");";
                     wr.WriteLine(wl);
                     wrges.WriteLine(wl);
                     id++;

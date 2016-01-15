@@ -46,8 +46,8 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(yea
     WHERE (SELECT SUM(azwwk2.votes) FROM AccumulatedZweitstimmenWK azwwk2 WHERE azwwk2.wkid = azwwk.wkid) > 50 --Anonymity
 );
 
-CREATE OR REPLACE VIEW Results_View_Results_View_WahlkreisOverview_Voterparticipation (year, wkid, wknr, wk_name, elective, voted, participationrate) AS (
-	SELECT rvppwk.year, rvppwk.wkid, wk.wknr, wk.name, rvppwk.elective, rvppwk.voted, ((rvppwk.voted*1.0)/(rvppwk.elective*1.0))*100.0 as participationrate
+CREATE OR REPLACE VIEW Results_View_Results_View_WahlkreisOverview_Voterparticipation (year, wkid, wknr, wk_name, electorate, voted, participationrate) AS (
+	SELECT rvppwk.year, rvppwk.wkid, wk.wknr, wk.name, rvppwk.electorate, rvppwk.voted, ((rvppwk.voted*1.0)/(rvppwk.electorate*1.0))*100.0 as participationrate
 	FROM Results_VoterparticipationPerWK rvppwk
 	JOIN Wahlkreis wk ON wk.wkid = rvppwk.wkid
 );
