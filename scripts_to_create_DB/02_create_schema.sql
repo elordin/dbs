@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS Wahlkreis (
     wknr INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     outline POLYGON,
+    electorate INT NOT NULL,
     fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
     year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
     UNIQUE (wknr, year)
