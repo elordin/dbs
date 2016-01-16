@@ -91,6 +91,14 @@ window.onload = function () {
             d3.selectAll('.tooltip').remove();
         });
 
+
+    svg.append('line')
+        .attr('x1', 200)
+        .attr('y1', 0)
+        .attr('x2', 200)
+        .attr('y2', 120)
+        .attr('stroke', '#333');
+
     var tableBody = document.getElementById('seats');
     var sortable = Sortable.create(tableBody, {
         sort: true,  // sorting inside list

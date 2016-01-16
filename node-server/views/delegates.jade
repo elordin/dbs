@@ -1,37 +1,40 @@
 extends base
 
+block js-includes
+    if all
+        script(src="/js/jquery-latest.js")
+        script(src="/js/jquery.tablesorter.min.js")
+        script.
+            $(document).ready(function() {
+                $("table").tablesorter();
+            });
 
 block content
     -
         var page_size = 10
         var max_pages = Math.ceil(data.length / page_size)
-        var ordering = {
-            name: 'order-none',
-            party: 'order-none',
-            federalstate: 'order-none',
-            wahlkreis: 'order-none',
-        }
 
     h2= title
     if data.length < 1
         p.error.empty= 'No results found.'
     else
-        - var page_entries = data.slice(((page || 1) - 1) * page_size, (page || 1) * page_size)
+        - var page_entries = all ? data : data.slice(((page || 1) - 1) * page_size, (page || 1) * page_size)
         if page_entries.length < 1
             p.error.empty= 'Nothing found for page ' + page
             a(href='/delegates/' + year + '/' + max_pages) Go to last page
         else
-            table
+            table(class=all ? 'tablesorter' : '')
                 thead
                     tr
-                        th(colspan=3)
-                            a(class=ordering.name, href='#') Abgeordneter
+                        th.no-order
+                        th(colspan=2)
+                            a(href='#') Abgeordneter
                         th
-                            a(class=ordering.party, href='#') Partei
+                            a(href='#') Partei
                         th
-                            a(class=ordering.federalstate, href='#') Bundesland
+                            a(href='#') Bundesland
                         th
-                            a(class=ordering.wahlkreis, href='#') Wahlkreis
+                            a(href='#') Wahlkreis
                 tbody
                     each row in page_entries
                         tr
@@ -43,9 +46,14 @@ block content
                             td
                                 a(href='/wahlkreise/' + year + '/' + row.wknr)= row.wk_name
 
-            if (page || 1) > 1
-                a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
+            if !all
+                if (page || 1) > 1
+                    a.pagination(href='/delegates/' + year + '/' + ((page || 1) - 1))
+                        i.fa.fa-chevron-left
 
-            span.pagination Seite #{page || 1}
-            if (page || 1) < Math.ceil(data.length / page_size)
-                a.pagination(href='/delegates/' + year + '/' + ((page || 1) + 1))
+                span.pagination Seite #{page || 1}
+                if (page || 1) < Math.ceil(data.length / page_size)
+                    a.pagination(href='/delegates/' + year + '/' + ((page || 1) + 1))
+                        i.fa.fa-chevron-right
+
+                a(style="float: right;", href='/delegates/' + year + '/all') Alle anzeigen

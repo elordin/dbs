@@ -6,7 +6,6 @@ body {
 
 header {
     height: 6em;
-    border-bottom: 2em solid #000;
 }
 
 header .logo {
@@ -75,28 +74,28 @@ header aside .btn {
     padding: 0 1em;
 }
 
-nav {
+.query-nav {
     background-color: #ddd;
     width: 20%;
     position: absolute;
-    top: 8em;
+    top: 8.5em;
     bottom: 0;
     left: 0;
     overflow: auto;
     border-right: thin solid #888;
 }
 
-nav ul {
+.query-nav ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-nav li {
+.query-nav  li {
     position: relative;
 }
 
-nav a {
+.query-nav a {
     display: block;
     padding: .75em 1em;
     border-bottom: thin solid rgba(0,0,0,.4);
@@ -105,55 +104,49 @@ nav a {
     transition: background-color .2s ease-in-out;
 }
 
-nav a:not([href]), nav a[href="#"] {
-
+.year-nav {
+    position: absolute;
+    background-color: #000;
+    height: 2.5em;
+    top: 6em;
+    width: 100%;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
 }
 
-nav a:hover {
-    background-color: #ccc;
+.year-nav ul {
+    margin: 0;
+    padding: 0 0 0 21%;
 }
 
-nav a.active {
+.year-nav li {
+    display: inline-block;
+    padding: 0;
+}
+
+.year-nav a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 2;
+    display: inline-block;
+    padding: 0 .5em;
+    margin-top: .5em;
+}
+
+.year-nav a:hover {
+    background-color: #333;
+}
+
+.year-nav a.active {
     background-color: #fff;
+    color: #333;
 }
 
-nav ul ul {
-    background-color: #ccc;
-    background-color: rgba(0,0,0,.2);
-    margin-left: 2em;
-    height: 0;
-    overflow: hidden;
-    height: auto;
-}
-
-nav .active + ul {
-    height: auto;
-}
-
-nav li:hover > ul {
-    height: auto;
-}
-
-nav ul ul::after {
-    content: '';
-    display:block;
-    height: 0;
-    border-bottom: 1px solid rgba(0,0,0,.4);
-    margin-left: -2em;
-    margin-top: -1px;
-}
-
-nav ul ul li {
-    border-left: thin solid rgba(0,0,0,.4);
-}
-
-nav ul ul li:first-of-type a {
-    border-top: none;
-}
 
 main {
     position: absolute;
-    top: 8em;
+    top: 8.5em;
     left: 20%;
     right: 0;
     bottom: 0;
@@ -442,4 +435,88 @@ th a {
 
 .green {
     color: #0c0;
+}
+
+.tablesorter th::before {
+    content: '\f0dc';
+    font-family: FontAwesome;
+    padding: 0 .25em;
+}
+
+
+th.headerSortUp::before {
+    content: '\f0dd';
+}
+
+th.headerSortDown::before {
+    content: '\f0de';
+}
+
+.tablesorter th.no-order::before {
+    content: '';
+}
+
+dl.general-info {
+    width: 100%;
+    display: flex;
+    padding: 1em 0;
+}
+
+dl.general-info div {
+    display: inline-block;
+    text-align: center;
+    flex: 1;
+}
+
+.general-info dd {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+.general-info dt {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    position: relative;
+    top: 4em;
+    margin-top: -2em;
+}
+
+.query-list {
+    padding: 0;
+    margin: 1em 0;
+    list-style-type: none;
+}
+
+.query-list a {
+    display: block;
+    padding: .5em;
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+    border-bottom: thin solid #bbb;
+}
+
+.query-list li:nth-of-type(2n) {
+    background-color: #eee;
+}
+
+.sublist {
+    margin: 1em 0
+}
+
+.query-list .sublist li {
+    background-color: transparent;
+}
+
+.query-list a:hover {
+    background-color: #ddd;
+}
+
+.query-list span {
+    display: block;
+    font-size: .75em;
 }

@@ -13,14 +13,17 @@ block content
         p.error.empty= 'No results found.'
     else
         .pie-chart
-        table
+        table.seat-distribution
             thead
                 tr
                     th(colspan=2)='Partei'
                     th='Sitze'
-            tbody.sortable#seats
+                    th='Anteil'
+            tbody#seats
+                - var totalseats = data.map(function (row) { return parseInt(row.seats); }).reduce(function (a, b) { return a + b; }, 0);
                 each row in data
                     tr
                         td.handle
                         td #{row.shorthand} (#{row.name})
                         td= row.seats
+                        td= Math.round(parseFloat(row.seats) / parseFloat(totalseats) * 1000.0) / 10.0 + ' %'

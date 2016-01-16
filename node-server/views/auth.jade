@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Wahl-Informationssystem zur Bundestagswahl
+        link(rel='stylesheet', href='/css/wahlschein.css')
+    body
+        form(action="/vote/auth", method="POST")
+            header
+                #titles
+                    h1 Bundestagswahl 2013
+                    h2 Wahlschein für die Wahl Wahl zum Deutschen Bundestag am 22.09.2013
+
+                section
+                    if (error)
+                        br
+                        .error= error
+                    br
+                    h3 Bitte melden Sie sich mit ihrer Personalausweis-Nummer und der PIN an.
+
+                    label
+                        h4 Personalausweis-Nummer
+                        input(type="text", placeholder="Personalausweis-Nummer", name="idno", required)
+                    label
+                        h4 PIN
+                        input(type="password", placeholder="PIN", maxlength=4, name="pin", required)
+
+                    button(type="submit") Anmelden

@@ -1,5 +1,35 @@
-extends layout
+extends base
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h2= title
+
+    p
+        | Willkommen auf der Seite des Wahl-Informationssystems zu den Bundestagswahlen 2009 und 2013.
+        br
+        | Im folgenden finden Sie eine Liste der zur Verf&uuml;gung stehenden Informationen.
+
+    ul.query-list
+        li
+            a(href= '/q1/' + year) Sitzverteilung
+                span &Uuml;bersicht &uuml;ber die Verteilung der Sitze des Bundestags an die Parteien
+        li
+            a(href= '/q2/' + year) Abgeordnete
+                span Liste der gew&auml;hlten Abgeordneten
+        li
+            a(href= '/q3/' + year) Wahlkreis&uuml;bersicht
+                span Ergebnisse der einzelnen Wahlkreise
+                    ul.sublist
+                        li Wahlbeteiligung
+                        li Sieger nach Erststimmen
+                        li Zweistimmen-Verteilung
+                        li Ver&auml;nderung zum Vorjahr
+        li
+            a(href= '/q4/' + year) Wahlkreis-Sieger
+                span Liste aller Sieger nach Erst- und Zweitstimme pro Wahlkreis
+        li
+            a(href= '/q5/' + year) &Uuml;berhangmandate
+                span Anzahl der &Uuml;berhangmandate der Parteien pro Bundesland
+        li
+            a(href= '/q6/' + year) Knappste Sieger
+                span Differenzen der knappsten Sieger bzw. Verlierer zum n&auuml;chst platzierten
+

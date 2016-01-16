@@ -1,17 +1,27 @@
 extends base
 
+block js-includes
+    script(src="/js/jquery-latest.js")
+    script(src="/js/jquery.tablesorter.min.js")
+    script.
+        $(document).ready(function() {
+            $(".zweitstimmen").tablesorter({sortList:[[1,1],[2,1]]});
+        });
+
 block content
     h2= title
-    .general-info
-        dl
-            dt Stimmberechtigt
-            dd
-            dt Stimmen abgegeben
-            dd
-            dt Wahlbeteiligung
-            dd
-            dt Ungültige Stimmen
-            dd
+
+    if data.meta && data.meta.length > 0
+        dl.general-info
+            div
+                dt Stimmberechtigt
+                dd= data.meta[0].elective
+            div
+                dt Stimmen abgegeben
+                dd= data.meta[0].voted
+            div
+                dt Wahlbeteiligung
+                dd= 100 * Math.round(data.meta[0].participationrate / 100) + ' %'
     .first
         h3 Sieger nach Erstimmen
         if data.first.length < 1
@@ -30,7 +40,7 @@ block content
                     dd= person.p_name ? person.p_name + ' (' + person.p_shorthand + ')' : 'Parteilos'
     .second
         h3 Zweitstimmenverteilung
-        table
+        table.zweitstimmen.tablesorter
             thead
                 th Partei
                 th Stimmen (absolut)
@@ -43,3 +53,4 @@ block content
                             td= row.p_name + ' (' + row.p_shorthand + ')'
                             td= row.votesabs
                             td= Math.round(row.votesrel * 10000) / 100 + '%'
+                            td(class= row.delta > 0 ? 'green' : (row.delta < 0 ? 'red' : ''))= row.delta ? Math.round(row.delta * 10000) / 100 + ' %' : 'N/A'
