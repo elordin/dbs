@@ -4,6 +4,11 @@ CREATE TABLE IF NOT EXISTS Factors (
     f REAL PRIMARY KEY
 );
 
+CREATE OR REPLACE VIEW  OrderedElectionyears(year, rank) AS (
+	SELECT ey.year, rank()  OVER (ORDER BY ey.year asc) as rank
+	FROM electionyear ey
+);
+
 --AggregatedZweitstimmenForLL
 CREATE OR REPLACE VIEW Results_AggregatedZweitstimmenForLL_Current(fsid, llid, votes) AS (
 	SELECT ll.fsid, azwfs.llid, azwfs.votes
@@ -505,39 +510,41 @@ CREATE OR REPLACE VIEW Results_NarrowWahlkreisWinsAndLosings (year, wkid, idno, 
 );
 
 --VoterparticipationPerWK
-CREATE OR REPLACE VIEW Results_VoterparticipationPerWK_Current(wkid, elective, voted) AS
+CREATE OR REPLACE VIEW Results_VoterparticipationPerWK_Current(wkid, electorate, voted) AS
 (
-	WITH Results_NumberOfElectivesPerWK(wkid, sum) AS (
-		SELECT wk.wkid, count(*) as sum
-		FROM Citizenregistration cr
-		JOIN Direktwahlbezirk dwb ON cr.dwbid = dwb.dwbid
-		JOIN Wahlkreis wk ON dwb.wkid = wk.wkid
-		WHERE wk.year= (select year from electionyear where iscurrent=true)
-		GROUP BY wk.wkid
+	WITH SumVotesSV (wkid, votes) AS (
+		SELECT c.wkid, coalesce(SUM(c.votes),0) as votes
+		FROM candidacy c
+		GROUP BY c.wkid
 	),
 
-	Results_NumberOfVotesPerWK(wkid, sum) AS (
-		SELECT wk.wkid, count(*) as sum
-		FROM hasvoted hv
-		JOIN Citizenregistration cr ON hv.idno = cr.idno
-		JOIN Direktwahlbezirk dwb ON cr.dwbid = dwb.dwbid
-		JOIN Wahlkreis wk ON dwb.wkid = wk.wkid
-		WHERE hv.year= (select year from electionyear where iscurrent=true) AND wk.year= (select year from electionyear where iscurrent=true)
-		GROUP BY wk.wkid
+	SumVotesFV (wkid, votes) AS (
+		SELECT azwwk.wkid, coalesce(SUM(azwwk.votes),0) as votes
+		FROM accumulatedzweitstimmenwk azwwk
+		GROUP BY azwwk.wkid
+	),
+
+
+	VotesPerWK (wkid, voted) AS (
+		SELECT svsv.wkid, GREATEST(svsv.votes, svfv.votes) as votes
+		FROM SumVotesSV svsv
+		JOIN SumVotesFV svfv ON svsv.wkid = svfv.wkid
 	)
-	SELECT rnoe.wkid, rnoe.sum, rnov.sum
-	FROM Results_NumberOfElectivesPerWK rnoe
-	JOIN Results_NumberOfVotesPerWK rnov ON rnoe.wkid=rnoe.wkid
+
+	SELECT wk.wkid, wk.electorate as electorate, vpwk.voted as voted
+		FROM Wahlkreis wk
+		JOIN VotesPerWK vpwk ON wk.wkid = vpwk.wkid
+
 );
 
 CREATE TABLE IF NOT EXISTS Results_VoterparticipationPerWK_Old (
 	year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
 	wkid INT REFERENCES Wahlkreis(wkid),
-	elective INT NOT NULL DEFAULT 0,
+	electorate INT NOT NULL DEFAULT 0,
 	voted INT NOT NULL DEFAULT 0
 );
 
-CREATE OR REPLACE VIEW Results_VoterparticipationPerWK  (year, wkid, elective, voted) AS (
+CREATE OR REPLACE VIEW Results_VoterparticipationPerWK  (year, wkid, electorate, voted) AS (
 	SELECT *
 	FROM Results_VoterparticipationPerWK_Old
 	UNION ALL

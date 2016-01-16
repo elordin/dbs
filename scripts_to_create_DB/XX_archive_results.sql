@@ -38,6 +38,10 @@ INSERT INTO Results_Delegates_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_Delegates_Current r;
 
+INSERT INTO Results_TotalNumberOfSeatsPerParty_Old
+SELECT (select year from electionyear where iscurrent=true) as year, r.*
+	FROM Results_TotalNumberOfSeatsPerParty_Current r;
+
 INSERT INTO Results_NarrowWahlkreisWinsAndLosings_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_NarrowWahlkreisWinsAndLosings_Current r;

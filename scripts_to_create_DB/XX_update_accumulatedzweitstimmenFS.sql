@@ -1,9 +1,7 @@
-﻿WITH ACCZWWK (llid, votes) AS (
-
-select llid, sum(votes)
-from AccumulatedZweitstimmenWK azwwk
-group by llid
-
+WITH ACCZWWK (llid, votes) AS (
+    select llid, sum(votes)
+    from AccumulatedZweitstimmenWK azwwk
+    group by llid
 )
 
 update accumulatedzweitstimmenfs

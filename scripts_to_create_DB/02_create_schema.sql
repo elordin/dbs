@@ -6,7 +6,7 @@ DROP FUNCTION IF EXISTS incZweitstimmeWahlbezirk(INTEGER, INTEGER)       CASCADE
 DROP FUNCTION IF EXISTS decZweitstimmeWahlbezirk(INTEGER, INTEGER)       CASCADE;
 DROP FUNCTION IF EXISTS incZweitstimmeDirektWahlbezirk(INTEGER, INTEGER) CASCADE;
 DROP FUNCTION IF EXISTS decZweitstimmeDirektWahlbezirk(INTEGER, INTEGER) CASCADE;
-DROP MATERIALIZED VIEW FederalStateWithCitizenCount      CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS FederalStateWithCitizenCount      CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenFS           CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenWK           CASCADE;
 DROP TABLE IF EXISTS AccumulatedZweitstimmenWB           CASCADE;
@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS Wahlkreis (
     wknr INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     outline POLYGON,
+    electorate INT NOT NULL,
     fsid INT NOT NULL REFERENCES FederalState(fsid) ON DELETE CASCADE,
     year INT NOT NULL REFERENCES ElectionYear(year) ON DELETE CASCADE,
     UNIQUE (wknr, year)
@@ -246,7 +247,7 @@ CREATE OR REPLACE FUNCTION handleLandesListenInsert() RETURNS TRIGGER AS $insert
         INSERT INTO AccumulatedZweitstimmenFS (llid) VALUES (NEW.llid);
         FOR _wkid IN SELECT wkid
                      FROM Wahlkreis
-                     WHERE fsid = NEW.fsid
+                     WHERE fsid = NEW.fsid  AND year = NEW.year
         LOOP
             INSERT INTO AccumulatedZweitstimmenWK (wkid, llid) VALUES (_wkid, NEW.llid);
         END LOOP;
