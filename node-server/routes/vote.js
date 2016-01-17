@@ -60,7 +60,6 @@ router.get('/', function (req, res) {
                                 } else if (result.rows.length < 2) {
                                     res.status(451).send("You do not have a choice whom to vote for, so we voted for you!");
                                 } else {
-                                    console.log(result.rows[0]);
                                     res.render('vote', {
                                         votables: result.rows,
                                         wk_name: result.rows[0].wk_name,
@@ -79,13 +78,13 @@ router.get('/', function (req, res) {
 
 
 router.post('/', function (req, res) {
-    var erststimme = parseInt(req.body.erststimme);
-    var zweitstimme = parseInt(req.body.zweitstimme);
+    var erststimme = parseInt(req.body.erststimme) || null;
+    var zweitstimme = parseInt(req.body.zweitstimme) || null;
 
-    if (!erststimme || !zweitstimme ||
-        typeof erststimme != 'number' ||
-        typeof zweitstimme != 'number' ||
-        isNaN(erststimme) || isNaN(zweitstimme)) {
+    if (
+        ((!erststimme || typeof erststimme != "number" || isNaN(erststimme)) && erststimme !== null) ||
+        ((!zweitstimme || typeof zweitstimme != "number" || isNaN(zweitstimme)) && zweitstimme !== null)
+    ) {
         res.status(500).send("invalid format");
     } else if (!req.cookies.token || typeof(req.cookies.token) != 'string') {
         res.redirect('/vote');

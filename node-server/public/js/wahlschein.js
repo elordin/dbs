@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    var submitButton = document.getElementById('submit');
+    var submitButton = document.getElementById('submitButton');
 
     submitButton.addEventListener('click', function (e) {
 
@@ -47,13 +47,16 @@ function showModal() {
         document.body.removeChild(modal);
     });
 
+    commitButton.addEventListener('click', function (e) {
+        var form = document.getElementById('stimmzettel');
+        form.submit();
+    });
+
     overlay.addEventListener('click', function (e) {
         document.body.removeChild(overlay);
         document.body.removeChild(modal);
     });
 
-    console.log(spanES);
-    console.log(spanZS);
 
     modal.appendChild(title);
     modal.appendChild(titleES);
@@ -71,10 +74,11 @@ function showModal() {
 
 function radioLabelTextSpan(radioGroupName) {
     var radios = document.body.querySelectorAll('input[type="radio"][name="' + radioGroupName + '"]');
-    Array.prototype.map.call(radios, function (radio) {
-        if (radio.checked) {
-            return radio.nextElementSibling.cloneNode(true);
-        }
+    var checkedRadios = Array.prototype.filter.call(radios, function (radio) {
+        return radio.checked;
     });
-    return false;
+    if (checkedRadios.length != 1)
+        return document.querySelector('.validity input[type="radio"][name="' + radioGroupName + '"]').nextElementSibling.cloneNode(true);
+    else
+        return checkedRadios[0].nextElementSibling.cloneNode(true);
 }

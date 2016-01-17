@@ -213,7 +213,7 @@ form, .card {
     text-decoration: none;
 }
 
-.right .radios abbr::after {
+.right .radios abbr::after, .modal span abbr::after {
     content: attr(title);
     display: block;
     font-size: .8em;
@@ -264,6 +264,10 @@ button:active {
     display: block;
 }
 
+.terms input {
+    display: none;
+}
+
 label {
     padding: 1em;
     height: 5em;
@@ -298,8 +302,25 @@ label input + span::before {
     font-size: .8em;
 }
 
-label input:checked + span::before {
+label input + span::after {
+    visibility: visible;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    top: calc(50% - 1.05em);
+    left: .775em;
+}
+
+label input:checked + span::after {
     background: #333;
+}
+
+
+label input:checked + span::after {
+    background: url(/img/checked.png) no-repeat center center;
+    background-size: 100% 100%;
 }
 
 label input:checked::after,
@@ -402,4 +423,9 @@ button.red {
         margin: 2em 5% 0 5%;
         font-size: 1em;
     }
+}
+
+.modal span {
+    background-color: #eee;
+    padding: 1em;
 }
