@@ -1,299 +1,299 @@
-1;Flensburg – Schleswig;13
-2;Nordfriesland – Dithmarschen Nord;13
-3;Steinburg – Dithmarschen Süd;13
-4;Rendsburg-Eckernförde;13
-5;Kiel;13
-6;Plön – Neumünster;13
-7;Pinneberg;13
-8;Segeberg – Stormarn-Nord;13
-9;Ostholstein;13
-10;Herzogtum Lauenburg – Stormarn-Süd;13
-11;Lübeck;13
-12;Wismar – Nordwestmecklenburg – Parchim;15
-13;Schwerin – Ludwigslust;15
-14;Rostock;15
-15;Stralsund – Nordvorpommern – Rügen;15
-16;Greifswald – Demmin – Ostvorpommern;15
-17;Bad Doberan – Güstrow – Müritz;15
-18;Neubrandenburg – Mecklenburg-Strelitz – Uecker-Randow;15
-19;Hamburg-Mitte;8
-20;Hamburg-Altona;8
-21;Hamburg-Eimsbüttel;8
-22;Hamburg-Nord;8
-23;Hamburg-Wandsbek;8
-24;Hamburg-Bergedorf – Harburg;8
-25;Aurich – Emden;3
-26;Unterems;3
-27;Friesland – Wilhelmshaven;3
-28;Oldenburg – Ammerland;3
-29;Delmenhorst – Wesermarsch – Oldenburg-Land;3
-30;Cuxhaven – Stade II;3
-31;Stade I – Rotenburg II;3
-32;Mittelems;3
-33;Cloppenburg – Vechta;3
-34;Diepholz – Nienburg I;3
-35;Osterholz – Verden;3
-36;Rotenburg I – Soltau-Fallingbostel;3
-37;Harburg;3
-38;Lüchow-Dannenberg – Lüneburg;3
-39;Osnabrück-Land;3
-40;Stadt Osnabrück;3
-41;Nienburg II – Schaumburg;3
-42;Stadt Hannover I;3
-43;Stadt Hannover II;3
-44;Hannover-Land I;3
-45;Celle – Uelzen;3
-46;Gifhorn – Peine;3
-47;Hameln-Pyrmont – Holzminden;3
-48;Hannover-Land II;3
-49;Hildesheim;3
-50;Salzgitter – Wolfenbüttel;3
-51;Braunschweig;3
-52;Helmstedt – Wolfsburg;3
-53;Goslar – Northeim – Osterode;3
-54;Göttingen;3
-55;Bremen I;11
-56;Bremen II – Bremerhaven;11
-57;Prignitz – Ostprignitz-Ruppin – Havelland I;14
-58;Uckermark – Barnim I;14
-59;Oberhavel – Havelland II;14
-60;Märkisch-Oderland – Barnim II;14
-61;Brandenburg an der Havel – Potsdam-Mittelmark I – Havelland III – Teltow-Fläming I;14
-62;Potsdam – Potsdam-Mittelmark II – Teltow-Fläming II;14
-63;Dahme-Spreewald – Teltow-Fläming III – Oberspreewald-Lausitz I;14
-64;Frankfurt (Oder) – Oder-Spree;14
-65;Cottbus – Spree-Neiße;14
-66;Elbe-Elster – Oberspreewald-Lausitz II;14
-67;Altmark;6
-68;Börde – Jerichower Land;6
-69;Harz;6
-70;Magdeburg;6
-71;Dessau - Wittenberg;6
-72;Anhalt;6
-73;Halle;6
-74;Burgenland – Saalekreis;6
-75;Mansfeld;6
-76;Berlin-Mitte;1
-77;Berlin-Pankow;1
-78;Berlin-Reinickendorf;1
-79;Berlin-Spandau – Charlottenburg Nord;1
-80;Berlin-Steglitz – Zehlendorf;1
-81;Berlin-Charlottenburg – Wilmersdorf;1
-82;Berlin-Tempelhof – Schöneberg;1
-83;Berlin-Neukölln;1
-84;Berlin-Friedrichshain – Kreuzberg – Prenzlauer Berg Ost;1
-85;Berlin-Treptow – Köpenick;1
-86;Berlin-Marzahn – Hellersdorf;1
-87;Berlin-Lichtenberg;1
-88;Aachen;5
-89;Kreis Aachen;5
-90;Heinsberg;5
-91;Düren;5
-92;Erftkreis I;5
-93;Euskirchen – Erftkreis II;5
-94;Köln I;5
-95;Köln II;5
-96;Köln III;5
-97;Bonn;5
-98;Rhein-Sieg-Kreis I;5
-99;Rhein-Sieg-Kreis II;5
-100;Oberbergischer Kreis;5
-101;Rheinisch-Bergischer Kreis;5
-102;Leverkusen – Köln IV;5
-103;Wuppertal I;5
-104;Solingen – Remscheid – Wuppertal II;5
-105;Mettmann I;5
-106;Mettmann II;5
-107;Düsseldorf I;5
-108;Düsseldorf II;5
-109;Neuss I;5
-110;Mönchengladbach;5
-111;Krefeld I – Neuss II;5
-112;Viersen;5
-113;Kleve;5
-114;Wesel I;5
-115;Krefeld II – Wesel II;5
-116;Duisburg I;5
-117;Duisburg II;5
-118;Oberhausen – Wesel III;5
-119;Mülheim – Essen I;5
-120;Essen II;5
-121;Essen III;5
-122;Recklinghausen I;5
-123;Recklinghausen II;5
-124;Gelsenkirchen;5
-125;Steinfurt I – Borken I;5
-126;Bottrop – Recklinghausen III;5
-127;Borken II;5
-128;Coesfeld – Steinfurt II;5
-129;Steinfurt III;5
-130;Münster;5
-131;Warendorf;5
-132;Gütersloh;5
-133;Bielefeld;5
-134;Herford – Minden-Lübbecke II;5
-135;Minden-Lübbecke I;5
-136;Lippe I;5
-137;Höxter – Lippe II;5
-138;Paderborn;5
-139;Hagen – Ennepe-Ruhr-Kreis I;5
-140;Ennepe-Ruhr-Kreis II;5
-141;Bochum I;5
-142;Herne – Bochum II;5
-143;Dortmund I;5
-144;Dortmund II;5
-145;Unna I;5
-146;Hamm – Unna II;5
-147;Soest;5
-148;Hochsauerlandkreis;5
-149;Siegen-Wittgenstein;5
-150;Olpe – Märkischer Kreis I;5
-151;Märkischer Kreis II;5
-152;Nordsachsen;16
-153;Leipzig I;16
-154;Leipzig II;16
-155;Leipzig-Land;16
-156;Meißen;16
-157;Bautzen I;16
-158;Görlitz;16
-159;Sächsische Schweiz – Osterzgebirge;16
-160;Dresden I;16
-161;Dresden II – Bautzen II;16
-162;Mittelsachsen;16
-163;Chemnitz;16
-164;Chemnitzer Umland – Erzgebirgskreis II;16
-165;Erzgebirgskreis I;16
-166;Zwickau;16
-167;Vogtlandkreis;16
-168;Waldeck;7
-169;Kassel;7
-170;Werra-Meißner – Hersfeld-Rotenburg;7
-171;Schwalm-Eder;7
-172;Marburg;7
-173;Lahn-Dill;7
-174;Gießen;7
-175;Fulda;7
-176;Hochtaunus;7
-177;Wetterau;7
-178;Rheingau-Taunus – Limburg;7
-179;Wiesbaden;7
-180;Hanau;7
-181;Main-Taunus;7
-182;Frankfurt am Main I;7
-183;Frankfurt am Main II;7
-184;Groß-Gerau;7
-185;Offenbach;7
-186;Darmstadt;7
-187;Odenwald;7
-188;Bergstraße;7
-189;Eichsfeld – Nordhausen – Unstrut-Hainich-Kreis I;9
-190;Eisenach – Wartburgkreis – Unstrut-Hainich-Kreis II;9
-191;Kyffhäuserkreis – Sömmerda – Weimarer Land I;9
-192;Gotha – Ilm-Kreis;9
-193;Erfurt – Weimar – Weimarer Land II;9
-194;Gera – Jena – Saale-Holzland-Kreis;9
-195;Greiz – Altenburger Land;9
-196;Sonneberg – Saalfeld-Rudolstadt – Saale-Orla-Kreis;9
-197;Suhl – Schmalkalden-Meiningen – Hildburghausen;9
-198;Neuwied;2
-199;Ahrweiler;2
-200;Koblenz;2
-201;Mosel/Rhein-Hunsrück;2
-202;Kreuznach;2
-203;Bitburg;2
-204;Trier;2
-205;Montabaur;2
-206;Mainz;2
-207;Worms;2
-208;Ludwigshafen/Frankenthal;2
-209;Neustadt – Speyer;2
-210;Kaiserslautern;2
-211;Pirmasens;2
-212;Südpfalz;2
-213;Altötting;4
-214;Erding – Ebersberg;4
-215;Freising;4
-216;Fürstenfeldbruck;4
-217;Ingolstadt;4
-218;München-Nord;4
-219;München-Ost;4
-220;München-Süd;4
-221;München-West/Mitte;4
-222;München-Land;4
-223;Rosenheim;4
-224;Starnberg;4
-225;Traunstein;4
-226;Weilheim;4
-227;Deggendorf;4
-228;Landshut;4
-229;Passau;4
-230;Rottal-Inn;4
-231;Straubing;4
-232;Amberg;4
-233;Regensburg;4
-234;Schwandorf;4
-235;Weiden;4
-236;Bamberg;4
-237;Bayreuth;4
-238;Coburg;4
-239;Hof;4
-240;Kulmbach;4
-241;Ansbach;4
-242;Erlangen;4
-243;Fürth;4
-244;Nürnberg-Nord;4
-245;Nürnberg-Süd;4
-246;Roth;4
-247;Aschaffenburg;4
-248;Bad Kissingen;4
-249;Main-Spessart;4
-250;Schweinfurt;4
-251;Würzburg;4
-252;Augsburg-Stadt;4
-253;Augsburg-Land;4
-254;Donau-Ries;4
-255;Neu-Ulm;4
-256;Oberallgäu;4
-257;Ostallgäu;4
-258;Stuttgart I;10
-259;Stuttgart II;10
-260;Böblingen;10
-261;Esslingen;10
-262;Nürtingen;10
-263;Göppingen;10
-264;Waiblingen;10
-265;Ludwigsburg;10
-266;Neckar-Zaber;10
-267;Heilbronn;10
-268;Schwäbisch Hall – Hohenlohe;10
-269;Backnang – Schwäbisch Gmünd;10
-270;Aalen – Heidenheim;10
-271;Karlsruhe-Stadt;10
-272;Karlsruhe-Land;10
-273;Rastatt;10
-274;Heidelberg;10
-275;Mannheim;10
-276;Odenwald – Tauber;10
-277;Rhein-Neckar;10
-278;Bruchsal – Schwetzingen;10
-279;Pforzheim;10
-280;Calw;10
-281;Freiburg;10
-282;Lörrach – Müllheim;10
-283;Emmendingen – Lahr;10
-284;Offenburg;10
-285;Rottweil – Tuttlingen;10
-286;Schwarzwald-Baar;10
-287;Konstanz;10
-288;Waldshut;10
-289;Reutlingen;10
-290;Tübingen;10
-291;Ulm;10
-292;Biberach;10
-293;Bodensee;10
-294;Ravensburg;10
-295;Zollernalb – Sigmaringen;10
-296;Saarbrücken;12
-297;Saarlouis;12
-298;St. Wendel;12
-299;Homburg;12
+1;Flensburg – Schleswig;13;225216
+2;Nordfriesland – Dithmarschen Nord;13;187047
+3;Steinburg – Dithmarschen Süd;13;177604
+4;Rendsburg-Eckernförde;13;198910
+5;Kiel;13;200347
+6;Plön – Neumünster;13;175132
+7;Pinneberg;13;232899
+8;Segeberg – Stormarn-Nord;13;240010
+9;Ostholstein;13;179987
+10;Herzogtum Lauenburg – Stormarn-Süd;13;237144
+11;Lübeck;13;180424
+12;Wismar – Nordwestmecklenburg – Parchim;15;249150
+13;Schwerin – Ludwigslust;15;178340
+14;Rostock;15;185790
+15;Stralsund – Nordvorpommern – Rügen;15;207016
+16;Greifswald – Demmin – Ostvorpommern;15;217147
+17;Bad Doberan – Güstrow – Müritz;15;219191
+18;Neubrandenburg – Mecklenburg-Strelitz – Uecker-Randow;15;189804
+19;Hamburg-Mitte;8;231076
+20;Hamburg-Altona;8;190546
+21;Hamburg-Eimsbüttel;8;215591
+22;Hamburg-Nord;8;226440
+23;Hamburg-Wandsbek;8;189058
+24;Hamburg-Bergedorf – Harburg;8;192956
+25;Aurich – Emden;3;226979
+26;Unterems;3;212449
+27;Friesland – Wilhelmshaven;3;193411
+28;Oldenburg – Ammerland;3;192320
+29;Delmenhorst – Wesermarsch – Oldenburg-Land;3;168573
+30;Cuxhaven – Stade II;3;191159
+31;Stade I – Rotenburg II;3;177098
+32;Mittelems;3;197143
+33;Cloppenburg – Vechta;3;192473
+34;Diepholz – Nienburg I;3;198376
+35;Osterholz – Verden;3;180088
+36;Rotenburg I – Soltau-Fallingbostel;3;190623
+37;Harburg;3;232214
+38;Lüchow-Dannenberg – Lüneburg;3;217316
+39;Osnabrück-Land;3;216957
+40;Stadt Osnabrück;3;197394
+41;Nienburg II – Schaumburg;3;239450
+42;Stadt Hannover I;3;222804
+43;Stadt Hannover II;3;213208
+44;Hannover-Land I;3;189975
+45;Celle – Uelzen;3;187831
+46;Gifhorn – Peine;3;214330
+47;Hameln-Pyrmont – Holzminden;3;224468
+48;Hannover-Land II;3;256131
+49;Hildesheim;3;231847
+50;Salzgitter – Wolfenbüttel;3;176885
+51;Braunschweig;3;228546
+52;Helmstedt – Wolfsburg;3;187605
+53;Goslar – Northeim – Osterode;3;199907
+54;Göttingen;3;245417
+55;Bremen I;11;245382
+56;Bremen II – Bremerhaven;11;186798
+57;Prignitz – Ostprignitz-Ruppin – Havelland I;14;224430
+58;Uckermark – Barnim I;14;197023
+59;Oberhavel – Havelland II;14;219218
+60;Märkisch-Oderland – Barnim II;14;231404
+61;Brandenburg an der Havel – Potsdam-Mittelmark I – Havelland III – Teltow-Fläming I;14;211859
+62;Potsdam – Potsdam-Mittelmark II – Teltow-Fläming II;14;211963
+63;Dahme-Spreewald – Teltow-Fläming III – Oberspreewald-Lausitz I;14;215582
+64;Frankfurt (Oder) – Oder-Spree;14;213303
+65;Cottbus – Spree-Neiße;14;216614
+66;Elbe-Elster – Oberspreewald-Lausitz II;14;229927
+67;Altmark;6;204450
+68;Börde – Jerichower Land;6;168402
+69;Harz;6;218215
+70;Magdeburg;6;195910
+71;Dessau - Wittenberg;6;213950
+72;Anhalt;6;194294
+73;Halle;6;204291
+74;Burgenland – Saalekreis;6;227805
+75;Mansfeld;6;226029
+76;Berlin-Mitte;1;207451
+77;Berlin-Pankow;1;182878
+78;Berlin-Reinickendorf;1;174332
+79;Berlin-Spandau – Charlottenburg Nord;1;171011
+80;Berlin-Steglitz – Zehlendorf;1;212283
+81;Berlin-Charlottenburg – Wilmersdorf;1;194638
+82;Berlin-Tempelhof – Schöneberg;1;171457
+83;Berlin-Neukölln;1;197729
+84;Berlin-Friedrichshain – Kreuzberg – Prenzlauer Berg Ost;1;174767
+85;Berlin-Treptow – Köpenick;1;194999
+86;Berlin-Marzahn – Hellersdorf;1;187486
+87;Berlin-Lichtenberg;1;200304
+88;Aachen;5;208655
+89;Kreis Aachen;5;196659
+90;Heinsberg;5;189353
+91;Düren;5;192966
+92;Erftkreis I;5;210934
+93;Euskirchen – Erftkreis II;5;211287
+94;Köln I;5;232944
+95;Köln II;5;247085
+96;Köln III;5;233781
+97;Bonn;5;209155
+98;Rhein-Sieg-Kreis I;5;174517
+99;Rhein-Sieg-Kreis II;5;216917
+100;Oberbergischer Kreis;5;243442
+101;Rheinisch-Bergischer Kreis;5;217768
+102;Leverkusen – Köln IV;5;183435
+103;Wuppertal I;5;214358
+104;Solingen – Remscheid – Wuppertal II;5;188777
+105;Mettmann I;5;214213
+106;Mettmann II;5;208840
+107;Düsseldorf I;5;202933
+108;Düsseldorf II;5;239907
+109;Neuss I;5;232781
+110;Mönchengladbach;5;209440
+111;Krefeld I – Neuss II;5;218411
+112;Viersen;5;214196
+113;Kleve;5;210993
+114;Wesel I;5;192360
+115;Krefeld II – Wesel II;5;222636
+116;Duisburg I;5;184337
+117;Duisburg II;5;194732
+118;Oberhausen – Wesel III;5;185071
+119;Mülheim – Essen I;5;212611
+120;Essen II;5;214882
+121;Essen III;5;210695
+122;Recklinghausen I;5;181422
+123;Recklinghausen II;5;182246
+124;Gelsenkirchen;5;173946
+125;Steinfurt I – Borken I;5;221226
+126;Bottrop – Recklinghausen III;5;187479
+127;Borken II;5;175874
+128;Coesfeld – Steinfurt II;5;195505
+129;Steinfurt III;5;190058
+130;Münster;5;212140
+131;Warendorf;5;172278
+132;Gütersloh;5;221180
+133;Bielefeld;5;233622
+134;Herford – Minden-Lübbecke II;5;234911
+135;Minden-Lübbecke I;5;199708
+136;Lippe I;5;242568
+137;Höxter – Lippe II;5;195658
+138;Paderborn;5;196560
+139;Hagen – Ennepe-Ruhr-Kreis I;5;178493
+140;Ennepe-Ruhr-Kreis II;5;190569
+141;Bochum I;5;168357
+142;Herne – Bochum II;5;192571
+143;Dortmund I;5;213225
+144;Dortmund II;5;251837
+145;Unna I;5;202156
+146;Hamm – Unna II;5;217445
+147;Soest;5;220974
+148;Hochsauerlandkreis;5;235030
+149;Siegen-Wittgenstein;5;184220
+150;Olpe – Märkischer Kreis I;5;214215
+151;Märkischer Kreis II;5;184454
+152;Nordsachsen;16;181088
+153;Leipzig I;16;244919
+154;Leipzig II;16;165210
+155;Leipzig-Land;16;204091
+156;Meißen;16;180442
+157;Bautzen I;16;220220
+158;Görlitz;16;206805
+159;Sächsische Schweiz – Osterzgebirge;16;224090
+160;Dresden I;16;241035
+161;Dresden II – Bautzen II;16;223234
+162;Mittelsachsen;16;176381
+163;Chemnitz;16;224418
+164;Chemnitzer Umland – Erzgebirgskreis II;16;201833
+165;Erzgebirgskreis I;16;208654
+166;Zwickau;16;208664
+167;Vogtlandkreis;16;211807
+168;Waldeck;7;198437
+169;Kassel;7;215910
+170;Werra-Meißner – Hersfeld-Rotenburg;7;195971
+171;Schwalm-Eder;7;194304
+172;Marburg;7;220877
+173;Lahn-Dill;7;198923
+174;Gießen;7;210636
+175;Fulda;7;225703
+176;Hochtaunus;7;213013
+177;Wetterau;7;204619
+178;Rheingau-Taunus – Limburg;7;200726
+179;Wiesbaden;7;167458
+180;Hanau;7;197671
+181;Main-Taunus;7;177784
+182;Frankfurt am Main I;7;198399
+183;Frankfurt am Main II;7;189559
+184;Groß-Gerau;7;218934
+185;Offenbach;7;162508
+186;Darmstadt;7;167789
+187;Odenwald;7;181362
+188;Bergstraße;7;185890
+189;Eichsfeld – Nordhausen – Unstrut-Hainich-Kreis I;9;166775
+190;Eisenach – Wartburgkreis – Unstrut-Hainich-Kreis II;9;185961
+191;Kyffhäuserkreis – Sömmerda – Weimarer Land I;9;212087
+192;Gotha – Ilm-Kreis;9;244678
+193;Erfurt – Weimar – Weimarer Land II;9;250512
+194;Gera – Jena – Saale-Holzland-Kreis;9;220785
+195;Greiz – Altenburger Land;9;231017
+196;Sonneberg – Saalfeld-Rudolstadt – Saale-Orla-Kreis;9;211617
+197;Suhl – Schmalkalden-Meiningen – Hildburghausen;9;231682
+198;Neuwied;2;242625
+199;Ahrweiler;2;226483
+200;Koblenz;2;242366
+201;Mosel/Rhein-Hunsrück;2;205115
+202;Kreuznach;2;249153
+203;Bitburg;2;154767
+204;Trier;2;246833
+205;Montabaur;2;186068
+206;Mainz;2;162109
+207;Worms;2;173068
+208;Ludwigshafen/Frankenthal;2;214616
+209;Neustadt – Speyer;2;243083
+210;Kaiserslautern;2;216044
+211;Pirmasens;2;172011
+212;Südpfalz;2;177197
+213;Altötting;4;164344
+214;Erding – Ebersberg;4;162834
+215;Freising;4;180735
+216;Fürstenfeldbruck;4;173473
+217;Ingolstadt;4;243953
+218;München-Nord;4;177261
+219;München-Ost;4;249703
+220;München-Süd;4;189738
+221;München-West/Mitte;4;184672
+222;München-Land;4;224946
+223;Rosenheim;4;183872
+224;Starnberg;4;219607
+225;Traunstein;4;199081
+226;Weilheim;4;200116
+227;Deggendorf;4;225807
+228;Landshut;4;206196
+229;Passau;4;240672
+230;Rottal-Inn;4;189097
+231;Straubing;4;235775
+232;Amberg;4;221708
+233;Regensburg;4;242341
+234;Schwandorf;4;207292
+235;Weiden;4;214924
+236;Bamberg;4;184896
+237;Bayreuth;4;201442
+238;Coburg;4;197252
+239;Hof;4;232250
+240;Kulmbach;4;183112
+241;Ansbach;4;184436
+242;Erlangen;4;217335
+243;Fürth;4;195857
+244;Nürnberg-Nord;4;232759
+245;Nürnberg-Süd;4;197444
+246;Roth;4;222647
+247;Aschaffenburg;4;200391
+248;Bad Kissingen;4;203416
+249;Main-Spessart;4;204766
+250;Schweinfurt;4;171705
+251;Würzburg;4;168604
+252;Augsburg-Stadt;4;249983
+253;Augsburg-Land;4;255845
+254;Donau-Ries;4;199083
+255;Neu-Ulm;4;239221
+256;Oberallgäu;4;246651
+257;Ostallgäu;4;208525
+258;Stuttgart I;10;196389
+259;Stuttgart II;10;192709
+260;Böblingen;10;226424
+261;Esslingen;10;217571
+262;Nürtingen;10;224968
+263;Göppingen;10;253514
+264;Waiblingen;10;247700
+265;Ludwigsburg;10;230121
+266;Neckar-Zaber;10;178447
+267;Heilbronn;10;202455
+268;Schwäbisch Hall – Hohenlohe;10;212804
+269;Backnang – Schwäbisch Gmünd;10;231084
+270;Aalen – Heidenheim;10;216629
+271;Karlsruhe-Stadt;10;237786
+272;Karlsruhe-Land;10;238958
+273;Rastatt;10;215674
+274;Heidelberg;10;230676
+275;Mannheim;10;231247
+276;Odenwald – Tauber;10;223149
+277;Rhein-Neckar;10;205652
+278;Bruchsal – Schwetzingen;10;202743
+279;Pforzheim;10;247624
+280;Calw;10;229535
+281;Freiburg;10;213732
+282;Lörrach – Müllheim;10;182677
+283;Emmendingen – Lahr;10;239481
+284;Offenburg;10;237308
+285;Rottweil – Tuttlingen;10;249356
+286;Schwarzwald-Baar;10;197289
+287;Konstanz;10;253026
+288;Waldshut;10;223268
+289;Reutlingen;10;214081
+290;Tübingen;10;232086
+291;Ulm;10;204717
+292;Biberach;10;201700
+293;Bodensee;10;201075
+294;Ravensburg;10;214510
+295;Zollernalb – Sigmaringen;10;225534
+296;Saarbrücken;12;245228
+297;Saarlouis;12;182336
+298;St. Wendel;12;231447
+299;Homburg;12;207012
