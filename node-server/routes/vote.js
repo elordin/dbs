@@ -53,7 +53,7 @@ router.get('/', function (req, res) {
                             res.render('auth');
                         } else {
                             var dwbid = result.rows[0].dwbid;
-                            req.db.query("SELECT * FROM WahlscheinEntries WHERE dwbid = $1 ORDER BY ll_pname",
+                            req.db.query("SELECT * FROM WahlscheinEntries WHERE dwbid = $1",
                                 [sanitize(dwbid)], function (err, result) {
                                 if (err) {
                                     res.status(500).render("error", {error: err});
@@ -132,7 +132,7 @@ router.post('/', function (req, res) {
                                     args: []
                                 },
                             ], [], function (results) {
-                                res.cookie('token', '').redirect('/voted');
+                                res.cookie('token', '').redirect('/vote/done');
                             });
                         }
                 });
@@ -205,5 +205,9 @@ router.post('/auth', function (req, res) {
     });
 });
 
+
+router.get('/done', function (req, res) {
+    res.render('voted');
+});
 
 module.exports = router;
