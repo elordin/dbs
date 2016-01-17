@@ -4,6 +4,7 @@ html
         meta(charset='utf-8')
         title Wahl-Informationssystem zur Bundestagswahl
         link(rel='stylesheet', href='/css/wahlschein.css')
+        script(src='/js/wahlschein.js')
     body
         form(action="/vote", method="POST")
             header
@@ -61,4 +62,4 @@ html
                 label.terms
                     input(type="checkbox", name="terms")
                     span Ich best&auml;tige, dass ich die Hinweise und Bedingungen der Wahl kurz &uuml;berflogen habe und davon &uuml;berzeugt bin, sie verstanden zu haben.
-                button(type="submit") Wahlzettel abgeben
+                button#submit(type="submit") Wahlzettel abgeben

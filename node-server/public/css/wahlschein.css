@@ -139,7 +139,8 @@ header dl {
     text-align: left;
     float: none;
 }
-form {
+
+form, .card {
     padding: 2em;
     margin: 1em auto;
     background-color: #fff;
@@ -349,4 +350,56 @@ h4 {
     border: thin solid #c00;
     padding: 1em;
     font-size: 1.25em;
+}
+
+button.green {
+    color: #fff;
+    background-color: #4CAF50;
+}
+
+button.red {
+    color: #fff;
+    background-color: #F44336;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    margin: 0 auto;
+    max-width: 50em;
+    min-width: 30em;
+}
+
+.modal span {
+    display: block;
+    margin-bottom: 1.5em;
+}
+
+.modal button {
+    padding: 1em;
+    box-sizing: border-box;
+    width: 100%;
+    margin: .5em 0;
+}
+
+@media (min-width: 48em) {
+    .modal button {
+        width: 40%;
+        margin: 2em 5% 0 5%;
+        font-size: 1em;
+    }
 }

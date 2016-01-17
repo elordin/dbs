@@ -289,7 +289,7 @@ router.get(/^\/closest-winners\/([0-9]{2}|[0-9]{4})\/?$/, function(req, res, nex
     if (!year) {
         res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
     } else {
-        renderForDBQuery(req, res, 'SELECT DISTINCT pid, p_name, p_shorthand FROM Results_View_NarrowWahlkreisWinsAndLosings WHERE year = ' + year,
+        renderForDBQuery(req, res, 'SELECT DISTINCT pid, p_name, p_shorthand FROM Results_View_NarrowWahlkreisWinsAndLosings WHERE year = ' + year + ' ORDER BY p_name' ,
             'closest-winners-all', year, 'Knappste Sieger ' + year);
     }
 });
