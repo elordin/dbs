@@ -1,0 +1,10 @@
+psql -h localhost -U postgres -q -d postgres -a -f 00_drop_wisdb.sql
+psql -h localhost -U postgres -q -d postgres -a -f 01_create_db.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 02_create_schema.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 03_insert_data.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 04a_set_data_for_2013.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 05_create_bt_calculate_tables_views.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 06_fill_factorstable.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 07_tokens.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 08_create_views_for_UI.sql
+psql -h localhost -U postgres -q -d wisdb -a -f 09_create_UIuser.sql

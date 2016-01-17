@@ -1,0 +1,683 @@
+format version: 5
+output mode:
+1 items
+0 -> single
+output directories:
+1 items
+output dir -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes
+compile options:
+3 items
+0 -> -unchecked
+1 -> -deprecation
+2 -> -feature
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.11.7
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> true
+products:
+49 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$3.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$postStop$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$printAvgs$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$printAvgs$2.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$props$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$receive$1$$anonfun$2.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$receive$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Failure$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Failure.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Success$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Success.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client$$anonfun$liftedTree4$1$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client$delayedInit$body.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\FailedResponse$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\FailedResponse.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$2.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$3$$anonfun$apply$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$3.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$props$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$receive$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\GenericQuery$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\GenericQuery.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q1$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q2$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q2.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q3$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q3.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q4$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q4.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q5$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q5.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q6$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q6.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Query.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$$anonfun$receive$1.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$WatchMe$.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$WatchMe.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper.class
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\TerminationReaper.class
+binary dependencies:
+19 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\.ivy2\cache\com.typesafe.akka\akka-actor_2.11\jars\akka-actor_2.11-2.4.1.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\.ivy2\cache\com.typesafe.akka\akka-actor_2.11\jars\akka-actor_2.11-2.4.1.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\.ivy2\cache\com.typesafe\config\bundles\config-1.3.0.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\.ivy2\cache\io.spray\spray-http_2.11\bundles\spray-http_2.11-1.3.3.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\.ivy2\cache\com.typesafe.akka\akka-actor_2.11\jars\akka-actor_2.11-2.4.1.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\.ivy2\cache\io.spray\spray-can_2.11\bundles\spray-can_2.11-1.3.3.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\.ivy2\cache\io.spray\spray-http_2.11\bundles\spray-http_2.11-1.3.3.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\.ivy2\cache\io.spray\spray-http_2.11\bundles\spray-http_2.11-1.3.3.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\.ivy2\cache\com.typesafe.akka\akka-actor_2.11\jars\akka-actor_2.11-2.4.1.jar
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+8 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+49 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$3
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$postStop$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$printAvgs$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$printAvgs$2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$props$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$receive$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$$anonfun$receive$1$$anonfun$2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$Failure
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$Failure$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$Success
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark.AggregationActor$Success$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark.Client
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark.Client$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark.Client$$anonfun$liftedTree4$1$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark.Client$delayedInit$body
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark.FailedResponse
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark.FailedResponse$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$$anonfun$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$$anonfun$2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$$anonfun$3
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$$anonfun$3$$anonfun$apply$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$$anonfun$props$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark.HttpRequester$$anonfun$receive$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.GenericQuery
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.GenericQuery$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q1$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q2$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q3
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q3$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q4
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q4$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q5
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q5$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q6
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Q6$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark.Query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark.Reaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark.Reaper$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark.Reaper$$anonfun$receive$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark.Reaper$WatchMe
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark.Reaper$WatchMe$
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark.TerminationReaper
+used names:
+407 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> &&
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> +
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ->
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> /
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ::
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> <init>
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ==
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> A1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> AbstractFunction1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> AbstractFunction2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ActorRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> AggregationActor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> AnyRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> B1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ClassTag
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Deadline
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Duration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Failure
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Function1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> HttpRequester
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Int
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> IntIsIntegral
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Iterable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> List
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> LogSource
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Logging
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Long
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> LongIsIntegral
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Map
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Nil
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> None
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Numeric
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Ordering
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> PoisonPill
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Predef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Product
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Props
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Reaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ScalaRunTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Serializable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Statics
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> String
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> StringContext
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Success
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Terminated
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> TerminationReaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> Unit
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> _1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> _2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> _hashCode
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> _toString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> actorOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> akka
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> anyHash
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> apply
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> asInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> avgs
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> benchmark
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> canBuildFrom
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> collection
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> concurrent
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> context
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> count
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> current
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> deadline
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ds
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> duration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> eq
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> error
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> event
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> failures
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> failures_=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> finalizeHash
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> foreach
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> forward
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> fromActor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> getOrElse
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> i
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> immutable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> intWrapper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> isInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> length
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> logging
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> longHash
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> map
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> mapValues
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> materializeClassTag
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> math
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> mix
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> n
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ne
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> package
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> printAvgs
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> println
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> props
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> queries
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> reaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> responseTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> responses
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> responses_=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> runtime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> s
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> sortBy
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> sum
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> system
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> t
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> time
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> to
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> toList
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> toString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> typedProductIterator
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> unchecked
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> values
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> ||
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> &&
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> ::
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> <
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> <init>
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> ==
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> AbstractFunction0
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> ActorSystem
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> AggregationActor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> App
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Buffer
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Client
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Config
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> ConfigFactory
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Deadline
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Duration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Exception
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> FailedResponse
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> FiniteDuration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> IllegalArgumentException
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> IllegalUriException
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Int
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> JavaConverters
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> List
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Nil
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> NumberFormatException
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Predef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Product
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Q1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Q2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Q3
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Q4
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Q5
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Q6
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> ScalaRunTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> Serializable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> TimeUnit
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> _hashCode
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> actorOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> aggregator
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> akka
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> apply
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> asInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> asScala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> asScalaBufferConverter
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> benchmark
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> canBuildFrom
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> collection
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> com
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> concurrent
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> config
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> deadline
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> duration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> fromNow
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> getConfigList
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> getInt
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> getString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> http
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> immutable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> isFinite
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> isInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> java
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> javaConfigList
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> length
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> load
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> map
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> millis
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> mutable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> n
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> name
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> package
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> parsedDuration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> println
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> propability
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> props
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> queries
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> queryConfig
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> queryList
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> runtime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> scalaConfigList
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> seconds
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> spray
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> system
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> t
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> toMillis
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> toString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> typedProductIterator
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> typesafe
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> uri
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> util
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> !
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> !=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> &&
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> *
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> +
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> -
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> <init>
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> ?
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> A1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> ActorRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> AggregationActor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> AnyRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> B1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> ClassTag
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Deadline
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Duration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Function1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Future
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> GET
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Http
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> HttpMethods
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> HttpRequester
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> HttpResponse
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> IO
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> IndexedSeq
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> List
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> LogSource
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Logging
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> PoisonPill
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Predef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Props
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Random
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Reaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> System
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Terminated
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Thread
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> Timeout
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> actorRef2Scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> akka
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> apply
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> asInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> ask
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> benchmark
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> can
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> canBuildFrom
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> concurrent
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> context
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> currentTimeMillis
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> deadline
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> dispatcher
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> duration
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> endTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> error
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> event
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> flatMap
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> fromActor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> getMessage
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> getQuery
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> http
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> immutable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> intWrapper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> io
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> isOverdue
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> isSuccess
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> java
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> lang
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> logging
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> map
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> mapTo
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> materializeClassTag
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> ne
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> nextFloat
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> nextInt
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> onFailure
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> onSuccess
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> package
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> parent
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> pattern
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> pool
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> prop
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> q
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> queries
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> reaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> request
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> seconds
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> self
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> size
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> sleep
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> spray
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> startTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> status
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> system
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> t
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> timeout
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> to
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> toLong
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> toMillis
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> unary_!
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> unchecked
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> uri
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> util
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> while$1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> &&
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> <init>
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> ==
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> AbstractFunction3
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> AnyRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> GenericQuery
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Int
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> None
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Predef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Product
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Q1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Q2
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Q3
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Q4
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Q5
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Q6
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Query
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> ScalaRunTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Serializable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Statics
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> String
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> Uri
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> _prop
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> _uri
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> anyHash
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> apply
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> asInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> benchmark
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> eq
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> finalizeHash
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> http
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> isInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> mix
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> name
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> runtime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> spray
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> toString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> typedProductIterator
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> ||
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> &&
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> +=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> -=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> <init>
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> ==
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> A1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> AbstractFunction1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> ActorRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> AnyRef
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> ArrayBuffer
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> B1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Function1
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> None
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Product
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Reaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> ScalaRunTime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Serializable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Terminated
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> TerminationReaper
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> Unit
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> WatchMe
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> _hashCode
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> _toString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> actor
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> akka
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> allSoulsReaped
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> apply
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> asInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> benchmark
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> collection
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> context
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> empty
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> eq
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> isEmpty
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> isInstanceOf
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> mutable
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> ref
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> runtime
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> scala
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> system
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> terminate
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> toString
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> typedProductIterator
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> unchecked
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> watch
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> watched
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> ||
+product stamps:
+49 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$1.class -> lastModified(1452969004816)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$3.class -> lastModified(1452969004819)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$postStop$1.class -> lastModified(1452969004821)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$printAvgs$1.class -> lastModified(1452969004824)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$printAvgs$2.class -> lastModified(1452969004827)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$props$1.class -> lastModified(1452969004829)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$receive$1$$anonfun$2.class -> lastModified(1452969004835)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$$anonfun$receive$1.class -> lastModified(1452969004833)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$.class -> lastModified(1452969004813)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Failure$.class -> lastModified(1452969004838)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Failure.class -> lastModified(1452969004842)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Success$.class -> lastModified(1452969004844)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor$Success.class -> lastModified(1452969004848)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\AggregationActor.class -> lastModified(1452969004811)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client$$anonfun$liftedTree4$1$1.class -> lastModified(1452968758857)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client$.class -> lastModified(1452968758854)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client$delayedInit$body.class -> lastModified(1452968758860)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Client.class -> lastModified(1452968758841)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\FailedResponse$.class -> lastModified(1452968758869)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\FailedResponse.class -> lastModified(1452968758865)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\GenericQuery$.class -> lastModified(1452968758882)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\GenericQuery.class -> lastModified(1452968758877)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$1.class -> lastModified(1452968758901)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$2.class -> lastModified(1452968758905)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$3$$anonfun$apply$1.class -> lastModified(1452968758910)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$3.class -> lastModified(1452968758908)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$props$1.class -> lastModified(1452968758913)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$$anonfun$receive$1.class -> lastModified(1452968758917)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester$.class -> lastModified(1452968758895)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\HttpRequester.class -> lastModified(1452968758892)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q1$.class -> lastModified(1452968758924)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q1.class -> lastModified(1452968758921)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q2$.class -> lastModified(1452968758929)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q2.class -> lastModified(1452968758927)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q3$.class -> lastModified(1452968758934)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q3.class -> lastModified(1452968758931)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q4$.class -> lastModified(1452968758939)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q4.class -> lastModified(1452968758936)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q5$.class -> lastModified(1452968758943)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q5.class -> lastModified(1452968758941)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q6$.class -> lastModified(1452968758947)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Q6.class -> lastModified(1452968758944)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Query.class -> lastModified(1452968758949)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$$anonfun$receive$1.class -> lastModified(1452968758963)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$.class -> lastModified(1452968758951)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$WatchMe$.class -> lastModified(1452968758972)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper$WatchMe.class -> lastModified(1452968758969)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\Reaper.class -> lastModified(1452968758958)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\target\scala-2.11\classes\benchmark\TerminationReaper.class -> lastModified(1452968758974)
+source stamps:
+5 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> hash(d64c1048ee648d2884d8d1803d8798921ed7118b)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> hash(b56c76f8ece03875cf6015ac924536ea28e402d6)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> hash(baf5a6bc7c0bd26ba4d2b00e236aa7d5f74abb98)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> hash(41a8b690b6dbed1a8c7b466e11b1fee3fba04310)
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> hash(273d913287754709fe21502a9607407795f025e1)
+binary stamps:
+6 items
+C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar -> lastModified(1440106096730)
+C:\Users\Thomas\.ivy2\cache\com.typesafe.akka\akka-actor_2.11\jars\akka-actor_2.11-2.4.1.jar -> lastModified(1448625061000)
+C:\Users\Thomas\.ivy2\cache\com.typesafe\config\bundles\config-1.3.0.jar -> lastModified(1431099969000)
+C:\Users\Thomas\.ivy2\cache\io.spray\spray-can_2.11\bundles\spray-can_2.11-1.3.3.jar -> lastModified(1427204884000)
+C:\Users\Thomas\.ivy2\cache\io.spray\spray-http_2.11\bundles\spray-http_2.11-1.3.3.jar -> lastModified(1427205067000)
+C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar -> lastModified(1445714006097)
+class names:
+6 items
+C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar -> java.lang.Object
+C:\Users\Thomas\.ivy2\cache\com.typesafe.akka\akka-actor_2.11\jars\akka-actor_2.11-2.4.1.jar -> akka.actor.Actor
+C:\Users\Thomas\.ivy2\cache\com.typesafe\config\bundles\config-1.3.0.jar -> com.typesafe.config.Config
+C:\Users\Thomas\.ivy2\cache\io.spray\spray-can_2.11\bundles\spray-can_2.11-1.3.3.jar -> spray.can.Http$
+C:\Users\Thomas\.ivy2\cache\io.spray\spray-http_2.11\bundles\spray-http_2.11-1.3.3.jar -> spray.http.Uri$
+C:\Users\Thomas\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.7.jar -> scala.Serializable
+internal apis:
+5 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHAxNg21AHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAACc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwbYKCXXQABHNlbGZzcQB+AAtOnbDtdAAHY29udGV4dHVxAH4ACQAAAD1zcQB+AAvx8zYbdAAGbm90aWZ5c3EAfgALQhVUp3QAB3VuYXBwbHlzcQB+AAtgnIW3dAAHY3VycmllZHNxAH4AC3NVuPt0AAdSZWNlaXZlc3EAfgAL4f+WOnQABHdhaXRzcQB+AAv8qCAQdAAHbG9nZ2luZ3NxAH4AC6q2uVl0AA5jb3B5JGRlZmF1bHQkMnNxAH4AC1Ewba90AA0kYXNJbnN0YW5jZU9mc3EAfgALNueheXQAB2NvbXBvc2VzcQB+AAsZKe5rdAAMcHJvZHVjdEFyaXR5c3EAfgALwwJokXQABmVxdWFsc3NxAH4ACycUWqN0AAxhc0luc3RhbmNlT2ZzcQB+AAurP8LqdAAGcmVhcGVyc3EAfgALEoIwMXQADHN5bmNocm9uaXplZHNxAH4AC775SvF0AA0kaXNJbnN0YW5jZU9mc3EAfgALTZ/niHQAB2FuZFRoZW5zcQB+AAsJfD3FdAAHcmVjZWl2ZXNxAH4AC7mWRuR0AApwcmVSZXN0YXJ0c3EAfgALuyof+XQABXF1ZXJ5c3EAfgALhfQauXQABnR1cGxlZHNxAH4AC2zqhhh0AA1hcm91bmRSZWNlaXZlc3EAfgALJg5trHQAEEFnZ3JlZ2F0aW9uQWN0b3JzcQB+AAsmy1YWdAAIY2FuRXF1YWxzcQB+AAuuIwo1dAALcG9zdFJlc3RhcnRzcQB+AAuNGYtpdAAJcHJpbnRBdmdzc3EAfgALR6SonHQACHBvc3RTdG9wc3EAfgALj+AAanQADXByb2R1Y3RQcmVmaXhzcQB+AAtVj9PgdAAJbm90aWZ5QWxsc3EAfgALgbcoknQAC3JlYWRSZXNvbHZlc3EAfgALWUfXuXQAEWFyb3VuZFBvc3RSZXN0YXJ0c3EAfgALTlvchHQAB0ZhaWx1cmVzcQB+AAvaHjmbdAAMaXNJbnN0YW5jZU9mc3EAfgAL4wcuyXQAEGFyb3VuZFByZVJlc3RhcnRzcQB+AAvNfJisdAAOYXJvdW5kUG9zdFN0b3BzcQB+AAv82G5zdAAGPGluaXQ+c3EAfgAL0WrzVHQACHByZVN0YXJ0c3EAfgALCIzSPnQADHJlc3BvbnNlVGltZXNxAH4AC4ZmBfZ0AAl1bmhhbmRsZWRzcQB+AAtKpiItdAAFYXBwbHlzcQB+AAsP8rpTdAAFZXJyb3JzcQB+AAsJZ/HIdAACPT1zcQB+AAsHHcGRdAAFY2xvbmVzcQB+AAsIyOJUdAAIZmFpbHVyZXNzcQB+AAsrA74NdAAEY29weXNxAH4AC/khfz90AAZzZW5kZXJzcQB+AAto1AXZdAAIdG9TdHJpbmdzcQB+AAvoqwcqdAACIT1zcQB+AAupCbEHdAAIZ2V0Q2xhc3NzcQB+AAuZTv3HdAAOY29weSRkZWZhdWx0JDFzcQB+AAvlE3u7dAAFcHJvcHNzcQB+AAsfU6m3dAAHU3VjY2Vzc3NxAH4AC+9djKF0AAJuZXNxAH4ACzvVQrp0ABJzdXBlcnZpc29yU3RyYXRlZ3lzcQB+AAuOuZVjdAACZXFzcQB+AAttY1ZGdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgALQxSCq3QAAiMjc3EAfgALJ3/T4nQACGZpbmFsaXplc3EAfgALL8s81nQADnByb2R1Y3RFbGVtZW50c3EAfgALM0luy3QACGhhc2hDb2Rlc3EAfgALOS0jMnQADmFyb3VuZFByZVN0YXJ0c3EAfgAL7IwzHXQACXJlc3BvbnNlc3NyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAJzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AJV4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgAMeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cAB0ABpiZW5jaG1hcmsuQWdncmVnYXRpb25BY3RvcnVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cAFzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwcHNxAH4ArQFzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AlUwACWluaGVyaXRlZHEAfgCVTAAHcGFyZW50c3EAfgCVeHEAfgC0c3EAfgCtAXVxAH4AkAAAAABwc3EAfgCtAXVxAH4AkAAAAABwc3EAfgCtAXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgAMTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4As3QABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4As3NyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AAx4cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4AzHQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AzXNxAH4AwHQAA0FueXNxAH4AxHNxAH4Ax3VxAH4AygAAAAJzcQB+AMx0AAVzY2FsYXEAfgDTcHBzcQB+AJJxAH4An3VxAH4AoAAAAABzcQB+AKIAdAAaYmVuY2htYXJrLkFnZ3JlZ2F0aW9uQWN0b3J1cQB+AKUAAAAAfnEAfgCndAAIQ2xhc3NEZWZ1cQB+AKsAAAAAc3EAfgCtAXEAfgC1cHNxAH4ArQFzcQB+ALdzcQB+AK0BdXEAfgCQAAAAAHBzcQB+AK0BdXEAfgCQAAAAAHBzcQB+AK0BdXEAfgC+AAAAA3NxAH4AwHQABUFjdG9yc3EAfgDEc3EAfgDHdXEAfgDKAAAAA3NxAH4AzHQABGFra2FzcQB+AMx0AAVhY3RvcnEAfgDTc3EAfgDAcQB+AMNzcQB+AMRzcQB+AMd1cQB+AMoAAAADc3EAfgDMcQB+AM9zcQB+AMxxAH4A0XEAfgDTc3EAfgDAcQB+ANVzcQB+AMRzcQB+AMd1cQB+AMoAAAACc3EAfgDMcQB+ANpxAH4A03BwdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADHhwdAAJYmVuY2htYXJrc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFSS7OKhHVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADEwAD3NvdXJjZURpcmVjdG9yeXEAfgAMeHB0AGlDOlxVc2Vyc1xUaG9tYXNcRGVza3RvcFxQcm9qZWt0ZVxkYnNcZmluYWxfaGFuZGluc1xhc3NpZ25tZW50MDdcQmVuY2htYXJrQ2xpZW50XHRhcmdldFxzY2FsYS0yLjExXGNsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABTWTBBI7mSNKITY0YA9h5iSHtcRiw==
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBRvGdPAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAM3NyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cMdNmMd0AAZub3RpZnlzcQB+AAzBnWOmdAAPcHJpbnRTdGFja1RyYWNlc3EAfgAMjnPg9HQAE2dldExvY2FsaXplZE1lc3NhZ2VzcQB+AAxIQ4U/dAAEd2FpdHNxAH4ADITlz1Z0AA0kYXNJbnN0YW5jZU9mc3EAfgAM3U7u4XQACmFnZ3JlZ2F0b3JzcQB+AAzFNy3RdAAGc3lzdGVtc3EAfgAMa45Z+XQAAW5zcQB+AAw/JzK6dAAHcXVlcmllc3NxAH4ADEUOecF0AAxwcm9kdWN0QXJpdHlzcQB+AAxKuaX2dAAGZXF1YWxzc3EAfgAMdC1lJnQADkZhaWxlZFJlc3BvbnNlc3EAfgAMTU7ac3QAEGZpbGxJblN0YWNrVHJhY2VzcQB+AAzcJO9ndAAJaW5pdENhdXNlc3EAfgAMbdEP7XQAAXRzcQB+AAzRefxIdAAMYXNJbnN0YW5jZU9mc3EAfgAMuUaM73QADmV4ZWN1dGlvblN0YXJ0c3EAfgAMeENtqnQADHN5bmNocm9uaXplZHNxAH4ADIzUZst0AA0kaXNJbnN0YW5jZU9mc3EAfgAMz+r8EXQACGdldENhdXNlc3EAfgAM/0ytyXQACGNhbkVxdWFsc3EAfgAMxV2n1nQACGRlYWRsaW5lc3EAfgAMhAjS2XQABmNvbmZpZ3NxAH4ADLlBoJh0AARtYWluc3EAfgAM6MHNgXQADXByb2R1Y3RQcmVmaXhzcQB+AAw1MSD1dAAJbm90aWZ5QWxsc3EAfgAMApF+AHQADGlzSW5zdGFuY2VPZnNxAH4ADBLLdVV0AA1nZXRTdGFja1RyYWNlc3EAfgAMEu9IPXQAFGdldFN0YWNrVHJhY2VFbGVtZW50c3EAfgAMjlEvUnQABjxpbml0PnNxAH4ADFVlu6J0AApnZXRNZXNzYWdlc3EAfgAMGRH93XQADXNldFN0YWNrVHJhY2VzcQB+AAykXq3fdAANZ2V0U3VwcHJlc3NlZHNxAH4ADNuwSZV0AAI9PXNxAH4ADIXZf2d0ABJnZXRTdGFja1RyYWNlRGVwdGhzcQB+AAwwoInxdAAFY2xvbmVzcQB+AAxUnz+TdAANYWRkU3VwcHJlc3NlZHNxAH4ADO1zzal0AARjb3B5c3EAfgAMH1lys3QACHRvU3RyaW5nc3EAfgAMikRF8nQABGFyZ3NzcQB+AAxfWMaJdAACIT1zcQB+AAx0n0EldAAIZ2V0Q2xhc3NzcQB+AAzmR1YldAAGQ2xpZW50c3EAfgAMPXviF3QAAm5lc3EAfgAM4QmIJnQAAmVxc3EAfgAMRhMXD3QAD3Byb2R1Y3RJdGVyYXRvcnNxAH4ADOFPVWN0AAtkZWxheWVkSW5pdHNxAH4ADEpU7Bp0AAIjI3NxAH4ADPBJAuV0AAhmaW5hbGl6ZXNxAH4ADPIAg3Z0AA5wcm9kdWN0RWxlbWVudHNxAH4ADPlZitR0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAJzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AH14cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cAB0ABhiZW5jaG1hcmsuRmFpbGVkUmVzcG9uc2V1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAhDbGFzc0RlZnVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cABwc3IAIHhzYnRpLlNhZmVMYXp5JCRhbm9uZnVuJHN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zYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+AA1MAAN0cGVxAH4A6XhwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AkHQABVBsYWlucQB+AF1zcgAXeHNidGkuYXBpLlBhcmFtZXRlcml6ZWQWbO5pA8m7fwIAAkwACGJhc2VUeXBlcQB+AKtbAA10eXBlQXJndW1lbnRzdAARW0x4c2J0aS9hcGkvVHlwZTt4cQB+AJ1zcQB+AKp0AAVBcnJheXEAfgD4dXEAfgCoAAAAAXNxAH4AqnQABlN0cmluZ3NxAH4ArnNxAH4AsXVxAH4AtAAAAANzcQB+ALZxAH4AxnNxAH4AtnEAfgDIcQB+ALtwc3EAfgCVAXVxAH4AqAAAAARzcQB+AKp0AANBcHBxAH4A+HNxAH4AqnQAC0RlbGF5ZWRJbml0cQB+APhzcQB+AKpxAH4A03EAfgEVc3EAfgCqcQB+ANVxAH4A+HBwdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADXhwdAAJYmVuY2htYXJrc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFSS6+8ZHVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0AGlDOlxVc2Vyc1xUaG9tYXNcRGVza3RvcFxQcm9qZWt0ZVxkYnNcZmluYWxfaGFuZGluc1xhc3NpZ25tZW50MDdcQmVuY2htYXJrQ2xpZW50XHRhcmdldFxzY2FsYS0yLjExXGNsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABS1bHb47OA4dc9gFaySRTbqKOQC1g==
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCfPucAAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAADc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hw4E2oUnQABHNlbGZzcQB+AAv1gc56dAAHdGltZW91dHNxAH4ACxSRShl0AAdjb250ZXh0dXEAfgAJAAAAJnNxAH4ACx92ytl0AAZub3RpZnlzcQB+AAtuVCUSdAAHUmVjZWl2ZXNxAH4AC3VgA890AAR3YWl0c3EAfgALmNGNUHQAB2xvZ2dpbmdzcQB+AAvEeJTmdAANJGFzSW5zdGFuY2VPZnNxAH4AC/ECN+R0AAZlcXVhbHNzcQB+AAsbqamLdAAMYXNJbnN0YW5jZU9mc3EAfgALahcshXQADHN5bmNocm9uaXplZHNxAH4AC1NtN9x0AAhnZXRRdWVyeXNxAH4AC7aSnzJ0AA0kaXNJbnN0YW5jZU9mc3EAfgAL6qtWinQAB3JlY2VpdmVzcQB+AAv2Ly9wdAAKcHJlUmVzdGFydHNxAH4AC5Q7nPZ0AA1hcm91bmRSZWNlaXZlc3EAfgAL500l8nQAC3Bvc3RSZXN0YXJ0c3EAfgALnLfeBXQACHBvc3RTdG9wc3EAfgALY1Vge3QACW5vdGlmeUFsbHNxAH4AC01DKSt0ABFhcm91bmRQb3N0UmVzdGFydHNxAH4ACw8QMal0AAxpc0luc3RhbmNlT2ZzcQB+AAsE5WiVdAAQYXJvdW5kUHJlUmVzdGFydHNxAH4AC/5f7x10AA5hcm91bmRQb3N0U3RvcHNxAH4ACyvozCR0AAY8aW5pdD5zcQB+AAtQ7FG4dAAIcHJlU3RhcnRzcQB+AAsgOecbdAAJdW5oYW5kbGVkc3EAfgALjboUTHQAAj09c3EAfgALhxvU3HQABWNsb25lc3EAfgAL47fMCnQABnNlbmRlcnNxAH4AC0wvtqZ0AAh0b1N0cmluZ3NxAH4AC8e4kPR0AAIhPXNxAH4AC+61qYl0AAhnZXRDbGFzc3NxAH4AC4H099J0AAVwcm9wc3NxAH4ACwkv9MN0AAJuZXNxAH4AC+GkfvN0ABJzdXBlcnZpc29yU3RyYXRlZ3lzcQB+AAsO7fsRdAACZXFzcQB+AAu2PDkzdAANSHR0cFJlcXVlc3RlcnNxAH4AC83Aozd0AAIjI3NxAH4ACxSHsed0AAhmaW5hbGl6ZXNxAH4ACyXnJzl0AAhoYXNoQ29kZXNxAH4ACzFF9dV0AA5hcm91bmRQcmVTdGFydHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAJzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AGl4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgAMeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cAB0ABdiZW5jaG1hcmsuSHR0cFJlcXVlc3RlcnVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cABwc3IAIHhzYnRpLlNhZmVMYXp5JCRhbm9uZnVuJHN0cmljdCQxAAAAAAAAAAACAAFMAAd2YWx1ZSQxcQB+AIJ4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AIEBc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AGlMAAlpbmhlcml0ZWRxAH4AaUwAB3BhcmVudHNxAH4AaXhxAH4AinNxAH4AgQF1cQB+AGQAAAAAcHNxAH4AgQF1cQB+AGQAAAAAcHNxAH4AgQF1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAnNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADEwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AIl0AAZPYmplY3RzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AIlzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAANzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgAMeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABGphdmFzcQB+AKJ0AARsYW5nc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AKNzcQB+AJZ0AANBbnlzcQB+AJpzcQB+AJ11cQB+AKAAAAACc3EAfgCidAAFc2NhbGFxAH4AqXBwc3EAfgBmcQB+AHN1cQB+AHQAAAAAc3EAfgB2AHQAF2JlbmNobWFyay5IdHRwUmVxdWVzdGVydXEAfgB5AAAAAH5xAH4Ae3QACENsYXNzRGVmdXEAfgB/AAAAAHNxAH4AgQBwc3EAfgCGcQB+AItzcQB+AIEBc3EAfgCNc3EAfgCBAXVxAH4AZAAAAABwc3EAfgCBAXVxAH4AZAAAAABwc3EAfgCBAXVxAH4AlAAAAANzcQB+AJZ0AAVBY3RvcnNxAH4AmnNxAH4AnXVxAH4AoAAAAANzcQB+AKJ0AARha2thc3EAfgCidAAFYWN0b3JxAH4AqXNxAH4AlnEAfgCZc3EAfgCac3EAfgCddXEAfgCgAAAAA3NxAH4AonEAfgClc3EAfgCicQB+AKdxAH4AqXNxAH4AlnEAfgCrc3EAfgCac3EAfgCddXEAfgCgAAAAAnNxAH4AonEAfgCwcQB+AKlwcHVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAABc3IAEXhzYnRpLmFwaS5QYWNrYWdlflmP9q7OOVgCAAFMAARuYW1lcQB+AAx4cHQACWJlbmNobWFya3NyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUkuvvGR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AAxMAA9zb3VyY2VEaXJlY3RvcnlxAH4ADHhwdABpQzpcVXNlcnNcVGhvbWFzXERlc2t0b3BcUHJvamVrdGVcZGJzXGZpbmFsX2hhbmRpbnNcYXNzaWdubWVudDA3XEJlbmNobWFya0NsaWVudFx0YXJnZXRcc2NhbGEtMi4xMVxjbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUuvWmvHwL0muk0rAOI2qn1fdKu5g=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCgItsqAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAKnNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cEQrDxh0AAZub3RpZnlzcQB+AAwy0B6AdAAFX3Byb3BzcQB+AAyiKGmFdAAEbmFtZXNxAH4ADFmuGHZ0AAR3YWl0c3EAfgAMvXbnqXQADmNvcHkkZGVmYXVsdCQyc3EAfgAMwILR/3QADSRhc0luc3RhbmNlT2ZzcQB+AAwRVtD1dAACUTNzcQB+AAyaFKXHdAAMcHJvZHVjdEFyaXR5c3EAfgAM2wW77HQABmVxdWFsc3NxAH4ADCGwOFZ0AAxhc0luc3RhbmNlT2ZzcQB+AAzgguicdAACUTFzcQB+AAxc8DLidAADdXJpc3EAfgAMvztZFXQADHN5bmNocm9uaXplZHNxAH4ADGC6hvR0AAJRNnNxAH4ADGYKZh10AA0kaXNJbnN0YW5jZU9mc3EAfgAMbKLYXHQAAlEyc3EAfgAM9T1mx3QACGNhbkVxdWFsc3EAfgAMF8eVlXQABVF1ZXJ5c3EAfgAMEXDpQ3QABF91cmlzcQB+AAybQ5pFdAANcHJvZHVjdFByZWZpeHNxAH4ADAmlQa90AAlub3RpZnlBbGxzcQB+AAygP2IJdAAMaXNJbnN0YW5jZU9mc3EAfgAMXqcIbnQABjxpbml0PnNxAH4ADLJKZ5l0AAI9PXNxAH4ADMPQMhB0AAVjbG9uZXNxAH4ADOa9b/d0AAJRNXNxAH4ADNP0DX90AA5jb3B5JGRlZmF1bHQkM3NxAH4ADFx2mlh0AARjb3B5c3EAfgAMyYbAvHQACHRvU3RyaW5nc3EAfgAMvTQivnQABHByb3BzcQB+AAzqTs1wdAACIT1zcQB+AAzh5SuJdAAIZ2V0Q2xhc3NzcQB+AAx9K3IkdAAOY29weSRkZWZhdWx0JDFzcQB+AAwUhCJadAACbmVzcQB+AAyLms4YdAACZXFzcQB+AAxCOkypdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgAMchfoH3QADEdlbmVyaWNRdWVyeXNxAH4ADBDwpC10AAIjI3NxAH4ADL+VabB0AAhmaW5hbGl6ZXNxAH4ADIMKNiZ0AA5wcm9kdWN0RWxlbWVudHNxAH4ADNcdQ5R0AAhoYXNoQ29kZXNxAH4ADIj2Vbl0AAJRNHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAhzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AGt4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cAF0AA9iZW5jaG1hcmsuUXVlcnl1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAVUcmFpdHVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cABwc3IAIHhzYnRpLlNhZmVMYXp5JCRhbm9uZnVuJHN0cmljdCQxAAAAAAAAAAACAAFMAAd2YWx1ZSQxcQB+AIR4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AIMAcHNxAH4AiHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBrTAAJaW5oZXJpdGVkcQB+AGtMAAdwYXJlbnRzcQB+AGt4cQB+AIxzcQB+AIMAcHNxAH4AiHVxAH4AZgAAAABzcQB+AIMAcHNxAH4AiHVxAH4AZgAAAABzcQB+AIMAcHNxAH4AiHVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4Ai3QABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4Ai3NyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4AqHQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AqXNxAH4AnHQAA0FueXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKh0AAVzY2FsYXEAfgCvc3EAfgBocQB+AHV1cQB+AHYAAAAAc3EAfgB4AHQAFmJlbmNobWFyay5HZW5lcmljUXVlcnl1cQB+AHsAAAAAfnEAfgB9dAAIQ2xhc3NEZWZ1cQB+AIEAAAAAc3EAfgCDAHBzcQB+AIhxAH4AjXNxAH4AgwFzcQB+AJBzcQB+AIMBdXEAfgBmAAAAAHBzcQB+AIMBdXEAfgBmAAAAAHBzcQB+AIMBdXEAfgCaAAAAB3NxAH4AnHQADFNlcmlhbGl6YWJsZXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKhxAH4AtnEAfgCvc3EAfgCccQB+AMpzcQB+AKBzcQB+AKN1cQB+AKYAAAADc3EAfgCocQB+AKtzcQB+AKh0AAJpb3EAfgCvc3EAfgCcdAAHUHJvZHVjdHEAfgDLc3EAfgCcdAAGRXF1YWxzcQB+AMtzcQB+AJx0AAVRdWVyeXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKh0AAliZW5jaG1hcmtxAH4Ar3NxAH4AnHEAfgCfc3EAfgCgc3EAfgCjdXEAfgCmAAAAA3NxAH4AqHEAfgCrc3EAfgCocQB+AK1xAH4Ar3NxAH4AnHEAfgCxcQB+AMtwcHNxAH4AaHEAfgB1dXEAfgB2AAAAAHNxAH4AeAB0AAxiZW5jaG1hcmsuUTF1cQB+AHsAAAAAfnEAfgB9dAAGTW9kdWxldXEAfgCBAAAAAHNxAH4AgwBwc3EAfgCIcQB+AI1zcQB+AIMBc3EAfgCQc3EAfgCDAXVxAH4AZgAAAABwc3EAfgCDAXVxAH4AZgAAAABwc3EAfgCDAXVxAH4AmgAAAANzcQB+AJx0AAVRdWVyeXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKh0AAliZW5jaG1hcmtxAH4Ar3NxAH4AnHEAfgCfc3EAfgCgc3EAfgCjdXEAfgCmAAAAA3NxAH4AqHEAfgCrc3EAfgCocQB+AK1xAH4Ar3NxAH4AnHEAfgCxc3EAfgCgc3EAfgCjdXEAfgCmAAAAAnNxAH4AqHEAfgC2cQB+AK9wcHNxAH4AaHEAfgB1dXEAfgB2AAAAAHNxAH4AeAB0AAxiZW5jaG1hcmsuUTJ1cQB+AHsAAAAAcQB+AO11cQB+AIEAAAAAc3EAfgCDAHBzcQB+AIhxAH4AjXNxAH4AgwFzcQB+AJBzcQB+AIMBdXEAfgBmAAAAAHBzcQB+AIMBdXEAfgBmAAAAAHBzcQB+AIMBdXEAfgCaAAAAA3NxAH4AnHQABVF1ZXJ5c3EAfgCgc3EAfgCjdXEAfgCmAAAAAnNxAH4AqHQACWJlbmNobWFya3EAfgCvc3EAfgCccQB+AJ9zcQB+AKBzcQB+AKN1cQB+AKYAAAADc3EAfgCocQB+AKtzcQB+AKhxAH4ArXEAfgCvc3EAfgCccQB+ALFzcQB+AKBzcQB+AKN1cQB+AKYAAAACc3EAfgCocQB+ALZxAH4Ar3Bwc3EAfgBocQB+AHV1cQB+AHYAAAAAc3EAfgB4AHQADGJlbmNobWFyay5RM3VxAH4AewAAAABxAH4A7XVxAH4AgQAAAABzcQB+AIMAcHNxAH4AiHEAfgCNc3EAfgCDAXNxAH4AkHNxAH4AgwF1cQB+AGYAAAAAcHNxAH4AgwF1cQB+AGYAAAAAcHNxAH4AgwF1cQB+AJoAAAADc3EAfgCcdAAFUXVlcnlzcQB+AKBzcQB+AKN1cQB+AKYAAAACc3EAfgCodAAJYmVuY2htYXJrcQB+AK9zcQB+AJxxAH4An3NxAH4AoHNxAH4Ao3VxAH4ApgAAAANzcQB+AKhxAH4Aq3NxAH4AqHEAfgCtcQB+AK9zcQB+AJxxAH4AsXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKhxAH4AtnEAfgCvcHBzcQB+AGhxAH4AdXVxAH4AdgAAAABzcQB+AHgAdAAMYmVuY2htYXJrLlE0dXEAfgB7AAAAAHEAfgDtdXEAfgCBAAAAAHNxAH4AgwBwc3EAfgCIcQB+AI1zcQB+AIMBc3EAfgCQc3EAfgCDAXVxAH4AZgAAAABwc3EAfgCDAXVxAH4AZgAAAABwc3EAfgCDAXVxAH4AmgAAAANzcQB+AJx0AAVRdWVyeXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKh0AAliZW5jaG1hcmtxAH4Ar3NxAH4AnHEAfgCfc3EAfgCgc3EAfgCjdXEAfgCmAAAAA3NxAH4AqHEAfgCrc3EAfgCocQB+AK1xAH4Ar3NxAH4AnHEAfgCxc3EAfgCgc3EAfgCjdXEAfgCmAAAAAnNxAH4AqHEAfgC2cQB+AK9wcHNxAH4AaHEAfgB1dXEAfgB2AAAAAHNxAH4AeAB0AAxiZW5jaG1hcmsuUTV1cQB+AHsAAAAAcQB+AO11cQB+AIEAAAAAc3EAfgCDAHBzcQB+AIhxAH4AjXNxAH4AgwFzcQB+AJBzcQB+AIMBdXEAfgBmAAAAAHBzcQB+AIMBdXEAfgBmAAAAAHBzcQB+AIMBdXEAfgCaAAAAA3NxAH4AnHQABVF1ZXJ5c3EAfgCgc3EAfgCjdXEAfgCmAAAAAnNxAH4AqHQACWJlbmNobWFya3EAfgCvc3EAfgCccQB+AJ9zcQB+AKBzcQB+AKN1cQB+AKYAAAADc3EAfgCocQB+AKtzcQB+AKhxAH4ArXEAfgCvc3EAfgCccQB+ALFzcQB+AKBzcQB+AKN1cQB+AKYAAAACc3EAfgCocQB+ALZxAH4Ar3Bwc3EAfgBocQB+AHV1cQB+AHYAAAAAc3EAfgB4AHQADGJlbmNobWFyay5RNnVxAH4AewAAAABxAH4A7XVxAH4AgQAAAABzcQB+AIMAcHNxAH4AiHEAfgCNc3EAfgCDAXNxAH4AkHNxAH4AgwF1cQB+AGYAAAAAcHNxAH4AgwF1cQB+AGYAAAAAcHNxAH4AgwF1cQB+AJoAAAADc3EAfgCcdAAFUXVlcnlzcQB+AKBzcQB+AKN1cQB+AKYAAAACc3EAfgCodAAJYmVuY2htYXJrcQB+AK9zcQB+AJxxAH4An3NxAH4AoHNxAH4Ao3VxAH4ApgAAAANzcQB+AKhxAH4Aq3NxAH4AqHEAfgCtcQB+AK9zcQB+AJxxAH4AsXNxAH4AoHNxAH4Ao3VxAH4ApgAAAAJzcQB+AKhxAH4AtnEAfgCvcHB1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAXNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgANeHB0AAliZW5jaG1hcmtzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVJLr7xkdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAaUM6XFVzZXJzXFRob21hc1xEZXNrdG9wXFByb2pla3RlXGRic1xmaW5hbF9oYW5kaW5zXGFzc2lnbm1lbnQwN1xCZW5jaG1hcmtDbGllbnRcdGFyZ2V0XHNjYWxhLTIuMTFcY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFEGotpC22+0ajHtGbhGx/uP7oEMQ
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCpIbziAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAACc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwGj00InQABHNlbGZzcQB+AAvabgyqdAAHY29udGV4dHVxAH4ACQAAADRzcQB+AAuOkxcadAAGbm90aWZ5c3EAfgALlK+PWHQAB3VuYXBwbHlzcQB+AAtyqI+sdAAHUmVjZWl2ZXNxAH4AC7kvUH10AAR3YWl0c3EAfgALw6eBK3QADSRhc0luc3RhbmNlT2ZzcQB+AAuUAqHCdAAHY29tcG9zZXNxAH4AC+HuJ4R0AAxwcm9kdWN0QXJpdHlzcQB+AAuNpPbUdAAGZXF1YWxzc3EAfgALt9vt7XQADGFzSW5zdGFuY2VPZnNxAH4AC8gVIh10AAZSZWFwZXJzcQB+AAsu77/QdAAMc3luY2hyb25pemVkc3EAfgALZx/BgnQADSRpc0luc3RhbmNlT2ZzcQB+AAsC7OWVdAAHYW5kVGhlbnNxAH4AC6J2kGZ0AAdyZWNlaXZlc3EAfgALzyIu2nQACnByZVJlc3RhcnRzcQB+AAve/L++dAADcmVmc3EAfgALDFOl2HQADWFyb3VuZFJlY2VpdmVzcQB+AAvIZ75edAAOYWxsU291bHNSZWFwZWRzcQB+AAuV8+c3dAAIY2FuRXF1YWxzcQB+AAvQrx5DdAALcG9zdFJlc3RhcnRzcQB+AAuJiv97dAAIcG9zdFN0b3BzcQB+AAvdKYNOdAANcHJvZHVjdFByZWZpeHNxAH4AC2iHNRV0AAlub3RpZnlBbGxzcQB+AAsAVEkcdAALcmVhZFJlc29sdmVzcQB+AAtcs0dZdAAHV2F0Y2hNZXNxAH4AC4d8UYV0ABFhcm91bmRQb3N0UmVzdGFydHNxAH4AC6E3i0J0AAxpc0luc3RhbmNlT2ZzcQB+AAtg/wuGdAAQYXJvdW5kUHJlUmVzdGFydHNxAH4AC87CwyB0AA5hcm91bmRQb3N0U3RvcHNxAH4AC/rf2np0AAY8aW5pdD5zcQB+AAsuvOMwdAAIcHJlU3RhcnRzcQB+AAtOib1TdAAJdW5oYW5kbGVkc3EAfgALzYlyPXQABWFwcGx5c3EAfgALcJAUgHQAAj09c3EAfgALi1r5H3QABWNsb25lc3EAfgALs1qo8HQABGNvcHlzcQB+AAvu+AsOdAAGc2VuZGVyc3EAfgALe2JR13QACHRvU3RyaW5nc3EAfgALZOlli3QAAiE9c3EAfgAL8RJPCnQACGdldENsYXNzc3EAfgALHFNSonQAEVRlcm1pbmF0aW9uUmVhcGVyc3EAfgALXiKUWnQADmNvcHkkZGVmYXVsdCQxc3EAfgALw4g6YXQAAm5lc3EAfgALAmdq6HQAEnN1cGVydmlzb3JTdHJhdGVneXNxAH4AC//rxYl0AAJlcXNxAH4AC46gN3p0AA9wcm9kdWN0SXRlcmF0b3JzcQB+AAvYKvrWdAAHd2F0Y2hlZHNxAH4AC6XpDaF0AAIjI3NxAH4AC5TUuo90AAhmaW5hbGl6ZXNxAH4AC1PODLR0AA5wcm9kdWN0RWxlbWVudHNxAH4ACw2JUQp0AAhoYXNoQ29kZXNxAH4AC/FpY650AA5hcm91bmRQcmVTdGFydHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAANzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AIN4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgAMeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cAB0ABBiZW5jaG1hcmsuUmVhcGVydXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyABN4c2J0aS5TYWZlTGF6eSRJbXBsUAIuk5eXQD8CAANaAAhiaXRtYXAkMEwAAl90dAASTGphdmEvbGFuZy9PYmplY3Q7TAAEZXZhbHQAEUxzY2FsYS9GdW5jdGlvbjA7eHIAFnhzYnRpLmFwaS5BYnN0cmFjdExhennTd7UBX7vnoAIAAHhwAHBzcgAgeHNidGkuU2FmZUxhenkkJGFub25mdW4kc3RyaWN0JDEAAAAAAAAAAAIAAUwAB3ZhbHVlJDFxAH4AnHhwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AmwFzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4Ag0wACWluaGVyaXRlZHEAfgCDTAAHcGFyZW50c3EAfgCDeHEAfgCkc3EAfgCbAXVxAH4AfgAAAABwc3EAfgCbAXVxAH4AfgAAAABwc3EAfgCbAXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgAMTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4Ao3QABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4Ao3NyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AAx4cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4AvHQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AvXNxAH4AsHQAA0FueXNxAH4AtHNxAH4At3VxAH4AugAAAAJzcQB+ALx0AAVzY2FsYXEAfgDDcHBzcQB+AIBxAH4AjXVxAH4AjgAAAABzcQB+AJABdAAQYmVuY2htYXJrLlJlYXBlcnVxAH4AkwAAAAB+cQB+AJV0AAhDbGFzc0RlZnVxAH4AmQAAAABzcQB+AJsAcHNxAH4AoHEAfgClc3EAfgCbAHBzcQB+AKBzcQB+AKdzcQB+AJsAcHNxAH4AoHVxAH4AfgAAAABzcQB+AJsAcHNxAH4AoHVxAH4AfgAAAABzcQB+AJsAcHNxAH4AoHVxAH4ArgAAAANzcQB+ALB0AAVBY3RvcnNxAH4AtHNxAH4At3VxAH4AugAAAANzcQB+ALx0AARha2thc3EAfgC8dAAFYWN0b3JxAH4Aw3NxAH4AsHEAfgCzc3EAfgC0c3EAfgC3dXEAfgC6AAAAA3NxAH4AvHEAfgC/c3EAfgC8cQB+AMFxAH4Aw3NxAH4AsHEAfgDFc3EAfgC0c3EAfgC3dXEAfgC6AAAAAnNxAH4AvHEAfgDKcQB+AMNzcQB+AIBxAH4AjXVxAH4AjgAAAABzcQB+AJAAdAAbYmVuY2htYXJrLlRlcm1pbmF0aW9uUmVhcGVydXEAfgCTAAAAAHEAfgDQdXEAfgCZAAAAAHNxAH4AmwBwc3EAfgCgcQB+AKVzcQB+AJsBc3EAfgCnc3EAfgCbAXVxAH4AfgAAAABwc3EAfgCbAXVxAH4AfgAAAABwc3EAfgCbAXVxAH4ArgAAAARzcQB+ALB0AAZSZWFwZXJzcQB+ALRzcQB+ALd1cQB+ALoAAAACc3EAfgC8dAAJYmVuY2htYXJrcQB+AMNzcQB+ALB0AAVBY3RvcnNxAH4AtHNxAH4At3VxAH4AugAAAANzcQB+ALx0AARha2thc3EAfgC8dAAFYWN0b3JxAH4Aw3NxAH4AsHEAfgCzc3EAfgC0c3EAfgC3dXEAfgC6AAAAA3NxAH4AvHEAfgC/c3EAfgC8cQB+AMFxAH4Aw3NxAH4AsHEAfgDFc3EAfgC0c3EAfgC3dXEAfgC6AAAAAnNxAH4AvHEAfgDKcQB+AMNwcHVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAABc3IAEXhzYnRpLmFwaS5QYWNrYWdlflmP9q7OOVgCAAFMAARuYW1lcQB+AAx4cHQACWJlbmNobWFya3NyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUkuvvGR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AAxMAA9zb3VyY2VEaXJlY3RvcnlxAH4ADHhwdABpQzpcVXNlcnNcVGhvbWFzXERlc2t0b3BcUHJvamVrdGVcZGJzXGZpbmFsX2hhbmRpbnNcYXNzaWdubWVudDA3XEJlbmNobWFya0NsaWVudFx0YXJnZXRcc2NhbGEtMi4xMVxjbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUJz2RMod1Rwn+IVAqlgdAd5XwJeE=
+external apis:
+0 items
+source infos:
+5 items
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\AggregationActor.scala -> 
+AAAAAAAAAAA=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Client.scala -> 
+AAAAAAAAAAA=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\HttpRequester.scala -> 
+AAAAAAAAAAA=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Query.scala -> 
+AAAAAAAAAAA=
+C:\Users\Thomas\Desktop\Projekte\dbs\final_handins\assignment07\BenchmarkClient\src\main\scala\Reaper.scala -> 
+AAAAAAAAAAA=
+compilations:
+2 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUkuvvGR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAaUM6XFVzZXJzXFRob21hc1xEZXNrdG9wXFByb2pla3RlXGRic1xmaW5hbF9oYW5kaW5zXGFzc2lnbm1lbnQwN1xCZW5jaG1hcmtDbGllbnRcdGFyZ2V0XHNjYWxhLTIuMTFcY2xhc3Nlc3QAAS8=
+1 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUkuzioR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAaUM6XFVzZXJzXFRob21hc1xEZXNrdG9wXFByb2pla3RlXGRic1xmaW5hbF9oYW5kaW5zXGFzc2lnbm1lbnQwN1xCZW5jaG1hcmtDbGllbnRcdGFyZ2V0XHNjYWxhLTIuMTFcY2xhc3Nlc3QAAS8=

@@ -4,8 +4,9 @@ html
         meta(charset='utf-8')
         title Wahl-Informationssystem zur Bundestagswahl
         link(rel='stylesheet', href='/css/wahlschein.css')
+        script(src='/js/wahlschein.js')
     body
-        form(action="/vote", method="POST")
+        form#stimmzettel(action="/vote", method="POST")
             header
                 #titles.titles
                     h1 Bundestagswahl 2013
@@ -17,9 +18,7 @@ html
                     dd= fs_name
 
             section.explanations
-                label(for="expl-toggle")
-                    h3 Erl&auml;uterungen
-                input#expl-toggle.collapse-toggle(type="checkbox")
+                h3 Erl&auml;uterungen
                 p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et tincidunt leo. Fusce molestie mollis molestie. Pellentesque id rhoncus orci. Donec eu euismod massa. Morbi et ultricies leo. Praesent venenatis ac ante vel euismod. Pellentesque commodo, nibh a elementum rutrum, nisi quam ultrices nibh, id faucibus sapien sem quis arcu. Ut nisl elit, consectetur non vehicula cursus, pulvinar id velit. In quis risus ex. Nulla in quam fringilla, ornare nibh id, consectetur sem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu suscipit mauris, sit amet hendrerit justo. Nunc id elit feugiat, viverra leo ac.
             section.erststimme.col.left
                 h3 Erststimme
@@ -36,7 +35,7 @@ html
 
                     li.validity#validityErststimme
                         label
-                            input(type="radio", name="erststimme")
+                            input(type="radio", name="erststimme", value="NULL")
                             span Ung&uuml;ltige Stimme
 
             section.zweitstimme.col.right
@@ -54,11 +53,11 @@ html
 
                     li.validity#validityZweitstimme
                         label
-                            input(type="radio", name="zweitstimme")
+                            input(type="radio", name="zweitstimme", value="NULL")
                             span Ung&uuml;ltige Stimme
 
             div
                 label.terms
                     input(type="checkbox", name="terms")
                     span Ich best&auml;tige, dass ich die Hinweise und Bedingungen der Wahl kurz &uuml;berflogen habe und davon &uuml;berzeugt bin, sie verstanden zu haben.
-                button(type="submit") Wahlzettel abgeben
+                button#submitButton(type="submit") Wahlzettel abgeben

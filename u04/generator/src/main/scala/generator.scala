@@ -225,7 +225,7 @@ object Generator {
                     } else {
                         val (firstname, lastname) = Names.getName(sz.gender)
                         val (dobDay, dobMonth) = randomDayOfBirth
-                        p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) VALUES ('${sz.toString}', '${firstname}', '${lastname}', '${2009 - sz.age}.${dobMonth}.${dobDay}', '${sz.gender}', '');")
+                        p.println(f"INSERT INTO Citizen (idno, firstname, lastname, dateofbirth, gender, authtoken) SELECT '${sz.toString}', '${firstname}', '${lastname}', '${2009 - sz.age}.${dobMonth}.${dobDay}', '${sz.gender}', random_pin(4));")
                         sz.toString
                     }
                     p.println(f"INSERT INTO CitizenRegistration (idno, dwbid) VALUES ('${idno}', ${dwbid});")
