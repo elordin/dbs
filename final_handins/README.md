@@ -10,12 +10,14 @@
 Use postgres version 9.4 or above.
 
 The following scripts are available:
-- __runscripts_basic:__
-- __runscripts:__
+- __runscripts_basic:__ initializes the database, schema etc. and populates the data of 2013
+- __runscripts_all_archive2009_actual2013:__ as above, but also sets 2013 as the current election and populates 2009s archives.
+
+Use `runscripts_all_archive2009_actual2013` for the complete setup.
 
 ### Web Server
 
-The `setup/node` directory contains the full (https://nodejs.org/)[node web server].
+The `setup/node` directory contains the full [node web server](https://nodejs.org/).
 
 Install dependencies using `npm` from within that directory.
 
@@ -28,9 +30,9 @@ npm install
 Voting is only possible if Wahlbezirke exist.
 They can be generated using the Stimmzettel-generator which creates them alongside the Stimmzettel, CitizenRegistrations etc.
 
-The generator uses the (http://scala-lang.org)[Scala programming language].
+The generator uses the [Scala programming language](http://scala-lang.org).
 
-Using (http://www.scala-sbt.org)[sbt] you can run it from the sbt shell using:
+Using [sbt](http://www.scala-sbt.org) you can run it from the sbt shell using:
 
 ```
 runMain Wahlinfo.Generator [year [wahlkreis-id]]
@@ -39,6 +41,7 @@ runMain Wahlinfo.Generator [year [wahlkreis-id]]
 where `year` is the election year you want to create Stimmzettel for and
 `wahlkreis-id` can either be a single id of the Wahlkreis or a range such as `15-42`.
 
+Omitting the `wahlkreis-id`
 
 ## Benchmarking
 

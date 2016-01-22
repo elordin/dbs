@@ -3,9 +3,9 @@
 Voting is only possible if Wahlbezirke exist.
 They can be generated using the Stimmzettel-generator which creates them alongside the Stimmzettel, CitizenRegistrations etc.
 
-The generator uses the (http://scala-lang.org)[Scala programming language].
+The generator uses the [Scala programming language](http://scala-lang.org).
 
-Using (http://www.scala-sbt.org)[sbt] you can run it from the sbt shell using:
+Using [sbt](http://www.scala-sbt.org) you can run it from the sbt shell using:
 
 ```
 runMain Wahlinfo.Generator [year [wahlkreis-id]]
