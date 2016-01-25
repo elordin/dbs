@@ -1,4 +1,4 @@
-﻿INSERT INTO Results_AggregatedZweitstimmenForLL_Old
+INSERT INTO Results_AggregatedZweitstimmenForLL_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_AggregatedZweitstimmenForLL_Current r;
 
@@ -9,15 +9,15 @@ SELECT (select year from electionyear where iscurrent=true) as year, r.*
 INSERT INTO Results_WahlkreisWinnersFirstVotes_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_WahlkreisWinnersFirstVotes_Current r;
-	
+
 INSERT INTO Results_PartiesQualified_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_PartiesQualified_Current r;
-	
+
 INSERT INTO Results_AggregatedZweitstimmenForLLQualified_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_AggregatedZweitstimmenForLLQualified_Current r;
-	
+
 INSERT INTO Results_WahlkreisesiegePerPartyPerFS_Old
 SELECT (select year from electionyear where iscurrent=true) as year, r.*
 	FROM Results_WahlkreisesiegePerPartyPerFS_Current r;

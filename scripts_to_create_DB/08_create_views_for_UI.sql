@@ -32,8 +32,8 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners(year, tit
 CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution(year,wkid, wk_name, wknr, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel, votesab_prev, votesrel_prev, delta)  AS (
     SELECT wk.year, wk.wkid, wk.name as wk_name, wk.wknr, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
            azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel,
-           azwwk_prev.votes as votesab_prev, (azwwk_prev.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk_prev.wkid=azwwk2.wkid)) as votesrel_prev, 
-           (coalesce(azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid),0) - 
+           azwwk_prev.votes as votesab_prev, (azwwk_prev.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk_prev.wkid=azwwk2.wkid)) as votesrel_prev,
+           (coalesce(azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid),0) -
            coalesce(azwwk_prev.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk_prev.wkid=azwwk2.wkid),0)) as delta
     FROM AccumulatedZweitstimmenWK azwwk
     JOIN Wahlkreis wk on azwwk.wkid = wk.wkid
@@ -52,7 +52,7 @@ CREATE OR REPLACE VIEW Results_View_Results_View_WahlkreisOverview_Voterparticip
 	JOIN Wahlkreis wk ON wk.wkid = rvppwk.wkid
 );
 
-CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners_SLOW(title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name) AS (
+CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners_SLOW(title, lastname, firstname, p_name, p_shorthand, p_colourcode, p_website, fsid, fs_name, wkid, wk_name, wknr, year) AS (
 	WITH CandidacyWithVotes_SLOW (wkid, votes, idno, supportedby) AS
 	(
 		SELECT  c.wkid, COUNT(*) as votes, c.idno, c.supportedby as pid
@@ -80,7 +80,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners_SLOW(titl
 
 
 	SELECT c.title, c.lastname, c.firstname, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
-	   fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name
+	   fs.fsid, fs.name as fs_name, wk.wkid, wk.name as wk_name, wk.wknr, wk.year
 	FROM Results_WahlkreisWinnersFirstVotes_Current_SLOW wkwsv
 	JOIN Wahlkreis wk ON wk.wkid = wkwsv.wkid
 	JOIN Candidates c ON c.idno = wkwsv.idno
@@ -89,7 +89,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_FirstVoteWinners_SLOW(titl
 	WHERE wkwsv.votes > 50 --Anonymity
 );
 
-CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLOW(wkid, wk_name, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel)  AS (
+CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLOW(wkid, wk_name, wknr, year, fsid, fs_name, p_name, p_shorthand, p_colourcode, p_website, votesabs, votesrel)  AS (
 	WITH AccumulatedZweitstimmenWK_SLOW (wkid, llid, votes) AS
 	(
 		SELECT  wk.wkid, ll.llid, COUNT(*) as votes
@@ -101,7 +101,7 @@ CREATE OR REPLACE VIEW Results_View_WahlkreisOverview_SecondVoteDistribution_SLO
 
 	)
 
-	SELECT wk.wkid, wk.name as wk_name, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
+	SELECT wk.wkid, wk.name as wk_name, wk.wknr, wk.year, fs.fsid, fs.name as fs_name, p.name as p_name, p.shorthand as p_shorthand, p.colourcode as p_colourcode, p.website as p_website,
 	   azwwk.votes as votesabs, (azwwk.votes*1.00/(select sum(votes) from AccumulatedZweitstimmenWK azwwk2 where azwwk.wkid=azwwk2.wkid)) as votesrel
 	FROM AccumulatedZweitstimmenWK_SLOW azwwk
 	JOIN Wahlkreis wk on azwwk.wkid = wk.wkid
@@ -185,7 +185,7 @@ CREATE OR REPLACE VIEW WahlscheinEntries AS (
         DirektwahlbezirkData dwbd
             ON wb.wbid = dwbd.wbid
 	JOIN Landesliste ll ON v.llid = ll.llid
-	LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank = 
+	LEFT JOIN Wahlkreis wk_prev on wk_prev.name = wk.name AND wk_prev.year = (select year from OrderedElectionyears where rank =
 	(select rank-1 from OrderedElectionyears where year = ll.year))
 	LEFT JOIN Landesliste ll_prev ON ll_prev.pid = ll.pid AND ll_prev.fsid = ll.fsid AND ll_prev.year = wk_prev.year
 	LEFT JOIN AccumulatedZweitstimmenWK azwwk_prev on azwwk_prev.wkid = wk_prev.wkid AND azwwk_prev.llid = ll_prev.llid

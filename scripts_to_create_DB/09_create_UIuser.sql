@@ -39,3 +39,5 @@ GRANT INSERT ON accumulatedzweitstimmenfs TO uiuser;
 GRANT UPDATE ON accumulatedzweitstimmenwb TO uiuser;
 GRANT UPDATE ON accumulatedzweitstimmenwk TO uiuser;
 GRANT UPDATE ON accumulatedzweitstimmenfs TO uiuser;
+GRANT SELECT ON results_view_wahlkreisoverview_firstvotewinners_slow TO uiuser;
+GRANT SELECT ON results_view_wahlkreisoverview_secondvotedistribution_slow TO uiuser;

@@ -312,15 +312,50 @@ router.get(/^\/q7(\/([0-9]{2}|[0-9]{4}))?\/wk\/([0-9]{1,3})\/slow\/?$/, function
     res.redirect(301, '');
 });
 
-router.get(/^\/wahlkreise(\/[0-9]{2}|[0-9]{4})\/wk\/([0-9]{1,3})\/slow\/?$/, function(req, res, next) {
-    var year = parseYear(req.params[1]);
+
+router.get(/^\/wahlkreise\/([0-9]{2}|[0-9]{4})\/([0-9]{1,3})\/slow\/?$/, function (req, res, next) {
+    var year = parseYear(req.params[0]),
+        wknr = parseInt(req.params[1]);
+
     if (!year) {
-        res.status(404).render(error, {error: "Error: Invalid year format - " + req.params[0]});
+        res.status(404).render('error', {error: "Error: Invalid year format - " + req.params[0]});
+    } else if (!wknr) {
+        res.status(404).render('error', {error: "Error: Invalid wknr format - " + req.params[1]});
     } else {
-        renderForDBQuery(req, res, 'SELECT * FROM Ueberhangsmandate WHERE year = ' + year,
-            'ueberhangsmandate');
+
+        req.db.connect(function (err) {
+            if (err) {
+                res.status(500).render("error", {error: err});
+            } else {
+                runMultipleQueries(
+                    req, res,
+                    ["SELECT * FROM Results_View_WahlkreisOverview_FirstVoteWinners_SLOW WHERE year = " + year + " AND wknr = " + wknr,
+                     "SELECT * FROM Results_View_WahlkreisOverview_SecondVoteDistribution_SLOW WHERE year = " + year + " AND wknr = " + wknr + ' ORDER BY votesabs DESC',
+                     "SELECT * FROM Results_View_Results_View_WahlkreisOverview_Voterparticipation WHERE year = " + year + " AND wknr = " + wknr,
+                    ], [], function (req, res, results) {
+                        if (results.length != 3) {
+                            res.status(500).render("error", {error: 'Missing results'});
+                        } else if (results[0].rows && results[0].rows.length && results[0].rows.length < 1 ||
+                                   results[1].rows && results[1].rows.length && results[1].rows.length < 1) {
+                            res.redirect('/wahlkreise/' + year);
+                        } else {
+                            var wkname = results[0].rows[0] && results[0].rows[0].wk_name ||
+                                         results[1].rows[0] && results[1].rows[0].wk_name;
+                            res.render('wahlkreise-single', {
+                                year: year,
+                                title: 'Wahlkreise ' + year + ' - ' + wkname,
+                                data: {
+                                    first:  results[0].rows,
+                                    second: results[1].rows,
+                                    meta:   results[2].rows
+                                }
+                            });
+                        }
+                    }
+                );
+            }
+        });
     }
 });
-
 
 module.exports = router;
